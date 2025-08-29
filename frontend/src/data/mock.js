@@ -10,14 +10,14 @@ export const mockData = {
   },
   
   amenities: [
-    { id: 1, name: "Free WiFi", icon: "Wifi", description: "High-speed internet connectivity" },
-    { id: 2, name: "Hot Water", icon: "Droplets", description: "24/7 hot water supply" },
-    { id: 3, name: "Private Cottages", icon: "Home", description: "Spacious private accommodations" },
-    { id: 4, name: "Camping Tents", icon: "Mountain", description: "Adventure camping experience" },
-    { id: 5, name: "Campfire & Music", icon: "Music", description: "Evening entertainment with campfire" },
-    { id: 6, name: "BBQ Set with Coal", icon: "ChefHat", description: "Outdoor cooking facilities" },
-    { id: 7, name: "Jeep Trekking", icon: "Car", description: "Guided adventure trips" },
-    { id: 8, name: "Scenic Views", icon: "Eye", description: "5 km valley views on clear days" }
+    { id: 1, name: "📶 Free WiFi", icon: "Wifi", description: "High-speed internet connectivity" },
+    { id: 2, name: "🚿 Hot Water", icon: "Droplets", description: "24/7 hot water supply" },
+    { id: 3, name: "🏠 Private Cottages", icon: "Home", description: "Spacious private accommodations" },
+    { id: 4, name: "⛺ Camping Tents", icon: "Mountain", description: "Adventure camping experience" },
+    { id: 5, name: "🔥 Campfire & Music", icon: "Music", description: "Evening entertainment with campfire" },
+    { id: 6, name: "🍖 BBQ Set with Coal", icon: "ChefHat", description: "Outdoor cooking facilities" },
+    { id: 7, name: "🚗 Jeep Trekking", icon: "Car", description: "Guided adventure trips" },
+    { id: 8, name: "👁️ Scenic Views", icon: "Eye", description: "5 km valley views on clear days" }
   ],
 
   packages: [

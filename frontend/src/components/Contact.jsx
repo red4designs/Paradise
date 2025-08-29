@@ -66,10 +66,10 @@ const Contact = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">Get In Touch</h2>
+          <h2 className="display-large mb-6">📞 Get In Touch</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Ready to experience the magic of Vattavada? Contact us today to book your perfect 
-            mountain getaway or get answers to any questions you might have.
+            Ready to experience the magic of Vattavada? 🏔️ Contact us today to book your perfect 
+            mountain getaway or get answers to any questions you might have. 💬
           </p>
         </div>
 

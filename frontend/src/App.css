@@ -1,11 +1,6 @@
 /* Paradise Resort Vattavada - Futuristic Dark Theme */
 
-@font-face {
-  font-family: 'KodeMono';
-  src: url('/fonts/KodeMono-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 1000;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Backgrounds - Dark Theme Foundation */

@@ -19,10 +19,10 @@ const Packages = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">Choose Your Perfect Stay</h2>
+          <h2 className="display-large mb-6">🏨 Choose Your Perfect Stay</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            From intimate couple retreats to large group adventures, we have the perfect 
-            accommodation package for every type of mountain getaway.
+            From intimate couple retreats 💕 to large group adventures 👥, we have the perfect 
+            accommodation package for every type of mountain getaway. 🏔️
           </p>
         </div>
 

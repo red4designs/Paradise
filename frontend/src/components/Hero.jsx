@@ -21,11 +21,22 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen bg-black">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-black">
+    <section id="home" className="relative min-h-screen bg-black overflow-hidden">
+      {/* Nature Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1612441804231-77a36b284856?w=1920&q=80" 
+          alt="Vattavada Mountain Landscape" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      {/* Subtle Pattern Overlay */}
+      <div className="absolute inset-0">
         <div 
-          className="w-full h-full opacity-10"
+          className="w-full h-full opacity-5"
           style={{
             backgroundImage: `
               repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px),

@@ -84,13 +84,15 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right Content - Image Placeholder */}
+          {/* Right Content - Image */}
           <div className="relative">
-            <div className="aspect-video bg-white/5 border border-white/25 rounded-sm flex items-center justify-center">
-              <div className="text-center">
-                <Mountain size={64} className="text-brand-primary mx-auto mb-4" />
-                <p className="body-medium text-text-secondary">Resort Overview Image</p>
-              </div>
+            <div className="aspect-video bg-white/5 border border-white/25 rounded-sm overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1531932594968-e5e5e9dee95a?w=800&q=80" 
+                alt="Paradise Resort Valley View" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20"></div>
             </div>
             
             {/* Floating Badge */}

@@ -42,11 +42,11 @@ const About = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">About Paradise Resort Vattavada</h2>
+          <h2 className="display-large mb-6">🏡 About Paradise Resort Vattavada ✨</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Nestled in the heart of Vattavada's pristine mountains, our family-run resort offers 
+            Nestled in the heart of Vattavada's pristine mountains 🏔️, our family-run resort offers 
             the perfect blend of comfort, adventure, and natural beauty. Experience the warmth 
-            of home while surrounded by breathtaking landscapes.
+            of home while surrounded by breathtaking landscapes. 🌿
           </p>
         </div>
 

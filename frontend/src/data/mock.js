@@ -23,26 +23,26 @@ export const mockData = {
   packages: [
     {
       id: 1,
-      name: "3-Bedroom Private Cottage",
-      capacity: "Up to 18 adults",
-      features: ["Private bathroom", "Kitchen facilities", "Mountain view", "Family-friendly"],
-      price: "Contact for pricing",
+      name: "🏡 3-Bedroom Private Cottage",
+      capacity: "Up to 1️⃣8️⃣ adults",
+      features: ["🚿 Private bathroom", "🍳 Kitchen facilities", "🌄 Mountain view", "👨‍👩‍👧‍👦 Family-friendly"],
+      price: "💬 Contact for pricing",
       image: "/api/placeholder/400/300"
     },
     {
       id: 2,
-      name: "Resort Stay Package",
-      capacity: "Up to 60 guests",
-      features: ["Deluxe rooms", "Dormitory options", "Double rooms", "Group facilities"],
-      price: "Contact for pricing",
+      name: "🏨 Resort Stay Package",
+      capacity: "Up to 6️⃣0️⃣ guests",
+      features: ["🛏️ Deluxe rooms", "🏠 Dormitory options", "💑 Double rooms", "👥 Group facilities"],
+      price: "💬 Contact for pricing",
       image: "/api/placeholder/400/300"
     },
     {
       id: 3,
-      name: "Camping Experience",
-      capacity: "8 tents for up to 24 guests",
-      features: ["Adventure tents", "Campfire access", "Trekking included", "Nature experience"],
-      price: "Contact for pricing", 
+      name: "⛺ Camping Experience",
+      capacity: "8️⃣ tents for up to 2️⃣4️⃣ guests",
+      features: ["🏕️ Adventure tents", "🔥 Campfire access", "🥾 Trekking included", "🌲 Nature experience"],
+      price: "💬 Contact for pricing", 
       image: "/api/placeholder/400/300"
     }
   ],

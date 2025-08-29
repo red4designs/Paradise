@@ -29,10 +29,10 @@ const Amenities = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">World-Class Amenities</h2>
+          <h2 className="display-large mb-6">🌟 World-Class Amenities</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Every comfort and adventure you need for an unforgettable mountain experience, 
-            from modern facilities to thrilling outdoor activities.
+            Every comfort and adventure you need for an unforgettable mountain experience 🏔️, 
+            from modern facilities to thrilling outdoor activities. 🎯
           </p>
         </div>
 

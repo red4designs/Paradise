@@ -102,11 +102,18 @@ const Amenities = () => {
                   <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
                     <Home size={24} className="text-black" />
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="heading-3">Private Cottages</h4>
+                  <div className="space-y-2 flex-1">
+                    <h4 className="heading-3">🏠 Private Cottages</h4>
                     <p className="body-small text-text-secondary">
                       Spacious 3-bedroom cottages accommodating up to 18 guests with complete privacy and comfort.
                     </p>
+                    <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
+                      <img 
+                        src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400&q=80" 
+                        alt="Cottage Interior" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -118,11 +125,18 @@ const Amenities = () => {
                   <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
                     <Mountain size={24} className="text-black" />
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="heading-3">Adventure Camping</h4>
+                  <div className="space-y-2 flex-1">
+                    <h4 className="heading-3">⛺ Adventure Camping</h4>
                     <p className="body-small text-text-secondary">
                       8 premium tents for up to 24 guests, perfect for group adventures and nature immersion.
                     </p>
+                    <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
+                      <img 
+                        src="https://images.unsplash.com/photo-1624923686627-514dd5e57bae?w=400&q=80" 
+                        alt="Camping Tents Setup" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -134,11 +148,18 @@ const Amenities = () => {
                   <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
                     <Music size={24} className="text-black" />
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="heading-3">Evening Entertainment</h4>
+                  <div className="space-y-2 flex-1">
+                    <h4 className="heading-3">🔥 Evening Entertainment</h4>
                     <p className="body-small text-text-secondary">
                       Campfire nights with music and BBQ facilities creating unforgettable mountain memories.
                     </p>
+                    <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
+                      <img 
+                        src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?w=400&q=80" 
+                        alt="Campfire Night" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>

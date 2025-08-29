@@ -105,7 +105,7 @@ const Gallery = () => {
 
         {/* Testimonials Section */}
         <div className="space-y-8">
-          <h3 className="display-medium text-center text-brand-primary">What Our Guests Say</h3>
+          <h3 className="display-medium text-center text-brand-primary">💬 What Our Guests Say</h3>
           
           <div className="grid md:grid-cols-3 gap-6">
             {mockData.testimonials.map((testimonial) => (

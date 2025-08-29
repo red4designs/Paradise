@@ -217,7 +217,7 @@ const Contact = () => {
             {/* Direct Contact */}
             <Card className="bg-white/5 border-white/25">
               <CardContent className="p-6">
-                <h3 className="heading-2 mb-6">Direct Contact</h3>
+                <h3 className="heading-2 mb-6">📞 Direct Contact</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">

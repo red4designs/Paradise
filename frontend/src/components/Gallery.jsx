@@ -41,10 +41,10 @@ const Gallery = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">Experience Paradise</h2>
+          <h2 className="display-large mb-6">📸 Experience Paradise</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Take a visual journey through our stunning accommodations, breathtaking views, 
-            and memorable experiences at Paradise Resort Vattavada.
+            Take a visual journey through our stunning accommodations 🏠, breathtaking views 🌄, 
+            and memorable experiences at Paradise Resort Vattavada. ✨
           </p>
         </div>
 

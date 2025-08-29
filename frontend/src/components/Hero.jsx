@@ -56,7 +56,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 border border-white/25">
                 <Star className="w-4 h-4 text-brand-primary" />
-                <span className="body-small text-text-primary">Best Budget Stay in Vattavada</span>
+                <span className="body-small text-text-primary">🏆 Best Budget Stay in Vattavada</span>
               </div>
 
               {/* Main Heading */}

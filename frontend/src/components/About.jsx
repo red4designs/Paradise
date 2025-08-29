@@ -55,31 +55,31 @@ const About = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h3 className="display-medium text-brand-primary">Your Home Away From Home</h3>
+              <h3 className="display-medium text-brand-primary">🏠 Your Home Away From Home</h3>
               <p className="body-medium text-text-secondary">
                 Paradise Resort Vattavada is more than just accommodation - it's a gateway to unforgettable 
-                mountain experiences. Our family has been welcoming guests for years, ensuring every visitor 
-                feels the warmth and safety of a true home.
+                mountain experiences. 🌄 Our family has been welcoming guests for years, ensuring every visitor 
+                feels the warmth and safety of a true home. ❤️
               </p>
               <p className="body-medium text-text-secondary">
                 Located in the stunning hill station of Vattavada, we offer easy access to Top Station 
-                and Pampadum Shola National Park while providing a peaceful retreat from the bustling world.
+                and Pampadum Shola National Park 🌲 while providing a peaceful retreat from the bustling world. ✨
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="display-medium text-brand-primary mb-2">7km</div>
-                <p className="body-small text-text-muted">From Top Station</p>
+                <div className="display-medium text-brand-primary mb-2">7️⃣km</div>
+                <p className="body-small text-text-muted">From Top Station 🏔️</p>
               </div>
               <div className="text-center">
-                <div className="display-medium text-brand-primary mb-2">1.5km</div>
-                <p className="body-small text-text-muted">From Vattavada Town</p>
+                <div className="display-medium text-brand-primary mb-2">1️⃣.5️⃣km</div>
+                <p className="body-small text-text-muted">From Vattavada Town 🏘️</p>
               </div>
               <div className="text-center">
-                <div className="display-medium text-brand-primary mb-2">5km</div>
-                <p className="body-small text-text-muted">Valley View Range</p>
+                <div className="display-medium text-brand-primary mb-2">5️⃣km</div>
+                <p className="body-small text-text-muted">Valley View Range 👁️</p>
               </div>
             </div>
           </div>

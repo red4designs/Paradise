@@ -62,12 +62,12 @@ const Hero = () => {
               {/* Main Heading */}
               <div className="space-y-4">
                 <h1 className="display-huge">
-                  Paradise Resort
-                  <span className="block text-brand-primary">Vattavada</span>
+                  🏔️ Paradise Resort
+                  <span className="block text-brand-primary">Vattavada ✨</span>
                 </h1>
                 <p className="body-large text-text-secondary max-w-lg">
-                  Experience breathtaking mountain views and peaceful surroundings in our family-run resort. 
-                  Safe, comfortable accommodations just 1.5 km from Vattavada town.
+                  Experience breathtaking mountain views 🌄 and peaceful surroundings in our family-run resort. 
+                  Safe, comfortable accommodations just 1.5 km from Vattavada town. 🏡
                 </p>
               </div>
 
@@ -75,26 +75,26 @@ const Hero = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">Private Cottages</span>
+                  <span className="body-medium">🏠 Private Cottages</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">Adventure Tents</span>
+                  <span className="body-medium">⛺ Adventure Tents</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">Campfire & BBQ</span>
+                  <span className="body-medium">🔥 Campfire & BBQ</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">Jeep Trekking</span>
+                  <span className="body-medium">🚗 Jeep Trekking</span>
                 </div>
               </div>
 
               {/* Location Badge */}
               <div className="flex items-center gap-2 text-text-muted">
                 <MapPin size={18} className="text-brand-primary" />
-                <span className="body-medium">7 km from Top Station & Pampadum Shola National Park</span>
+                <span className="body-medium">📍 7 km from Top Station & Pampadum Shola National Park</span>
               </div>
             </div>
 

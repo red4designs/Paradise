@@ -1,0 +1,341 @@
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader } from './ui/card';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Button } from './ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { 
+  MapPin, 
+  Phone, 
+  MessageCircle, 
+  Mail, 
+  Clock, 
+  Navigation,
+  Send,
+  CheckCircle
+} from 'lucide-react';
+import { mockData, bookingOptions } from '../data/mock';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    accommodation: '',
+    guests: '',
+    checkIn: '',
+    checkOut: '',
+    message: ''
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Mock form submission
+    console.log('Form submitted:', formData);
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        accommodation: '',
+        guests: '',
+        checkIn: '',
+        checkOut: '',
+        message: ''
+      });
+    }, 3000);
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleWhatsApp = () => {
+    const message = `Hi! I would like to inquire about Paradise Resort Vattavada. Here are my details:\n\nName: ${formData.name || 'Not provided'}\nPhone: ${formData.phone || 'Not provided'}\nAccommodation: ${formData.accommodation || 'Not specified'}\nGuests: ${formData.guests || 'Not specified'}\nCheck-in: ${formData.checkIn || 'Not specified'}\nMessage: ${formData.message || 'General inquiry'}`;
+    window.open(`https://wa.me/918296979749?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  return (
+    <section id="contact" className="section-padding bg-black">
+      <div className="max-width-container">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="display-large mb-6">Get In Touch</h2>
+          <p className="body-large text-text-secondary max-w-3xl mx-auto">
+            Ready to experience the magic of Vattavada? Contact us today to book your perfect 
+            mountain getaway or get answers to any questions you might have.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Contact Form */}
+          <div>
+            <Card className="bg-white/5 border-white/25">
+              <CardHeader className="p-6 pb-4">
+                <h3 className="heading-2">Send Us a Message</h3>
+                <p className="body-medium text-text-secondary">
+                  Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+              </CardHeader>
+              
+              <CardContent className="p-6 pt-2">
+                {isSubmitted ? (
+                  <div className="text-center py-12">
+                    <CheckCircle size={64} className="text-brand-primary mx-auto mb-4" />
+                    <h4 className="heading-3 text-brand-primary mb-2">Message Sent!</h4>
+                    <p className="body-medium text-text-secondary">
+                      Thank you for your inquiry. We'll contact you soon.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Personal Info */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Full Name *</label>
+                        <Input
+                          value={formData.name}
+                          onChange={(e) => handleInputChange('name', e.target.value)}
+                          className="bg-white/10 border-white/25 text-white placeholder:text-white/50"
+                          placeholder="Enter your name"
+                          required
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Phone Number *</label>
+                        <Input
+                          value={formData.phone}
+                          onChange={(e) => handleInputChange('phone', e.target.value)}
+                          className="bg-white/10 border-white/25 text-white placeholder:text-white/50"
+                          placeholder="Enter phone number"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="body-small text-text-primary">Email Address</label>
+                      <Input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        className="bg-white/10 border-white/25 text-white placeholder:text-white/50"
+                        placeholder="Enter email address"
+                      />
+                    </div>
+
+                    {/* Booking Details */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Accommodation Type</label>
+                        <Select onValueChange={(value) => handleInputChange('accommodation', value)}>
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectValue placeholder="Choose accommodation" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-white/25">
+                            {bookingOptions.accommodationTypes.map((option) => (
+                              <SelectItem key={option.value} value={option.value} className="text-white hover:bg-white/10">
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Number of Guests</label>
+                        <Select onValueChange={(value) => handleInputChange('guests', value)}>
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectValue placeholder="Select guests" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-white/25">
+                            {bookingOptions.guestCounts.map((option) => (
+                              <SelectItem key={option.value} value={option.value} className="text-white hover:bg-white/10">
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Check-in Date</label>
+                        <Input
+                          type="date"
+                          value={formData.checkIn}
+                          onChange={(e) => handleInputChange('checkIn', e.target.value)}
+                          className="bg-white/10 border-white/25 text-white"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Check-out Date</label>
+                        <Input
+                          type="date"
+                          value={formData.checkOut}
+                          onChange={(e) => handleInputChange('checkOut', e.target.value)}
+                          className="bg-white/10 border-white/25 text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="body-small text-text-primary">Message</label>
+                      <Textarea
+                        value={formData.message}
+                        onChange={(e) => handleInputChange('message', e.target.value)}
+                        className="bg-white/10 border-white/25 text-white placeholder:text-white/50 min-h-[120px]"
+                        placeholder="Tell us about your requirements..."
+                      />
+                    </div>
+
+                    {/* Submit Buttons */}
+                    <div className="space-y-3">
+                      <Button type="submit" className="w-full btn-primary">
+                        <Send size={18} />
+                        Send Message
+                      </Button>
+                      <Button type="button" onClick={handleWhatsApp} className="w-full btn-secondary">
+                        <MessageCircle size={18} />
+                        Quick WhatsApp
+                      </Button>
+                    </div>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Direct Contact */}
+            <Card className="bg-white/5 border-white/25">
+              <CardContent className="p-6">
+                <h3 className="heading-2 mb-6">Direct Contact</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
+                      <Phone size={24} className="text-brand-primary" />
+                    </div>
+                    <div>
+                      <h4 className="heading-3 mb-1">Phone</h4>
+                      <p className="body-medium text-text-secondary mb-2">Call us anytime for instant booking</p>
+                      <a href="tel:8296979749" className="body-medium text-brand-primary hover:underline">
+                        +91 82969 79749
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
+                      <MessageCircle size={24} className="text-brand-primary" />
+                    </div>
+                    <div>
+                      <h4 className="heading-3 mb-1">WhatsApp</h4>
+                      <p className="body-medium text-text-secondary mb-2">Quick responses and easy booking</p>
+                      <button 
+                        onClick={() => window.open('https://wa.me/918296979749', '_blank')}
+                        className="body-medium text-brand-primary hover:underline"
+                      >
+                        +91 82969 79749
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
+                      <Clock size={24} className="text-brand-primary" />
+                    </div>
+                    <div>
+                      <h4 className="heading-3 mb-1">Response Time</h4>
+                      <p className="body-medium text-text-secondary">We respond within 1-2 hours during business hours</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Location Info */}
+            <Card className="bg-white/5 border-white/25">
+              <CardContent className="p-6">
+                <h3 className="heading-2 mb-6">Location & Directions</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
+                      <MapPin size={24} className="text-brand-primary" />
+                    </div>
+                    <div>
+                      <h4 className="heading-3 mb-1">Address</h4>
+                      <p className="body-medium text-text-secondary">
+                        Paradise Resort Vattavada<br />
+                        Vattavada, Kerala<br />
+                        1.5 km from Vattavada town
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
+                      <Navigation size={24} className="text-brand-primary" />
+                    </div>
+                    <div>
+                      <h4 className="heading-3 mb-1">Nearby Attractions</h4>
+                      <ul className="body-small text-text-secondary space-y-1">
+                        <li>• Top Station - 7 km</li>
+                        <li>• Pampadum Shola National Park - 7 km</li>
+                        <li>• Vattavada Town - 1.5 km</li>
+                        <li>• Munnar - 45 km</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Google Maps Placeholder */}
+                  <div className="aspect-video bg-white/10 border border-white/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <MapPin size={32} className="text-brand-primary mx-auto mb-2" />
+                      <p className="body-medium text-text-secondary">Google Maps Location</p>
+                      <p className="body-small text-text-muted">Interactive map will be embedded here</p>
+                    </div>
+                  </div>
+
+                  <button className="w-full btn-secondary">
+                    <Navigation size={18} />
+                    Get Directions
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-brand-primary/10 to-transparent border border-brand-primary/30 p-8 max-w-2xl mx-auto">
+            <h3 className="heading-2 mb-4">Ready for Your Mountain Adventure?</h3>
+            <p className="body-medium text-text-secondary mb-6">
+              Don't wait! Contact us today and start planning your unforgettable Vattavada experience.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:8296979749" className="btn-primary">
+                <Phone size={18} />
+                Call Now
+              </a>
+              <button onClick={() => window.open('https://wa.me/918296979749', '_blank')} className="btn-secondary">
+                <MessageCircle size={18} />
+                WhatsApp Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;

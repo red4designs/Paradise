@@ -78,9 +78,9 @@ const Contact = () => {
           <div>
             <Card className="bg-white/5 border-white/25">
               <CardHeader className="p-6 pb-4">
-                <h3 className="heading-2">Send Us a Message</h3>
+                <h3 className="heading-2">📝 Send Us a Message</h3>
                 <p className="body-medium text-text-secondary">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we'll get back to you within 24 hours. ⏰
                 </p>
               </CardHeader>
               

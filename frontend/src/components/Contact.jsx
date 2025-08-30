@@ -174,7 +174,7 @@ Please check availability and let me know. Thank you!`;
                     </div>
 
                     {/* Booking Details */}
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-4">
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Accommodation Type</label>
                         <Select onValueChange={(value) => { handleInputChange('accommodation', value); handleInputChange('rooms', ''); }}>
@@ -190,42 +190,46 @@ Please check availability and let me know. Thank you!`;
                           </SelectContent>
                         </Select>
                       </div>
-                      <div className="space-y-2">
-                        <label className="body-small text-text-primary">Adults (Above 6 years)</label>
-                        <Select onValueChange={(value) => handleInputChange('adults', value)}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
-                            <SelectValue placeholder="Select adults" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-black border-white/25">
-                            {[...Array(50)].map((_, i) => (
-                              <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
-                                {i+1} Adult{i > 0 ? 's' : ''}
+                      
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label className="body-small text-text-primary">Adults (Above 6 years)</label>
+                          <Select onValueChange={(value) => handleInputChange('adults', value)}>
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                              <SelectValue placeholder="Select adults" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-black border-white/25">
+                              {[...Array(50)].map((_, i) => (
+                                <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                                  {i+1} Adult{i > 0 ? 's' : ''}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <label className="body-small text-text-primary">Children (Below 6 years)</label>
+                          <Select onValueChange={(value) => handleInputChange('children', value)}>
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                              <SelectValue placeholder="Select children" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-black border-white/25">
+                              <SelectItem value="0" className="text-white hover:bg-white/10">
+                                No Children
                               </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                              {[...Array(10)].map((_, i) => (
+                                <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                                  {i+1} Child{i > 0 ? 'ren' : ''}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Children Count */}
-                    <div className="space-y-2">
-                      <label className="body-small text-text-primary">Children (Below 6 years)</label>
-                      <Select onValueChange={(value) => handleInputChange('children', value)}>
-                        <SelectTrigger className="bg-white/10 border-white/25 text-white">
-                          <SelectValue placeholder="Select children" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-black border-white/25">
-                          <SelectItem value="0" className="text-white hover:bg-white/10">
-                            No Children
-                          </SelectItem>
-                          {[...Array(10)].map((_, i) => (
-                            <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
-                              {i+1} Child{i > 0 ? 'ren' : ''}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+
 
                     {/* Number of Rooms/Tents */}
                     {formData.accommodation && formData.accommodation !== 'dormitory' && formData.accommodation !== 'cottage' && (

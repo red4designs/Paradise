@@ -11,7 +11,7 @@ const Packages = () => {
   };
 
   const handleCall = () => {
-    window.open('tel:8296979749');
+    window.open('tel:9074902424');
   };
 
   return (

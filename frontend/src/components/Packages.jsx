@@ -43,9 +43,9 @@ const Packages = () => {
                   {/* Package Image */}
                   <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden relative">
                     <img 
-                      src={index === 0 ? "https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7?w=400&q=80" : 
-                           index === 1 ? "https://images.unsplash.com/photo-1612441804231-77a36b284856?w=400&q=80" :
-                                       "https://images.unsplash.com/photo-1531932594968-e5e5e9dee95a?w=400&q=80"} 
+                      src={index === 0 ? "/images/Resort/IMG_20241109_174229.jpg" : 
+                           index === 1 ? "/images/Resort/IMG_20241109_174235.jpg" :
+                                       "/images/Resort/IMG_20250220_213601.jpg"} 
                       alt={pkg.name} 
                       className="w-full h-full object-cover"
                     />

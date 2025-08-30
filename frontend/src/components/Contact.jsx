@@ -22,7 +22,9 @@ const Contact = () => {
     email: '',
     phone: '',
     accommodation: '',
-    guests: '',
+    adults: '',
+    children: '',
+    rooms: '',
     checkIn: '',
     checkOut: '',
     message: ''
@@ -44,7 +46,9 @@ const Contact = () => {
         email: '',
         phone: '',
         accommodation: '',
-        guests: '',
+        adults: '',
+        children: '',
+        rooms: '',
         checkIn: '',
         checkOut: '',
         message: ''
@@ -57,19 +61,58 @@ const Contact = () => {
   };
 
   const handleWhatsApp = () => {
-    const message = `Hi! I would like to inquire about Paradise Resort Vattavada. Here are my details:\n\nName: ${formData.name || 'Not provided'}\nPhone: ${formData.phone || 'Not provided'}\nAccommodation: ${formData.accommodation || 'Not specified'}\nGuests: ${formData.guests || 'Not specified'}\nCheck-in: ${formData.checkIn || 'Not specified'}\nMessage: ${formData.message || 'General inquiry'}`;
+    const totalGuests = (parseInt(formData.adults) || 0) + (parseInt(formData.children) || 0);
+    const accommodationLabel = bookingOptions.accommodationTypes.find(acc => acc.value === formData.accommodation)?.label || 'Not specified';
+    let roomsText = '';
+    if (formData.rooms && formData.accommodation !== 'dormitory' && formData.accommodation !== 'cottage') {
+      const unitName = formData.accommodation === 'tent' ? 'Tents' : 'Rooms';
+      roomsText = `\nNumber of ${unitName}: ${formData.rooms}`;
+    }
+    
+    const message = `Hi! I would like to inquire about Paradise Resort Vattavada. Here are my details:
+
+Name: ${formData.name || 'Not provided'}
+Phone: ${formData.phone || 'Not provided'}
+Accommodation: ${accommodationLabel}${roomsText}
+Adults: ${formData.adults || '0'}
+Children: ${formData.children || '0'}
+Total Guests: ${totalGuests}
+Check-in: ${formData.checkIn || 'Not specified'}
+Check-out: ${formData.checkOut || 'Not specified'}
+Message: ${formData.message || 'General inquiry'}
+
+Please check availability and let me know. Thank you!`;
     window.open(`https://wa.me/919074902424?text=${encodeURIComponent(message)}`, '_blank');
+    
+    // Show success message
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        accommodation: '',
+        adults: '',
+        children: '',
+        checkIn: '',
+        checkOut: '',
+        message: ''
+      });
+    }, 3000);
   };
 
   return (
-    <section id="contact" className="section-padding bg-black">
+    <section id="contact" className="section-padding bg-background transition-colors duration-300">
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">📞 Get In Touch</h2>
+          <h2 className="display-large mb-6">📱 Check Availability on WhatsApp</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Ready to experience the magic of Vattavada? 🏔️ Contact us today to book your perfect 
-            mountain getaway or get answers to any questions you might have. 💬
+            Ready to experience the magic of Vattavada? 🏔️ Check availability and book your perfect 
+            mountain getaway directly through WhatsApp for the fastest response. 💬
           </p>
         </div>
 
@@ -94,7 +137,7 @@ const Contact = () => {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={(e) => { e.preventDefault(); handleWhatsApp(); }} className="space-y-6">
                     {/* Personal Info */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -134,7 +177,7 @@ const Contact = () => {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Accommodation Type</label>
-                        <Select onValueChange={(value) => handleInputChange('accommodation', value)}>
+                        <Select onValueChange={(value) => { handleInputChange('accommodation', value); handleInputChange('rooms', ''); }}>
                           <SelectTrigger className="bg-white/10 border-white/25 text-white">
                             <SelectValue placeholder="Choose accommodation" />
                           </SelectTrigger>
@@ -148,21 +191,62 @@ const Contact = () => {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Number of Guests</label>
-                        <Select onValueChange={(value) => handleInputChange('guests', value)}>
+                        <label className="body-small text-text-primary">Adults (Above 6 years)</label>
+                        <Select onValueChange={(value) => handleInputChange('adults', value)}>
                           <SelectTrigger className="bg-white/10 border-white/25 text-white">
-                            <SelectValue placeholder="Select guests" />
+                            <SelectValue placeholder="Select adults" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
-                            {bookingOptions.guestCounts.map((option) => (
-                              <SelectItem key={option.value} value={option.value} className="text-white hover:bg-white/10">
-                                {option.label}
+                            {[...Array(50)].map((_, i) => (
+                              <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                                {i+1} Adult{i > 0 ? 's' : ''}
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
+
+                    {/* Children Count */}
+                    <div className="space-y-2">
+                      <label className="body-small text-text-primary">Children (Below 6 years)</label>
+                      <Select onValueChange={(value) => handleInputChange('children', value)}>
+                        <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectValue placeholder="Select children" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-black border-white/25">
+                          <SelectItem value="0" className="text-white hover:bg-white/10">
+                            No Children
+                          </SelectItem>
+                          {[...Array(10)].map((_, i) => (
+                            <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                              {i+1} Child{i > 0 ? 'ren' : ''}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Number of Rooms/Tents */}
+                    {formData.accommodation && formData.accommodation !== 'dormitory' && formData.accommodation !== 'cottage' && (
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">
+                          {formData.accommodation === 'tent' ? 'Number of Tents' : 'Number of Rooms'}
+                        </label>
+                        <Select onValueChange={(value) => handleInputChange('rooms', value)}>
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectValue placeholder={formData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'} />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-white/25">
+                            {bookingOptions.getRoomOptions(formData.accommodation).map((option) => (
+                              <SelectItem key={option.value} value={option.value.toString()} className="text-white hover:bg-white/10">
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )}
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -198,12 +282,8 @@ const Contact = () => {
                     {/* Submit Buttons */}
                     <div className="space-y-3">
                       <Button type="submit" className="w-full btn-primary">
-                        <Send size={18} />
-                        Send Message
-                      </Button>
-                      <Button type="button" onClick={handleWhatsApp} className="w-full btn-secondary">
                         <MessageCircle size={18} />
-                        Quick WhatsApp
+                        Check Availability on WhatsApp
                       </Button>
                     </div>
                   </form>
@@ -295,19 +375,29 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Google Maps Placeholder */}
-                  <div className="aspect-video bg-white/10 border border-white/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin size={32} className="text-brand-primary mx-auto mb-2" />
-                      <p className="body-medium text-text-secondary">Google Maps Location</p>
-                      <p className="body-small text-text-muted">Interactive map will be embedded here</p>
-                    </div>
+                  {/* Google Maps Embed */}
+                  <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0!2d77.059723!3d10.089167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0799c4c8b8c8c8%3A0x1234567890abcdef!2sVattavada%2C%20Kerala%2C%20India!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Paradise Resort Vattavada Location"
+                    ></iframe>
                   </div>
 
-                  <button className="w-full btn-secondary">
+                  <a 
+                    href="https://maps.app.goo.gl/d6nAeYRU4LsuvpHY8" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full btn-secondary inline-flex items-center justify-center gap-2"
+                  >
                     <Navigation size={18} />
-                    Get Directions
-                  </button>
+                    Get Directions on Google Maps
+                  </a>
                 </div>
               </CardContent>
             </Card>

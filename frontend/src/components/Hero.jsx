@@ -10,14 +10,47 @@ const Hero = () => {
   const [bookingData, setBookingData] = useState({
     checkIn: '',
     checkOut: '',
-    guests: '',
-    accommodation: ''
+    adults: '',
+    children: '',
+    accommodation: '',
+    rooms: ''
   });
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
-    alert('Booking request submitted! We will contact you shortly.');
-    console.log('Booking data:', bookingData);
+    
+    // Create WhatsApp message with booking details
+    const totalGuests = (parseInt(bookingData.adults) || 0) + (parseInt(bookingData.children) || 0);
+    const accommodationLabel = bookingOptions.accommodationTypes.find(acc => acc.value === bookingData.accommodation)?.label || 'Not specified';
+    let roomsText = '';
+    if (bookingData.rooms && bookingData.accommodation !== 'dormitory' && bookingData.accommodation !== 'cottage') {
+      const unitName = bookingData.accommodation === 'tent' ? 'Tents' : 'Rooms';
+      roomsText = `\nNumber of ${unitName}: ${bookingData.rooms}`;
+    }
+    
+    const message = `Hi! I would like to book a stay at Paradise Resort Vattavada. Here are my booking details:
+
+Check-in Date: ${bookingData.checkIn || 'Not selected'}
+Check-out Date: ${bookingData.checkOut || 'Not selected'}
+Adults: ${bookingData.adults || '0'}
+Children: ${bookingData.children || '0'}
+Total Guests: ${totalGuests}
+Accommodation Type: ${accommodationLabel}${roomsText}
+
+Please confirm availability and provide pricing details. Thank you!`;
+    
+    // Open WhatsApp with the message
+    window.open(`https://wa.me/919074902424?text=${encodeURIComponent(message)}`, '_blank');
+    
+    // Reset form after sending
+    setBookingData({
+      checkIn: '',
+      checkOut: '',
+      adults: '',
+      children: '',
+      accommodation: '',
+      rooms: ''
+    });
   };
 
   return (
@@ -25,7 +58,7 @@ const Hero = () => {
       {/* Nature Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1612441804231-77a36b284856?w=1920&q=80" 
+          src="/images/resort-aerial-view.jpg" 
           alt="Vattavada Mountain Landscape" 
           className="w-full h-full object-cover"
         />
@@ -133,17 +166,37 @@ const Hero = () => {
                         />
                       </div>
 
-                      {/* Guest Count */}
+                      {/* Adults Count */}
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Number of Guests</label>
-                        <Select onValueChange={(value) => setBookingData({...bookingData, guests: value})}>
+                        <label className="body-small text-text-primary">Adults (Above 6 years)</label>
+                        <Select onValueChange={(value) => setBookingData({...bookingData, adults: value})}>
                           <SelectTrigger className="bg-white/10 border-white/25 text-white">
-                            <SelectValue placeholder="Select guest count" />
+                            <SelectValue placeholder="Select number of adults" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
-                            {bookingOptions.guestCounts.map((option) => (
-                              <SelectItem key={option.value} value={option.value} className="text-white hover:bg-white/10">
-                                {option.label}
+                            {[...Array(50)].map((_, i) => (
+                              <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                                {i+1} Adult{i > 0 ? 's' : ''}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Children Count */}
+                      <div className="space-y-2">
+                        <label className="body-small text-text-primary">Children (Below 6 years)</label>
+                        <Select onValueChange={(value) => setBookingData({...bookingData, children: value})}>
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectValue placeholder="Select number of children" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-white/25">
+                            <SelectItem value="0" className="text-white hover:bg-white/10">
+                              No Children
+                            </SelectItem>
+                            {[...Array(10)].map((_, i) => (
+                              <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
+                                {i+1} Child{i > 0 ? 'ren' : ''}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -153,7 +206,7 @@ const Hero = () => {
                       {/* Accommodation Type */}
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Accommodation Type</label>
-                        <Select onValueChange={(value) => setBookingData({...bookingData, accommodation: value})}>
+                        <Select onValueChange={(value) => setBookingData({...bookingData, accommodation: value, rooms: ''})}>
                           <SelectTrigger className="bg-white/10 border-white/25 text-white">
                             <SelectValue placeholder="Choose accommodation" />
                           </SelectTrigger>
@@ -166,6 +219,27 @@ const Hero = () => {
                           </SelectContent>
                         </Select>
                       </div>
+
+                      {/* Number of Rooms/Tents */}
+                      {bookingData.accommodation && bookingData.accommodation !== 'dormitory' && bookingData.accommodation !== 'cottage' && (
+                        <div className="space-y-2">
+                          <label className="body-small text-text-primary">
+                            {bookingData.accommodation === 'tent' ? 'Number of Tents' : 'Number of Rooms'}
+                          </label>
+                          <Select onValueChange={(value) => setBookingData({...bookingData, rooms: value})}>
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                              <SelectValue placeholder={bookingData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'} />
+                            </SelectTrigger>
+                            <SelectContent className="bg-black border-white/25">
+                              {bookingOptions.getRoomOptions(bookingData.accommodation).map((option) => (
+                                <SelectItem key={option.value} value={option.value.toString()} className="text-white hover:bg-white/10">
+                                  {option.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )}
 
                       <Button type="submit" className="w-full btn-primary">
                         Check Availability

@@ -88,7 +88,7 @@ const About = () => {
           <div className="relative">
             <div className="aspect-video bg-white/5 border border-white/25 rounded-sm overflow-hidden relative">
               <img 
-                src="https://images.unsplash.com/photo-1531932594968-e5e5e9dee95a?w=800&q=80" 
+                src="/images/Resort/IMG_3528.JPEG" 
                 alt="Paradise Resort Valley View" 
                 className="w-full h-full object-cover"
               />

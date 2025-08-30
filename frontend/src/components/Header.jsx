@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Instagram, Facebook } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { href: '#home', label: 'Home' },
+    { href: '#room-details', label: 'Room Details' },
     { href: '#about', label: 'About' },
     { href: '#amenities', label: 'Amenities' },
     { href: '#packages', label: 'Packages' },
@@ -14,15 +15,30 @@ const Header = () => {
   ];
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919074902424', '_blank');
+    const message = encodeURIComponent('Hi! I would like to check availability at Paradise Resort Vattavada.');
+    window.open(`https://wa.me/919074902424?text=${message}`, '_blank');
+  };
+
+  const handleInstagram = () => {
+    window.open('https://instagram.com/paradise_resort_vattavada', '_blank');
+  };
+
+  const handleFacebook = () => {
+    window.open('https://www.facebook.com/paradisevattavada1', '_blank');
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-black border-b border-white/25 px-[7.6923%] py-4">
+    <header className="fixed top-0 w-full z-50 bg-background border-b border-border px-[7.6923%] py-4 transition-colors duration-300">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <h1 className="heading-2 text-brand-primary">Paradise Resort</h1>
+          <a href="#home" className="flex items-center hover:opacity-80 transition-opacity">
+            <img 
+              src="/paradise-logo.svg" 
+              alt="Paradise Resort Vattavada Logo" 
+              className="h-16 w-auto"
+            />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
@@ -31,7 +47,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="body-medium text-text-muted hover:text-text-primary dark-transition"
+              className="body-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] theme-transition"
             >
               {link.label}
             </a>
@@ -40,13 +56,26 @@ const Header = () => {
 
         {/* Contact Actions */}
         <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:9074902424" className="btn-secondary">
-            <Phone size={18} />
-            Call Now
-          </a>
+          {/* Social Media Links */}
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={handleInstagram}
+              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram size={20} />
+            </button>
+            <button 
+              onClick={handleFacebook}
+              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook size={20} />
+            </button>
+          </div>
           <button onClick={handleWhatsApp} className="btn-primary">
             <MessageCircle size={18} />
-            WhatsApp
+            Check Availability
           </button>
         </div>
 
@@ -61,14 +90,14 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-black border-b border-white/25 px-[7.6923%] py-6">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] px-[7.6923%] py-6">
           <nav className="flex flex-col gap-4 mb-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="body-medium text-text-muted hover:text-text-primary dark-transition"
+                className="body-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] theme-transition"
               >
                 {link.label}
               </a>
@@ -76,13 +105,26 @@ const Header = () => {
           </nav>
           
           <div className="flex flex-col gap-3">
-            <a href="tel:9074902424" className="btn-secondary">
-              <Phone size={18} />
-              Call Now
-            </a>
+            {/* Social Media Links */}
+            <div className="flex items-center gap-4 justify-center mb-3">
+              <button 
+                onClick={handleInstagram}
+                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram size={24} />
+              </button>
+              <button 
+                onClick={handleFacebook}
+                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                aria-label="Follow us on Facebook"
+              >
+                <Facebook size={24} />
+              </button>
+            </div>
             <button onClick={handleWhatsApp} className="btn-primary">
               <MessageCircle size={18} />
-              WhatsApp
+              Check Availability
             </button>
           </div>
         </div>

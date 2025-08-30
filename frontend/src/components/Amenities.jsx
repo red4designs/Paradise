@@ -109,7 +109,7 @@ const Amenities = () => {
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
-                        src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400&q=80" 
+                        src="/images/Cottage/IMG_20241109_151624.jpg" 
                         alt="Cottage Interior" 
                         className="w-full h-full object-cover"
                       />
@@ -132,7 +132,7 @@ const Amenities = () => {
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
-                        src="https://images.unsplash.com/photo-1624923686627-514dd5e57bae?w=400&q=80" 
+                        src="/images/Tent/IMG_3632.JPEG" 
                         alt="Camping Tents Setup" 
                         className="w-full h-full object-cover"
                       />
@@ -155,7 +155,7 @@ const Amenities = () => {
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
-                        src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?w=400&q=80" 
+                        src="/images/Resort/WhatsApp Image 2025-08-30 at 21.03.59_5b7a8811.jpg" 
                         alt="Campfire Night" 
                         className="w-full h-full object-cover"
                       />

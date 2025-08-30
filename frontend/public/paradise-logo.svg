@@ -1,0 +1,77 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Blue Circle -->
+  <circle cx="60" cy="60" r="58" stroke="#3B82F6" stroke-width="3" fill="none" stroke-dasharray="8 4"/>
+  
+  <!-- Inner Red Circle -->
+  <circle cx="60" cy="60" r="45" stroke="#EF4444" stroke-width="2" fill="none" stroke-dasharray="6 3"/>
+  
+  <!-- Palm Trees -->
+  <g transform="translate(18, 32)">
+    <!-- Left Palm Tree -->
+    <path d="M6 20 L6 28" stroke="#8B4513" stroke-width="2" fill="none"/>
+    <path d="M6 20 Q3 16 0 14 Q6 18 6 20" fill="#22C55E"/>
+    <path d="M6 20 Q9 16 12 14 Q6 18 6 20" fill="#22C55E"/>
+    <path d="M6 20 Q4 12 2 9 Q6 15 6 20" fill="#22C55E"/>
+    <path d="M6 20 Q8 12 10 9 Q6 15 6 20" fill="#22C55E"/>
+    
+    <!-- Right Palm Tree -->
+    <g transform="translate(6, 0)">
+      <path d="M6 20 L6 28" stroke="#8B4513" stroke-width="2" fill="none"/>
+      <path d="M6 20 Q3 16 0 14 Q6 18 6 20" fill="#22C55E"/>
+      <path d="M6 20 Q9 16 12 14 Q6 18 6 20" fill="#22C55E"/>
+      <path d="M6 20 Q4 12 2 9 Q6 15 6 20" fill="#22C55E"/>
+      <path d="M6 20 Q8 12 10 9 Q6 15 6 20" fill="#22C55E"/>
+    </g>
+  </g>
+  
+  <!-- Sun -->
+  <g transform="translate(88, 22)">
+    <circle cx="0" cy="0" r="6" fill="#FCD34D"/>
+    <!-- Sun rays -->
+    <path d="M0 -12 L0 -9" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M8.5 -8.5 L6.4 -6.4" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M12 0 L9 0" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M8.5 8.5 L6.4 6.4" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M0 12 L0 9" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M-8.5 8.5 L-6.4 6.4" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M-12 0 L-9 0" stroke="#FCD34D" stroke-width="2"/>
+    <path d="M-8.5 -8.5 L-6.4 -6.4" stroke="#FCD34D" stroke-width="2"/>
+  </g>
+  
+  <!-- Red curved lines (decorative) -->
+  <path d="M25 25 Q35 20 45 25" stroke="#EF4444" stroke-width="2" fill="none"/>
+  <path d="M75 25 Q85 20 95 25" stroke="#EF4444" stroke-width="2" fill="none"/>
+  
+  <!-- Birds -->
+  <g transform="translate(50, 18)">
+    <path d="M-8 0 Q-5 -2 -2 0 Q-5 2 -8 0" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <path d="M0 2 Q3 0 6 2 Q3 4 0 2" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <path d="M8 -1 Q11 -3 14 -1 Q11 1 8 -1" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Mountain/Houses silhouette -->
+  <g transform="translate(30, 38)">
+    <path d="M0 15 L8 5 L16 10 L24 2 L32 8 L40 12 L48 18 L60 15 L60 25 L0 25 Z" fill="#EF4444"/>
+    <!-- Small windows -->
+    <rect x="6" y="12" width="2" height="2" fill="#FFFFFF"/>
+    <rect x="10" y="12" width="2" height="2" fill="#FFFFFF"/>
+    <rect x="22" y="8" width="2" height="2" fill="#FFFFFF"/>
+    <rect x="26" y="8" width="2" height="2" fill="#FFFFFF"/>
+    <rect x="38" y="14" width="2" height="2" fill="#FFFFFF"/>
+    <rect x="42" y="14" width="2" height="2" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Paradise Text (curved) -->
+  <defs>
+    <path id="curve" d="M 20 75 Q 60 65 100 75"/>
+  </defs>
+  <text font-family="serif" font-size="18" font-weight="bold" fill="#EF4444" font-style="italic">
+    <textPath href="#curve" startOffset="50%" text-anchor="middle">Paradise</textPath>
+  </text>
+  
+  <!-- Resort Text -->
+  <text x="60" y="95" text-anchor="middle" font-family="serif" font-size="12" fill="#EF4444" font-style="italic">Resort</text>
+  
+  <!-- Location Text -->
+  <text x="60" y="108" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6" font-weight="bold" letter-spacing="1px">VATTAVADA</text>
+</svg>

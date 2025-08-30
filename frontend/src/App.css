@@ -1,26 +1,65 @@
-/* Paradise Resort Vattavada - Futuristic Dark Theme */
+/* Paradise Resort Vattavada - Futuristic Sunrise Orange Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Backgrounds - Dark Theme Foundation */
-  --bg-primary: #000000;
-  --bg-secondary: #121212;
-  --bg-overlay: rgba(255, 255, 255, 0.1);
+  /* Light Mode - Sunrise Orange & White Theme */
+  --bg-primary: hsl(0 0% 98%);
+  --bg-secondary: hsl(0 0% 100%);
+  --bg-overlay: hsl(24 95% 53% / 0.1);
+  --bg-card: hsl(0 0% 100%);
+  --bg-muted: hsl(25 25% 95%);
   
-  /* Text - High Contrast */
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.85);
-  --text-muted: #4D4D4D;
+  /* Text Colors - Light Mode */
+  --text-primary: hsl(20 14% 4.1%);
+  --text-secondary: hsl(25 8% 25%);
+  --text-muted: hsl(25 5% 44.7%);
   
-  /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.25);
-  --border-medium: rgba(255, 255, 255, 0.4);
+  /* Borders - Light Mode */
+  --border-subtle: hsl(30 25% 88%);
+  --border-medium: hsl(30 15% 75%);
+  --border-strong: hsl(24 95% 53%);
   
-  /* Brand Colors */
-  --brand-primary: #00FFD1;
-  --brand-hover: rgba(0, 255, 209, 0.1);
-  --brand-active: #6FD2C0;
+  /* Brand Colors - Sunrise Orange */
+  --brand-primary: hsl(24 95% 53%);
+  --brand-secondary: hsl(30 80% 45%);
+  --brand-accent: hsl(35 70% 35%);
+  --brand-hover: hsl(24 95% 53% / 0.1);
+  --brand-active: hsl(24 95% 48%);
+  
+  /* Interactive States */
+  --interactive-hover: hsl(24 95% 53% / 0.05);
+  --interactive-active: hsl(24 95% 53% / 0.15);
+}
+
+.dark {
+  /* Dark Mode - Enhanced with Orange Accents */
+  --bg-primary: hsl(20 14% 4.1%);
+  --bg-secondary: hsl(25 25% 8%);
+  --bg-overlay: hsl(24 95% 53% / 0.15);
+  --bg-card: hsl(25 25% 8%);
+  --bg-muted: hsl(25 15% 12%);
+  
+  /* Text Colors - Dark Mode */
+  --text-primary: hsl(0 0% 98%);
+  --text-secondary: hsl(25 5% 80%);
+  --text-muted: hsl(25 5% 63.9%);
+  
+  /* Borders - Dark Mode */
+  --border-subtle: hsl(30 15% 20%);
+  --border-medium: hsl(30 15% 30%);
+  --border-strong: hsl(24 95% 53%);
+  
+  /* Brand Colors remain consistent */
+  --brand-primary: hsl(24 95% 53%);
+  --brand-secondary: hsl(30 80% 45%);
+  --brand-accent: hsl(35 70% 35%);
+  --brand-hover: hsl(24 95% 53% / 0.2);
+  --brand-active: hsl(24 95% 58%);
+  
+  /* Interactive States - Dark Mode */
+  --interactive-hover: hsl(24 95% 53% / 0.1);
+  --interactive-active: hsl(24 95% 53% / 0.25);
 }
 
 body {
@@ -119,17 +158,17 @@ body {
   color: var(--text-muted); 
 }
 
-/* Button Styles */
+/* Button Styles - Sunrise Orange Theme */
 .btn-primary {
   background: var(--brand-primary);
-  color: #000000;
-  border: none;
-  border-radius: 0px;
+  color: hsl(0 0% 98%);
+  border: 2px solid var(--brand-primary);
+  border-radius: 8px;
   padding: 14px 24px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 56px;
   text-decoration: none;
   display: inline-flex;
@@ -138,24 +177,25 @@ body {
   gap: 12px;
   line-height: 1.2;
   letter-spacing: 0;
+  box-shadow: 0 4px 12px hsl(24 95% 53% / 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--brand-hover);
-  color: var(--brand-primary);
-  transform: scale(1.02);
+  background: var(--brand-active);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsl(24 95% 53% / 0.4);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-medium);
+  border-radius: 8px;
   padding: 14px 24px;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 56px;
   text-decoration: none;
   display: inline-flex;
@@ -166,25 +206,67 @@ body {
 }
 
 .btn-secondary:hover {
-  background: #FFFFFF;
-  color: #000000;
-  transform: scale(1.02);
+  background: var(--interactive-hover);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  transform: translateY(-1px);
 }
 
-/* Layout System */
-.dark-container {
+/* Outline Button Variant */
+.btn-outline {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 56px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  line-height: 1.2;
+}
+
+.btn-outline:hover {
+  background: var(--brand-primary);
+  color: hsl(0 0% 98%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px hsl(24 95% 53% / 0.3);
+}
+
+/* Layout System - Enhanced for Theme Switching */
+.theme-container {
   background: var(--bg-primary);
   background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 1px, transparent 1px, transparent 7.6923%),
-    repeating-linear-gradient(-90deg, #fff, #fff 1px, transparent 1px, transparent 7.6923%);
-  background-size: 100% 100%;
-  opacity: 0.14;
+    repeating-linear-gradient(0deg, transparent, transparent 1px, var(--border-subtle) 1px, var(--border-subtle) 1px),
+    repeating-linear-gradient(-90deg, transparent, transparent 1px, var(--border-subtle) 1px, var(--border-subtle) 1px);
+  background-size: 40px 40px;
   position: relative;
   min-height: 100vh;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bg-overlay) 0%, transparent 50%, var(--bg-overlay) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .section-padding {
   padding: 100px 7.6923%;
+  position: relative;
+  z-index: 1;
 }
 
 .max-width-container {
@@ -192,14 +274,39 @@ body {
   margin: 0 auto;
 }
 
-/* Animations */
-.dark-transition {
-  transition: all 0.4s ease-in-out;
+/* Card Styles */
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px hsl(0 0% 0% / 0.1);
 }
 
-.dark-hover:hover {
+.theme-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 8px 32px hsl(24 95% 53% / 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 255, 209, 0.2);
+}
+
+/* Animations */
+.theme-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px hsl(24 95% 53% / 0.2);
+}
+
+/* Gradient Overlays */
+.gradient-overlay {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 /* Responsive */

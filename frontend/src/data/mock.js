@@ -5,8 +5,8 @@ export const mockData = {
     tagline: "Best Budget Stay in Vattavada",
     description: "Experience the breathtaking beauty of Vattavada's mountains with our family-run resort offering safe, comfortable accommodations for families and couples.",
     location: "Just 1.5 km from Vattavada town, 7 km from Top Station & Pampadum Shola National Park",
-    phone: "8296979749",
-    whatsapp: "8296979749"
+    phone: "9074902424",
+    whatsapp: "9074902424"
   },
   
   amenities: [

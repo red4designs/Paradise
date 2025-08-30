@@ -240,10 +240,10 @@ const Contact = () => {
                       <h4 className="heading-3 mb-1">WhatsApp</h4>
                       <p className="body-medium text-text-secondary mb-2">Quick responses and easy booking</p>
                       <button 
-                        onClick={() => window.open('https://wa.me/918296979749', '_blank')}
+                        onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                         className="body-medium text-brand-primary hover:underline"
                       >
-                        +91 82969 79749
+                        +91 90749 02424
                       </button>
                     </div>
                   </div>

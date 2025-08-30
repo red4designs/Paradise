@@ -48,14 +48,20 @@ export const mockData = {
   ],
 
   gallery: [
-    { id: 1, category: "Cottages", image: "/api/placeholder/600/400", title: "Private Cottage Exterior" },
-    { id: 2, category: "Cottages", image: "/api/placeholder/600/400", title: "Cottage Interior" },
-    { id: 3, category: "Tents", image: "/api/placeholder/600/400", title: "Adventure Camping Tents" },
-    { id: 4, category: "Tents", image: "/api/placeholder/600/400", title: "Tent Setup" },
-    { id: 5, category: "Views", image: "/api/placeholder/600/400", title: "Valley View" },
-    { id: 6, category: "Views", image: "/api/placeholder/600/400", title: "Mountain Landscape" },
-    { id: 7, category: "Activities", image: "/api/placeholder/600/400", title: "Campfire Night" },
-    { id: 8, category: "Activities", image: "/api/placeholder/600/400", title: "Jeep Trekking" }
+    { id: 1, category: "Deluxe Room", image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=80", title: "Deluxe Room Interior" },
+    { id: 2, category: "Deluxe Room", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80", title: "Deluxe Room with Mountain View" },
+    { id: 3, category: "Double Room", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80", title: "Cozy Double Room" },
+    { id: 4, category: "Double Room", image: "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=600&q=80", title: "Double Room Setup" },
+    { id: 5, category: "Dormitory", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80", title: "Dormitory Accommodation" },
+    { id: 6, category: "Dormitory", image: "https://images.unsplash.com/photo-1624923686627-514dd5e57bae?w=600&q=80", title: "Dormitory Facilities" },
+    { id: 7, category: "Cottages", image: "/api/placeholder/600/400", title: "Private Cottage Exterior" },
+    { id: 8, category: "Cottages", image: "/api/placeholder/600/400", title: "Cottage Interior" },
+    { id: 9, category: "Tents", image: "https://images.unsplash.com/photo-1537905569824-f89f14cceb68?w=600&q=80", title: "Adventure Camping Tents" },
+    { id: 10, category: "Tents", image: "/api/placeholder/600/400", title: "Tent Setup" },
+    { id: 11, category: "Views", image: "https://images.unsplash.com/photo-1531932594968-e5e5e9dee95a?w=600&q=80", title: "Valley View" },
+    { id: 12, category: "Views", image: "https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7?w=600&q=80", title: "Mountain Landscape" },
+    { id: 13, category: "Activities", image: "/api/placeholder/600/400", title: "Campfire Night" },
+    { id: 14, category: "Activities", image: "/api/placeholder/600/400", title: "Jeep Trekking" }
   ],
 
   testimonials: [

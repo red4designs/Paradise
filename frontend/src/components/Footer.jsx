@@ -170,7 +170,7 @@ const Footer = () => {
                 Call Now
               </a>
               <button 
-                onClick={() => window.open('https://wa.me/918296979749', '_blank')}
+                onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                 className="btn-secondary"
               >
                 <MessageCircle size={18} />

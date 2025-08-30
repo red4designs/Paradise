@@ -175,7 +175,7 @@ const Hero = () => {
 
                     <div className="text-center">
                       <p className="body-small text-text-muted">
-                        Need help? <a href="tel:8296979749" className="text-brand-primary hover:underline">Call us now</a>
+                        Need help? <a href="tel:9074902424" className="text-brand-primary hover:underline">Call us now</a>
                       </p>
                     </div>
                   </div>

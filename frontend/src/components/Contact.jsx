@@ -58,7 +58,7 @@ const Contact = () => {
 
   const handleWhatsApp = () => {
     const message = `Hi! I would like to inquire about Paradise Resort Vattavada. Here are my details:\n\nName: ${formData.name || 'Not provided'}\nPhone: ${formData.phone || 'Not provided'}\nAccommodation: ${formData.accommodation || 'Not specified'}\nGuests: ${formData.guests || 'Not specified'}\nCheck-in: ${formData.checkIn || 'Not specified'}\nMessage: ${formData.message || 'General inquiry'}`;
-    window.open(`https://wa.me/918296979749?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/919074902424?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

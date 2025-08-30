@@ -200,8 +200,8 @@ const Footer = () => {
             
             <div className="flex items-center gap-4">
               <span className="body-small text-text-muted">Emergency Contact:</span>
-              <a href="tel:8296979749" className="body-small text-brand-primary hover:underline">
-                +91 82969 79749
+              <a href="tel:9074902424" className="body-small text-brand-primary hover:underline">
+                +91 90749 02424
               </a>
             </div>
           </div>

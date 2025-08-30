@@ -326,7 +326,7 @@ const Contact = () => {
                 <Phone size={18} />
                 Call Now
               </a>
-              <button onClick={() => window.open('https://wa.me/918296979749', '_blank')} className="btn-secondary">
+              <button onClick={() => window.open('https://wa.me/919074902424', '_blank')} className="btn-secondary">
                 <MessageCircle size={18} />
                 WhatsApp Us
               </button>

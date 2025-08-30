@@ -7,7 +7,7 @@ import { mockData } from '../data/mock';
 const Packages = () => {
   const handleContact = (packageName) => {
     const message = `Hi! I'm interested in the ${packageName} package at Paradise Resort Vattavada. Can you please provide more details and pricing?`;
-    window.open(`https://wa.me/918296979749?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/919074902424?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCall = () => {

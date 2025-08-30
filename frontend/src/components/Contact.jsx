@@ -322,7 +322,7 @@ const Contact = () => {
               Don't wait! Contact us today and start planning your unforgettable Vattavada experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:8296979749" className="btn-primary">
+              <a href="tel:9074902424" className="btn-primary">
                 <Phone size={18} />
                 Call Now
               </a>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Resort Vattavada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .redirect-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // Check if we're on the main domain and redirect to gh-pages if needed
+        setTimeout(function() {
+            if (window.location.hostname === 'red4designs.github.io' && window.location.pathname === '/Paradise/') {
+                // Already on the correct path, check if React app is available
+                fetch('/Paradise/static/js/').then(function(response) {
+                    if (response.ok) {
+                        window.location.reload();
+                    }
+                }).catch(function() {
+                    // React app not available yet, show message
+                    document.getElementById('status').innerHTML = 'React app is being deployed. Please wait...';
+                });
+            }
+        }, 2000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏝️ Paradise Resort Vattavada</h1>
+        <p>The Best Budget Stay in Vattavada</p>
+        
+        <div class="redirect-info">
+            <div class="loading"></div>
+            <p id="status">Loading your paradise experience...</p>
+            <p><small>If you're seeing this page, the React application is being deployed to GitHub Pages.</small></p>
+        </div>
+        
+        <div style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            <p>🌟 Features:</p>
+            <p>• Luxury Accommodations • Scenic Mountain Views • Adventure Activities</p>
+            <p>• Delicious Cuisine • Peaceful Environment • Budget-Friendly Rates</p>
+        </div>
+    </div>
+</body>
+</html>

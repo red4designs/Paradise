@@ -9,12 +9,24 @@ const Gallery = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState({});
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const categories = ['All', 'Deluxe Room', 'Double Room', 'Dormitory', 'Cottages', 'Tents', 'Views', 'Activities'];
   
-  const filteredImages = selectedCategory === 'All' 
+  // Reset expanded state when category changes
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setIsExpanded(false);
+  };
+  
+  const allFilteredImages = selectedCategory === 'All' 
     ? mockData.gallery 
     : mockData.gallery.filter(item => item.category === selectedCategory);
+  
+  // For 'All' category, show only 6 images initially unless expanded
+  const filteredImages = selectedCategory === 'All' && !isExpanded 
+    ? allFilteredImages.slice(0, 6)
+    : allFilteredImages;
 
   const openLightbox = (image, index) => {
     setLightboxImage(image);
@@ -62,7 +74,7 @@ const Gallery = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-6 py-3 border transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border-[hsl(var(--primary))]'
@@ -74,8 +86,34 @@ const Gallery = () => {
           ))}
         </div>
 
+        {/* Expand/Collapse Button for 'All' category */}
+        {selectedCategory === 'All' && allFilteredImages.length > 6 && (
+          <div className="text-center mb-16">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-8 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)_/_0.9)] transition-all duration-300 font-medium"
+            >
+              {isExpanded ? (
+                <span className="flex items-center gap-2">
+                  Show Less Photos
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  </svg>
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  View All {allFilteredImages.length} Photos
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              )}
+            </button>
+          </div>
+        )}
+
         {/* Gallery Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
           {filteredImages.map((item, index) => (
             <Card 
               key={item.id} 

@@ -67,7 +67,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3">
                   <MessageCircle size={18} className="text-brand-primary" />
                   <button 
-                    onClick={() => window.open('https://wa.me/918296979749', '_blank')}
+                    onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                     className="body-medium text-text-secondary hover:text-brand-primary dark-transition"
                   >
                     WhatsApp Us

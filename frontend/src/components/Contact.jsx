@@ -226,8 +226,8 @@ const Contact = () => {
                     <div>
                       <h4 className="heading-3 mb-1">Phone</h4>
                       <p className="body-medium text-text-secondary mb-2">Call us anytime for instant booking</p>
-                      <a href="tel:8296979749" className="body-medium text-brand-primary hover:underline">
-                        +91 82969 79749
+                      <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline">
+                        +91 90749 02424
                       </a>
                     </div>
                   </div>

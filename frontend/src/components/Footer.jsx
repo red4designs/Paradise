@@ -165,7 +165,7 @@ const Footer = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:8296979749" className="btn-primary">
+              <a href="tel:9074902424" className="btn-primary">
                 <Phone size={18} />
                 Call Now
               </a>

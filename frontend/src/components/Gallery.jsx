@@ -9,7 +9,7 @@ const Gallery = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const categories = ['All', 'Cottages', 'Tents', 'Views', 'Activities'];
+  const categories = ['All', 'Deluxe Room', 'Double Room', 'Dormitory', 'Cottages', 'Tents', 'Views', 'Activities'];
   
   const filteredImages = selectedCategory === 'All' 
     ? mockData.gallery 

@@ -76,7 +76,7 @@ const Header = () => {
           </nav>
           
           <div className="flex flex-col gap-3">
-            <a href="tel:8296979749" className="btn-secondary">
+            <a href="tel:9074902424" className="btn-secondary">
               <Phone size={18} />
               Call Now
             </a>

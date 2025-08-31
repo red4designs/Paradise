@@ -95,12 +95,12 @@ Please confirm availability and provide pricing details. Thank you!`;
               {/* Main Heading */}
               <div className="space-y-4">
                 <h1 className="display-huge">
-                  🏔️ Paradise Resort
-                  <span className="block text-brand-primary">Vattavada ✨</span>
+                  🏔️ Best Budget Resort in Vattavada
+                  <span className="block text-brand-primary">Paradise Resort ✨</span>
                 </h1>
                 <p className="body-large text-text-secondary max-w-lg">
-                  Experience breathtaking mountain views 🌄 and peaceful surroundings in our family-run resort. 
-                  Safe, comfortable accommodations just 1.5 km from Vattavada town. 🏡
+                  Experience breathtaking mountain views 🌄 at our budget resort in Vattavada. 
+                  Private cottages in Vattavada and camping in Vattavada available. 🏡
                 </p>
               </div>
 
@@ -108,11 +108,11 @@ Please confirm availability and provide pricing details. Thank you!`;
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">🏠 Private Cottages</span>
+                  <span className="body-medium">🏠 Cottages in Vattavada</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">⛺ Adventure Tents</span>
+                  <span className="body-medium">⛺ Camping in Vattavada</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>

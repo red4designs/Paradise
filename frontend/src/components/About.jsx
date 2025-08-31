@@ -89,7 +89,7 @@ const About = () => {
             <div className="aspect-video bg-white/5 border border-white/25 rounded-sm overflow-hidden relative">
               <img 
                 src="/images/Resort/IMG_3528.JPEG" 
-                alt="Paradise Resort Valley View" 
+                alt="Paradise Resort Vattavada valley view - best budget resort in Vattavada Kerala" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/20"></div>

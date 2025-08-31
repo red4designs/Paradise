@@ -226,7 +226,7 @@ const RoomDetails = () => {
                       <div className="aspect-[4/3] lg:aspect-auto">
                         <img 
                           src={accommodationOptions.resort.image} 
-                          alt="Resort Rooms" 
+                          alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -294,7 +294,7 @@ const RoomDetails = () => {
                       <div className="aspect-[4/3] lg:aspect-auto">
                         <img 
                           src={accommodationOptions.cottage.image} 
-                          alt="Private Cottage" 
+                          alt="Private cottages in Vattavada - 3 bedroom family accommodation" 
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -349,7 +349,7 @@ const RoomDetails = () => {
                       <div className="aspect-[4/3] lg:aspect-auto">
                         <img 
                           src={accommodationOptions.tent.image} 
-                          alt="Tent Stay" 
+                          alt="Camping in Vattavada - premium tent accommodation for adventure lovers" 
                           className="w-full h-full object-cover"
                         />
                       </div>

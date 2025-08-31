@@ -110,7 +110,7 @@ const Amenities = () => {
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
                         src="/images/Cottage/IMG_20241109_151624.jpg" 
-                        alt="Cottage Interior" 
+                        alt="3 bedroom private cottage in Vattavada - budget resort accommodation" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -133,7 +133,7 @@ const Amenities = () => {
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
                         src="/images/Tent/IMG_3632.JPEG" 
-                        alt="Camping Tents Setup" 
+                        alt="Premium camping tents in Vattavada - adventure camping experience" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -156,7 +156,7 @@ const Amenities = () => {
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
                         src="/images/Resort/WhatsApp Image 2025-08-30 at 21.03.59_5b7a8811.jpg" 
-                        alt="Campfire Night" 
+                        alt="Campfire night at budget resort Vattavada - evening entertainment" 
                         className="w-full h-full object-cover"
                       />
                     </div>

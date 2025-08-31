@@ -130,7 +130,7 @@ const Gallery = () => {
                   {!imageErrors[item.id] ? (
                     <img
                       src={item.image}
-                      alt={item.title}
+                      alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
                       className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       onError={() => handleImageError(item.id)}
                       onLoad={() => handleImageLoad(item.id)}
@@ -173,10 +173,7 @@ const Gallery = () => {
                   </Badge>
                 </div>
                 
-                {/* Image Info */}
-                <div className="p-4">
-                  <h4 className="body-medium" style={{ color: 'hsl(var(--foreground))' }}>{item.title}</h4>
-                </div>
+
               </CardContent>
             </Card>
           ))}
@@ -264,7 +261,7 @@ const Gallery = () => {
               {!imageErrors[lightboxImage.id] ? (
                 <img
                   src={lightboxImage.image}
-                  alt={lightboxImage.title}
+                  alt={`${lightboxImage.title} - ${lightboxImage.category} at Paradise Resort Vattavada budget accommodation`}
                   className="w-full h-auto max-h-[80vh] object-contain"
                   onError={() => handleImageError(lightboxImage.id)}
                   onLoad={() => handleImageLoad(lightboxImage.id)}
@@ -278,11 +275,7 @@ const Gallery = () => {
                 </div>
               )}
               
-              {/* Image Info Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="body-medium text-white mb-2">{lightboxImage.title}</p>
-                <Badge className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]">{lightboxImage.category}</Badge>
-              </div>
+
             </div>
           </div>
         </div>

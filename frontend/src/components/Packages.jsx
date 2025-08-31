@@ -46,7 +46,7 @@ const Packages = () => {
                       src={index === 0 ? "/images/Resort/IMG_20241109_174229.jpg" : 
                            index === 1 ? "/images/Resort/IMG_20241109_174235.jpg" :
                                        "/images/Resort/IMG_20250220_213601.jpg"} 
-                      alt={pkg.name} 
+                      alt={`${pkg.name} - budget resort package in Vattavada Kerala`} 
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30"></div>

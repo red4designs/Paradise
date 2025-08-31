@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle, Instagram, Facebook } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#room-details', label: 'Room Details' },
-    { href: '#about', label: 'About' },
-    { href: '#amenities', label: 'Amenities' },
-    { href: '#packages', label: 'Packages' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#contact', label: 'Contact' }
+    { href: '/', label: 'Home' },
+    { href: '/cottages', label: 'Cottages' },
+    { href: '/tents', label: 'Tents' },
+    { href: '/dormitory', label: 'Dormitory' },
+    { href: '/contact', label: 'Contact' }
   ];
+
+  const location = useLocation();
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Hi! I would like to check availability at Paradise Resort Vattavada.');
@@ -32,25 +33,29 @@ const Header = () => {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="#home" className="flex items-center hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             <img 
               src="/paradise-logo.svg" 
               alt="Paradise Resort Vattavada Logo" 
               className="h-16 w-auto"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              className="body-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] theme-transition"
+              to={link.href}
+              className={`body-medium theme-transition ${
+                location.pathname === link.href
+                  ? 'text-[hsl(var(--foreground))] font-semibold'
+                  : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -93,14 +98,18 @@ const Header = () => {
         <div className="lg:hidden absolute top-full left-0 w-full bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] px-[7.6923%] py-6">
           <nav className="flex flex-col gap-4 mb-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="body-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] theme-transition"
+                className={`body-medium theme-transition ${
+                  location.pathname === link.href
+                    ? 'text-[hsl(var(--foreground))] font-semibold'
+                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           

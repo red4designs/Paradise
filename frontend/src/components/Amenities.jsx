@@ -11,6 +11,7 @@ import {
   Car, 
   Eye 
 } from 'lucide-react';
+import LazyImage from './ui/LazyImage';
 
 const iconMap = {
   Wifi,
@@ -109,9 +110,10 @@ const Amenities = () => {
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
                       <img 
-                        src="/images/Cottage/IMG_20241109_151624.jpg" 
+                        src={`/images/Cottages/IMG_20250208_122711.jpg?v=${Date.now()}`} 
                         alt="3 bedroom private cottage in Vattavada - budget resort accommodation" 
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -131,10 +133,11 @@ const Amenities = () => {
                       8 premium tents for up to 24 guests, perfect for group adventures and nature immersion.
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
-                      <img 
-                        src="/images/Tent/IMG_3632.JPEG" 
+                      <LazyImage 
+                        src="/images/Tents/IMG_3632.JPEG?v=1" 
                         alt="Premium camping tents in Vattavada - adventure camping experience" 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -154,10 +157,11 @@ const Amenities = () => {
                       Campfire nights with music and BBQ facilities creating unforgettable mountain memories.
                     </p>
                     <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
-                      <img 
-                        src="/images/Resort/WhatsApp Image 2025-08-30 at 21.03.59_5b7a8811.jpg" 
+                      <LazyImage 
+                        src="/images/Views/WhatsApp Image 2025-08-30 at 21.03.59_5b7a8811.jpg" 
                         alt="Campfire night at budget resort Vattavada - evening entertainment" 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        loading="lazy"
                       />
                     </div>
                   </div>

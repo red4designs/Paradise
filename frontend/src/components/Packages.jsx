@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from './ui/card';
 import { Badge } from './ui/badge';
 import { Users, Check, Phone, MessageCircle } from 'lucide-react';
 import { mockData } from '../data/mock';
+import LazyImage from './ui/LazyImage';
 
 const Packages = () => {
   const handleContact = (packageName) => {
@@ -19,10 +20,11 @@ const Packages = () => {
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">🏨 Choose Your Perfect Stay</h2>
+          <h2 className="display-large mb-6">🏨 Budget Stay in Vattavada - Choose Your Perfect Package</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            From intimate couple retreats 💕 to large group adventures 👥, we have the perfect 
-            accommodation package for every type of mountain getaway. 🏔️
+            From intimate couple retreats 💕 to large group adventures 👥, our family friendly resort in Vattavada 
+            offers the perfect homestay in Vattavada and tent stay in Vattavada packages for every type of 
+            Vattavada trekking stay and mountain getaway. 🏔️
           </p>
         </div>
 
@@ -42,13 +44,28 @@ const Packages = () => {
                 <div className="space-y-4">
                   {/* Package Image */}
                   <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden relative">
-                    <img 
-                      src={index === 0 ? "/images/Resort/IMG_20241109_174229.jpg" : 
-                           index === 1 ? "/images/Resort/IMG_20241109_174235.jpg" :
-                                       "/images/Resort/IMG_20250220_213601.jpg"} 
-                      alt={`${pkg.name} - budget resort package in Vattavada Kerala`} 
-                      className="w-full h-full object-cover"
-                    />
+                    {index === 0 ? (
+                      <img 
+                        src={`/images/Cottages/IMG_20250208_122711.jpg?v=${Date.now()}`} 
+                        alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : index === 1 ? (
+                      <img 
+                        src="/images/Views/IMG_1701.JPEG?v=999" 
+                        alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <LazyImage 
+                        src="/images/Views/IMG_20250220_213601.jpg" 
+                        alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
+                        className="w-full h-full"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-black/30"></div>
                   </div>
                   

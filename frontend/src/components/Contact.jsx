@@ -109,10 +109,10 @@ Please check availability and let me know. Thank you!`;
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="display-large mb-6">📱 Check Availability on WhatsApp</h2>
+          <h2 className="display-large mb-6">📱 Book Your Homestay in Vattavada - Check Availability</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Ready to experience the magic of Vattavada? 🏔️ Check availability and book your perfect 
-            mountain getaway directly through WhatsApp for the fastest response. 💬
+            Ready to experience our family friendly resort in Vattavada? 🏔️ Check availability for budget stay in Vattavada, 
+            tent stay in Vattavada, or Vattavada trekking stay directly through WhatsApp for the fastest response. 💬
           </p>
         </div>
 
@@ -310,9 +310,14 @@ Please check availability and let me know. Thank you!`;
                     <div>
                       <h4 className="heading-3 mb-1">Phone</h4>
                       <p className="body-medium text-text-secondary mb-2">Call us anytime for instant booking</p>
-                      <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline">
-                        +91 90749 02424
-                      </a>
+                      <div className="space-y-1">
+                        <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline block">
+                          +91 90749 02424
+                        </a>
+                        <a href="tel:8848019414" className="body-medium text-brand-primary hover:underline block">
+                          +91 8848019414 (David)
+                        </a>
+                      </div>
                     </div>
                   </div>
 

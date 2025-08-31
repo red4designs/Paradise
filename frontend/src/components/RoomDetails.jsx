@@ -16,6 +16,7 @@ import {
   ArrowRight,
   MessageCircle
 } from 'lucide-react';
+import LazyImage from './ui/LazyImage';
 
 const RoomDetails = () => {
   const [activeTab, setActiveTab] = useState('resort');
@@ -23,17 +24,17 @@ const RoomDetails = () => {
   const accommodationOptions = {
     resort: {
       id: 'resort',
-      title: 'Resort With Rooms',
-      subtitle: 'Modern Comfort & Luxury',
-      image: '/images/Resort/WhatsApp Image 2025-04-05 at 6.46.49 PM.jpeg',
-      description: 'Experience premium hospitality with our well-appointed resort rooms offering modern amenities and stunning mountain views.',
+      title: 'Budget Stay in Vattavada - Resort Rooms',
+      subtitle: 'Family Friendly Resort Experience',
+      image: '/images/Views/IMG_1701.JPEG?v=999',
+      description: 'Experience premium hospitality at our family friendly resort in Vattavada with well-appointed rooms offering modern amenities and stunning mountain views. Perfect budget stay in Vattavada.',
       rooms: [
         {
           type: 'Deluxe Room',
           icon: Bed,
           capacity: '5–7 guests',
           beds: '1 Queen-size cot + 1 Double cot',
-          features: ['Spacious layout', 'Extra bed option', 'Mountain view', 'Private bathroom'],
+          features: ['Spacious layout', 'Extra bed option', 'Mountain view', 'Shared bathroom'],
           color: 'from-blue-500/20 to-purple-500/20'
         },
         {
@@ -56,10 +57,10 @@ const RoomDetails = () => {
     },
     cottage: {
       id: 'cottage',
-      title: 'Private Cottage',
-      subtitle: 'Ultimate Privacy & Space',
-      image: '/images/Cottage/IMG_20241109_151546.jpg',
-      description: 'Enjoy complete privacy in our spacious 3-bedroom cottage, perfect for large families and groups seeking comfort and independence.',
+      title: 'Private Cottages - Homestay in Vattavada',
+      subtitle: 'Ultimate Privacy for Families',
+      image: `/images/Cottages/IMG_20250208_122711.jpg?v=${Date.now()}`,
+      description: 'Enjoy complete privacy in our spacious 3-bedroom homestay in Vattavada cottage, perfect for large families seeking comfort at this family friendly resort in Vattavada.',
       features: [
         {
           icon: Home,
@@ -89,10 +90,10 @@ const RoomDetails = () => {
     },
     tent: {
       id: 'tent',
-      title: 'Tent Stay',
-      subtitle: 'Adventure & Nature Immersion',
-      image: '/images/Tent/IMG_3629.JPEG',
-      description: 'Embrace the wilderness with our premium camping experience, offering comfort under the stars with breathtaking mountain views.',
+      title: 'Tent Stay in Vattavada',
+      subtitle: 'Adventure & Vattavada Trekking Stay',
+      image: '/images/Tents/IMG_3639.JPEG?v=1',
+      description: 'Embrace the wilderness with our premium tent stay in Vattavada experience, perfect for Vattavada trekking stay with comfort under the stars and breathtaking mountain views.',
       specs: {
         totalTents: 8,
         capacity: '24 guests total',
@@ -176,12 +177,12 @@ const RoomDetails = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large text-[hsl(var(--primary))] mb-6">
-            Stay Options at Paradise Resort Vattavada
+            Homestay in Vattavada - Stay Options at Paradise Resort
           </h2>
           <p className="heading-3 text-[hsl(var(--muted-foreground))] max-w-4xl mx-auto leading-relaxed">
-            Discover the perfect stay for your trip! At Paradise Resort Vattavada, we offer multiple 
-            accommodation choices for families, couples, adventure seekers, and large groups. 
-            All stays include Free WiFi and a peaceful environment close to nature.
+            Discover the perfect homestay in Vattavada for your trip! Our family friendly resort in Vattavada offers 
+            tent stay in Vattavada, budget stay options, and Vattavada trekking stay accommodations for families, 
+            couples, and adventure seekers. All stays include Free WiFi in this peaceful resort near Vattavada.
           </p>
         </div>
 
@@ -225,9 +226,10 @@ const RoomDetails = () => {
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
                         <img 
-                          src={accommodationOptions.resort.image} 
+                          src="/images/Views/IMG_1701.JPEG?v=999" 
                           alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
@@ -296,6 +298,7 @@ const RoomDetails = () => {
                           src={accommodationOptions.cottage.image} 
                           alt="Private cottages in Vattavada - 3 bedroom family accommodation" 
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
@@ -347,10 +350,11 @@ const RoomDetails = () => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                        <img 
+                        <LazyImage 
                           src={accommodationOptions.tent.image} 
                           alt="Camping in Vattavada - premium tent accommodation for adventure lovers" 
-                          className="w-full h-full object-cover"
+                          className="w-full h-full"
+                          loading="lazy"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, Users, MapPin, Star, ChevronRight } from 'lucide-react';
+import LazyImage from './ui/LazyImage';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Input } from './ui/input';
@@ -55,12 +56,13 @@ Please confirm availability and provide pricing details. Thank you!`;
 
   return (
     <section id="home" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Nature Background Image */}
+      {/* Optimized Nature Background Image */}
       <div className="absolute inset-0">
-        <img 
+        <LazyImage 
           src="/images/resort-aerial-view.jpg" 
           alt="Vattavada Mountain Landscape" 
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          loading="eager"
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60"></div>
@@ -99,8 +101,8 @@ Please confirm availability and provide pricing details. Thank you!`;
                   <span className="block text-brand-primary">Paradise Resort ✨</span>
                 </h1>
                 <p className="body-large text-text-secondary max-w-lg">
-                  Experience breathtaking mountain views 🌄 at our budget resort in Vattavada. 
-                  Private cottages in Vattavada and camping in Vattavada available. 🏡
+                  Experience breathtaking mountain views 🌄 at our family friendly resort in Vattavada. 
+                  Homestay in Vattavada with private cottages and tent stay in Vattavada available. Perfect for Vattavada trekking stay. 🏡
                 </p>
               </div>
 
@@ -108,11 +110,11 @@ Please confirm availability and provide pricing details. Thank you!`;
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">🏠 Cottages in Vattavada</span>
+                  <span className="body-medium">🏠 Homestay in Vattavada</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">⛺ Camping in Vattavada</span>
+                  <span className="body-medium">⛺ Tent Stay in Vattavada</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
@@ -120,7 +122,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-brand-primary"></div>
-                  <span className="body-medium">🚗 Jeep Trekking</span>
+                  <span className="body-medium">🚗 Vattavada Trekking Stay</span>
                 </div>
               </div>
 

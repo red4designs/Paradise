@@ -2,13 +2,14 @@ import React from 'react';
 import { Shield, Heart, MapPin, Users, Mountain, Clock } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { mockData } from '../data/mock';
+import LazyImage from './ui/LazyImage';
 
 const About = () => {
   const features = [
     {
       icon: Heart,
-      title: "Family-Run Resort",
-      description: "Warm hospitality with personal care and attention to every guest's comfort and safety."
+      title: "Family Friendly Resort in Vattavada",
+      description: "Warm hospitality with personal care, making us the perfect homestay in Vattavada for families."
     },
     {
       icon: Shield,
@@ -27,8 +28,8 @@ const About = () => {
     },
     {
       icon: Users,
-      title: "Group Accommodations",
-      description: "Flexible stay options for couples, families, and large groups up to 60 guests."
+      title: "Vattavada Trekking Stay & Groups",
+      description: "Perfect for Vattavada trekking stay with flexible options for couples, families, and large groups up to 60 guests."
     },
     {
       icon: Clock,
@@ -44,9 +45,9 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">🏡 About Paradise Resort Vattavada ✨</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Nestled in the heart of Vattavada's pristine mountains 🏔️, our family-run resort offers 
-            the perfect blend of comfort, adventure, and natural beauty. Experience the warmth 
-            of home while surrounded by breathtaking landscapes. 🌿
+            Nestled in the heart of Vattavada's pristine mountains 🏔️, our family friendly resort in Vattavada offers 
+            the perfect homestay in Vattavada experience. As one of the best resorts near Vattavada, we provide 
+            budget stay in Vattavada with comfort, adventure, and natural beauty. 🌿
           </p>
         </div>
 
@@ -87,10 +88,11 @@ const About = () => {
           {/* Right Content - Image */}
           <div className="relative">
             <div className="aspect-video bg-white/5 border border-white/25 rounded-sm overflow-hidden relative">
-              <img 
-                src="/images/Resort/IMG_3528.JPEG" 
+              <LazyImage 
+                src="/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.jpeg" 
                 alt="Paradise Resort Vattavada valley view - best budget resort in Vattavada Kerala" 
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/20"></div>
             </div>
@@ -123,13 +125,34 @@ const About = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-white/5 border border-white/25 p-8 max-w-2xl mx-auto">
+          <div className="bg-white/5 border border-white/25 p-8 max-w-4xl mx-auto">
             <h3 className="heading-2 mb-4">Experience Paradise Today</h3>
-            <p className="body-medium text-text-secondary mb-6">
-              Join hundreds of satisfied guests who have made Paradise Resort their preferred mountain destination.
+            <p className="body-medium text-text-secondary mb-8">
+              Join hundreds of satisfied guests who have made Paradise Resort their preferred mountain destination. 
+              Choose from our variety of accommodations to suit your needs and budget.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-6 max-w-2xl mx-auto justify-center">
+              <a 
+                href="/cottages" 
+                className="flex-1 sm:w-auto px-6 py-3 border border-brand-primary bg-brand-primary text-white hover:bg-brand-primary/90 hover:border-brand-primary/90 transition-colors font-medium text-center rounded-md min-w-0"
+              >
+                Private Cottages
+              </a>
+              <a 
+                href="/tents" 
+                className="flex-1 sm:w-auto px-6 py-3 border border-white/25 text-white hover:border-brand-primary hover:text-brand-primary transition-colors font-medium text-center rounded-md min-w-0"
+              >
+                Adventure Tents
+              </a>
+              <a 
+                href="/dormitory" 
+                className="flex-1 sm:w-auto px-6 py-3 border border-white/25 text-white hover:border-brand-primary hover:text-brand-primary transition-colors font-medium text-center rounded-md min-w-0"
+              >
+                Budget Dormitory
+              </a>
+            </div>
             <a href="#contact" className="btn-primary">
-              Plan Your Visit
+              Book Your Stay Now
             </a>
           </div>
         </div>

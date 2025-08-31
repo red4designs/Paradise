@@ -3,6 +3,7 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Image as ImageIcon, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { mockData } from '../data/mock';
+import LazyImage from './ui/LazyImage';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -126,29 +127,13 @@ const Gallery = () => {
             >
               <CardContent className="p-0">
                 <div className="relative">
-                  {/* Actual Image */}
-                  {!imageErrors[item.id] ? (
-                    <img
-                      src={item.image}
-                      alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
-                      className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={() => handleImageError(item.id)}
-                      onLoad={() => handleImageLoad(item.id)}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div 
-                      className="aspect-square flex items-center justify-center transition-colors"
-                      style={{
-                        backgroundColor: 'hsl(var(--muted))',
-                      }}
-                    >
-                      <div className="text-center">
-                        <ImageIcon size={48} style={{ color: 'hsl(var(--primary))' }} />
-                        <p className="body-small mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>Image not found</p>
-                      </div>
-                    </div>
-                  )}
+                  {/* Optimized Lazy Image */}
+                  <LazyImage
+                    src={item.image}
+                    alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
+                    className="aspect-square transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   
                   {/* Hover Overlay */}
                   <div 
@@ -256,26 +241,14 @@ const Gallery = () => {
               </>
             )}
 
-            {/* Image */}
+            {/* Optimized Lightbox Image */}
             <div className="relative">
-              {!imageErrors[lightboxImage.id] ? (
-                <img
-                  src={lightboxImage.image}
-                  alt={`${lightboxImage.title} - ${lightboxImage.category} at Paradise Resort Vattavada budget accommodation`}
-                  className="w-full h-auto max-h-[80vh] object-contain"
-                  onError={() => handleImageError(lightboxImage.id)}
-                  onLoad={() => handleImageLoad(lightboxImage.id)}
-                />
-              ) : (
-                <div className="aspect-video bg-[hsl(var(--muted)_/_0.1)] flex items-center justify-center">
-                  <div className="text-center">
-                    <ImageIcon size={64} className="text-[hsl(var(--primary))] mx-auto mb-4" />
-                    <p className="body-medium text-[hsl(var(--muted-foreground))] mb-2">Image not available</p>
-                  </div>
-                </div>
-              )}
-              
-
+              <LazyImage
+                src={lightboxImage.image}
+                alt={`${lightboxImage.title} - ${lightboxImage.category} at Paradise Resort Vattavada budget accommodation`}
+                className="w-full h-auto max-h-[80vh] object-contain"
+                loading="eager"
+              />
             </div>
           </div>
         </div>

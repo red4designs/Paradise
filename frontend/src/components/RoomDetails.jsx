@@ -14,7 +14,8 @@ import {
   Eye,
   Star,
   ArrowRight,
-  MessageCircle
+  MessageCircle,
+  Droplets
 } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
 
@@ -34,7 +35,7 @@ const RoomDetails = () => {
           icon: Bed,
           capacity: '5–7 guests',
           beds: '1 Queen-size cot + 1 Double cot',
-          features: ['Spacious layout', 'Extra bed option', 'Mountain view', 'Shared bathroom'],
+          features: ['Spacious layout', 'Extra bed option', 'Mountain view', 'Private bathroom'],
           color: 'from-blue-500/20 to-purple-500/20'
         },
         {
@@ -42,7 +43,7 @@ const RoomDetails = () => {
           icon: Bed,
           capacity: '2–3 guests',
           beds: '1 Double cot',
-          features: ['Cozy atmosphere', '1 extra bed only', 'Garden view', 'Modern amenities'],
+          features: ['Cozy atmosphere', '1 extra bed only', 'Garden view', 'Private bathroom'],
           color: 'from-green-500/20 to-blue-500/20'
         },
         {
@@ -85,6 +86,12 @@ const RoomDetails = () => {
           title: 'Living Spaces',
           description: 'Includes hall, dining area, and private spaces',
           color: 'from-amber-500/20 to-orange-500/20'
+        },
+        {
+          icon: Droplets,
+          title: 'Shared Bathroom',
+          description: 'Common bathroom facilities for guests',
+          color: 'from-sky-500/20 to-cyan-500/20'
         }
       ]
     },
@@ -120,10 +127,10 @@ const RoomDetails = () => {
           color: 'from-purple-500/20 to-indigo-500/20'
         },
         {
-          icon: Flame,
-          title: 'Campfire Ready',
-          description: 'Designated areas for campfire and group activities',
-          color: 'from-orange-500/20 to-red-500/20'
+          icon: Droplets,
+          title: 'Shared Bathrooms',
+          description: 'Clean shared bathroom facilities near the campsite',
+          color: 'from-sky-500/20 to-cyan-500/20'
         }
       ]
     }

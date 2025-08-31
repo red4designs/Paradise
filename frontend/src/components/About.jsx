@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Shield, Heart, MapPin, Users, Mountain, Clock } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { mockData } from '../data/mock';
@@ -132,24 +133,24 @@ const About = () => {
               Choose from our variety of accommodations to suit your needs and budget.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6 max-w-2xl mx-auto justify-center">
-              <a 
-                href="/cottages" 
+              <Link 
+                to="/cottages" 
                 className="flex-1 sm:w-auto px-6 py-3 border border-brand-primary bg-brand-primary text-white hover:bg-brand-primary/90 hover:border-brand-primary/90 transition-colors font-medium text-center rounded-md min-w-0"
               >
                 Private Cottages
-              </a>
-              <a 
-                href="/tents" 
+              </Link>
+              <Link 
+                to="/tents" 
                 className="flex-1 sm:w-auto px-6 py-3 border border-white/25 text-white hover:border-brand-primary hover:text-brand-primary transition-colors font-medium text-center rounded-md min-w-0"
               >
                 Adventure Tents
-              </a>
-              <a 
-                href="/dormitory" 
+              </Link>
+              <Link 
+                to="/dormitory" 
                 className="flex-1 sm:w-auto px-6 py-3 border border-white/25 text-white hover:border-brand-primary hover:text-brand-primary transition-colors font-medium text-center rounded-md min-w-0"
               >
                 Budget Dormitory
-              </a>
+              </Link>
             </div>
             <a href="#contact" className="btn-primary">
               Book Your Stay Now

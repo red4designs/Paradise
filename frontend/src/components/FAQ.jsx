@@ -1,0 +1,126 @@
+import React, { useState } from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+
+const FAQ = () => {
+  const [openItems, setOpenItems] = useState({});
+
+  const toggleItem = (index) => {
+    setOpenItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const faqData = [
+    {
+      question: "How can I book rooms in Vattavada at Paradise Resort?",
+      answer: "You can book directly through our website, WhatsApp, or by calling 9074902424. Instant confirmation is available for all bookings."
+    },
+    {
+      question: "What types of rooms and stays are available in Vattavada?",
+      answer: "We offer:\n\n• Private Cottages (ideal for families & groups)\n• Budget Rooms (for couples & small families)\n• Tent Stay (for adventure & budget travelers)\n• Dormitory Stay (for bachelors & backpackers)"
+    },
+    {
+      question: "What is the price of rooms in Vattavada?",
+      answer: "Rooms start from ₹1,500/night\nTent stays from ₹800/night\nCottages for large groups available at budget-friendly prices\n\n(Contact us for the latest offers.)"
+    },
+    {
+      question: "Do you provide family rooms in Vattavada?",
+      answer: "Yes ✅ We have family-friendly cottages that can accommodate up to 18 adults, making it perfect for groups, families, and get-togethers."
+    },
+    {
+      question: "Is Paradise Resort safe for families and couples?",
+      answer: "Yes, our property is family-run and very safe. Couples, families, and even solo travelers can enjoy a peaceful stay with privacy."
+    },
+    {
+      question: "What activities are available at the resort?",
+      answer: "Guests can enjoy:\n\n• Campfire with music\n• BBQ setup with coal\n• Jeep trekking to nearby viewpoints\n• Scenic views of farms & mountains right from the resort"
+    },
+    {
+      question: "What are the nearby attractions in Vattavada?",
+      answer: "• Pampadum Shola National Park – 5 km\n• Top Station, Munnar – 7 km\n• Vegetable farms & strawberry fields\n• Scenic trekking & camping trails"
+    },
+    {
+      question: "What is the best time to visit Vattavada?",
+      answer: "Vattavada is a 365-day destination 🌿\n\n• Summer (Mar–May): Cool climate, ideal for families\n• Monsoon (Jun–Sep): Lush greenery, perfect for nature lovers\n• Winter (Oct–Feb): Misty mornings & best for honeymoon couples"
+    },
+    {
+      question: "Do you have budget-friendly stay options?",
+      answer: "Yes, Paradise Resort is known as the best budget stay in Vattavada with rooms, tents, and cottages to fit every budget."
+    },
+    {
+      question: "How far is Paradise Resort Vattavada from Munnar?",
+      answer: "We are located around 30 km from Munnar town and just 7 km from Top Station. Easily accessible by car or jeep."
+    }
+  ];
+
+  return (
+    <section className="section-padding bg-black">
+      <div className="max-width-container">
+        <div className="text-center mb-16">
+          <h2 className="display-large mb-6">
+            ❓ Frequently Asked Questions – Paradise Resort Vattavada
+          </h2>
+          <p className="body-large text-text-secondary max-w-3xl mx-auto">
+            Find answers to common questions about our hotels and resorts in Vattavada
+          </p>
+        </div>
+        
+        <div className="space-y-4">
+          {faqData.map((item, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden transition-all duration-200 hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/10"
+            >
+              <button
+                onClick={() => toggleItem(index)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
+              >
+                <span className="text-lg font-semibold text-white pr-4">
+                  {item.question}
+                </span>
+                {openItems[index] ? (
+                  <ChevronUpIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                ) : (
+                  <ChevronDownIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                )}
+              </button>
+              
+              {openItems[index] && (
+                <div className="px-6 pb-4 border-t border-gray-800">
+                  <div className="pt-4 text-gray-300 leading-relaxed whitespace-pre-line">
+                    {item.answer}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <p className="text-text-secondary mb-6">
+            Still have questions about our Vattavada stay options?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="tel:+919074902424" 
+              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-lg hover:shadow-primary-500/25"
+            >
+              📞 Call +91 90749 02424
+            </a>
+            <a 
+              href="https://wa.me/919074902424" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors shadow-lg hover:shadow-green-500/25"
+            >
+              💬 WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQ;

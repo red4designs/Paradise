@@ -7,6 +7,7 @@ import Amenities from '../components/Amenities';
 import Packages from '../components/Packages';
 import Gallery from '../components/Gallery';
 import TravelGuide from '../components/TravelGuide';
+import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import FAQSchema from '../components/schemas/FAQSchema';
 import EventSchema from '../components/schemas/EventSchema';
@@ -103,6 +104,7 @@ const HomePage = () => {
       <Packages />
       <Gallery />
       <TravelGuide />
+      <FAQ />
       <Contact />
     </>
   );

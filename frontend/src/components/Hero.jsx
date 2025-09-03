@@ -56,16 +56,18 @@ Please confirm availability and provide pricing details. Thank you!`;
 
   return (
     <section id="home" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Optimized Nature Background Image */}
+      {/* Enhanced Nature Hill Background Image */}
       <div className="absolute inset-0">
         <LazyImage 
-          src="/images/resort-aerial-view.jpg" 
-          alt="Vattavada Mountain Landscape" 
-          className="w-full h-full"
+          src="/images/Views/IMG_20241109_174229.jpg" 
+          alt="Breathtaking Vattavada Hill Station Mountain Views - Paradise Resort" 
+          className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Gradient overlay for better readability and depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+        {/* Additional nature-themed overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-green-900/20 via-transparent to-blue-900/20"></div>
       </div>
 
       {/* Subtle Pattern Overlay */}

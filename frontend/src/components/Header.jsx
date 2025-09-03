@@ -28,6 +28,13 @@ const Header = () => {
     window.open('https://www.facebook.com/paradisevattavada1', '_blank');
   };
 
+  const handleNavClick = (href) => {
+    // Scroll to top for specific pages
+    if (href === '/' || href === '/cottages' || href === '/tents' || href === '/dormitory') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed top-0 w-full z-50 bg-background border-b border-border px-[7.6923%] py-4 transition-colors duration-300">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
@@ -48,6 +55,7 @@ const Header = () => {
             <Link
               key={link.href}
               to={link.href}
+              onClick={() => handleNavClick(link.href)}
               className={`body-medium theme-transition ${
                 location.pathname === link.href
                   ? 'text-[hsl(var(--foreground))] font-semibold'
@@ -101,7 +109,10 @@ const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleNavClick(link.href);
+                }}
                 className={`body-medium theme-transition ${
                   location.pathname === link.href
                     ? 'text-[hsl(var(--foreground))] font-semibold'

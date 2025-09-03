@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /static/
+Disallow: /*.json$
+Disallow: /manifest.json
+Disallow: /asset-manifest.json
 
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.paradisevattavada.com/sitemap.xml

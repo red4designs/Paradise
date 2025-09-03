@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +26,10 @@ const Header = () => {
 
   const handleFacebook = () => {
     window.open('https://www.facebook.com/paradisevattavada1', '_blank');
+  };
+
+  const handleAgodaBooking = () => {
+    window.open('https://www.agoda.com/paradise-resort-vattavada/hotel/vattavada-in.html', '_blank');
   };
 
   const handleNavClick = (href) => {
@@ -86,9 +90,9 @@ const Header = () => {
               <Facebook size={20} />
             </button>
           </div>
-          <button onClick={handleWhatsApp} className="btn-primary">
-            <MessageCircle size={18} />
-            Check Availability
+          <button onClick={handleAgodaBooking} className="btn-primary">
+            <ExternalLink size={18} />
+            Book in Agoda
           </button>
         </div>
 
@@ -142,9 +146,9 @@ const Header = () => {
                 <Facebook size={24} />
               </button>
             </div>
-            <button onClick={handleWhatsApp} className="btn-primary">
-              <MessageCircle size={18} />
-              Check Availability
+            <button onClick={handleAgodaBooking} className="btn-primary">
+              <ExternalLink size={18} />
+              Book in Agoda
             </button>
           </div>
         </div>

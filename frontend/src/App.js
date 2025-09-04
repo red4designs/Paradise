@@ -4,6 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
 
 // Page components
@@ -28,6 +29,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
             <Footer />
+            <BackToTop />
           </div>
         </Router>
       </ThemeProvider>

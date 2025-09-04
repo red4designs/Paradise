@@ -61,8 +61,8 @@ const LazyImage = ({
     >
       {/* Loading placeholder */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full"></div>
         </div>
       )}
       
@@ -79,7 +79,7 @@ const LazyImage = ({
             onLoad={handleLoad}
             onError={handleError}
             className={`
-              w-full h-full object-cover transition-opacity duration-300
+              w-full h-full object-cover
               ${isLoaded ? 'opacity-100' : 'opacity-0'}
             `}
             decoding="async"

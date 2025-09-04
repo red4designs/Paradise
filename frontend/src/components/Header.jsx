@@ -44,7 +44,11 @@ const Header = () => {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Link 
+            to="/" 
+            className="flex items-center hover:opacity-80 transition-opacity"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <img 
               src="/paradise-logo.svg" 
               alt="Paradise Resort Vattavada Logo" 

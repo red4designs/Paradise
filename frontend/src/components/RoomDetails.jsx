@@ -181,18 +181,9 @@ const RoomDetails = () => {
   return (
     <section 
       id="room-details" 
-      className="section-padding bg-gradient-to-b from-background to-background/50 relative"
-      style={{
-        backgroundImage: 'url(/images/background-section2.svg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
+      className="section-padding bg-black"
     >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm"></div>
-      <div className="max-width-container relative z-10">
+      <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large text-[hsl(var(--primary))] mb-6">
@@ -225,7 +216,7 @@ const RoomDetails = () => {
                   <IconComponent size={20} />
                   <span className="font-medium">{tab.label}</span>
                   {activeTab === tab.id && (
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-primary/20 to-transparent animate-pulse" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-primary/20 to-transparent" />
                   )}
                 </button>
               );
@@ -274,7 +265,7 @@ const RoomDetails = () => {
                   {accommodationOptions.resort.rooms.map((room, index) => {
                     const IconComponent = room.icon;
                     return (
-                      <Card key={index} className={`bg-gradient-to-br ${room.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-all duration-300 group`}>
+                      <Card key={index} className={`bg-gradient-to-br ${room.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
                         <CardContent className="p-6">
                           <div className="space-y-4">
                             <div className="flex items-center gap-3">
@@ -343,7 +334,7 @@ const RoomDetails = () => {
                   {accommodationOptions.cottage.features.map((feature, index) => {
                     const IconComponent = feature.icon;
                     return (
-                      <Card key={index} className={`bg-gradient-to-br ${feature.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-all duration-300 group`}>
+                      <Card key={index} className={`bg-gradient-to-br ${feature.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
                         <CardContent className="p-6">
                           <div className="flex items-start gap-4">
                             <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-xl group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
@@ -411,7 +402,7 @@ const RoomDetails = () => {
                   {accommodationOptions.tent.highlights.map((highlight, index) => {
                     const IconComponent = highlight.icon;
                     return (
-                      <Card key={index} className={`bg-gradient-to-br ${highlight.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-all duration-300 group`}>
+                      <Card key={index} className={`bg-gradient-to-br ${highlight.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
                         <CardContent className="p-6">
                           <div className="flex items-start gap-4">
                             <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-xl group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
@@ -444,7 +435,7 @@ const RoomDetails = () => {
               {commonExperiences.map((experience, index) => {
                 const IconComponent = experience.icon;
                 return (
-                  <Card key={index} className={`bg-gradient-to-br ${experience.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-all duration-300 group relative overflow-hidden`}>
+                  <Card key={index} className={`bg-gradient-to-br ${experience.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group relative overflow-hidden`}>
                     <CardContent className="p-6">
                       <div className="space-y-4">
                         <div className="flex items-center gap-3">
@@ -465,7 +456,7 @@ const RoomDetails = () => {
                       </div>
                       
                       {/* Hover Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)_/_0.05)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)_/_0.05)] to-transparent opacity-0 group-hover:opacity-100" />
                     </CardContent>
                   </Card>
                 );

@@ -45,21 +45,21 @@ const ScrollLoader = ({
   return (
     <div ref={elementRef} className={className}>
       {shouldLoad ? (
-        <div className={`transition-all duration-1200 ease-out transform ${
+        <div className={`transform ${
           isLoaded ? 'opacity-100 translate-y-0 scale-100 blur-0' : 'opacity-0 translate-y-8 scale-95 blur-sm'
         }`}>
           {isLoaded ? children : (fallback || (
             <div className="min-h-[200px] flex items-center justify-center">
               <div className="space-y-6 w-full max-w-4xl mx-auto px-4">
                 <div className="text-center mb-6">
-                  <div className="text-blue-600 font-semibold animate-pulse text-lg">Loading content...</div>
+                  <div className="text-blue-600 font-semibold text-lg">Loading content...</div>
                   <div className="mt-2 flex justify-center space-x-1">
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
                   </div>
                 </div>
-                <div className="animate-pulse space-y-4">
+                <div className="space-y-4">
                   <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-lg w-1/3 mx-auto animate-shimmer"></div>
                   <div className="space-y-3">
                     <div className="h-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded animate-shimmer" style={{animationDelay: '100ms'}}></div>
@@ -76,14 +76,14 @@ const ScrollLoader = ({
             <div className="min-h-[200px] flex items-center justify-center">
               <div className="space-y-6 w-full max-w-4xl mx-auto px-4">
                 <div className="text-center mb-6">
-                  <div className="text-blue-600 font-semibold animate-pulse text-lg">Loading content...</div>
+                  <div className="text-blue-600 font-semibold text-lg">Loading content...</div>
                   <div className="mt-2 flex justify-center space-x-1">
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
                   </div>
                 </div>
-                <div className="animate-pulse space-y-4">
+                <div className="space-y-4">
                   <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-lg w-1/3 mx-auto animate-shimmer"></div>
                   <div className="space-y-3">
                     <div className="h-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded animate-shimmer" style={{animationDelay: '100ms'}}></div>

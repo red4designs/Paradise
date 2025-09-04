@@ -28,19 +28,9 @@ const Amenities = () => {
   return (
     <section 
       id="amenities" 
-      className="section-padding bg-black relative"
-      style={{
-        backgroundImage: 'url(/images/background-amenities.svg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
+      className="section-padding bg-black"
     >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/70"></div>
-      
-      <div className="max-width-container relative z-10">
+      <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">🌟 World-Class Amenities</h2>

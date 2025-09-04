@@ -53,7 +53,7 @@ export const ThemeToggle = () => {
   return (
     <button 
       onClick={toggleTheme}
-      className="relative p-3 rounded-xl overflow-hidden transition-all duration-500 group backdrop-blur-sm"
+      className="relative p-3 rounded-xl overflow-hidden group backdrop-blur-sm"
       style={{
         backgroundColor: 'hsl(var(--card) / 0.8)',
         borderWidth: '1px',
@@ -78,7 +78,7 @@ export const ThemeToggle = () => {
     >
       {/* Animated background gradient */}
       <div 
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 opacity-0 group-hover:opacity-100"
         style={{
           background: `linear-gradient(45deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05), transparent)`
         }}
@@ -86,7 +86,7 @@ export const ThemeToggle = () => {
       
       {/* Futuristic border glow effect */}
       <div 
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
         style={{
           background: `linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent)`,
           animation: 'pulse 2s ease-in-out infinite'
@@ -99,13 +99,13 @@ export const ThemeToggle = () => {
           <Moon 
             size={20} 
             style={{ color: 'hsl(var(--foreground))' }}
-            className="transition-all duration-500 group-hover:rotate-[360deg] group-hover:scale-110 drop-shadow-lg" 
+            className="group-hover:rotate-[360deg] group-hover:scale-110 drop-shadow-lg" 
           />
         ) : (
           <Sun 
             size={20} 
             style={{ color: 'hsl(var(--primary))' }}
-            className="transition-all duration-500 group-hover:rotate-[360deg] group-hover:scale-110 drop-shadow-lg" 
+            className="group-hover:rotate-[360deg] group-hover:scale-110 drop-shadow-lg" 
           />
         )}
       </div>

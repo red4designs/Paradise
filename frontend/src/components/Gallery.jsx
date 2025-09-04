@@ -76,7 +76,7 @@ const Gallery = () => {
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-6 py-3 border transition-all duration-300 ${
+              className={`px-6 py-3 border ${
                 selectedCategory === category
                   ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border-[hsl(var(--primary))]'
           : 'bg-[hsl(var(--card)_/_0.5)] text-[hsl(var(--muted-foreground))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]'
@@ -92,7 +92,7 @@ const Gallery = () => {
           <div className="text-center mb-16">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="px-8 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)_/_0.9)] transition-all duration-300 font-medium"
+              className="px-8 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)_/_0.9)] font-medium"
             >
               {isExpanded ? (
                 <span className="flex items-center gap-2">
@@ -131,7 +131,7 @@ const Gallery = () => {
                   <LazyImage
                     src={item.image}
                     alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
-                    className="aspect-square transition-transform duration-300 group-hover:scale-105"
+                    className="aspect-square"
                     loading="lazy"
                   />
                   

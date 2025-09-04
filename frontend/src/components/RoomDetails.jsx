@@ -179,8 +179,20 @@ const RoomDetails = () => {
   ];
 
   return (
-    <section id="room-details" className="section-padding bg-gradient-to-b from-background to-background/50">
-      <div className="max-width-container">
+    <section 
+      id="room-details" 
+      className="section-padding bg-gradient-to-b from-background to-background/50 relative"
+      style={{
+        backgroundImage: 'url(/images/background-section2.svg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm"></div>
+      <div className="max-width-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large text-[hsl(var(--primary))] mb-6">

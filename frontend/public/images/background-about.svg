@@ -1,0 +1,99 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Night Sky Gradient -->
+  <defs>
+    <radialGradient id="skyGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f0f23"/>
+    </radialGradient>
+    
+    <!-- Mountain Gradient -->
+    <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="50%" stop-color="#1a202c"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    
+    <!-- Valley Gradient -->
+    <linearGradient id="valleyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a365d"/>
+      <stop offset="100%" stop-color="#0a1929"/>
+    </linearGradient>
+    
+    <!-- Glow Effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sky Background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient)"/>
+  
+  <!-- Stars -->
+  <circle cx="200" cy="150" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="350" cy="100" r="1.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="500" cy="180" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="650" cy="120" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="800" cy="200" r="1.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="950" cy="80" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="1100" cy="160" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="1250" cy="90" r="1.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1400" cy="170" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1550" cy="110" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="1700" cy="140" r="1.5" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Moon -->
+  <circle cx="1600" cy="200" r="40" fill="#f7fafc" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="1590" cy="190" r="3" fill="#e2e8f0" opacity="0.6"/>
+  <circle cx="1610" cy="210" r="2" fill="#e2e8f0" opacity="0.5"/>
+  
+  <!-- Distant Mountains -->
+  <path d="M0 600 L300 400 L600 500 L900 350 L1200 450 L1500 300 L1920 400 L1920 1080 L0 1080 Z" fill="url(#mountainGradient)" opacity="0.6"/>
+  
+  <!-- Middle Mountains -->
+  <path d="M0 700 L400 500 L800 600 L1200 450 L1600 550 L1920 500 L1920 1080 L0 1080 Z" fill="url(#mountainGradient)" opacity="0.8"/>
+  
+  <!-- Foreground Mountains -->
+  <path d="M0 800 L300 650 L600 750 L900 600 L1200 700 L1500 580 L1920 650 L1920 1080 L0 1080 Z" fill="url(#mountainGradient)"/>
+  
+  <!-- Valley Floor -->
+  <path d="M0 900 L1920 900 L1920 1080 L0 1080 Z" fill="url(#valleyGradient)"/>
+  
+  <!-- Resort Buildings Silhouettes -->
+  <rect x="400" y="820" width="60" height="40" fill="#2d3748" opacity="0.9"/>
+  <polygon points="400,820 430,800 460,820" fill="#4a5568" opacity="0.9"/>
+  
+  <rect x="500" y="830" width="50" height="35" fill="#2d3748" opacity="0.9"/>
+  <polygon points="500,830 525,815 550,830" fill="#4a5568" opacity="0.9"/>
+  
+  <rect x="580" y="825" width="45" height="38" fill="#2d3748" opacity="0.9"/>
+  <polygon points="580,825 602.5,810 625,825" fill="#4a5568" opacity="0.9"/>
+  
+  <!-- Warm Light from Buildings -->
+  <rect x="415" y="840" width="8" height="12" fill="#fbbf24" opacity="0.8"/>
+  <rect x="430" y="845" width="6" height="8" fill="#fbbf24" opacity="0.7"/>
+  <rect x="515" y="845" width="8" height="10" fill="#fbbf24" opacity="0.8"/>
+  <rect x="595" y="840" width="6" height="12" fill="#fbbf24" opacity="0.7"/>
+  
+  <!-- Trees Silhouettes -->
+  <ellipse cx="350" cy="870" rx="15" ry="35" fill="#1a202c" opacity="0.8"/>
+  <ellipse cx="680" cy="875" rx="12" ry="30" fill="#1a202c" opacity="0.8"/>
+  <ellipse cx="750" cy="865" rx="18" ry="40" fill="#1a202c" opacity="0.8"/>
+  
+  <!-- Mist/Fog Effect -->
+  <ellipse cx="960" cy="750" rx="200" ry="50" fill="#ffffff" opacity="0.1"/>
+  <ellipse cx="1200" cy="680" rx="150" ry="40" fill="#ffffff" opacity="0.08"/>
+  
+  <!-- Paradise Resort Text -->
+  <text x="960" y="400" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#fbbf24" opacity="0.9" filter="url(#glow)">PARADISE RESORT</text>
+  <text x="960" y="440" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#e2e8f0" opacity="0.8">VATTAVADA MOUNTAIN RETREAT</text>
+  
+  <!-- Decorative Elements -->
+  <path d="M860 460 Q960 480 1060 460" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.6"/>
+  <circle cx="860" cy="460" r="3" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="1060" cy="460" r="3" fill="#fbbf24" opacity="0.8"/>
+</svg>

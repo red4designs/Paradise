@@ -41,11 +41,22 @@
         <meta name="twitter:image" content="https://www.paradisevattavada.com/images/resort-social-share.jpg" />
         <meta name="twitter:image:alt" content="Paradise Resort Vattavada - Luxury Mountain Resort in Kerala" />
         
-        <!-- Preload Google Fonts for performance -->
+        <!-- DNS prefetch for external domains -->
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link rel="dns-prefetch" href="https://www.google-analytics.com">
+        
+        <!-- Preconnect to critical third-party origins -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+        
+        <!-- Preload critical fonts with font-display swap -->
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+        <!-- Fallback for users with JavaScript disabled -->
+        <noscript>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+        </noscript>
         <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -60,6 +71,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
         <title>Paradise Resort Vattavada | Hotels & Resorts in Vattavada near Munnar</title>
+        
+        <!-- Critical CSS for above-the-fold content -->
+        <style>
+          /* Critical styles for initial render */
+          body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+          #root { min-height: 100vh; }
+          .loading { display: flex; justify-content: center; align-items: center; height: 100vh; }
+          .loading::after { content: ''; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; }
+          @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        </style>
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -393,6 +414,21 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
+        
+        <!-- Service Worker Registration -->
+        <script>
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                  console.log('SW registered: ', registration);
+                })
+                .catch((registrationError) => {
+                  console.log('SW registration failed: ', registrationError);
+                });
+            });
+          }
+        </script>
         <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -4,6 +4,7 @@ import { Badge } from './ui/badge';
 import { Users, Check, Phone, MessageCircle } from 'lucide-react';
 import { mockData } from '../data/mock';
 import LazyImage from './ui/LazyImage';
+import PerformanceOptimizer from './PerformanceOptimizer';
 
 const Packages = () => {
   const handleContact = (packageName) => {
@@ -29,11 +30,12 @@ const Packages = () => {
         </div>
 
         {/* Packages Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {mockData.packages.map((pkg, index) => (
-            <Card key={pkg.id} className={`bg-white/5 border-white/25 dark-hover dark-transition relative overflow-hidden ${
-              index === 1 ? 'border-brand-primary/50 transform lg:scale-105' : ''
-            }`}>
+        <PerformanceOptimizer>
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {mockData.packages.map((pkg, index) => (
+              <Card key={pkg.id} className={`bg-white/5 border-white/25 dark-hover dark-transition relative overflow-hidden ${
+                index === 1 ? 'border-brand-primary/50 transform lg:scale-105' : ''
+              }`}>
               {index === 1 && (
                 <div className="absolute top-0 right-0 bg-brand-primary text-black px-4 py-1">
                   <span className="body-small font-semibold">Most Popular</span>
@@ -119,9 +121,10 @@ const Packages = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
-          ))}
-        </div>
+              </Card>
+            ))}
+          </div>
+        </PerformanceOptimizer>
 
         {/* Additional Information */}
         <div className="grid md:grid-cols-2 gap-8">

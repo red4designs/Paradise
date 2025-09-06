@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { createOptimizedIntersectionObserver } from '../../utils/layoutOptimizer';
 
 const ScrollLoader = ({ 
   children, 
@@ -13,7 +14,7 @@ const ScrollLoader = ({
   const elementRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const observer = createOptimizedIntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !shouldLoad) {
           setShouldLoad(true);

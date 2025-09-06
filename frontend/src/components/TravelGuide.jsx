@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { MapPin, Clock, Star, Camera, Mountain, Car, Coffee, Users } from 'lucide-react';
+import PerformanceOptimizer from './PerformanceOptimizer';
 
 const TravelGuide = () => {
   const attractions = [
@@ -110,46 +111,50 @@ const TravelGuide = () => {
         <div className="mb-20">
           <h3 className="display-medium text-center mb-12 text-[hsl(var(--primary))]">🏔️ Nearby Attractions</h3>
           <div className="grid md:grid-cols-2 gap-8">
-            {attractions.map((attraction) => {
-              const IconComponent = attraction.icon;
-              return (
-                <Card key={attraction.id} className="bg-[hsl(var(--card))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg flex-shrink-0">
-                        <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="heading-3 mb-2">{attraction.name}</h4>
-                        <div className="flex flex-wrap gap-4 mb-3 text-sm text-[hsl(var(--muted-foreground))]">
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {attraction.distance}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {attraction.time}
-                          </span>
+            <PerformanceOptimizer
+              data={attractions}
+              chunkSize={2}
+              renderItem={(attraction) => {
+                const IconComponent = attraction.icon;
+                return (
+                  <Card key={attraction.id} className="bg-[hsl(var(--card))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg flex-shrink-0">
+                          <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
                         </div>
-                        <p className="body-medium text-[hsl(var(--muted-foreground))] mb-4">
-                          {attraction.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {attraction.highlights.map((highlight, index) => (
-                            <span 
-                              key={index}
-                              className="px-3 py-1 bg-[hsl(var(--primary)_/_0.1)] text-[hsl(var(--primary))] text-sm rounded-full"
-                            >
-                              {highlight}
+                        <div className="flex-1">
+                          <h4 className="heading-3 mb-2">{attraction.name}</h4>
+                          <div className="flex flex-wrap gap-4 mb-3 text-sm text-[hsl(var(--muted-foreground))]">
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {attraction.distance}
                             </span>
-                          ))}
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-4 h-4" />
+                              {attraction.time}
+                            </span>
+                          </div>
+                          <p className="body-medium text-[hsl(var(--muted-foreground))] mb-4">
+                            {attraction.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {attraction.highlights.map((highlight, index) => (
+                              <span 
+                                key={index}
+                                className="px-3 py-1 bg-[hsl(var(--primary)_/_0.1)] text-[hsl(var(--primary))] text-sm rounded-full"
+                              >
+                                {highlight}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                    </CardContent>
+                  </Card>
+                );
+              }}
+            />
           </div>
         </div>
 
@@ -157,20 +162,24 @@ const TravelGuide = () => {
         <div className="mb-20">
           <h3 className="display-medium text-center mb-12 text-[hsl(var(--primary))]">💡 Travel Tips</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {travelTips.map((tip, index) => {
-              const IconComponent = tip.icon;
-              return (
-                <Card key={index} className="bg-[hsl(var(--card))] border-[hsl(var(--border))] text-center">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
-                    </div>
-                    <h4 className="heading-4 mb-3">{tip.title}</h4>
-                    <p className="body-small text-[hsl(var(--muted-foreground))]">{tip.content}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <PerformanceOptimizer
+              data={travelTips}
+              chunkSize={2}
+              renderItem={(tip, index) => {
+                const IconComponent = tip.icon;
+                return (
+                  <Card key={index} className="bg-[hsl(var(--card))] border-[hsl(var(--border))] text-center">
+                    <CardContent className="p-6">
+                      <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg mx-auto mb-4">
+                        <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
+                      </div>
+                      <h4 className="heading-4 mb-3">{tip.title}</h4>
+                      <p className="body-small text-[hsl(var(--muted-foreground))]">{tip.content}</p>
+                    </CardContent>
+                  </Card>
+                );
+              }}
+            />
           </div>
         </div>
 
@@ -178,22 +187,26 @@ const TravelGuide = () => {
         <div className="mb-20">
           <h3 className="display-medium text-center mb-12 text-[hsl(var(--primary))]">🎯 Activities & Experiences</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            {activities.map((activity, index) => (
-              <Card key={index} className="bg-[hsl(var(--card))] border-[hsl(var(--border))]">
-                <CardContent className="p-6">
-                  <h4 className="heading-4 mb-3">{activity.name}</h4>
-                  <p className="body-medium text-[hsl(var(--muted-foreground))] mb-4">{activity.description}</p>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-[hsl(var(--primary))]">
-                      <strong>Duration:</strong> {activity.duration}
-                    </span>
-                    <span className="text-[hsl(var(--primary))]">
-                      <strong>Difficulty:</strong> {activity.difficulty}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <PerformanceOptimizer
+              data={activities}
+              chunkSize={2}
+              renderItem={(activity, index) => (
+                <Card key={index} className="bg-[hsl(var(--card))] border-[hsl(var(--border))]">
+                  <CardContent className="p-6">
+                    <h4 className="heading-4 mb-3">{activity.name}</h4>
+                    <p className="body-medium text-[hsl(var(--muted-foreground))] mb-4">{activity.description}</p>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-[hsl(var(--primary))]">
+                        <strong>Duration:</strong> {activity.duration}
+                      </span>
+                      <span className="text-[hsl(var(--primary))]">
+                        <strong>Difficulty:</strong> {activity.difficulty}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            />
           </div>
         </div>
 

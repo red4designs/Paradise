@@ -12,6 +12,7 @@ import {
   Eye 
 } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
+import PerformanceOptimizer from './PerformanceOptimizer';
 
 const iconMap = {
   Wifi,
@@ -41,27 +42,29 @@ const Amenities = () => {
         </div>
 
         {/* Amenities Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {mockData.amenities.map((amenity) => {
-            const IconComponent = iconMap[amenity.icon];
-            
-            return (
-              <Card key={amenity.id} className="bg-white/5 border-white/25 dark-hover dark-transition">
-                <CardContent className="p-6 text-center">
-                  <div className="space-y-4">
-                    <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto">
-                      <IconComponent size={32} className="text-brand-primary" />
+        <PerformanceOptimizer>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {mockData.amenities.map((amenity) => {
+              const IconComponent = iconMap[amenity.icon];
+              
+              return (
+                <Card key={amenity.id} className="bg-white/5 border-white/25 dark-hover dark-transition">
+                  <CardContent className="p-6 text-center">
+                    <div className="space-y-4">
+                      <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto">
+                        <IconComponent size={32} className="text-brand-primary" />
+                      </div>
+                      <div>
+                        <h3 className="heading-3 mb-2">{amenity.name}</h3>
+                        <p className="body-small text-text-secondary">{amenity.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="heading-3 mb-2">{amenity.name}</h3>
-                      <p className="body-small text-text-secondary">{amenity.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </PerformanceOptimizer>
 
         {/* Featured Amenities Details */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">

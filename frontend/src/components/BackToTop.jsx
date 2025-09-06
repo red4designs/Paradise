@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
+import { createOptimizedScrollHandler } from '../utils/layoutOptimizer';
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,9 +24,10 @@ const BackToTop = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    const optimizedScrollHandler = createOptimizedScrollHandler(toggleVisibility);
+    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener('scroll', optimizedScrollHandler);
     };
   }, []);
 

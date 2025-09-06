@@ -3,20 +3,50 @@
 // Defer non-critical CSS loading
 export const deferNonCriticalCSS = () => {
   const deferredStyles = [
-    // Add non-critical stylesheets here
-    'https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap',
+    // Tailwind CSS will be loaded by webpack, no external CSS to defer
   ];
 
-  deferredStyles.forEach((href) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.media = 'print';
-    link.onload = function() {
-      this.media = 'all';
-    };
-    document.head.appendChild(link);
-  });
+  // Load non-critical CSS after page load
+  const loadDeferredCSS = () => {
+    deferredStyles.forEach((href) => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'print';
+      link.onload = function() {
+        this.media = 'all';
+        this.onload = null;
+      };
+      // Fallback for browsers that don't support onload
+      link.onerror = function() {
+        this.media = 'all';
+      };
+      document.head.appendChild(link);
+    });
+  };
+
+  // Use requestIdleCallback for better performance
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadDeferredCSS);
+  } else {
+    setTimeout(loadDeferredCSS, 100);
+  }
+};
+
+// Inline critical CSS extraction (for build process)
+export const inlineCriticalCSS = () => {
+  // This would be handled by build tools in production
+  // For now, we ensure critical styles are in the HTML head
+  const criticalStyles = `
+    .hero-section { min-height: 100vh; display: flex; align-items: center; }
+    .nav-menu { display: flex; gap: 2rem; }
+    .card { background: white; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  `;
+  
+  const style = document.createElement('style');
+  style.textContent = criticalStyles;
+  style.setAttribute('data-critical', 'true');
+  document.head.appendChild(style);
 };
 
 // Preload critical resources
@@ -88,11 +118,33 @@ export const optimizeFontLoading = () => {
   style.textContent = `
     @font-face {
       font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
       font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
     }
     @font-face {
       font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
       font-display: swap;
+      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
   `;
   document.head.appendChild(style);
@@ -118,24 +170,35 @@ export const addResourceHints = () => {
 
 // Main optimization function
 export const optimizeResources = () => {
+  // Immediate optimizations
+  addResourceHints();
+  inlineCriticalCSS();
+  
   // Run optimizations based on page load state
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      addResourceHints();
       preloadCriticalResources();
       optimizeFontLoading();
     });
   } else {
-    addResourceHints();
     preloadCriticalResources();
     optimizeFontLoading();
   }
 
-  // Defer non-critical resources
+  // Defer non-critical resources after load
   window.addEventListener('load', () => {
-    deferNonCriticalCSS();
-    deferThirdPartyScripts();
-    lazyLoadImages();
+    // Use requestIdleCallback for better performance
+    const deferredTasks = () => {
+      deferNonCriticalCSS();
+      deferThirdPartyScripts();
+      lazyLoadImages();
+    };
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(deferredTasks, { timeout: 2000 });
+    } else {
+      setTimeout(deferredTasks, 100);
+    }
   });
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
 import { 
   Home, 
@@ -18,11 +18,57 @@ import {
   Droplets
 } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
+import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization';
+import { useWorkerManager } from '../utils/workerManager';
+import PerformanceOptimizer from './PerformanceOptimizer';
 
 const RoomDetails = () => {
   const [activeTab, setActiveTab] = useState('resort');
+  const [processedData, setProcessedData] = useState(null);
+  const [isProcessingData, setIsProcessingData] = useState(false);
+  const { batchDOMUpdates, scheduleIdleTask } = usePerformanceOptimization();
+  const workerManager = useWorkerManager();
+  
+  // Raw tabs data
+  const tabsRaw = useMemo(() => [
+    { id: 'resort', label: 'Resort Rooms', icon: Home },
+    { id: 'cottage', label: 'Private Cottage', icon: Home },
+    { id: 'tent', label: 'Tent Stay', icon: Tent }
+  ], []);
+  
+  // Optimized tab change handler
+  const handleTabChange = useCallback((tabId) => {
+    batchDOMUpdates(() => {
+      setActiveTab(tabId);
+    });
+  }, [batchDOMUpdates]);
 
-  const accommodationOptions = {
+  // Process accommodation data with web worker
+  useEffect(() => {
+    if (workerManager && !processedData) {
+      setIsProcessingData(true);
+      
+      const rawData = {
+        accommodations: accommodationOptionsRaw,
+        experiences: commonExperiencesRaw,
+        tabs: tabsRaw
+      };
+      
+      workerManager.filterData(rawData, { optimize: true }, 'accommodation')
+        .then(result => {
+          setProcessedData(result.results);
+          setIsProcessingData(false);
+        })
+        .catch(error => {
+          console.warn('Data processing failed, using fallback:', error);
+          setProcessedData(rawData);
+          setIsProcessingData(false);
+        });
+    }
+  }, [workerManager, processedData]);
+
+  // Raw accommodation options data
+  const accommodationOptionsRaw = useMemo(() => ({
     resort: {
       id: 'resort',
       title: 'Budget Stay in Vattavada - Resort Rooms',
@@ -134,9 +180,13 @@ const RoomDetails = () => {
         }
       ]
     }
-  };
+  }), []);
 
-  const commonExperiences = [
+  // Use processed data or fallback to raw data
+  const accommodationOptions = processedData?.accommodations || accommodationOptionsRaw;
+
+  // Raw common experiences data
+  const commonExperiencesRaw = useMemo(() => [
     {
       icon: Eye,
       title: 'Breathtaking Valley Views',
@@ -170,13 +220,13 @@ const RoomDetails = () => {
       description: 'Stay connected with complimentary WiFi and 24/7 hot water supply',
       color: 'from-purple-500/10 to-indigo-500/10'
     }
-  ];
+  ], []);
 
-  const tabs = [
-    { id: 'resort', label: 'Resort Rooms', icon: Home },
-    { id: 'cottage', label: 'Private Cottage', icon: Home },
-    { id: 'tent', label: 'Tent Stay', icon: Tent }
-  ];
+  // Use processed data or fallback to raw data
+  const tabs = processedData?.tabs || tabsRaw;
+
+  // Use processed data or fallback to raw data
+  const commonExperiences = processedData?.experiences || commonExperiencesRaw;
 
   return (
     <section 
@@ -204,7 +254,7 @@ const RoomDetails = () => {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => handleTabChange(tab.id)}
                   className={`
                     relative px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-3
                     ${activeTab === tab.id 
@@ -260,40 +310,42 @@ const RoomDetails = () => {
                   </CardContent>
                 </Card>
 
-                {/* Room Types Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
-                  {accommodationOptions.resort.rooms.map((room, index) => {
-                    const IconComponent = room.icon;
-                    return (
-                      <Card key={index} className={`bg-gradient-to-br ${room.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
-                        <CardContent className="p-6">
-                          <div className="space-y-4">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
-            <IconComponent size={20} className="text-[hsl(var(--primary))]" />
-          </div>
-          <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
-                            </div>
-                            
-                            <div className="space-y-2">
-                              <p className="body-medium text-[hsl(var(--primary))] font-medium">{room.capacity}</p>
-          <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
-                            </div>
-                            
-                            <div className="space-y-2">
-                              {room.features.map((feature, idx) => (
-                                <div key={idx} className="flex items-center gap-2">
-                                  <div className="w-1.5 h-1.5 bg-[hsl(var(--primary))] rounded-full" />
-            <span className="body-small text-[hsl(var(--muted-foreground))]">{feature}</span>
+                {/* Room Types Grid with Time Slicing */}
+                <PerformanceOptimizer>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {accommodationOptions.resort.rooms.map((room, index) => {
+                      const IconComponent = room.icon;
+                      return (
+                        <Card key={index} className={`bg-gradient-to-br ${room.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
+                          <CardContent className="p-6">
+                            <div className="space-y-4">
+                              <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
+                                  <IconComponent size={20} className="text-[hsl(var(--primary))]" />
                                 </div>
-                              ))}
+                                <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
+                              </div>
+                              
+                              <div className="space-y-2">
+                                <p className="body-medium text-[hsl(var(--primary))] font-medium">{room.capacity}</p>
+                                <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
+                              </div>
+                              
+                              <div className="space-y-2">
+                                {room.features.map((feature, idx) => (
+                                  <div key={idx} className="flex items-center gap-2">
+                                    <div className="w-1.5 h-1.5 bg-[hsl(var(--primary))] rounded-full" />
+                                    <span className="body-small text-[hsl(var(--muted-foreground))]">{feature}</span>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
+                          </CardContent>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                </PerformanceOptimizer>
               </div>
             )}
 
@@ -329,27 +381,29 @@ const RoomDetails = () => {
                   </CardContent>
                 </Card>
 
-                {/* Cottage Features Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  {accommodationOptions.cottage.features.map((feature, index) => {
-                    const IconComponent = feature.icon;
-                    return (
-                      <Card key={index} className={`bg-gradient-to-br ${feature.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
-                        <CardContent className="p-6">
-                          <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-xl group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
-                              <IconComponent size={24} className="text-[hsl(var(--primary))]" />
+                {/* Cottage Features Grid with Time Slicing */}
+                <PerformanceOptimizer>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {accommodationOptions.cottage.features.map((feature, index) => {
+                      const IconComponent = feature.icon;
+                      return (
+                        <Card key={index} className={`bg-gradient-to-br ${feature.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
+                          <CardContent className="p-6">
+                            <div className="flex items-start gap-4">
+                              <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-xl group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
+                                <IconComponent size={24} className="text-[hsl(var(--primary))]" />
+                              </div>
+                              <div className="space-y-2 flex-1">
+                                <h4 className="heading-3 text-[hsl(var(--foreground))]">{feature.title}</h4>
+                                <p className="body-medium text-[hsl(var(--muted-foreground))]">{feature.description}</p>
+                              </div>
                             </div>
-                            <div className="space-y-2 flex-1">
-                              <h4 className="heading-3 text-[hsl(var(--foreground))]">{feature.title}</h4>
-                              <p className="body-medium text-[hsl(var(--muted-foreground))]">{feature.description}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
+                          </CardContent>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                </PerformanceOptimizer>
               </div>
             )}
 

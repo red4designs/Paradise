@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useWorkerManager } from '../../utils/workerManager';
+import { createOptimizedIntersectionObserver, preventImageLayoutShift } from '../../utils/layoutOptimizer';
 
 const LazyImage = ({ 
   src, 
@@ -12,10 +14,12 @@ const LazyImage = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [processedSrc, setProcessedSrc] = useState(src);
   const imgRef = useRef();
+  const workerManager = useWorkerManager();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const observer = createOptimizedIntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
@@ -35,7 +39,24 @@ const LazyImage = ({
     return () => observer.disconnect();
   }, []);
 
-  const handleLoad = () => {
+  // Process image with web worker when it comes into view
+  useEffect(() => {
+    if (isInView && src && workerManager) {
+      workerManager.processImages([{ src, alt }])
+        .then(results => {
+          if (results && results.length > 0) {
+            setProcessedSrc(results[0].optimizedSrc || src);
+          }
+        })
+        .catch(error => {
+          console.warn('Image processing failed, using original:', error);
+          setProcessedSrc(src);
+        });
+    }
+  }, [isInView, src, alt, workerManager]);
+
+  const handleLoad = (event) => {
+    preventImageLayoutShift(event.target);
     setIsLoaded(true);
   };
 
@@ -86,7 +107,7 @@ const LazyImage = ({
             <source srcSet={webpSrc} type="image/webp" />
           )}
           <img
-            src={hasError ? placeholder : src}
+            src={hasError ? placeholder : processedSrc}
             alt={alt}
             loading={loading}
             onLoad={handleLoad}

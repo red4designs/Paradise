@@ -51,11 +51,11 @@ const Header = () => {
   };
 
   const handleYoutube = () => {
-    window.open('https://youtube.com/@paradiseresort', '_blank');
+    window.open('https://www.youtube.com/@SatansGAMINGz', '_blank');
   };
 
   const handleTwitter = () => {
-    window.open('https://twitter.com/paradiseresort', '_blank');
+    window.open('https://twitter.com/vattavadaresort', '_blank');
   };
 
   const handleLinkedin = () => {

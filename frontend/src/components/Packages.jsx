@@ -52,12 +52,12 @@ const Packages = () => {
                         loading="lazy"
                       />
                     ) : index === 1 ? (
-                      <img 
-                        src="/images/Views/IMG_1701_optimized.webp" 
-                        alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
+                      <LazyImage 
+                         src="/images/Views/IMG_1701_optimized.webp" 
+                         alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
+                         className="w-full h-full object-cover"
+                         responsive={true}
+                       />
                     ) : (
                       <LazyImage 
                         src="/images/Views/IMG_20250220_213601.jpg" 

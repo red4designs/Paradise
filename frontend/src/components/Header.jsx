@@ -53,6 +53,8 @@ const Header = () => {
               src="/paradise-logo.svg" 
               alt="Paradise Resort Vattavada Logo" 
               className="h-16 w-auto"
+              width="64"
+              height="64"
             />
           </Link>
         </div>

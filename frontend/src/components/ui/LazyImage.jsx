@@ -6,6 +6,7 @@ const LazyImage = ({
   className = '', 
   placeholder = '/images/placeholder.svg',
   loading = 'lazy',
+  responsive = false,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,7 +52,16 @@ const LazyImage = ({
     return null;
   };
 
+  // Generate mobile version for responsive images
+  const getMobileSource = (originalSrc) => {
+    if (responsive && originalSrc.includes('_optimized.webp')) {
+      return originalSrc.replace('_optimized.webp', '_mobile.webp');
+    }
+    return null;
+  };
+
   const webpSrc = getWebPSource(src);
+  const mobileSrc = getMobileSource(src);
 
   return (
     <div 
@@ -66,9 +76,12 @@ const LazyImage = ({
         </div>
       )}
       
-      {/* Actual image with WebP support */}
+      {/* Actual image with WebP support and responsive sources */}
       {isInView && (
         <picture>
+          {mobileSrc && (
+            <source srcSet={mobileSrc} media="(max-width: 768px)" type="image/webp" />
+          )}
           {webpSrc && (
             <source srcSet={webpSrc} type="image/webp" />
           )}

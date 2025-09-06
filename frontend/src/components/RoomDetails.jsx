@@ -235,12 +235,12 @@ const RoomDetails = () => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                        <img 
-                          src="/images/Views/IMG_1701_optimized.webp" 
-                          alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
+                          <LazyImage 
+                            src="/images/Views/IMG_1701_optimized.webp" 
+                            alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
+                            className="w-full h-full object-cover"
+                            responsive={true}
+                          />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-4">

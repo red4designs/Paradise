@@ -33,7 +33,7 @@ function App() {
     <HelmetProvider>
       <PerformanceProvider>
         <ThemeProvider>
-          <Router basename={process.env.PUBLIC_URL}>
+          <Router>
             <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
               <Header />
               <Suspense fallback={<LoadingSpinner />}>

@@ -103,14 +103,15 @@ const FAQ = () => {
   return (
     <section id="faq" className="section-padding bg-black">
       <div className="max-width-container">
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h2 className="display-large mb-6">
-            ❓ Frequently Asked Questions – Paradise Resort Vattavada
+            Frequently Asked Questions - Best Vattavada Stay Paradise Resort Kerala
           </h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Find answers to common questions about our hotels and resorts in Vattavada
+            Get answers to common questions about booking, amenities, and accommodations for your perfect vattavada stay near Munnar. 
+            Everything you need to know for the ideal stay in vattavada hill station getaway.
           </p>
-        </div>
+        </header>
 
         {/* FAQ Navigation */}
         <div className="sticky top-20 z-40 mb-12 bg-black/95 backdrop-blur-sm border-b border-[hsl(var(--border))] pb-4">
@@ -141,7 +142,7 @@ const FAQ = () => {
               className="scroll-mt-36"
             >
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                {category.title}
+                Paradise Resort Vattavada - Guest Information & Booking Details
               </h3>
               
               <div className="space-y-4">

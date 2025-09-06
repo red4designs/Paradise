@@ -32,14 +32,14 @@ const Amenities = () => {
       className="section-padding bg-black"
     >
       <div className="max-width-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="display-large mb-6">🌟 World-Class Amenities</h2>
+        {/* Section Header - SEO Optimized */}
+        <header className="text-center mb-16">
+          <h2 className="display-large mb-6">Premium Vattavada Stay Amenities - Paradise Resort Kerala</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Every comfort and adventure you need for an unforgettable mountain experience 🏔️, 
-            from modern facilities to thrilling outdoor activities. 🎯
+            Experience world-class amenities at Kerala's premier vattavada stay destination. From luxury accommodations and modern facilities 
+            to adventure activities and breathtaking mountain views - everything you need for the perfect stay in vattavada hill station getaway.
           </p>
-        </div>
+        </header>
 
         {/* Amenities Grid */}
         <PerformanceOptimizer>
@@ -71,30 +71,32 @@ const Amenities = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div>
-              <h3 className="display-medium text-brand-primary mb-6">Premium Comfort Meets Adventure</h3>
+              <h3 className="display-medium text-brand-primary mb-6">Luxury Amenities at Best Budget Resort in Vattavada</h3>
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h4 className="heading-3">Modern Facilities</h4>
+                  <h4 className="heading-3">Modern Resort Facilities in Vattavada</h4>
                   <p className="body-medium text-text-secondary">
-                    Stay connected with free high-speed WiFi and enjoy 24/7 hot water supply. 
-                    Our private cottages and adventure tents are equipped with all modern amenities 
-                    while maintaining the authentic mountain experience.
+                    Stay connected with complimentary high-speed WiFi throughout the resort and enjoy 24/7 hot water supply in all accommodations. 
+                    Our luxury cottages, adventure tents, and resort rooms feature modern amenities including private bathrooms, comfortable bedding, 
+                    and mountain views while preserving the authentic Kerala hill station experience.
                   </p>
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="heading-3">Adventure Activities</h4>
+                  <h4 className="heading-3">Adventure Activities Near Munnar</h4>
                   <p className="body-medium text-text-secondary">
-                    Experience the thrill of guided jeep trekking through scenic mountain trails. 
-                    Enjoy magical campfire nights with music and BBQ sessions under the starlit sky.
+                    Embark on guided jeep trekking adventures through Vattavada's pristine mountain trails and tea plantations. 
+                    Experience magical campfire nights with live music, BBQ sessions, and stargazing under the clear Kerala hill station skies. 
+                    Perfect for families, couples, and adventure enthusiasts visiting the Munnar region.
                   </p>
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="heading-3">Breathtaking Views</h4>
+                  <h4 className="heading-3">Spectacular Mountain Views in Vattavada</h4>
                   <p className="body-medium text-text-secondary">
-                    Wake up to spectacular valley views extending up to 5 kilometers on clear days. 
-                    Our strategic location offers unparalleled mountain vistas and peaceful surroundings.
+                    Wake up to breathtaking valley views extending up to 5 kilometers across the Western Ghats on clear days. 
+                    Our strategic location in Vattavada offers unparalleled panoramic mountain vistas, sunrise views, and peaceful natural surroundings 
+                    just 7km from Top Station and Pampadum Shola National Park.
                   </p>
                 </div>
               </div>

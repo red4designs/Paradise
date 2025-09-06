@@ -71,10 +71,10 @@ const RoomDetails = () => {
   const accommodationOptionsRaw = useMemo(() => ({
     resort: {
       id: 'resort',
-      title: 'Budget Stay in Vattavada - Resort Rooms',
-      subtitle: 'Family Friendly Resort Experience',
+      title: 'Premium Resort Rooms - Best Vattavada Stay Accommodation in Kerala',
+      subtitle: 'Perfect Stay in Vattavada - Family-Friendly Mountain Resort Near Munnar',
       image: '/images/Views/IMG_1701_optimized.webp',
-      description: 'Experience premium hospitality at our family friendly resort in Vattavada with well-appointed rooms offering modern amenities and stunning mountain views. Perfect budget stay in Vattavada.',
+      description: 'Experience premium hospitality at our family friendly resort offering the perfect vattavada stay with well-appointed rooms featuring modern amenities and stunning mountain views. The ideal stay in vattavada for families and couples.',
       rooms: [
         {
           type: 'Deluxe Room',

@@ -45,30 +45,28 @@ const About = () => {
       className="section-padding bg-black"
     >
       <div className="max-width-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="display-large mb-6">🏡 About Paradise Resort Vattavada ✨</h2>
+        {/* Section Header - SEO Optimized */}
+        <header className="text-center mb-16">
+          <h2 className="display-large mb-6">About Paradise Resort Vattavada - Best Vattavada Stay Near Munnar</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Nestled in the heart of Vattavada's pristine mountains 🏔️, our family friendly resort in Vattavada offers 
-            the perfect homestay in Vattavada experience. As one of the best resorts near Vattavada, we provide 
-            budget stay in Vattavada with comfort, adventure, and natural beauty. 🌿
+            Nestled in the pristine mountains of Vattavada, Kerala, Paradise Resort offers the perfect vattavada stay with comfort, adventure, and natural beauty. 
+            Experience premium hospitality at our family-friendly resort featuring luxury cottages, adventure tents, and budget accommodations. The ideal stay in vattavada just 7km from Top Station and Pampadum Shola National Park. 🏔️
           </p>
-        </div>
+        </header>
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h3 className="display-medium text-brand-primary">🏠 Your Home Away From Home</h3>
+              <h3 className="display-medium text-brand-primary">Premium Vattavada Stay Experience in Kerala Mountains</h3>
               <p className="body-medium text-text-secondary">
-                Paradise Resort Vattavada is more than just accommodation - it's a gateway to unforgettable 
-                mountain experiences. 🌄 Our family has been welcoming guests for years, ensuring every visitor 
-                feels the warmth and safety of a true home. ❤️
+                Paradise Resort Vattavada is Kerala's premier destination for the perfect vattavada stay offering luxury accommodations in the heart of Munnar's hill station region. 
+                Our family-owned resort has been providing exceptional hospitality for years, ensuring every guest experiences the warmth, safety, and comfort of the best stay in vattavada.
               </p>
               <p className="body-medium text-text-secondary">
-                Located in the stunning hill station of Vattavada, we offer easy access to Top Station 
-                and Pampadum Shola National Park 🌲 while providing a peaceful retreat from the bustling world. ✨
+                Strategically located in Vattavada's pristine hill station, our vattavada stay provides convenient access to Top Station, Pampadum Shola National Park, 
+                and numerous trekking trails while offering a peaceful sanctuary surrounded by breathtaking valley views and lush mountain landscapes.
               </p>
             </div>
 

@@ -45,13 +45,22 @@ const Gallery = () => {
           
           // Create processed images map
           const processedMap = {};
-          optimizedImages.forEach((img, index) => {
-            processedMap[mockData.gallery[index].id] = {
-              ...mockData.gallery[index],
-              optimizedSrc: img.optimizedSrc || img.src,
-              metadata: img.metadata
-            };
-          });
+          
+          // Ensure optimizedImages is an array before processing
+          if (Array.isArray(optimizedImages) && optimizedImages.length > 0) {
+            optimizedImages.forEach((img, index) => {
+              processedMap[mockData.gallery[index].id] = {
+                ...mockData.gallery[index],
+                optimizedSrc: img.optimizedSrc || img.src,
+                metadata: img.metadata
+              };
+            });
+          } else {
+            // Fallback if optimizedImages is not a valid array
+            mockData.gallery.forEach(item => {
+              processedMap[item.id] = item;
+            });
+          }
           
           setProcessedImages(processedMap);
         } catch (error) {

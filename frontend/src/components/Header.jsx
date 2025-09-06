@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
 
@@ -16,6 +16,26 @@ const Header = () => {
   ];
 
   const location = useLocation();
+
+  // Handle hash navigation on page load or location change
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && location.pathname === '/') {
+      // Small delay to ensure the page has loaded
+      setTimeout(() => {
+        const sectionId = hash.replace('#', '');
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Hi! I would like to check availability at Paradise Resort Vattavada.');
@@ -36,7 +56,13 @@ const Header = () => {
 
   const handleNavClick = (href, isSection = false) => {
     if (isSection) {
-      // Handle section scrolling
+      // Handle section scrolling - only works on homepage
+      if (location.pathname !== '/') {
+        // Navigate to homepage first, then scroll to section
+        window.location.href = `/${href}`;
+        return;
+      }
+      
       const sectionId = href.replace('#', '');
       const element = document.getElementById(sectionId);
       if (element) {

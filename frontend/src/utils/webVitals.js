@@ -20,8 +20,22 @@ let performanceData = {
   timestamp: Date.now()
 };
 
-// Send performance data to analytics
+// Send performance data to analytics (deferred to avoid blocking main thread)
 const sendToAnalytics = (metric) => {
+  // Defer analytics to avoid blocking interactions
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      sendAnalyticsData(metric);
+    }, { timeout: 2000 });
+  } else {
+    setTimeout(() => {
+      sendAnalyticsData(metric);
+    }, 100);
+  }
+};
+
+// Actual analytics sending function
+const sendAnalyticsData = (metric) => {
   // Only send in production and if analytics is available
   if (process.env.NODE_ENV === 'production' && window.gtag) {
     window.gtag('event', metric.name, {
@@ -41,7 +55,7 @@ const sendToAnalytics = (metric) => {
     timestamp: Date.now()
   };
 
-  // Log performance issues in development
+  // Log performance issues in development (deferred)
   if (process.env.NODE_ENV === 'development') {
     const rating = getMetricRating(metric.name, metric.value);
     if (rating !== 'good') {

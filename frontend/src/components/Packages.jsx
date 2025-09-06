@@ -86,9 +86,7 @@ const Packages = () => {
                   <ul className="space-y-3">
                     {pkg.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-brand-primary/20 flex items-center justify-center">
-                          <Check size={12} className="text-brand-primary" />
-                        </div>
+                        <Check size={12} className="text-brand-primary bg-brand-primary/20 p-1 rounded" />
                         <span className="body-small text-text-secondary">{feature}</span>
                       </li>
                     ))}
@@ -138,15 +136,15 @@ const Packages = () => {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-brand-primary"></div>
+                    <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
                     <span className="body-small">Corporate team building packages</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-brand-primary"></div>
+                    <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
                     <span className="body-small">Family reunion special rates</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-brand-primary"></div>
+                    <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
                     <span className="body-small">Adventure group activities</span>
                   </li>
                 </ul>

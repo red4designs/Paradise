@@ -6,21 +6,46 @@ class WorkerManager {
     this.taskQueue = new Map();
     this.taskId = 0;
     this.isInitialized = false;
+    this.initPromise = null;
     
-    this.initWorker();
+    // Defer worker initialization to improve INP
+    this.deferredInit();
+  }
+  
+  deferredInit() {
+    // Initialize worker during idle time to avoid blocking main thread
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        this.initWorker();
+      }, { timeout: 3000 });
+    } else {
+      setTimeout(() => {
+        this.initWorker();
+      }, 1000);
+    }
   }
   
   initWorker() {
-    try {
-      this.worker = new Worker('/worker.js');
-      this.worker.onmessage = this.handleWorkerMessage.bind(this);
-      this.worker.onerror = this.handleWorkerError.bind(this);
-      this.isInitialized = true;
-      console.log('Web Worker initialized successfully');
-    } catch (error) {
-      console.warn('Web Worker not supported or failed to initialize:', error);
-      this.isInitialized = false;
+    if (this.isInitialized || this.initPromise) {
+      return this.initPromise;
     }
+    
+    this.initPromise = new Promise((resolve, reject) => {
+      try {
+        this.worker = new Worker('/worker.js');
+        this.worker.onmessage = this.handleWorkerMessage.bind(this);
+        this.worker.onerror = this.handleWorkerError.bind(this);
+        this.isInitialized = true;
+        console.log('Web Worker initialized successfully');
+        resolve();
+      } catch (error) {
+        console.warn('Web Worker not supported or failed to initialize:', error);
+        this.isInitialized = false;
+        reject(error);
+      }
+    });
+    
+    return this.initPromise;
   }
   
   handleWorkerMessage(e) {
@@ -51,8 +76,18 @@ class WorkerManager {
   }
   
   async executeTask(type, data) {
+    // Wait for worker initialization if not ready
     if (!this.isInitialized) {
-      // Fallback to main thread execution
+      try {
+        await this.initWorker();
+      } catch (error) {
+        console.warn('Worker initialization failed, falling back to main thread:', error);
+        return this.executeOnMainThread(type, data);
+      }
+    }
+    
+    if (!this.worker) {
+      console.warn('Worker not available, falling back to main thread');
       return this.executeOnMainThread(type, data);
     }
     

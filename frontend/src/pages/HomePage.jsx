@@ -3,11 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import RoomDetails from '../components/RoomDetails';
 import About from '../components/About';
-import Amenities from '../components/Amenities';
-import Packages from '../components/Packages';
-import Gallery from '../components/Gallery';
+// Lazy load non-critical below-the-fold components for better INP
+const Amenities = React.lazy(() => import('../components/Amenities'));
+const Packages = React.lazy(() => import('../components/Packages'));
+const Gallery = React.lazy(() => import('../components/Gallery'));
 const TravelGuide = React.lazy(() => import('../components/TravelGuide'));
-import FAQ from '../components/FAQ';
+const FAQ = React.lazy(() => import('../components/FAQ'));
 const Contact = React.lazy(() => import('../components/Contact'));
 import FAQSchema from '../components/schemas/FAQSchema';
 import EventSchema from '../components/schemas/EventSchema';
@@ -107,12 +108,31 @@ const HomePage = () => {
         
         <RoomDetails />
         <About />
-        <Amenities />
-        <Packages />
-        <Gallery />
-        <TravelGuide />
-        <FAQ />
-        <Contact />
+        
+        {/* Lazy loaded components with fallbacks for better INP */}
+        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <Amenities />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <Packages />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <Gallery />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-64 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <TravelGuide />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-64 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <FAQ />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+          <Contact />
+        </Suspense>
       </>
     </PerformanceOptimizer>
   );

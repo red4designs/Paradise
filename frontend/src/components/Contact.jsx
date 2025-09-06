@@ -121,7 +121,7 @@ Please check availability and let me know. Thank you!`;
           <div>
             <Card className="bg-white/5 border-white/25">
               <CardHeader className="p-6 pb-4">
-                <h3 className="heading-2">📝 Send Us a Message</h3>
+                <h3 className="heading-3">📝 Send Us a Message</h3>
                 <p className="body-medium text-text-secondary">
                   Fill out the form below and we'll get back to you within 24 hours. ⏰
                 </p>
@@ -140,8 +140,8 @@ Please check availability and let me know. Thank you!`;
                   <form onSubmit={(e) => { e.preventDefault(); handleWhatsApp(); }} className="space-y-6">
                     {/* Personal Info */}
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="body-small text-text-primary">Full Name *</label>
+                      <div>
+                        <label className="body-small text-text-primary mb-2 block">Full Name *</label>
                         <Input
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
@@ -150,8 +150,8 @@ Please check availability and let me know. Thank you!`;
                           required
                         />
                       </div>
-                      <div className="space-y-2">
-                        <label className="body-small text-text-primary">Phone Number *</label>
+                      <div>
+                        <label className="body-small text-text-primary mb-2 block">Phone Number *</label>
                         <Input
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
@@ -162,8 +162,8 @@ Please check availability and let me know. Thank you!`;
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="body-small text-text-primary">Email Address</label>
+                    <div>
+                      <label className="body-small text-text-primary mb-2 block">Email Address</label>
                       <Input
                         type="email"
                         value={formData.email}
@@ -301,7 +301,7 @@ Please check availability and let me know. Thank you!`;
             {/* Direct Contact */}
             <Card className="bg-white/5 border-white/25">
               <CardContent className="p-6">
-                <h3 className="heading-2 mb-6">📞 Direct Contact</h3>
+                <h3 className="heading-3 mb-6">📞 Direct Contact</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">
@@ -353,7 +353,7 @@ Please check availability and let me know. Thank you!`;
             {/* Location Info */}
             <Card className="bg-white/5 border-white/25">
               <CardContent className="p-6">
-                <h3 className="heading-2 mb-6">Location & Directions</h3>
+                <h3 className="heading-3 mb-6">Location & Directions</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center">

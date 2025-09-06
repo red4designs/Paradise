@@ -313,38 +313,34 @@ const RoomDetails = () => {
                   </CardContent>
                 </Card>
 
-                {/* Room Types Grid with Time Slicing */}
+                {/* Room Types Grid - Optimized DOM Structure */}
                 <PerformanceOptimizer>
                   <div className="grid md:grid-cols-3 gap-6">
                     {accommodationOptions.resort.rooms.map((room, index) => {
                       const IconComponent = room.icon;
                       return (
-                        <Card key={index} className={`bg-gradient-to-br ${room.color} border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] group`}>
-                          <CardContent className="p-6">
-                            <div className="space-y-4">
-                              <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
-                                  <IconComponent size={20} className="text-[hsl(var(--primary))]" />
-                                </div>
-                                <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
-                              </div>
-                              
-                              <div className="space-y-2">
-                                <p className="body-medium text-[hsl(var(--primary))] font-medium">{room.capacity}</p>
-                                <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
-                              </div>
-                              
-                              <div className="space-y-2">
-                                {room.features.map((feature, idx) => (
-                                  <div key={idx} className="flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 bg-[hsl(var(--primary))] rounded-full" />
-                                    <span className="body-small text-[hsl(var(--muted-foreground))]">{feature}</span>
-                                  </div>
-                                ))}
-                              </div>
+                        <div key={index} className={`p-6 bg-gradient-to-br ${room.color} border border-[hsl(var(--border))] rounded-lg hover:border-[hsl(var(--primary))] group transition-colors`}>
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
+                              <IconComponent size={20} className="text-[hsl(var(--primary))]" />
                             </div>
-                          </CardContent>
-                        </Card>
+                            <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
+                          </div>
+                          
+                          <div className="mb-4">
+                            <p className="body-medium text-[hsl(var(--primary))] font-medium mb-1">{room.capacity}</p>
+                            <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            {room.features.map((feature, idx) => (
+                              <div key={idx} className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 bg-[hsl(var(--primary))] rounded-full" />
+                                <span className="body-small text-[hsl(var(--muted-foreground))]">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       );
                     })}
                   </div>

@@ -44,8 +44,8 @@ const DormitoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>Budget Dormitory Stay Vattavada | Paradise Resort Backpacker Accommodation</title>
-        <meta name="description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups. Clean, comfortable beds with mountain views near Munnar Kerala." />
+        <title>Budget Dormitory Vattavada | Paradise Resort Stay</title>
+        <meta name="description" content="Affordable dormitory stay at Paradise Resort Vattavada. Perfect for backpackers & groups. Clean beds with mountain views near Munnar." />
         <meta name="keywords" content="budget dormitory Vattavada, backpacker accommodation Vattavada, cheap stay Vattavada, dormitory near Munnar, budget stay in Vattavada, hostel Vattavada, solo traveler accommodation, group stay Vattavada" />
         <link rel="canonical" href="https://www.paradisevattavada.com/dormitory" />
         

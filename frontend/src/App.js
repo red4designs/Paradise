@@ -73,48 +73,55 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  // Initialize resource optimizations with mobile-specific enhancements
+  // Initialize critical optimizations immediately, defer non-critical ones
   useEffect(() => {
-    // Initialize Core Web Vitals monitoring
+    // Critical: Initialize Core Web Vitals monitoring immediately
     initWebVitals();
     
-    // Preload critical resources for better LCP
+    // Critical: Preload critical resources for better LCP
     preloadCriticalResources();
     
-    // Initialize layout optimizer globally for mobile optimization
+    // Critical: Initialize layout optimizer globally
     window.layoutOptimizer = new LayoutOptimizer();
     
-    // Initialize general resource optimizations
-    initResourceOptimizer();
-    
-    // Optimize images for better loading
-    setTimeout(() => {
-      optimizeImages();
-    }, 100);
-    
-    // Initialize mobile-specific optimizations
-    initializeMobileOptimizations();
-    
-    // Preload critical routes
+    // Defer non-critical optimizations to improve INP
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
+        // Non-critical: General resource optimizations
+        initResourceOptimizer();
+        
+        // Non-critical: Mobile-specific optimizations
+        initializeMobileOptimizations();
+        
+        // Non-critical: Image optimization
+        setTimeout(() => {
+          optimizeImages();
+        }, 100);
+        
+        // Non-critical: Route preloading
         preloadRoutes();
-      }, { timeout: 2000 });
+      }, { timeout: 3000 });
     } else {
+      // Fallback: Defer with setTimeout
       setTimeout(() => {
+        initResourceOptimizer();
+        initializeMobileOptimizations();
+        optimizeImages();
         preloadRoutes();
       }, 2000);
     }
     
-    // Register service worker for caching optimization
+    // Defer service worker registration to avoid blocking main thread
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-          console.log('SW registered: ', registration);
-        })
-        .catch(registrationError => {
-          console.log('SW registration failed: ', registrationError);
-        });
+      setTimeout(() => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      }, 1000);
     }
     
     // Cleanup on unmount

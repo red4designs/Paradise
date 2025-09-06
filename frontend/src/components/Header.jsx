@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Instagram, Facebook, ExternalLink, Youtube, Twitter, Linkedin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,6 +48,18 @@ const Header = () => {
 
   const handleFacebook = () => {
     window.open('https://www.facebook.com/paradisevattavada1', '_blank');
+  };
+
+  const handleYoutube = () => {
+    window.open('https://youtube.com/@paradiseresort', '_blank');
+  };
+
+  const handleTwitter = () => {
+    window.open('https://twitter.com/paradiseresort', '_blank');
+  };
+
+  const handleLinkedin = () => {
+    window.open('https://linkedin.com/company/paradiseresort', '_blank');
   };
 
   const handleAgodaBooking = () => {
@@ -146,6 +158,27 @@ const Header = () => {
             >
               <Facebook size={20} />
             </button>
+            <button 
+              onClick={handleYoutube}
+              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              aria-label="Subscribe to our YouTube channel"
+            >
+              <Youtube size={20} />
+            </button>
+            <button 
+              onClick={handleTwitter}
+              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              aria-label="Follow us on X (Twitter)"
+            >
+              <Twitter size={20} />
+            </button>
+            <button 
+              onClick={handleLinkedin}
+              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              aria-label="Connect with us on LinkedIn"
+            >
+              <Linkedin size={20} />
+            </button>
           </div>
           <div className="flex items-center gap-3">
             <button onClick={handleAgodaBooking} className="btn-primary">
@@ -212,7 +245,7 @@ const Header = () => {
           
           <div className="flex flex-col gap-3">
             {/* Social Media Links */}
-            <div className="flex items-center gap-4 justify-center mb-3">
+            <div className="flex items-center gap-3 justify-center mb-3 flex-wrap">
               <button 
                 onClick={handleInstagram}
                 className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
@@ -226,6 +259,27 @@ const Header = () => {
                 aria-label="Follow us on Facebook"
               >
                 <Facebook size={24} />
+              </button>
+              <button 
+                onClick={handleYoutube}
+                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                aria-label="Subscribe to our YouTube channel"
+              >
+                <Youtube size={24} />
+              </button>
+              <button 
+                onClick={handleTwitter}
+                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                aria-label="Follow us on X (Twitter)"
+              >
+                <Twitter size={24} />
+              </button>
+              <button 
+                onClick={handleLinkedin}
+                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                aria-label="Connect with us on LinkedIn"
+              >
+                <Linkedin size={24} />
               </button>
             </div>
             <button onClick={handleAgodaBooking} className="btn-primary">

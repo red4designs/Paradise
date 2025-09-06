@@ -74,7 +74,7 @@ const Amenities = () => {
               <h3 className="display-medium text-brand-primary mb-6">Luxury Amenities at Best Budget Resort in Vattavada</h3>
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h4 className="heading-3">Modern Resort Facilities in Vattavada</h4>
+                  <h4 className="heading-4">Modern Resort Facilities in Vattavada</h4>
                   <p className="body-medium text-text-secondary">
                     Stay connected with complimentary high-speed WiFi throughout the resort and enjoy 24/7 hot water supply in all accommodations. 
                     Our luxury cottages, adventure tents, and resort rooms feature modern amenities including private bathrooms, comfortable bedding, 
@@ -83,7 +83,7 @@ const Amenities = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="heading-3">Adventure Activities Near Munnar</h4>
+                  <h4 className="heading-4">Adventure Activities Near Munnar</h4>
                   <p className="body-medium text-text-secondary">
                     Embark on guided jeep trekking adventures through Vattavada's pristine mountain trails and tea plantations. 
                     Experience magical campfire nights with live music, BBQ sessions, and stargazing under the clear Kerala hill station skies. 
@@ -92,7 +92,7 @@ const Amenities = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="heading-3">Spectacular Mountain Views in Vattavada</h4>
+                  <h4 className="heading-4">Spectacular Mountain Views in Vattavada</h4>
                   <p className="body-medium text-text-secondary">
                     Wake up to breathtaking valley views extending up to 5 kilometers across the Western Ghats on clear days. 
                     Our strategic location in Vattavada offers unparalleled panoramic mountain vistas, sunrise views, and peaceful natural surroundings 
@@ -105,53 +105,49 @@ const Amenities = () => {
 
           {/* Right Content - Amenities Highlights */}
           <div className="space-y-6">
-            <Card className="bg-gradient-to-br from-brand-primary/10 to-transparent border-brand-primary/30">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
-                    <Home size={24} className="text-black" />
-                  </div>
-                  <div className="space-y-2 flex-1">
-                    <h4 className="heading-3">🏠 Private Cottages</h4>
-                    <p className="body-small text-text-secondary">
-                      Spacious 3-bedroom cottages accommodating up to 18 guests with complete privacy and comfort.
-                    </p>
-                    <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
-                      <img 
-                        src={`/images/Cottages/IMG_20250208_122711.jpg?v=${Date.now()}`} 
-                        alt="3 bedroom private cottage in Vattavada - budget resort accommodation" 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
+            <div className="p-6 bg-gradient-to-br from-brand-primary/10 to-transparent border border-brand-primary/30 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
+                  <Home size={24} className="text-black" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="heading-4 mb-2">🏠 Private Cottages</h4>
+                  <p className="body-small text-text-secondary mb-3">
+                    Spacious 3-bedroom cottages accommodating up to 18 guests with complete privacy and comfort.
+                  </p>
+                  <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm">
+                    <img 
+                      src={`/images/Cottages/IMG_20250208_122711.jpg?v=${Date.now()}`} 
+                      alt="3 bedroom private cottage in Vattavada - budget resort accommodation" 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="bg-gradient-to-br from-brand-primary/10 to-transparent border-brand-primary/30">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
-                    <Mountain size={24} className="text-black" />
-                  </div>
-                  <div className="space-y-2 flex-1">
-                    <h4 className="heading-3">⛺ Adventure Camping</h4>
-                    <p className="body-small text-text-secondary">
-                      8 premium tents for up to 24 guests, perfect for group adventures and nature immersion.
-                    </p>
-                    <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm mt-3">
-                      <LazyImage 
-                        src="/images/Tents/IMG_3632.JPEG?v=1" 
-                        alt="Premium camping tents in Vattavada - adventure camping experience" 
-                        className="w-full h-full"
-                        loading="lazy"
-                      />
-                    </div>
+            <div className="p-6 bg-gradient-to-br from-brand-primary/10 to-transparent border border-brand-primary/30 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-brand-primary flex items-center justify-center">
+                  <Mountain size={24} className="text-black" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="heading-4 mb-2">⛺ Adventure Camping</h4>
+                  <p className="body-small text-text-secondary mb-3">
+                    8 premium tents for up to 24 guests, perfect for group adventures and nature immersion.
+                  </p>
+                  <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm">
+                    <LazyImage 
+                      src="/images/Tents/IMG_3632.JPEG?v=1" 
+                      alt="Premium camping tents in Vattavada - adventure camping experience" 
+                      className="w-full h-full"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             <Card className="bg-gradient-to-br from-brand-primary/10 to-transparent border-brand-primary/30">
               <CardContent className="p-6">
@@ -160,7 +156,7 @@ const Amenities = () => {
                     <Music size={24} className="text-black" />
                   </div>
                   <div className="space-y-2 flex-1">
-                    <h4 className="heading-3">🔥 Evening Entertainment</h4>
+                    <h4 className="heading-4">🔥 Evening Entertainment</h4>
                     <p className="body-small text-text-secondary">
                       Campfire nights with music and BBQ facilities creating unforgettable mountain memories.
                     </p>

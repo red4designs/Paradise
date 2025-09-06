@@ -249,57 +249,33 @@ const Gallery = () => {
           </div>
         )}
 
-        {/* Gallery Grid with Time Slicing */}
+        {/* Gallery Grid - Optimized DOM Structure */}
         <PerformanceOptimizer>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
             {filteredImages.map((item, index) => (
-              <Card 
+              <div 
                 key={item.id} 
-                className="theme-card theme-hover cursor-pointer overflow-hidden group"
+                className="relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-lg overflow-hidden cursor-pointer group hover:border-[hsl(var(--primary))] transition-colors"
                 onClick={() => openLightbox(item, index)}
-                style={{
-                  backgroundColor: 'hsl(var(--card))',
-                  borderColor: 'hsl(var(--border))'
-                }}
               >
-                <CardContent className="p-0">
-                  <div className="relative">
-                    {/* Optimized Lazy Image with Sharing */}
-                    <LazyImage
-                      src={item.image}
-                      alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
-                      className="aspect-square"
-                      loading="lazy"
-                      enableSharing={true}
-                      shareTitle={`${item.title} - Paradise Resort Vattavada`}
-                      shareDescription={`Experience ${item.title} in our ${item.category} at Paradise Resort Vattavada - Premium budget accommodation in Munnar`}
-                    />
-                    
-                    {/* Hover Overlay */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                      style={{ backgroundColor: 'hsl(var(--background) / 0.8)' }}
-                    >
-                      <div className="text-center">
-                        <ImageIcon size={32} style={{ color: 'hsl(var(--primary))' }} className="mx-auto mb-2" />
-                        <p className="body-small" style={{ color: 'hsl(var(--foreground))' }}>View Full Size</p>
-                      </div>
-                    </div>
-                    
-                    {/* Category Badge */}
-                    <Badge 
-                      className="absolute top-2 left-2 z-10"
-                      style={{
-                        backgroundColor: 'hsl(var(--primary))',
-                        color: 'hsl(var(--primary-foreground))'
-                      }}
-                    >
-                      {item.category}
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                <LazyImage
+                  src={item.image}
+                  alt={`${item.title} - ${item.category} at Paradise Resort Vattavada`}
+                  className="aspect-square w-full object-cover"
+                  loading="lazy"
+                />
+                
+                {/* Simplified Hover Overlay */}
+                <div className="absolute inset-0 bg-[hsl(var(--background)_/_0.8)] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <ImageIcon size={32} className="text-[hsl(var(--primary))]" />
+                </div>
+                
+                {/* Category Badge */}
+                <span className="absolute top-2 left-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-2 py-1 rounded text-xs font-medium">
+                  {item.category}
+                </span>
+               </div>
+             ))}
           </div>
         </PerformanceOptimizer>
 

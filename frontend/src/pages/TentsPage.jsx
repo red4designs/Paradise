@@ -49,7 +49,7 @@ const TentsPage = () => {
     <>
       <Helmet>
         <title>Camping in Vattavada | Premium Tent Stay Paradise Resort</title>
-        <meta name="description" content="Experience premium camping at Paradise Resort Vattavada. Luxury tent accommodation with mountain views, adventure activities & campfire nights. Perfect for adventure lovers near Munnar." />
+        <meta name="description" content="Premium camping at Paradise Resort Vattavada. Luxury tents with mountain views, adventure activities & campfire nights near Munnar." />
         <meta name="keywords" content="tent stay in Vattavada, camping in Vattavada, premium tent accommodation, adventure camping Kerala, tent stay near Munnar, Vattavada trekking stay, camping with mountain view, outdoor adventure Vattavada" />
         <link rel="canonical" href="https://www.paradisevattavada.com/tents" />
         

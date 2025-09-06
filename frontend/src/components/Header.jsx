@@ -10,6 +10,8 @@ const Header = () => {
     { href: '/cottages', label: 'Cottages' },
     { href: '/tents', label: 'Tents' },
     { href: '/dormitory', label: 'Dormitory' },
+    { href: '/#gallery', label: 'Gallery' },
+    { href: '/#faq', label: 'FAQ' },
     { href: '/contact', label: 'Contact' }
   ];
 
@@ -33,8 +35,15 @@ const Header = () => {
   };
 
   const handleNavClick = (href) => {
-    // Scroll to top for specific pages
-    if (href === '/' || href === '/cottages' || href === '/tents' || href === '/dormitory') {
+    // Handle section scrolling for anchor links
+    if (href.startsWith('/#')) {
+      const sectionId = href.substring(2); // Remove '/#'
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href === '/' || href === '/cottages' || href === '/tents' || href === '/dormitory') {
+      // Scroll to top for specific pages
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -61,20 +70,38 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className={`body-medium theme-transition ${
-                location.pathname === link.href
-                  ? 'text-[hsl(var(--foreground))] font-semibold'
-                  : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            // Use anchor tags for section links, React Router Links for pages
+            if (link.href.startsWith('/#')) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className="body-medium theme-transition text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`body-medium theme-transition ${
+                  location.pathname === link.href
+                    ? 'text-[hsl(var(--foreground))] font-semibold'
+                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Contact Actions */}
@@ -115,23 +142,42 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] px-[7.6923%] py-6">
           <nav className="flex flex-col gap-4 mb-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  handleNavClick(link.href);
-                }}
-                className={`body-medium theme-transition ${
-                  location.pathname === link.href
-                    ? 'text-[hsl(var(--foreground))] font-semibold'
-                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              // Use anchor tags for section links, React Router Links for pages
+              if (link.href.startsWith('/#')) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false);
+                      handleNavClick(link.href);
+                    }}
+                    className="body-medium theme-transition text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleNavClick(link.href);
+                  }}
+                  className={`body-medium theme-transition ${
+                    location.pathname === link.href
+                      ? 'text-[hsl(var(--foreground))] font-semibold'
+                      : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
           
           <div className="flex flex-col gap-3">

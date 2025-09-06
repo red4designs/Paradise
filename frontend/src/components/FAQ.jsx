@@ -55,7 +55,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="section-padding bg-black">
+    <section id="faq" className="section-padding bg-black">
       <div className="max-width-container">
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">

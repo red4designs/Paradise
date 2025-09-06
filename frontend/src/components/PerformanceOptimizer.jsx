@@ -179,7 +179,10 @@ const PerformanceOptimizer = ({ children }) => {
 
   return (
     <>
-      {React.cloneElement(children, { optimizationContext })}
+      {React.isValidElement(children) && typeof children.type === 'function' 
+        ? React.cloneElement(children, { optimizationContext })
+        : children
+      }
     </>
   );
 };

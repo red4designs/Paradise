@@ -12,15 +12,7 @@ const Contact = React.lazy(() => import('../components/Contact'));
 import FAQSchema from '../components/schemas/FAQSchema';
 import EventSchema from '../components/schemas/EventSchema';
 import OfferSchema from '../components/schemas/OfferSchema';
-import ScrollLoader from '../components/ui/ScrollLoader';
-import { 
-  SectionSkeleton, 
-  GallerySkeleton, 
-  PackagesSkeleton, 
-  AmenitiesSkeleton, 
-  FAQSkeleton, 
-  ContactSkeleton 
-} from '../components/ui/LoadingSkeletons';
+
 import PerformanceOptimizer from '../components/PerformanceOptimizer';
 import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization';
 
@@ -113,37 +105,14 @@ const HomePage = () => {
 
         <Hero />
         
-        <ScrollLoader fallback={<SectionSkeleton />}>
-          <RoomDetails />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<SectionSkeleton />}>
-          <About />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<AmenitiesSkeleton />}>
-          <Amenities />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<PackagesSkeleton />}>
-          <Packages />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<GallerySkeleton />}>
-          <Gallery />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<SectionSkeleton />}>
-          <TravelGuide />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<FAQSkeleton />}>
-          <FAQ />
-        </ScrollLoader>
-        
-        <ScrollLoader fallback={<ContactSkeleton />}>
-          <Contact />
-        </ScrollLoader>
+        <RoomDetails />
+        <About />
+        <Amenities />
+        <Packages />
+        <Gallery />
+        <TravelGuide />
+        <FAQ />
+        <Contact />
       </>
     </PerformanceOptimizer>
   );

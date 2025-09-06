@@ -34,7 +34,7 @@ const Amenities = () => {
       <div className="max-width-container">
         {/* Section Header - SEO Optimized */}
         <header className="text-center mb-16">
-          <h2 className="display-large mb-6">Premium Vattavada Stay Amenities - Paradise Resort Kerala</h2>
+          <h2 className="display-large mb-6">World-Class Resort Amenities & Facilities</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
             Experience world-class amenities at Kerala's premier vattavada stay destination. From luxury accommodations and modern facilities 
             to adventure activities and breathtaking mountain views - everything you need for the perfect stay in vattavada hill station getaway.

@@ -97,7 +97,7 @@ const FAQ = () => {
         },
         {
           question: "What internet and mobile connectivity options are available in Vattavada?",
-          answer: "Paradise Resort Vattavada provides complimentary high-speed WiFi internet access throughout the property, including all rooms, common areas, and outdoor spaces. Our WiFi network is reliable and suitable for video calls, streaming, and work-from-mountain needs. Regarding mobile connectivity, major Indian networks (Airtel, Jio, BSNL) have coverage in Vattavada, though signal strength may vary in some remote areas due to the mountainous terrain. We recommend downloading offline maps and entertainment before arrival for the best experience.",
+          answer: "Paradise Resort Vattavada provides complimentary high-speed WiFi internet access throughout the property, including all rooms, common areas, and outdoor spaces. Our WiFi network is reliable and suitable for video calls, streaming, and work-from-mountain needs. Regarding mobile connectivity, major Indian networks ( Jio, BSNL) have coverage in Vattavada, though signal strength may vary in some remote areas due to the mountainous terrain. We recommend downloading offline maps and entertainment before arrival for the best experience.",
           category: "Connectivity & Technology",
           keywords: ["free WiFi Vattavada", "internet connectivity", "mobile network", "work from mountain"]
         },

@@ -47,7 +47,7 @@ const About = () => {
       <div className="max-width-container">
         {/* Section Header - SEO Optimized */}
         <header className="text-center mb-16">
-          <h2 className="display-large mb-6">About Paradise Resort Vattavada - Best Vattavada Stay Near Munnar</h2>
+          <h2 className="display-large mb-6">Discover Our Mountain Resort Experience</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
             Nestled in the pristine mountains of Vattavada, Kerala, Paradise Resort offers the perfect vattavada stay with comfort, adventure, and natural beauty. 
             Experience premium hospitality at our family-friendly resort featuring luxury cottages, adventure tents, and budget accommodations. The ideal stay in vattavada just 7km from Top Station and Pampadum Shola National Park. 🏔️
@@ -68,6 +68,25 @@ const About = () => {
                 Strategically located in Vattavada's pristine hill station, our vattavada stay provides convenient access to Top Station, Pampadum Shola National Park, 
                 and numerous trekking trails while offering a peaceful sanctuary surrounded by breathtaking valley views and lush mountain landscapes.
               </p>
+              
+              {/* Internal Links for Better SEO */}
+              <div className="flex flex-wrap gap-4 mt-6">
+                <Link to="/cottages" className="text-brand-primary hover:text-brand-primary/80 underline transition-colors">
+                  Explore Our Cottages
+                </Link>
+                <Link to="/tents" className="text-brand-primary hover:text-brand-primary/80 underline transition-colors">
+                  Adventure Tent Stay
+                </Link>
+                <Link to="/dormitory" className="text-brand-primary hover:text-brand-primary/80 underline transition-colors">
+                  Budget Dormitory
+                </Link>
+                <a href="#amenities" className="text-brand-primary hover:text-brand-primary/80 underline transition-colors">
+                  Resort Amenities
+                </a>
+                <a href="#gallery" className="text-brand-primary hover:text-brand-primary/80 underline transition-colors">
+                  Photo Gallery
+                </a>
+              </div>
             </div>
 
             {/* Stats */}

@@ -167,7 +167,7 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="tel:9074902424" className="btn-primary">
                 <Phone size={18} />
-                Call Now
+                Call Today
               </a>
               <button 
                 onClick={() => window.open('https://wa.me/919074902424', '_blank')}
@@ -195,7 +195,7 @@ const Footer = () => {
         <div className="max-width-container px-[7.6923%]">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="body-small text-text-muted text-center sm:text-left">
-              Paradise Resort Vattavada - Your gateway to mountain adventures
+              Your gateway to mountain adventures in Kerala
             </p>
             
             <div className="flex items-center gap-4">

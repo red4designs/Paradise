@@ -92,8 +92,8 @@ const LazyImage = ({
     >
       {/* Loading placeholder */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full"></div>
+        <div className="absolute inset-0 bg-[hsl(var(--muted))] flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-[hsl(var(--muted-foreground)_/_0.3)] border-t-[hsl(var(--muted-foreground))] rounded-full animate-spin"></div>
         </div>
       )}
       

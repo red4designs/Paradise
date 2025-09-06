@@ -173,7 +173,7 @@ const TravelGuide = () => {
                       <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg mx-auto mb-4">
                         <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
                       </div>
-                      <h4 className="heading-4 mb-3">{tip.title}</h4>
+                      <h4 className="heading-3 mb-3">{tip.title}</h4>
                       <p className="body-small text-[hsl(var(--muted-foreground))]">{tip.content}</p>
                     </CardContent>
                   </Card>
@@ -193,7 +193,7 @@ const TravelGuide = () => {
               renderItem={(activity, index) => (
                 <Card key={index} className="bg-[hsl(var(--card))] border-[hsl(var(--border))]">
                   <CardContent className="p-6">
-                    <h4 className="heading-4 mb-3">{activity.name}</h4>
+                    <h4 className="heading-3 mb-3">{activity.name}</h4>
                     <p className="body-medium text-[hsl(var(--muted-foreground))] mb-4">{activity.description}</p>
                     <div className="flex justify-between text-sm">
                       <span className="text-[hsl(var(--primary))]">

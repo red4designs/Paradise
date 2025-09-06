@@ -70,7 +70,7 @@ const FAQ = () => {
           {faqData.map((item, index) => (
             <div 
               key={index} 
-              className="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden transition-all duration-200 hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/10"
+              className="bg-[hsl(var(--card))] rounded-lg border border-[hsl(var(--border))] overflow-hidden transition-all duration-200 hover:border-[hsl(var(--primary))] hover:shadow-lg hover:shadow-[hsl(var(--primary)_/_0.1)]"
             >
               <button
                 onClick={() => toggleItem(index)}
@@ -80,15 +80,15 @@ const FAQ = () => {
                   {item.question}
                 </span>
                 {openItems[index] ? (
-                  <ChevronUpIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                  <ChevronUpIcon className="h-5 w-5 text-[hsl(var(--primary))] flex-shrink-0" />
                 ) : (
-                  <ChevronDownIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                  <ChevronDownIcon className="h-5 w-5 text-[hsl(var(--primary))] flex-shrink-0" />
                 )}
               </button>
               
               {openItems[index] && (
                 <div className="px-6 pb-4 border-t border-gray-800">
-                  <div className="pt-4 text-gray-300 leading-relaxed whitespace-pre-line">
+                  <div className="pt-4 text-[hsl(var(--muted-foreground))] leading-relaxed whitespace-pre-line">
                     {item.answer}
                   </div>
                 </div>
@@ -104,7 +104,7 @@ const FAQ = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:+919074902424" 
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-lg hover:shadow-primary-500/25"
+              className="inline-flex items-center px-6 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-semibold rounded-lg hover:bg-[hsl(var(--primary)_/_0.9)] transition-colors shadow-lg hover:shadow-[hsl(var(--primary)_/_0.25)]"
             >
               📞 Call +91 90749 02424
             </a>

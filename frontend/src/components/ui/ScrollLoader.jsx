@@ -53,11 +53,11 @@ const ScrollLoader = ({
             <div className="min-h-[200px] flex items-center justify-center">
               <div className="space-y-6 w-full max-w-4xl mx-auto px-4">
                 <div className="text-center mb-6">
-                  <div className="text-blue-600 font-semibold text-lg">Loading content...</div>
+                  <div className="text-[hsl(var(--primary))] font-semibold text-lg">Loading content...</div>
                   <div className="mt-2 flex justify-center space-x-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
+                    <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
+          <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
+          <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -77,11 +77,11 @@ const ScrollLoader = ({
             <div className="min-h-[200px] flex items-center justify-center">
               <div className="space-y-6 w-full max-w-4xl mx-auto px-4">
                 <div className="text-center mb-6">
-                  <div className="text-blue-600 font-semibold text-lg">Loading content...</div>
+                  <div className="text-[hsl(var(--primary))] font-semibold text-lg">Loading content...</div>
                   <div className="mt-2 flex justify-center space-x-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
+                    <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
+          <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
+          <div className="w-2 h-2 bg-[hsl(var(--primary)_/_0.7)] rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
                   </div>
                 </div>
                 <div className="space-y-4">

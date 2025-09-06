@@ -107,7 +107,7 @@ const Footer = () => {
               <div className="space-y-4">
                 {accommodations.map((acc, index) => (
                   <div key={index} className="space-y-1">
-                    <h5 className="body-medium text-text-primary font-medium">{acc.label}</h5>
+                    <div className="body-medium text-text-primary font-medium">{acc.label}</div>
                     <p className="body-small text-text-muted">{acc.capacity}</p>
                   </div>
                 ))}

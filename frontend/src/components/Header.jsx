@@ -59,7 +59,7 @@ const Header = () => {
   };
 
   const handleLinkedin = () => {
-    window.open('https://linkedin.com/company/paradiseresort', '_blank');
+    window.open('https://www.linkedin.com/in/paradiseresort/', '_blank');
   };
 
   const handleAgodaBooking = () => {

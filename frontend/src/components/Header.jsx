@@ -10,8 +10,8 @@ const Header = () => {
     { href: '/cottages', label: 'Cottages' },
     { href: '/tents', label: 'Tents' },
     { href: '/dormitory', label: 'Dormitory' },
-    { href: '#gallery', label: 'Gallery', isSection: true },
-    { href: '#faq', label: 'FAQ', isSection: true },
+    { href: '#gallery', label: 'Experience paradise', isSection: true },
+    { href: '#faq', label: 'frequently asked questions', isSection: true },
     { href: '/contact', label: 'Contact' }
   ];
 

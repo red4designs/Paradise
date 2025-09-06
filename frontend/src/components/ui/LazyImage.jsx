@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useWorkerManager } from '../../utils/workerManager';
 import { createOptimizedIntersectionObserver, preventImageLayoutShift } from '../../utils/layoutOptimizer';
+import ImageShare from './ImageShare';
 
 const LazyImage = ({ 
   src, 
@@ -9,6 +10,9 @@ const LazyImage = ({
   placeholder = '/images/placeholder.svg',
   loading = 'lazy',
   responsive = false,
+  enableSharing = true,
+  shareTitle,
+  shareDescription,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -87,7 +91,7 @@ const LazyImage = ({
   return (
     <div 
       ref={imgRef}
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden group ${className}`}
       {...props}
     >
       {/* Loading placeholder */}
@@ -119,6 +123,20 @@ const LazyImage = ({
             decoding="async"
           />
         </picture>
+      )}
+      
+      {/* Share Button - Only show on hover and when loaded */}
+      {enableSharing && isLoaded && !hasError && (
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <ImageShare
+            imageUrl={processedSrc}
+            imageTitle={shareTitle || alt}
+            imageDescription={shareDescription || `Beautiful view at Paradise Resort Vattavada - ${alt}`}
+            size="sm"
+            variant="ghost"
+            className="bg-white/90 backdrop-blur-sm rounded-full shadow-sm"
+          />
+        </div>
       )}
     </div>
   );

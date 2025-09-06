@@ -264,12 +264,15 @@ const Gallery = () => {
               >
                 <CardContent className="p-0">
                   <div className="relative">
-                    {/* Optimized Lazy Image */}
+                    {/* Optimized Lazy Image with Sharing */}
                     <LazyImage
                       src={item.image}
                       alt={`${item.title} - ${item.category} at Paradise Resort Vattavada budget accommodation`}
                       className="aspect-square"
                       loading="lazy"
+                      enableSharing={true}
+                      shareTitle={`${item.title} - Paradise Resort Vattavada`}
+                      shareDescription={`Experience ${item.title} in our ${item.category} at Paradise Resort Vattavada - Premium budget accommodation in Munnar`}
                     />
                     
                     {/* Hover Overlay */}

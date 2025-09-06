@@ -63,6 +63,9 @@ Please confirm availability and provide pricing details. Thank you!`;
           alt="Breathtaking Vattavada Hill Station Mountain Views - Paradise Resort" 
           className="w-full h-full object-cover"
           loading="eager"
+          enableSharing={true}
+          shareTitle="Paradise Resort Vattavada - Breathtaking Mountain Views"
+          shareDescription="Experience the stunning beauty of Vattavada Hill Station at Paradise Resort - Premium budget accommodation with breathtaking mountain views near Munnar"
         />
         {/* Gradient overlay for better readability and depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>

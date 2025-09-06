@@ -290,6 +290,9 @@ const RoomDetails = () => {
                             alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
                             className="w-full h-full object-cover"
                             responsive={true}
+                            enableSharing={true}
+                            shareTitle="Premium Resort Rooms - Paradise Resort Vattavada"
+                            shareDescription="Experience luxury accommodation at Paradise Resort Vattavada - Premium budget resort rooms with stunning mountain views near Munnar"
                           />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
@@ -419,6 +422,9 @@ const RoomDetails = () => {
                           alt="Camping in Vattavada - premium tent accommodation for adventure lovers" 
                           className="w-full h-full"
                           loading="lazy"
+                          enableSharing={true}
+                          shareTitle="Premium Tent Stay - Paradise Resort Vattavada"
+                          shareDescription="Adventure camping experience at Paradise Resort Vattavada - Premium tent accommodation with mountain views for nature lovers"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">

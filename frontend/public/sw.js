@@ -1,16 +1,34 @@
-// Service Worker for Paradise Resort - Advanced Caching Strategy
-const CACHE_NAME = 'paradise-resort-v1.2.0';
-const STATIC_CACHE = 'paradise-static-v1.2.0';
-const DYNAMIC_CACHE = 'paradise-dynamic-v1.2.0';
-const IMAGE_CACHE = 'paradise-images-v1.2.0';
-const FONT_CACHE = 'paradise-fonts-v1.2.0';
+// Service Worker for Paradise Resort - Core Web Vitals Optimized Caching
+const CACHE_NAME = 'paradise-resort-v1.3.0';
+const STATIC_CACHE = 'paradise-static-v1.3.0';
+const DYNAMIC_CACHE = 'paradise-dynamic-v1.3.0';
+const IMAGE_CACHE = 'paradise-images-v1.3.0';
+const FONT_CACHE = 'paradise-fonts-v1.3.0';
+const API_CACHE = 'paradise-api-v1.3.0';
 
-// Resources to cache immediately
+// Cache duration settings for different resource types
+const CACHE_STRATEGIES = {
+  static: { maxAge: 31536000000, maxEntries: 100 }, // 1 year
+  dynamic: { maxAge: 86400000, maxEntries: 50 }, // 1 day
+  images: { maxAge: 2592000000, maxEntries: 200 }, // 30 days
+  fonts: { maxAge: 31536000000, maxEntries: 20 }, // 1 year
+  api: { maxAge: 300000, maxEntries: 30 } // 5 minutes
+};
+
+// Critical resources to cache immediately for faster LCP
 const STATIC_ASSETS = [
   '/',
-  '/static/js/bundle.js',
   '/static/css/main.css',
-  '/manifest.json'
+  '/static/css/mobile-non-critical.css',
+  '/manifest.json',
+  '/paradise-logo.svg'
+];
+
+// JavaScript chunks to cache (will be updated dynamically)
+const JS_CHUNKS = [
+  '/static/js/runtime.*.js',
+  '/static/js/main.*.js',
+  '/static/js/react.*.js'
 ];
 
 // Font files to cache (no external CSS requests)

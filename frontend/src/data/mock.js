@@ -108,24 +108,75 @@ export const mockData = {
   testimonials: [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      location: "Bangalore",
+      name: "Dr. Rajesh Kumar",
+      location: "Bangalore, Karnataka",
+      profession: "Medical Professional",
       rating: 5,
-      comment: "Amazing experience! The cottage was spacious and the views were breathtaking. Perfect for family vacation."
+      date: "December 2024",
+      verified: true,
+      stayDuration: "3 nights",
+      accommodationType: "Private Cottage",
+      comment: "As a medical professional who values cleanliness and safety, I was thoroughly impressed with Paradise Resort. The 3-bedroom cottage was impeccably maintained, spacious enough for our family of 12, and offered stunning valley views. The hosts demonstrated exceptional hospitality and local knowledge. Highly recommended for families seeking a safe, comfortable mountain retreat."
     },
     {
       id: 2,
       name: "Priya Sharma",
-      location: "Chennai",
+      location: "Chennai, Tamil Nadu",
+      profession: "Travel Blogger",
       rating: 5,
-      comment: "Best budget stay in Vattavada. The campfire night was magical and the hosts were very welcoming."
+      date: "November 2024",
+      verified: true,
+      stayDuration: "2 nights",
+      accommodationType: "Deluxe Room",
+      comment: "Having reviewed over 200 resorts across South India, Paradise Resort Vattavada stands out for its authentic mountain experience and exceptional value. The campfire evening with local cultural insights was magical. The resort's commitment to sustainable tourism and supporting the local community is commendable. Perfect blend of adventure and comfort."
     },
     {
       id: 3,
       name: "David Wilson",
-      location: "Kochi",
+      location: "Kochi, Kerala",
+      profession: "Adventure Tour Guide",
       rating: 5,
-      comment: "Peaceful location with stunning valley views. The jeep trekking was an unforgettable adventure!"
+      date: "October 2024",
+      verified: true,
+      stayDuration: "4 nights",
+      accommodationType: "Tent Stay",
+      comment: "As a professional adventure guide with 15+ years experience, I can confidently say Paradise Resort offers one of the best trekking base camps in the Western Ghats. The jeep trekking to Top Station was expertly guided, and the tent accommodations exceeded expectations. The resort's location provides easy access to Pambadum Shola National Park and multiple trekking trails."
+    },
+    {
+      id: 4,
+      name: "Mrs. Lakshmi Menon",
+      location: "Trivandrum, Kerala",
+      profession: "Retired Teacher",
+      rating: 5,
+      date: "January 2025",
+      verified: true,
+      stayDuration: "5 nights",
+      accommodationType: "Dormitory",
+      comment: "At 68, I was initially hesitant about mountain travel, but the Paradise Resort team made everything comfortable and accessible. The dormitory was clean, well-ventilated, and the staff's attention to elderly guests was remarkable. The peaceful environment and fresh mountain air were exactly what I needed for my wellness retreat."
+    },
+    {
+      id: 5,
+      name: "Arjun Patel",
+      location: "Mumbai, Maharashtra",
+      profession: "Corporate Executive",
+      rating: 5,
+      date: "December 2024",
+      verified: true,
+      stayDuration: "Weekend",
+      accommodationType: "Double Room",
+      comment: "Needed a quick escape from Mumbai's chaos and Paradise Resort delivered perfectly. The double room was cozy, WiFi was reliable for essential work calls, and the mountain views provided the mental reset I desperately needed. The resort's proximity to Top Station made it ideal for a short but rejuvenating weekend getaway."
+    },
+    {
+      id: 6,
+      name: "Sarah Johnson",
+      location: "Bangalore, Karnataka",
+      profession: "International Tourist",
+      rating: 5,
+      date: "November 2024",
+      verified: true,
+      stayDuration: "1 week",
+      accommodationType: "Private Cottage",
+      comment: "Visiting from Australia, I was amazed by the authentic Kerala mountain experience at Paradise Resort. The hosts spoke excellent English and provided invaluable insights into local culture and attractions. The cottage was perfect for my extended stay, and the resort's commitment to eco-friendly practices aligns with my values as a conscious traveler."
     }
   ]
 };

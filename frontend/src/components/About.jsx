@@ -125,6 +125,76 @@ const About = () => {
           ))}
         </div>
 
+        {/* Trust Indicators & Credentials */}
+        <div className="mt-20 mb-16">
+          <div className="text-center mb-12">
+            <h3 className="display-medium text-brand-primary mb-4">🏆 Trusted by Thousands of Guests</h3>
+            <p className="body-medium text-text-secondary max-w-2xl mx-auto">
+              Our commitment to excellence and authentic hospitality has earned recognition and trust from guests across India and beyond.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="bg-white/5 border-white/25 text-center">
+              <CardContent className="p-6">
+                <div className="text-3xl mb-2">🏅</div>
+                <div className="display-small text-brand-primary mb-2">4.8/5</div>
+                <p className="body-small text-text-secondary">Average Guest Rating</p>
+                <p className="text-xs text-text-muted mt-1">Based on 500+ reviews</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/25 text-center">
+              <CardContent className="p-6">
+                <div className="text-3xl mb-2">✅</div>
+                <div className="display-small text-brand-primary mb-2">100%</div>
+                <p className="body-small text-text-secondary">Safety Compliance</p>
+                <p className="text-xs text-text-muted mt-1">Kerala Tourism Standards</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/25 text-center">
+              <CardContent className="p-6">
+                <div className="text-3xl mb-2">🌱</div>
+                <div className="display-small text-brand-primary mb-2">Eco</div>
+                <p className="body-small text-text-secondary">Certified Sustainable</p>
+                <p className="text-xs text-text-muted mt-1">Green Tourism Initiative</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/25 text-center">
+              <CardContent className="p-6">
+                <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
+                <div className="display-small text-brand-primary mb-2">15+</div>
+                <p className="body-small text-text-secondary">Years Experience</p>
+                <p className="text-xs text-text-muted mt-1">Family-owned hospitality</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Certifications & Memberships */}
+          <div className="bg-white/5 border border-white/25 p-8 max-w-4xl mx-auto">
+            <h4 className="heading-2 text-center mb-6">🏛️ Certifications & Memberships</h4>
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-2xl mb-2">🏛️</div>
+                <p className="body-medium font-medium mb-1">Kerala Tourism</p>
+                <p className="body-small text-text-secondary">Registered Resort</p>
+              </div>
+              <div>
+                <div className="text-2xl mb-2">🛡️</div>
+                <p className="body-medium font-medium mb-1">Safety Certified</p>
+                <p className="body-small text-text-secondary">Fire & Emergency Standards</p>
+              </div>
+              <div>
+                <div className="text-2xl mb-2">🌿</div>
+                <p className="body-medium font-medium mb-1">Eco-Friendly</p>
+                <p className="body-small text-text-secondary">Sustainable Tourism Member</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="bg-white/5 border border-white/25 p-8 max-w-4xl mx-auto">

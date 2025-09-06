@@ -13,27 +13,44 @@ module.exports = {
     },
     configure: (webpackConfig) => {
       
-      // Optimize bundle splitting for better caching
+      // Optimize bundle splitting for Core Web Vitals
       webpackConfig.optimization = {
         ...webpackConfig.optimization,
         splitChunks: {
           chunks: 'all',
-          maxInitialRequests: 20,
-          maxAsyncRequests: 20,
+          minSize: 20000,
+          maxSize: 200000, // Reduced for better loading
+          maxInitialRequests: 25,
+          maxAsyncRequests: 25,
           cacheGroups: {
-            // React and core libraries
+            // Critical React libraries (highest priority)
             react: {
-              test: /[\\/]node_modules[\\/](react|react-dom|react-router)[\\/]/,
-              name: 'react',
+              test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+              name: 'react-core',
+              chunks: 'all',
+              priority: 30,
+              enforce: true,
+            },
+            // React Router (separate for route-based splitting)
+            router: {
+              test: /[\\/]node_modules[\\/](react-router|react-router-dom)[\\/]/,
+              name: 'react-router',
+              chunks: 'all',
+              priority: 25,
+            },
+            // UI libraries (medium priority)
+            ui: {
+              test: /[\\/]node_modules[\\/](@radix-ui|lucide-react|cmdk|@heroicons)[\\/]/,
+              name: 'ui-libs',
               chunks: 'all',
               priority: 20,
             },
-            // UI libraries
-            ui: {
-              test: /[\\/]node_modules[\\/](@radix-ui|lucide-react|cmdk)[\\/]/,
-              name: 'ui',
-              chunks: 'all',
-              priority: 15,
+            // Performance libraries
+            performance: {
+              test: /[\\/]node_modules[\\/](@floating-ui|framer-motion|intersection-observer)[\\/]/,
+              name: 'performance-libs',
+              chunks: 'async',
+              priority: 18,
             },
             // Other vendor libraries
             vendor: {
@@ -41,10 +58,10 @@ module.exports = {
               name: 'vendors',
               chunks: 'all',
               priority: 10,
-              minSize: 20000,
-              maxSize: 244000,
+              minSize: 30000,
+              maxSize: 180000,
             },
-            // Common code
+            // Common application code
             common: {
               name: 'common',
               minChunks: 2,

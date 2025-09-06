@@ -4,6 +4,216 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
+        
+        <!-- Critical Resource Hints for Core Web Vitals -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        
+        <!-- Preload Critical Resources -->
+        <link rel="preload" href="/static/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/static/css/main.css"></noscript>
+        
+        <!-- Critical CSS Inline for Above-the-fold Content -->
+        <style>
+            /* Critical CSS for Core Web Vitals optimization - inlined for immediate render */
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+            
+            html {
+              font-size: 16px;
+              line-height: 1.5;
+              -webkit-text-size-adjust: 100%;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            
+            body {
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              background-color: #ffffff;
+              color: #1a1a1a;
+              overflow-x: hidden;
+            }
+            
+            .app-container {
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            /* Header critical styles */
+            .header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 1000;
+              background: rgba(255, 255, 255, 0.95);
+              backdrop-filter: blur(10px);
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              height: 80px;
+              display: flex;
+              align-items: center;
+              padding: 0 2rem;
+            }
+            
+            .header-logo {
+              height: 40px;
+              width: auto;
+              display: block;
+            }
+            
+            /* Hero section critical styles for LCP optimization */
+            .hero-section {
+              margin-top: 80px;
+              min-height: 70vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              text-align: center;
+              padding: 2rem;
+              contain: layout style paint;
+            }
+            
+            .hero-content {
+              max-width: 800px;
+              margin: 0 auto;
+            }
+            
+            .hero-title {
+              font-size: clamp(2.5rem, 5vw, 4rem);
+              font-weight: 700;
+              line-height: 1.2;
+              margin-bottom: 1rem;
+              font-family: 'Playfair Display', serif;
+            }
+            
+            .hero-subtitle {
+              font-size: clamp(1.1rem, 2vw, 1.5rem);
+              margin-bottom: 2rem;
+              opacity: 0.9;
+              line-height: 1.4;
+            }
+            
+            .hero-cta {
+              display: inline-block;
+              background: #ff6b6b;
+              color: white;
+              padding: 1rem 2rem;
+              border-radius: 50px;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 1.1rem;
+              transition: transform 0.2s ease;
+              border: none;
+              cursor: pointer;
+            }
+            
+            /* Loading skeleton to prevent CLS */
+            .loading-skeleton {
+              background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+              background-size: 200% 100%;
+              animation: loading 1.5s infinite;
+              border-radius: 4px;
+            }
+            
+            @keyframes loading {
+              0% { background-position: 200% 0; }
+              100% { background-position: -200% 0; }
+            }
+            
+            .skeleton-text {
+              height: 1.2em;
+              margin-bottom: 0.5em;
+            }
+            
+            .skeleton-title {
+              height: 2em;
+              margin-bottom: 1em;
+              width: 70%;
+            }
+            
+            /* Prevent layout shift for images */
+            img {
+              max-width: 100%;
+              height: auto;
+              display: block;
+            }
+            
+            .aspect-ratio-16-9 {
+              aspect-ratio: 16 / 9;
+              overflow: hidden;
+            }
+            
+            /* Font loading optimization */
+            .font-loading body {
+              visibility: hidden;
+            }
+            
+            .fonts-loaded body {
+              visibility: visible;
+            }
+            
+            /* Mobile optimizations */
+            @media (max-width: 768px) {
+              .header {
+                padding: 0 1rem;
+                height: 70px;
+              }
+              
+              .hero-section {
+                margin-top: 70px;
+                min-height: 60vh;
+                padding: 1rem;
+              }
+              
+              .hero-title {
+                font-size: 2.5rem;
+              }
+              
+              .hero-subtitle {
+                font-size: 1.1rem;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              .header {
+                padding: 0 0.5rem;
+              }
+              
+              .hero-section {
+                padding: 0.5rem;
+              }
+              
+              .hero-title {
+                font-size: 2rem;
+              }
+            }
+            
+            /* Performance optimizations */
+            .gpu-accelerated {
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              perspective: 1000px;
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+              *,
+              *::before,
+              *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+              }
+            }
+        </style>
         <meta name="description" content="Paradise Resort Vattavada offers the perfect vattavada stay with premium cottage, tent & dormitory accommodations near Munnar. Experience the best stay in vattavada with strawberry farms, jeep trekking, mountain views at Kerala's premier hill station resort. Book now for unforgettable Western Ghats adventure." />
         <meta name="keywords" content="Paradise Resort Vattavada, vattavada stay, stay in vattavada, Munnar resort, Kerala hill station, cottage stay Vattavada, tent accommodation, dormitory stay, strawberry farm visit, jeep trekking Munnar, Western Ghats resort, Top Station, Pampadum Shola, mountain resort Kerala, family resort Vattavada, nature stay Kerala, adventure tourism Munnar, eco resort Kerala, hill station accommodation" />
         <meta name="author" content="Paradise Resort Vattavada" />

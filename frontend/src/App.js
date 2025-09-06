@@ -9,32 +9,113 @@ import { ThemeProvider } from "./components/ThemeProvider.jsx";
 import initResourceOptimizer, { initializeMobileOptimizations } from "./utils/resourceOptimizer";
 import { PerformanceProvider } from "./hooks/usePerformanceOptimization";
 import { LayoutOptimizer } from "./utils/layoutOptimizer";
+import { initWebVitals, optimizeImages, preloadCriticalResources } from "./utils/webVitals";
 
-// Lazy load page components for better performance
-const HomePage = React.lazy(() => import("./pages/HomePage"));
-const CottagesPage = React.lazy(() => import("./pages/CottagesPage"));
-const TentsPage = React.lazy(() => import("./pages/TentsPage"));
-const DormitoryPage = React.lazy(() => import("./pages/DormitoryPage"));
-const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+// Lazy load page components with preloading for better performance
+const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages/HomePage"));
+const CottagesPage = React.lazy(() => import(/* webpackChunkName: "cottages" */ "./pages/CottagesPage"));
+const TentsPage = React.lazy(() => import(/* webpackChunkName: "tents" */ "./pages/TentsPage"));
+const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" */ "./pages/DormitoryPage"));
+const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage"));
 
-// Loading component
+// Preload critical routes on idle
+const preloadRoutes = () => {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      import("./pages/CottagesPage");
+      import("./pages/ContactPage");
+    });
+  }
+};
+
+// Enhanced loading component with skeleton
 const LoadingSpinner = () => (
-  <div className="loading">
-    <div></div>
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="loading-skeleton w-full max-w-4xl mx-auto p-4">
+      <div className="animate-pulse">
+        <div className="h-64 bg-gray-200 rounded-lg mb-4"></div>
+        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+      </div>
+    </div>
   </div>
 );
+
+// Error boundary component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Something went wrong</h2>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function App() {
   // Initialize resource optimizations with mobile-specific enhancements
   useEffect(() => {
+    // Initialize Core Web Vitals monitoring
+    initWebVitals();
+    
+    // Preload critical resources for better LCP
+    preloadCriticalResources();
+    
     // Initialize layout optimizer globally for mobile optimization
     window.layoutOptimizer = new LayoutOptimizer();
     
     // Initialize general resource optimizations
     initResourceOptimizer();
     
+    // Optimize images for better loading
+    setTimeout(() => {
+      optimizeImages();
+    }, 100);
+    
     // Initialize mobile-specific optimizations
     initializeMobileOptimizations();
+    
+    // Preload critical routes
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        preloadRoutes();
+      }, { timeout: 2000 });
+    } else {
+      setTimeout(() => {
+        preloadRoutes();
+      }, 2000);
+    }
+    
+    // Register service worker for caching optimization
+    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    }
     
     // Cleanup on unmount
     return () => {
@@ -48,22 +129,24 @@ function App() {
     <HelmetProvider>
       <PerformanceProvider>
         <ThemeProvider>
-          <Router>
-            <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
-              <Header />
-              <Suspense fallback={<LoadingSpinner />}>
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/cottages" element={<CottagesPage />} />
-                  <Route path="/tents" element={<TentsPage />} />
-                  <Route path="/dormitory" element={<DormitoryPage />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                </Routes>
-              </Suspense>
-              <Footer />
-              <BackToTop />
-            </div>
-          </Router>
+          <ErrorBoundary>
+            <Router>
+              <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
+                <Header />
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/cottages" element={<CottagesPage />} />
+                    <Route path="/tents" element={<TentsPage />} />
+                    <Route path="/dormitory" element={<DormitoryPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                  </Routes>
+                </Suspense>
+                <Footer />
+                <BackToTop />
+              </div>
+            </Router>
+          </ErrorBoundary>
         </ThemeProvider>
       </PerformanceProvider>
     </HelmetProvider>

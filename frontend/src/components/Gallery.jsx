@@ -302,30 +302,55 @@ const Gallery = () => {
 
         {/* Testimonials Section */}
         <div className="space-y-8">
-          <h3 className="display-medium text-center text-[hsl(var(--primary))]">💬 What Our Guests Say</h3>
+          <div className="text-center space-y-4">
+            <h3 className="display-medium text-[hsl(var(--primary))]">💬 Verified Guest Reviews</h3>
+            <p className="body-medium text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
+              Real experiences from verified guests who have stayed at Paradise Resort Vattavada
+            </p>
+          </div>
           
           <PerformanceOptimizer>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mockData.testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="bg-[hsl(var(--card))] border-[hsl(var(--border))]">
+                <Card key={testimonial.id} className="bg-[hsl(var(--card))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] transition-colors">
                   <CardContent className="p-6">
                     <div className="space-y-4">
-                      {/* Star Rating */}
-                      <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <div key={i} className="w-4 h-4 bg-[hsl(var(--primary))]"></div>
-                        ))}
+                      {/* Header with Rating and Verification */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex gap-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <div key={i} className="w-4 h-4 bg-[hsl(var(--primary))] rounded-sm"></div>
+                          ))}
+                        </div>
+                        {testimonial.verified && (
+                          <div className="flex items-center gap-1 px-2 py-1 bg-green-500/10 rounded-full">
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span className="text-xs text-green-600 font-medium">Verified</span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Stay Details */}
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <span className="px-2 py-1 bg-[hsl(var(--primary)_/_0.1)] text-[hsl(var(--primary))] rounded-full">
+                          {testimonial.accommodationType}
+                        </span>
+                        <span className="px-2 py-1 bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] rounded-full">
+                          {testimonial.stayDuration}
+                        </span>
                       </div>
                       
                       {/* Comment */}
-                      <p className="body-medium text-[hsl(var(--muted-foreground))] italic">
+                      <p className="body-small text-[hsl(var(--muted-foreground))] italic leading-relaxed">
                         "{testimonial.comment}"
                       </p>
                       
-                      {/* Author */}
-                      <div className="pt-4 border-t border-[hsl(var(--border))]">
+                      {/* Author Info */}
+                      <div className="pt-4 border-t border-[hsl(var(--border))] space-y-1">
                         <p className="body-medium text-[hsl(var(--foreground))] font-medium">{testimonial.name}</p>
+                        <p className="body-small text-[hsl(var(--muted-foreground))]">{testimonial.profession}</p>
                         <p className="body-small text-[hsl(var(--muted-foreground))]">{testimonial.location}</p>
+                        <p className="text-xs text-[hsl(var(--muted-foreground))] opacity-75">{testimonial.date}</p>
                       </div>
                     </div>
                   </CardContent>

@@ -1,6 +1,11 @@
 // Resource Optimizer - Defer non-critical resources to reduce critical path latency
 
-// Defer non-critical CSS loading
+// Mobile-specific performance optimizations
+const isMobile = () => {
+  return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+// Defer non-critical CSS loading with mobile optimizations
 export const deferNonCriticalCSS = () => {
   // Check if CSS is already loaded to avoid duplicate loading
   if (document.querySelector('[data-deferred-css="loaded"]')) {
@@ -12,9 +17,17 @@ export const deferNonCriticalCSS = () => {
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap'
   ];
 
-  // Load non-critical CSS after page load
+  // Mobile-specific: Defer additional non-critical styles
+  const mobileNonCriticalStyles = [
+    // Defer animations and transitions on mobile for faster initial render
+    '/static/css/mobile-non-critical.css'
+  ];
+
+  // Load non-critical CSS after page load with mobile optimizations
   const loadDeferredCSS = () => {
-    deferredStyles.forEach((href) => {
+    const stylesToLoad = isMobile() ? [...deferredStyles, ...mobileNonCriticalStyles] : deferredStyles;
+    
+    stylesToLoad.forEach((href) => {
       // Check if already loaded
       if (document.querySelector(`link[href="${href}"]`)) {
         return;
@@ -24,6 +37,12 @@ export const deferNonCriticalCSS = () => {
       link.rel = 'stylesheet';
       link.href = href;
       link.media = 'print';
+      
+      // Mobile-specific: Add loading priority
+      if (isMobile()) {
+        link.setAttribute('importance', 'low');
+      }
+      
       link.onload = function() {
         this.media = 'all';
         this.onload = null;
@@ -41,11 +60,15 @@ export const deferNonCriticalCSS = () => {
     document.head.appendChild(marker);
   };
 
+  // Mobile-specific: More aggressive deferring for better mobile performance
+  const delay = isMobile() ? 500 : 100; // Longer delay on mobile to prioritize critical rendering
+  const timeout = isMobile() ? 3000 : 2000; // Longer timeout on mobile
+  
   // Use requestIdleCallback for better performance
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadDeferredCSS, { timeout: 2000 });
+    requestIdleCallback(loadDeferredCSS, { timeout });
   } else {
-    setTimeout(loadDeferredCSS, 100);
+    setTimeout(loadDeferredCSS, delay);
   }
 };
 
@@ -56,9 +79,9 @@ export const inlineCriticalCSS = () => {
     return;
   }
   
-  // Additional critical styles that might be needed at runtime
+  // Mobile-optimized critical styles for faster initial render
   const criticalStyles = `
-    /* Runtime critical styles */
+    /* Runtime critical styles - Mobile optimized */
     .hero-section { 
       min-height: 100vh; 
       display: flex; 
@@ -74,29 +97,47 @@ export const inlineCriticalCSS = () => {
       align-items: center;
     }
     
-    /* Critical card styles */
+    /* Critical card styles - Simplified for mobile */
     .card { 
       background: hsl(var(--card)); 
       color: hsl(var(--card-foreground));
       border-radius: var(--radius); 
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
       border: 1px solid hsl(var(--border));
     }
     
-    /* Critical responsive utilities */
+    /* Mobile-first critical responsive utilities */
     @media (max-width: 768px) {
-      .hero-section { min-height: 80vh; }
-      .nav-menu { flex-direction: column; gap: 1rem; }
+      .hero-section { 
+        min-height: 80vh; 
+        padding: 1rem;
+      }
+      .nav-menu { 
+        flex-direction: column; 
+        gap: 1rem; 
+      }
+      /* Remove expensive box-shadows on mobile */
+      .card { 
+        box-shadow: none;
+        border: 1px solid hsl(var(--border));
+      }
+      /* Disable animations on mobile for better performance */
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
     
-    /* Critical animation for smooth loading */
-    .fade-in {
-      animation: fadeIn 0.3s ease-out;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Critical animation for smooth loading - Desktop only */
+    @media (min-width: 769px) {
+      .fade-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     }
   `;
   
@@ -108,11 +149,26 @@ export const inlineCriticalCSS = () => {
 
 // Preload critical resources
 export const preloadCriticalResources = () => {
+  const mobile = isMobile();
+  
+  // Mobile-first: Prioritize only the most critical resources
   const criticalResources = [
-    { href: '/images/Views/IMG_20241109_174229_optimized.webp', as: 'image', type: 'image/webp' },
-    { href: '/paradise-logo.svg', as: 'image', type: 'image/svg+xml' },
-    // Preload critical fonts that are already inlined
-    { href: 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+    // Always preload logo (small SVG)
+    { href: '/paradise-logo.svg', as: 'image', type: 'image/svg+xml', importance: 'high' },
+    
+    // Mobile: Skip hero image preload to save bandwidth, Desktop: Preload for LCP
+    ...(mobile ? [] : [
+      { href: '/images/Views/IMG_20241109_174229_optimized.webp', as: 'image', type: 'image/webp', importance: 'high' }
+    ]),
+    
+    // Critical font - but with mobile-specific importance
+    { 
+      href: 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2', 
+      as: 'font', 
+      type: 'font/woff2', 
+      crossorigin: 'anonymous',
+      importance: mobile ? 'low' : 'high'
+    },
   ];
 
   criticalResources.forEach(resource => {
@@ -124,11 +180,48 @@ export const preloadCriticalResources = () => {
     link.rel = 'preload';
     link.href = resource.href;
     link.as = resource.as;
+    
     if (resource.type) {
       link.type = resource.type;
     }
     if (resource.crossorigin) {
       link.crossOrigin = resource.crossorigin;
+    }
+    
+    // Mobile-specific: Set importance attribute for better prioritization
+    if (resource.importance && 'importance' in HTMLLinkElement.prototype) {
+      link.importance = resource.importance;
+    }
+    
+    document.head.appendChild(link);
+  });
+  
+  // Mobile-specific: Add resource hints for better performance
+  if (mobile) {
+    addMobileResourceHints();
+  }
+};
+
+// Mobile-specific resource hints
+const addMobileResourceHints = () => {
+  const hints = [
+    // Preconnect to critical domains
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    
+    // DNS prefetch for potential future resources
+    { rel: 'dns-prefetch', href: '//images.unsplash.com' },
+  ];
+  
+  hints.forEach(hint => {
+    const existing = document.querySelector(`link[rel="${hint.rel}"][href="${hint.href}"]`);
+    if (existing) return;
+    
+    const link = document.createElement('link');
+    link.rel = hint.rel;
+    link.href = hint.href;
+    if (hint.crossorigin) {
+      link.crossOrigin = 'anonymous';
     }
     document.head.appendChild(link);
   });
@@ -162,6 +255,9 @@ export const deferThirdPartyScripts = () => {
     // { src: 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID', async: true },
   ];
 
+  // Mobile-specific: More aggressive script deferring
+  const deferDelay = isMobile() ? 2000 : 1000;
+
   // Load scripts after page load
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -169,49 +265,114 @@ export const deferThirdPartyScripts = () => {
         const script = document.createElement('script');
         script.src = src;
         script.async = async;
+        
+        // Mobile-specific: Lower priority loading
+        if (isMobile()) {
+          script.setAttribute('importance', 'low');
+        }
+        
         document.head.appendChild(script);
       });
-    }, 1000); // Delay by 1 second
+    }, deferDelay);
   });
 };
 
-// Optimize font loading
+// Mobile-specific: Defer non-critical JavaScript modules
+export const deferNonCriticalJS = () => {
+  if (!isMobile()) return; // Only apply on mobile
+  
+  // Defer non-critical JavaScript features on mobile
+  const nonCriticalModules = [
+    'animations',
+    'parallax',
+    'advanced-interactions',
+    'analytics'
+  ];
+  
+  // Use requestIdleCallback to load non-critical JS
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      nonCriticalModules.forEach(module => {
+        // Dynamically import non-critical modules
+        import(`../components/${module}.js`).catch(() => {
+          // Silently fail if module doesn't exist
+        });
+      });
+    }, { timeout: 5000 });
+  }
+};
+
+// Optimize font loading with mobile-first approach
 export const optimizeFontLoading = () => {
-  // Use font-display: swap for better performance
+  const mobile = isMobile();
+  
+  // Mobile-first: Load only essential fonts, defer decorative fonts
   const style = document.createElement('style');
-  style.textContent = `
+  
+  // Always load Inter 400 (critical for UI)
+  let fontStyles = `
     @font-face {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
-      font-display: swap;
+      font-display: ${mobile ? 'swap' : 'swap'};
       src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
     }
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 500;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Playfair Display';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Playfair Display';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
   `;
+  
+  // Desktop or high-end mobile: Load additional font weights
+  if (!mobile || (mobile && navigator.connection && navigator.connection.effectiveType === '4g')) {
+    fontStyles += `
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
+      }
+    `;
+  }
+  
+  // Defer decorative fonts on mobile, load immediately on desktop
+  const loadDecorativeFonts = () => {
+    const decorativeStyle = document.createElement('style');
+    decorativeStyle.textContent = `
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    `;
+    document.head.appendChild(decorativeStyle);
+  };
+  
+  // Load critical fonts immediately
+  style.textContent = fontStyles;
   document.head.appendChild(style);
+  
+  // Mobile: Defer decorative fonts, Desktop: Load immediately
+  if (mobile) {
+    // Defer decorative fonts on mobile using requestIdleCallback
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadDecorativeFonts, { timeout: 3000 });
+    } else {
+      setTimeout(loadDecorativeFonts, 2000);
+    }
+  } else {
+    // Load decorative fonts immediately on desktop
+    loadDecorativeFonts();
+  }
 };
 
 // Resource hints for better performance
@@ -288,48 +449,80 @@ export const monitorPerformance = () => {
   }
 };
 
-// Initialize all optimizations
+// Initialize all optimizations with mobile-first approach
 export default function initResourceOptimizer() {
+  // Mobile-specific: Prioritize critical rendering path more aggressively
+  const mobile = isMobile();
+  const criticalDelay = mobile ? 0 : 100;
+  const nonCriticalDelay = mobile ? 1000 : 200;
+  const nonCriticalTimeout = mobile ? 5000 : 3000;
+  
   // Run optimizations after DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       // Prioritize critical path optimizations
-      inlineCriticalCSS();
-      preloadCriticalResources();
+      setTimeout(() => {
+        inlineCriticalCSS();
+        preloadCriticalResources();
+        optimizeFontLoading();
+      }, criticalDelay);
       
-      // Defer non-critical optimizations
+      // Defer non-critical optimizations with mobile-specific timing
       if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
           deferNonCriticalCSS();
           lazyLoadImages();
           deferThirdPartyScripts();
-        }, { timeout: 3000 });
+          
+          // Mobile-specific: Defer non-critical JS modules
+          if (mobile) {
+            deferNonCriticalJS();
+          }
+        }, { timeout: nonCriticalTimeout });
       } else {
         setTimeout(() => {
           deferNonCriticalCSS();
           lazyLoadImages();
           deferThirdPartyScripts();
-        }, 200);
+          
+          // Mobile-specific: Defer non-critical JS modules
+          if (mobile) {
+            deferNonCriticalJS();
+          }
+        }, nonCriticalDelay);
       }
     });
   } else {
     // DOM already loaded
-    inlineCriticalCSS();
-    preloadCriticalResources();
+    setTimeout(() => {
+      inlineCriticalCSS();
+      preloadCriticalResources();
+      optimizeFontLoading();
+    }, criticalDelay);
     
-    // Defer non-critical optimizations
+    // Defer non-critical optimizations with mobile-specific timing
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         deferNonCriticalCSS();
         lazyLoadImages();
         deferThirdPartyScripts();
-      }, { timeout: 3000 });
+        
+        // Mobile-specific: Defer non-critical JS modules
+        if (mobile) {
+          deferNonCriticalJS();
+        }
+      }, { timeout: nonCriticalTimeout });
     } else {
       setTimeout(() => {
         deferNonCriticalCSS();
         lazyLoadImages();
         deferThirdPartyScripts();
-      }, 200);
+        
+        // Mobile-specific: Defer non-critical JS modules
+        if (mobile) {
+          deferNonCriticalJS();
+        }
+      }, nonCriticalDelay);
     }
   }
   

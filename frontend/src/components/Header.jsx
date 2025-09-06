@@ -10,6 +10,8 @@ const Header = () => {
     { href: '/cottages', label: 'Cottages' },
     { href: '/tents', label: 'Tents' },
     { href: '/dormitory', label: 'Dormitory' },
+    { href: '#gallery', label: 'Gallery', isSection: true },
+    { href: '#faq', label: 'FAQ', isSection: true },
     { href: '/contact', label: 'Contact' }
   ];
 
@@ -32,10 +34,24 @@ const Header = () => {
     window.open('https://www.agoda.com/paradise-resort-vattavada/hotel/vattavada-in.html', '_blank');
   };
 
-  const handleNavClick = (href) => {
-    // Scroll to top for specific pages
-    if (href === '/' || href === '/cottages' || href === '/tents' || href === '/dormitory') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavClick = (href, isSection = false) => {
+    if (isSection) {
+      // Handle section scrolling
+      const sectionId = href.replace('#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 100; // Account for fixed header
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Scroll to top for specific pages
+      if (href === '/' || href === '/cottages' || href === '/tents' || href === '/dormitory') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -61,20 +77,33 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className={`body-medium theme-transition ${
-                location.pathname === link.href
-                  ? 'text-[hsl(var(--foreground))] font-semibold'
-                  : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.isSection) {
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href, true)}
+                  className="body-medium theme-transition text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
+                >
+                  {link.label}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`body-medium theme-transition ${
+                  location.pathname === link.href
+                    ? 'text-[hsl(var(--foreground))] font-semibold'
+                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Contact Actions */}
@@ -115,23 +144,39 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] px-[7.6923%] py-6">
           <nav className="flex flex-col gap-4 mb-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  handleNavClick(link.href);
-                }}
-                className={`body-medium theme-transition ${
-                  location.pathname === link.href
-                    ? 'text-[hsl(var(--foreground))] font-semibold'
-                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              if (link.isSection) {
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      handleNavClick(link.href, true);
+                    }}
+                    className="body-medium theme-transition text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] text-left"
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleNavClick(link.href);
+                  }}
+                  className={`body-medium theme-transition ${
+                    location.pathname === link.href
+                      ? 'text-[hsl(var(--foreground))] font-semibold'
+                      : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
           
           <div className="flex flex-col gap-3">

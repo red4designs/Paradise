@@ -99,7 +99,7 @@ Please confirm availability and provide pricing details. Thank you!`;
               {/* Main Heading */}
               <div className="space-y-4">
                 <h1 className="display-huge">
-                  🏔️ Best Budget Resort in Vattavada
+                  🏔️ Best Resort and Nature Stay in Vattavada
                   <span className="block text-brand-primary">Paradise Resort ✨</span>
                 </h1>
                 <p className="body-large text-text-secondary max-w-lg">

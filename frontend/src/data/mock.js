@@ -66,13 +66,13 @@ export const mockData = {
   { id: 16, category: "Double Room", image: "/images/Double room/IMG_4675.webp", title: "Double Room Setup" },
   { id: 17, category: "Double Room", image: "/images/Double room/IMG_4676.webp", title: "Double Room Features" },
     { id: 18, category: "Dormitory", image: "/images/Dormitory/DJI_20231022_090731_99.webp", title: "Dormitory Accommodation with Mountain View" },
-  { id: 19, category: "Tents", image: "/images/Tents/IMG_3629.webp", title: "Adventure Camping Tents" },
-  { id: 20, category: "Tents", image: "/images/Tents/IMG_3632.webp", title: "Tent Setup" },
-  { id: 21, category: "Tents", image: "/images/Tents/IMG_3638.webp", title: "Tent Interior" },
-  { id: 22, category: "Tents", image: "/images/Tents/IMG_3639.webp", title: "Tent Accommodation" },
-  { id: 23, category: "Tents", image: "/images/Tents/IMG_3652.webp", title: "Tent Facilities" },
-  { id: 24, category: "Tents", image: "/images/Tents/IMG_3653.webp", title: "Tent Experience" },
-  { id: 25, category: "Tents", image: "/images/Tents/IMG_3657.webp", title: "Tent with Nature View" },
+  { id: 19, category: "Tents", image: "/images/Tents/IMG_3629.webp", title: "Tent stay Vattavada - Adventure camping experience" },
+  { id: 20, category: "Tents", image: "/images/Tents/IMG_3632.webp", title: "Tent stay Vattavada setup with mountain views" },
+  { id: 21, category: "Tents", image: "/images/Tents/IMG_3638.webp", title: "Tent stay Vattavada interior accommodation" },
+  { id: 22, category: "Tents", image: "/images/Tents/IMG_3639.webp", title: "Premium tent stay Vattavada accommodation" },
+  { id: 23, category: "Tents", image: "/images/Tents/IMG_3652.webp", title: "Tent stay Vattavada facilities and amenities" },
+  { id: 24, category: "Tents", image: "/images/Tents/IMG_3653.webp", title: "Adventure tent stay Vattavada experience" },
+  { id: 25, category: "Tents", image: "/images/Tents/IMG_3657.webp", title: "Tent stay Vattavada with scenic nature views" },
     { id: 26, category: "Cottages", image: "/images/Cottages/IMG_20241109_151546.webp", title: "Private Cottage Exterior" },
   { id: 27, category: "Cottages", image: "/images/Cottages/IMG_20241109_151624.webp", title: "Cottage Interior" },
   { id: 28, category: "Cottages", image: "/images/Cottages/IMG_20241109_160448.webp", title: "Cottage Accommodation" },
@@ -101,8 +101,8 @@ export const mockData = {
   { id: 51, category: "Views", image: "/images/Views/WhatsApp Image 2025-04-05 at 6.46.49 PM.webp", title: "Resort Garden View" },
   { id: 52, category: "Views", image: "/images/Views/WhatsApp Image 2025-08-30 at 21.03.59_5b7a8811.webp", title: "Evening Mountain View" },
   { id: 53, category: "Views", image: "/images/Views/ghghmhgm.webp", title: "Resort Atmosphere" },
-  { id: 54, category: "Activities", image: "/images/Views/IMG_3506.webp", title: "Campfire Night" },
-  { id: 55, category: "Activities", image: "/images/Views/IMG_3528.webp", title: "Jeep Trekking" }
+  { id: 54, category: "Activities", image: "/images/Views/IMG_3506.webp", title: "Campfire night at Paradise Resort Vattavada" },
+  { id: 55, category: "Activities", image: "/images/Views/IMG_3528.webp", title: "Jeep trekking near Top Station from Vattavada" }
   ],
 
   testimonials: [

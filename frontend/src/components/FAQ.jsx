@@ -49,73 +49,55 @@ const FAQ = () => {
   }, []);
 
   const faqCategories = {
-    booking: {
-      title: "🏨 Booking & Rooms",
+    general: {
+      title: "❓ Frequently Asked Questions",
       questions: [
         {
-          question: "How can I book rooms in Vattavada at Paradise Resort?",
-          answer: "You can book directly through our website, WhatsApp, or by calling 9074902424. Instant confirmation is available for all bookings."
+          question: "Where is Paradise Resort Vattavada located?",
+          answer: "Paradise Resort Vattavada is located just 1.5 km before Vattavada town, near Munnar in Kerala. The resort is surrounded by peaceful valleys, vegetable and strawberry farms, and breathtaking mountain views. Nearby attractions include Pampadum Shola National Park and Top Station (7 km), making it an ideal base for exploring Vattavada and Munnar."
         },
         {
-          question: "What types of rooms and stays are available in Vattavada?",
-          answer: "We offer:\n\n• Private Cottages (ideal for families & groups)\n• Budget Rooms (for couples & small families)\n• Tent Stay (for adventure & budget travelers)\n• Dormitory Stay (for bachelors & backpackers)"
+          question: "What types of accommodation do you offer?",
+          answer: "We provide multiple stay options to suit every traveler:\n\nPrivate Cottage in Vattavada – 3-bedroom cottage with hot water and free WiFi, perfect for large families or groups (up to 18 adults with extra beds).\n\nResort Rooms in Vattavada – Spacious and comfortable rooms that can host up to 60 guests, with hot water and WiFi included.\n\nTent Stay in Vattavada – 8 cozy tents designed for adventurous travelers, accommodating up to 24 guests."
         },
         {
-          question: "What is the price of rooms in Vattavada?",
-          answer: "Rooms start from ₹1,500/night\nTent stays from ₹800/night\nCottages for large groups available at budget-friendly prices\n\n(Contact us for the latest offers.)"
+          question: "Is the property family and couple-friendly?",
+          answer: "Yes. Paradise Resort Vattavada is a family-run budget resort near Munnar, ensuring safety, cleanliness, and a welcoming atmosphere for families, couples, and groups."
         },
         {
-          question: "Do you provide family rooms in Vattavada?",
-          answer: "Yes ✅ We have family-friendly cottages that can accommodate up to 18 adults, making it perfect for groups, families, and get-togethers."
+          question: "Do you provide food?",
+          answer: "Yes, we serve delicious South Indian non-vegetarian food in Vattavada. Guests can also enjoy BBQ facilities and campfire nights with music, available at an additional cost."
         },
         {
-          question: "Do you have budget-friendly stay options?",
-          answer: "Yes, Paradise Resort is known as the best budget stay in Vattavada with rooms, tents, and cottages to fit every budget."
-        }
-      ]
-    },
-    safety: {
-      title: "🛡️ Safety & Comfort",
-      questions: [
-        {
-          question: "Is Paradise Resort safe for families and couples?",
-          answer: "Yes, our property is family-run and very safe. Couples, families, and even solo travelers can enjoy a peaceful stay with privacy."
-        }
-      ]
-    },
-    activities: {
-      title: "🎯 Activities & Attractions",
-      questions: [
-        {
-          question: "What activities are available at the resort?",
-          answer: "Guests can enjoy:\n\n• Campfire with music\n• BBQ setup with coal\n• Jeep trekking to nearby viewpoints\n• Scenic views of farms & mountains right from the resort"
+          question: "What extra activities are available at Paradise Resort Vattavada?",
+          answer: "Campfire with music under the stars\n\nBBQ set with coal for a memorable evening\n\nJeep trekking in Vattavada through scenic mountain routes"
         },
         {
-          question: "What are the nearby attractions in Vattavada?",
-          answer: "• Pampadum Shola National Park – 5 km\n• Top Station, Munnar – 7 km\n• Vegetable farms & strawberry fields\n• Scenic trekking & camping trails"
-        }
-      ]
-    },
-    travel: {
-      title: "🌿 Travel & Location",
-      questions: [
-        {
-          question: "What is the best time to visit Vattavada?",
-          answer: "Vattavada is a 365-day destination 🌿\n\n• Summer (Mar–May): Cool climate, ideal for families\n• Monsoon (Jun–Sep): Lush greenery, perfect for nature lovers\n• Winter (Oct–Feb): Misty mornings & best for honeymoon couples"
+          question: "Is parking available?",
+          answer: "Yes, our resort provides free and spacious parking in Vattavada, suitable for cars and even large 49-seater buses."
         },
         {
-          question: "How far is Paradise Resort Vattavada from Munnar?",
-          answer: "We are located around 30 km from Munnar town and just 7 km from Top Station. Easily accessible by car or jeep."
+          question: "What are the check-in and check-out times?",
+          answer: "Check-in: 12:00 PM\n\nCheck-out: 11:00 AM\n\n(Early check-in or late check-out may be possible on request, subject to availability.)"
+        },
+        {
+          question: "Do you provide internet and mobile connectivity?",
+          answer: "Yes, free WiFi in Vattavada is available across our property. Mobile network coverage exists but may be limited in some areas due to the hill station's location."
+        },
+        {
+          question: "How can I book my stay?",
+          answer: "You can book your stay at Paradise Resort Vattavada directly through Booking.com, our official website, or by contacting us via WhatsApp at 9074902424. Please note that advance payment is mandatory for all bookings to secure your reservation."
+        },
+        {
+          question: "What is your cancellation policy?",
+          answer: "All bookings at Paradise Resort Vattavada are non-refundable. However, if you inform us at least 7 days before your check-in date, you can reschedule your stay to the next available date without any extra charges."
         }
       ]
     }
   };
 
   const navigationItems = [
-    { id: 'booking', label: 'Booking & Rooms', icon: '🏨' },
-    { id: 'safety', label: 'Safety', icon: '🛡️' },
-    { id: 'activities', label: 'Activities', icon: '🎯' },
-    { id: 'travel', label: 'Travel Info', icon: '🌿' }
+    { id: 'general', label: 'All Questions', icon: '❓' }
   ];
 
   return (

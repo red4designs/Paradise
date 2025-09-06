@@ -2,13 +2,24 @@
 
 // Defer non-critical CSS loading
 export const deferNonCriticalCSS = () => {
+  // Check if CSS is already loaded to avoid duplicate loading
+  if (document.querySelector('[data-deferred-css="loaded"]')) {
+    return;
+  }
+
   const deferredStyles = [
-    // Tailwind CSS will be loaded by webpack, no external CSS to defer
+    // External CSS that can be deferred
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap'
   ];
 
   // Load non-critical CSS after page load
   const loadDeferredCSS = () => {
     deferredStyles.forEach((href) => {
+      // Check if already loaded
+      if (document.querySelector(`link[href="${href}"]`)) {
+        return;
+      }
+      
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = href;
@@ -23,11 +34,16 @@ export const deferNonCriticalCSS = () => {
       };
       document.head.appendChild(link);
     });
+    
+    // Mark as loaded
+    const marker = document.createElement('meta');
+    marker.setAttribute('data-deferred-css', 'loaded');
+    document.head.appendChild(marker);
   };
 
   // Use requestIdleCallback for better performance
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadDeferredCSS);
+    requestIdleCallback(loadDeferredCSS, { timeout: 2000 });
   } else {
     setTimeout(loadDeferredCSS, 100);
   }
@@ -35,36 +51,84 @@ export const deferNonCriticalCSS = () => {
 
 // Inline critical CSS extraction (for build process)
 export const inlineCriticalCSS = () => {
-  // This would be handled by build tools in production
-  // For now, we ensure critical styles are in the HTML head
+  // Check if critical CSS is already inlined
+  if (document.querySelector('[data-critical="runtime"]')) {
+    return;
+  }
+  
+  // Additional critical styles that might be needed at runtime
   const criticalStyles = `
-    .hero-section { min-height: 100vh; display: flex; align-items: center; }
-    .nav-menu { display: flex; gap: 2rem; }
-    .card { background: white; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    /* Runtime critical styles */
+    .hero-section { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Critical navigation styles */
+    .nav-menu { 
+      display: flex; 
+      gap: 2rem; 
+      align-items: center;
+    }
+    
+    /* Critical card styles */
+    .card { 
+      background: hsl(var(--card)); 
+      color: hsl(var(--card-foreground));
+      border-radius: var(--radius); 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+      border: 1px solid hsl(var(--border));
+    }
+    
+    /* Critical responsive utilities */
+    @media (max-width: 768px) {
+      .hero-section { min-height: 80vh; }
+      .nav-menu { flex-direction: column; gap: 1rem; }
+    }
+    
+    /* Critical animation for smooth loading */
+    .fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   `;
   
   const style = document.createElement('style');
   style.textContent = criticalStyles;
-  style.setAttribute('data-critical', 'true');
+  style.setAttribute('data-critical', 'runtime');
   document.head.appendChild(style);
 };
 
 // Preload critical resources
 export const preloadCriticalResources = () => {
   const criticalResources = [
-    { href: '/static/css/main.css', as: 'style' },
-    { href: '/static/js/bundle.js', as: 'script' },
+    { href: '/images/Views/IMG_20241109_174229_optimized.webp', as: 'image', type: 'image/webp' },
+    { href: '/paradise-logo.svg', as: 'image', type: 'image/svg+xml' },
+    // Preload critical fonts that are already inlined
+    { href: 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
   ];
 
-  criticalResources.forEach(({ href, as }) => {
+  criticalResources.forEach(resource => {
+    // Check if already preloaded
+    const existing = document.querySelector(`link[rel="preload"][href="${resource.href}"]`);
+    if (existing) return;
+    
     const link = document.createElement('link');
     link.rel = 'preload';
-    link.href = href;
-    link.as = as;
-    if (as === 'style') {
-      link.onload = function() {
-        this.rel = 'stylesheet';
-      };
+    link.href = resource.href;
+    link.as = resource.as;
+    if (resource.type) {
+      link.type = resource.type;
+    }
+    if (resource.crossorigin) {
+      link.crossOrigin = resource.crossorigin;
     }
     document.head.appendChild(link);
   });
@@ -226,6 +290,49 @@ export const monitorPerformance = () => {
 
 // Initialize all optimizations
 export default function initResourceOptimizer() {
-  optimizeResources();
+  // Run optimizations after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      // Prioritize critical path optimizations
+      inlineCriticalCSS();
+      preloadCriticalResources();
+      
+      // Defer non-critical optimizations
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          deferNonCriticalCSS();
+          lazyLoadImages();
+          deferThirdPartyScripts();
+        }, { timeout: 3000 });
+      } else {
+        setTimeout(() => {
+          deferNonCriticalCSS();
+          lazyLoadImages();
+          deferThirdPartyScripts();
+        }, 200);
+      }
+    });
+  } else {
+    // DOM already loaded
+    inlineCriticalCSS();
+    preloadCriticalResources();
+    
+    // Defer non-critical optimizations
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        deferNonCriticalCSS();
+        lazyLoadImages();
+        deferThirdPartyScripts();
+      }, { timeout: 3000 });
+    } else {
+      setTimeout(() => {
+        deferNonCriticalCSS();
+        lazyLoadImages();
+        deferThirdPartyScripts();
+      }, 200);
+    }
+  }
+  
+  // Always monitor performance
   monitorPerformance();
 }

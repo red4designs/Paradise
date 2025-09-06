@@ -109,17 +109,90 @@
         <!-- Critical CSS for above-the-fold content -->
         <style>
           /* Critical styles for initial render */
-          * { box-sizing: border-box; }
+          *, *::before, *::after { box-sizing: border-box; }
+          
+          /* CSS Variables for consistent theming */
+          :root {
+            --background: 0 0% 98%;
+            --foreground: 20 14% 4.1%;
+            --card: 0 0% 100%;
+            --card-foreground: 20 14% 4.1%;
+            --primary: 24 95% 53%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 25 25% 95%;
+            --secondary-foreground: 25 8% 25%;
+            --muted: 25 25% 95%;
+            --muted-foreground: 25 5% 44.7%;
+            --accent: 25 25% 95%;
+            --accent-foreground: 25 8% 25%;
+            --destructive: 0 84% 60%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 30 25% 88%;
+            --input: 30 25% 88%;
+            --ring: 24 95% 53%;
+            --radius: 0.5rem;
+          }
+          
+          .dark {
+            --background: 20 14% 4.1%;
+            --foreground: 0 0% 98%;
+            --card: 25 25% 8%;
+            --card-foreground: 0 0% 98%;
+            --primary: 24 95% 53%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 25 15% 12%;
+            --secondary-foreground: 25 5% 80%;
+            --muted: 25 15% 12%;
+            --muted-foreground: 25 5% 63.9%;
+            --accent: 25 15% 12%;
+            --accent-foreground: 25 5% 80%;
+            --destructive: 0 62% 30%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 30 15% 20%;
+            --input: 30 15% 20%;
+            --ring: 24 95% 53%;
+          }
+          
           body { 
             margin: 0; 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #fafafa;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
           }
+          
           #root { min-height: 100vh; }
+          
+          /* Critical Tailwind-like utilities */
+          .fixed { position: fixed; }
+          .absolute { position: absolute; }
+          .relative { position: relative; }
+          .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+          .top-0 { top: 0; }
+          .w-full { width: 100%; }
+          .h-full { height: 100%; }
+          .min-h-screen { min-height: 100vh; }
+          .z-50 { z-index: 50; }
+          .flex { display: flex; }
+          .items-center { align-items: center; }
+          .justify-between { justify-content: space-between; }
+          .justify-center { justify-content: center; }
+          .mx-auto { margin-left: auto; margin-right: auto; }
+          .px-4 { padding-left: 1rem; padding-right: 1rem; }
+          .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+          .text-center { text-align: center; }
+          .hidden { display: none; }
+          .bg-background { background-color: hsl(var(--background)); }
+          .bg-black { background-color: rgb(0 0 0); }
+          .text-foreground { color: hsl(var(--foreground)); }
+          .border-b { border-bottom-width: 1px; }
+          .border-border { border-color: hsl(var(--border)); }
+          .transition-colors { transition-property: color, background-color, border-color; transition-duration: 150ms; }
+          .duration-300 { transition-duration: 300ms; }
+          .overflow-hidden { overflow: hidden; }
+          .object-cover { object-fit: cover; }
           
           /* Loading spinner */
           .loading { 
@@ -127,14 +200,14 @@
             justify-content: center; 
             align-items: center; 
             height: 100vh;
-            background-color: #fafafa;
+            background-color: hsl(var(--background));
           }
           .loading::after { 
             content: ''; 
             width: 40px; 
             height: 40px; 
-            border: 4px solid #f3f3f3; 
-            border-top: 4px solid #ff6b35; 
+            border: 4px solid hsl(var(--muted)); 
+            border-top: 4px solid hsl(var(--primary)); 
             border-radius: 50%; 
             animation: spin 1s linear infinite; 
           }
@@ -143,53 +216,28 @@
             100% { transform: rotate(360deg); } 
           }
           
-          /* Critical header styles */
-          .header-critical {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-          }
-          
           /* Critical button styles */
           .btn-primary {
-            background-color: #ff6b35;
-            color: white;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
             padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 0.5rem;
+            border-radius: var(--radius);
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
           }
           .btn-primary:hover {
-            background-color: #e55a2b;
+            opacity: 0.9;
           }
           
-          /* Critical layout utilities */
-          .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-          }
-          .flex {
-            display: flex;
-          }
-          .items-center {
-            align-items: center;
-          }
-          .justify-between {
-            justify-content: space-between;
-          }
-          .text-center {
-            text-align: center;
-          }
-          .hidden {
-            display: none;
+          /* Critical responsive utilities */
+          @media (min-width: 1024px) {
+            .lg\:flex { display: flex; }
+            .lg\:hidden { display: none; }
           }
           
           /* Prevent layout shift */
@@ -197,6 +245,12 @@
             max-width: 100%;
             height: auto;
           }
+          
+          /* Critical header max-width */
+          .max-w-\[1400px\] { max-width: 1400px; }
+          
+          /* Critical padding for header */
+          .px-\[7\.6923\%\] { padding-left: 7.6923%; padding-right: 7.6923%; }
         </style>
         <script type="application/ld+json">
         {
@@ -531,6 +585,34 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
+        
+        <!-- Defer non-critical CSS loading -->
+        <script>
+          // Load non-critical CSS after initial render
+          function loadDeferredCSS() {
+            // Create a link element for the main CSS bundle
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/static/css/main.css'; // This will be generated by the build
+            link.media = 'print';
+            link.onload = function() {
+              this.media = 'all';
+              this.onload = null;
+            };
+            // Fallback for browsers that don't support onload
+            link.onerror = function() {
+              this.media = 'all';
+            };
+            document.head.appendChild(link);
+          }
+          
+          // Use requestIdleCallback for better performance
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadDeferredCSS, { timeout: 2000 });
+          } else {
+            setTimeout(loadDeferredCSS, 100);
+          }
+        </script>
         
         <!-- Service Worker Registration -->
         <script>

@@ -17,8 +17,9 @@ const FAQ = () => {
     setActiveCategory(categoryId);
     const element = categoryRefs.current[categoryId];
     if (element) {
-      const offset = 120; // Account for sticky navigation
-      const elementPosition = element.offsetTop - offset;
+      const rect = element.getBoundingClientRect();
+      const offset = 140; // Account for sticky navigation + padding
+      const elementPosition = rect.top + window.scrollY - offset;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -28,12 +29,13 @@ const FAQ = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 160; // Account for navigation height
       
       Object.entries(categoryRefs.current).forEach(([categoryId, element]) => {
         if (element) {
-          const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = elementTop + rect.height;
           
           if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
             setActiveCategory(categoryId);
@@ -154,7 +156,7 @@ const FAQ = () => {
             <div 
               key={categoryId}
               ref={(el) => (categoryRefs.current[categoryId] = el)}
-              className="scroll-mt-32"
+              className="scroll-mt-36"
             >
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                 {category.title}

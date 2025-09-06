@@ -1,7 +1,5 @@
 /* Paradise Resort Vattavada - Futuristic Sunrise Orange Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 :root {
   /* Light Mode - Sunrise Orange & White Theme */
   --bg-primary: hsl(0 0% 98%);

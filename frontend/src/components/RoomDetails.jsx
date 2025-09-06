@@ -27,7 +27,7 @@ const RoomDetails = () => {
       id: 'resort',
       title: 'Budget Stay in Vattavada - Resort Rooms',
       subtitle: 'Family Friendly Resort Experience',
-      image: '/images/Views/IMG_1701.JPEG?v=999',
+      image: '/images/Views/IMG_1701_optimized.webp',
       description: 'Experience premium hospitality at our family friendly resort in Vattavada with well-appointed rooms offering modern amenities and stunning mountain views. Perfect budget stay in Vattavada.',
       rooms: [
         {
@@ -236,7 +236,7 @@ const RoomDetails = () => {
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
                         <img 
-                          src="/images/Views/IMG_1701.JPEG?v=999" 
+                          src="/images/Views/IMG_1701_optimized.webp" 
                           alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
                           className="w-full h-full object-cover"
                           loading="lazy"

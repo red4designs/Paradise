@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import RoomDetails from '../components/RoomDetails';
 import Amenities from '../components/Amenities';
 import Gallery from '../components/Gallery';
-import Contact from '../components/Contact';
+const Contact = React.lazy(() => import('../components/Contact'));
 import FAQSchema from '../components/schemas/FAQSchema';
 import OfferSchema from '../components/schemas/OfferSchema';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '../components/ui/breadcrumb';

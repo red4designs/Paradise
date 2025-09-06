@@ -59,7 +59,7 @@ Please confirm availability and provide pricing details. Thank you!`;
       {/* Enhanced Nature Hill Background Image */}
       <div className="absolute inset-0">
         <LazyImage 
-          src="/images/Views/IMG_20241109_174229.jpg" 
+          src="/images/Views/IMG_20241109_174229_optimized.webp" 
           alt="Breathtaking Vattavada Hill Station Mountain Views - Paradise Resort" 
           className="w-full h-full object-cover"
           loading="eager"

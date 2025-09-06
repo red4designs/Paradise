@@ -35,7 +35,7 @@ export const mockData = {
       capacity: "Up to 6️⃣0️⃣ guests",
       features: ["🛏️ Deluxe rooms", "🏠 Dormitory options", "💑 Double rooms", "👥 Group facilities"],
       price: "💬 Contact for pricing",
-      image: "/images/Views/IMG_1701.JPEG?v=999"
+      image: "/images/Views/IMG_1701_optimized.webp"
     },
     {
       id: 3,
@@ -89,9 +89,9 @@ export const mockData = {
   { id: 39, category: "Cottages", image: "/images/Cottages/WhatsApp Image 2025-06-18 at 3.43.22 PM (3).jpeg", title: "Cottage Outdoor Space" },
   { id: 40, category: "Cottages", image: "/images/Cottages/WhatsApp Image 2025-06-18 at 3.43.22 PM.jpeg", title: "Cottage Amenities" },
   { id: 41, category: "Cottages", image: "/images/Cottages/parking.jpeg", title: "Cottage Parking Area" },
-    { id: 42, category: "Views", image: "/images/Views/IMG_1701.JPEG", title: "Resort Valley View" },
+    { id: 42, category: "Views", image: "/images/Views/IMG_1701_optimized.webp", title: "Resort Valley View" },
   { id: 43, category: "Views", image: "/images/Views/IMG_1863.JPEG", title: "Mountain Landscape" },
-  { id: 44, category: "Views", image: "/images/Views/IMG_20241109_174229.jpg", title: "Scenic Resort View" },
+  { id: 44, category: "Views", image: "/images/Views/IMG_20241109_174229_optimized.webp", title: "Scenic Resort View" },
   { id: 45, category: "Views", image: "/images/Views/IMG_20241109_174235.jpg", title: "Panoramic Mountain View" },
   { id: 46, category: "Views", image: "/images/Views/IMG_20250220_213601.jpg", title: "Evening Resort View" },
   { id: 47, category: "Views", image: "/images/Views/IMG_3506.JPEG", title: "Nature Landscape" },

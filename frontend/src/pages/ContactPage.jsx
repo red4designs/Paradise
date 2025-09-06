@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Contact from '../components/Contact';
+const Contact = React.lazy(() => import('../components/Contact'));
 import Gallery from '../components/Gallery';
 import FAQSchema from '../components/schemas/FAQSchema';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '../components/ui/breadcrumb';

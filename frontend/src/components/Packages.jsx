@@ -53,7 +53,7 @@ const Packages = () => {
                       />
                     ) : index === 1 ? (
                       <img 
-                        src="/images/Views/IMG_1701.JPEG?v=999" 
+                        src="/images/Views/IMG_1701_optimized.webp" 
                         alt={`${pkg.name} - homestay in Vattavada budget resort package Kerala`} 
                         className="w-full h-full object-cover"
                         loading="lazy"

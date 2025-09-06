@@ -1,11 +1,21 @@
 // Layout Optimizer - Prevent forced reflows and layout thrashing
 
+// Mobile detection utility
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && /MacIntel/.test(navigator.platform)) ||
+         window.innerWidth <= 768;
+};
+
 // Batch DOM reads and writes to prevent layout thrashing
 class LayoutOptimizer {
   constructor() {
     this.readTasks = [];
     this.writeTasks = [];
     this.isScheduled = false;
+    this.isMobile = isMobile();
+    this.batchSize = this.isMobile ? 5 : 10; // Smaller batches on mobile
+    this.frameTimeout = this.isMobile ? 32 : 16; // Longer timeout on mobile (30fps vs 60fps)
   }
 
   // Schedule DOM reads (measurements)
@@ -20,30 +30,73 @@ class LayoutOptimizer {
     this.scheduleFlush();
   }
 
-  // Flush all pending tasks in the correct order
+  // Flush all pending tasks in the correct order with mobile optimization
   scheduleFlush() {
     if (this.isScheduled) return;
     
     this.isScheduled = true;
-    requestAnimationFrame(() => {
-      // Execute all reads first
-      const readResults = this.readTasks.map(task => {
-        try {
-          return task();
-        } catch (error) {
-          console.error('Layout read error:', error);
-          return null;
+    
+    // Mobile optimization: Use longer delays and smaller batches
+    const scheduleCallback = this.isMobile ? 
+      (callback) => {
+        // On mobile, prioritize battery life and use requestIdleCallback when available
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(callback, { timeout: this.frameTimeout * 2 });
+        } else {
+          setTimeout(callback, this.frameTimeout);
         }
-      });
+      } :
+      (callback) => requestAnimationFrame(callback);
+    
+    scheduleCallback(() => {
+      // Mobile: Process tasks in smaller batches to prevent frame drops
+      const processBatch = (tasks, processor, startIndex = 0) => {
+        const endIndex = Math.min(startIndex + this.batchSize, tasks.length);
+        const batch = tasks.slice(startIndex, endIndex);
+        
+        const results = batch.map((task, index) => {
+          try {
+            return processor(task, startIndex + index);
+          } catch (error) {
+            console.error('Layout task error:', error);
+            return null;
+          }
+        });
+        
+        // Continue processing remaining tasks in next frame if needed
+        if (endIndex < tasks.length) {
+          requestAnimationFrame(() => {
+            processBatch(tasks, processor, endIndex);
+          });
+        }
+        
+        return results;
+      };
+      
+      // Execute all reads first
+      const readResults = this.isMobile && this.readTasks.length > this.batchSize ?
+        processBatch(this.readTasks, (task) => task()) :
+        this.readTasks.map(task => {
+          try {
+            return task();
+          } catch (error) {
+            console.error('Layout read error:', error);
+            return null;
+          }
+        });
       
       // Then execute all writes
-      this.writeTasks.forEach((task, index) => {
-        try {
-          task(readResults[index]);
-        } catch (error) {
-          console.error('Layout write error:', error);
-        }
-      });
+      if (this.isMobile && this.writeTasks.length > this.batchSize) {
+        processBatch(this.writeTasks, (task, index) => task(readResults[index]));
+      } else {
+        this.writeTasks.forEach((task, index) => {
+          try {
+            task(readResults[index]);
+          } catch (error) {
+            console.error('Layout write error:', error);
+          }
+        });
+      }
       
       // Clear tasks
       this.readTasks = [];
@@ -244,6 +297,9 @@ class LayoutOptimizer {
     this.isScheduled = false;
   }
 }
+
+// Export the LayoutOptimizer class for direct instantiation
+export { LayoutOptimizer };
 
 // Create singleton instance
 const layoutOptimizer = new LayoutOptimizer();

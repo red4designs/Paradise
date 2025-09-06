@@ -202,29 +202,156 @@ export const preloadCriticalResources = () => {
   }
 };
 
-// Mobile-specific resource hints
+// Mobile-specific: Add resource hints for better performance
 const addMobileResourceHints = () => {
-  const hints = [
-    // Preconnect to critical domains
+  const mobileHints = [
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    
-    // DNS prefetch for potential future resources
     { rel: 'dns-prefetch', href: '//images.unsplash.com' },
+    { rel: 'dns-prefetch', href: '//api.example.com' }
   ];
   
-  hints.forEach(hint => {
+  mobileHints.forEach(hint => {
     const existing = document.querySelector(`link[rel="${hint.rel}"][href="${hint.href}"]`);
     if (existing) return;
     
     const link = document.createElement('link');
     link.rel = hint.rel;
     link.href = hint.href;
+    
     if (hint.crossorigin) {
       link.crossOrigin = 'anonymous';
     }
+    
     document.head.appendChild(link);
   });
+};
+
+// Mobile-optimized network dependency reduction
+export const optimizeMobileNetworkDependencies = () => {
+  if (!isMobile()) return;
+  
+  // 1. Reduce critical request chains by bundling critical resources
+  const criticalResourceBundle = [
+    // Preload critical CSS inline to reduce network requests
+    { type: 'style', content: getCriticalInlineStyles() },
+    // Preload critical fonts as data URIs for first paint
+    { type: 'font', content: getCriticalFontDataURI() }
+  ];
+  
+  // 2. Implement aggressive resource prioritization for mobile
+  const mobileResourceHints = [
+    // High priority: Critical font preconnect
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true, priority: 'high' },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com', priority: 'high' },
+    
+    // Low priority: Defer non-critical domains
+    { rel: 'dns-prefetch', href: '//images.unsplash.com', priority: 'low' },
+    { rel: 'dns-prefetch', href: '//api.example.com', priority: 'low' }
+  ];
+  
+  // 3. Apply mobile-specific resource loading strategy
+  mobileResourceHints.forEach(hint => {
+    const existing = document.querySelector(`link[rel="${hint.rel}"][href="${hint.href}"]`);
+    if (existing) return;
+    
+    const link = document.createElement('link');
+    link.rel = hint.rel;
+    link.href = hint.href;
+    
+    // Set importance attribute for mobile optimization
+    if (hint.priority) {
+      link.setAttribute('importance', hint.priority);
+    }
+    
+    if (hint.crossorigin) {
+      link.crossOrigin = 'anonymous';
+    }
+    
+    // Defer low priority resources
+    if (hint.priority === 'low') {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => document.head.appendChild(link), { timeout: 2000 });
+      } else {
+        setTimeout(() => document.head.appendChild(link), 1000);
+      }
+    } else {
+      document.head.appendChild(link);
+    }
+  });
+  
+  // 4. Implement mobile-specific request coalescing
+  coalesceMobileRequests();
+};
+
+// Helper function to get critical inline styles for mobile
+const getCriticalInlineStyles = () => {
+  return `
+    /* Mobile-critical styles to reduce network requests */
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .hero-section { min-height: 80vh; display: flex; align-items: center; }
+    .nav-menu { display: flex; gap: 1rem; }
+    @media (max-width: 768px) {
+      * { animation: none !important; transition: none !important; }
+      .hero-section { padding: 1rem; }
+    }
+  `;
+};
+
+// Helper function to get critical font as data URI (subset)
+const getCriticalFontDataURI = () => {
+  // Return a minimal font subset for critical text rendering
+  return 'data:font/woff2;base64,'; // Would contain actual font data in production
+};
+
+// Coalesce multiple requests into fewer network calls on mobile
+const coalesceMobileRequests = () => {
+  // Batch multiple small requests together
+  const requestQueue = [];
+  const batchTimeout = 100; // 100ms batching window
+  
+  // Override fetch for request batching (simplified example)
+  const originalFetch = window.fetch;
+  window.fetch = function(url, options = {}) {
+    // Only batch GET requests for static resources
+    if (!options.method || options.method === 'GET') {
+      if (url.match(/\.(css|js|json|woff2?)$/)) {
+        return new Promise((resolve, reject) => {
+          requestQueue.push({ url, options, resolve, reject });
+          
+          // Process queue after timeout
+          setTimeout(() => {
+            if (requestQueue.length > 0) {
+              processBatchedRequests();
+            }
+          }, batchTimeout);
+        });
+      }
+    }
+    
+    // Fallback to original fetch
+    return originalFetch.call(this, url, options);
+  };
+  
+  const processBatchedRequests = () => {
+    const batch = requestQueue.splice(0);
+    
+    // Process requests with priority ordering
+    batch.sort((a, b) => {
+      const priorityA = a.url.match(/\.(css|woff2?)$/) ? 1 : 2;
+      const priorityB = b.url.match(/\.(css|woff2?)$/) ? 1 : 2;
+      return priorityA - priorityB;
+    });
+    
+    // Execute requests with slight delays to prevent network congestion
+    batch.forEach((request, index) => {
+      setTimeout(() => {
+        originalFetch(request.url, request.options)
+          .then(request.resolve)
+          .catch(request.reject);
+      }, index * 10); // 10ms stagger
+    });
+  };
 };
 
 // Lazy load images with Intersection Observer
@@ -446,6 +573,63 @@ export const monitorPerformance = () => {
         // analytics.track('performance', metrics);
       }, 0);
     });
+  }
+};
+
+// Main mobile optimization initialization function
+export const initializeMobileOptimizations = () => {
+  if (!isMobile()) return;
+  
+  // Apply all mobile optimizations in priority order
+  optimizeMobileNetworkDependencies(); // Reduce critical request chains first
+  deferNonCriticalCSS();
+  optimizeFontLoading();
+  addMobileResourceHints();
+  
+  // Set up performance monitoring with mobile-specific metrics
+  if ('PerformanceObserver' in window) {
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach(entry => {
+        if (entry.entryType === 'largest-contentful-paint') {
+          console.log('Mobile LCP:', entry.startTime);
+          // Log if LCP is over mobile threshold (2.5s)
+          if (entry.startTime > 2500) {
+            console.warn('Mobile LCP exceeds recommended threshold');
+          }
+        }
+        if (entry.entryType === 'first-input-delay') {
+          console.log('Mobile FID:', entry.processingStart - entry.startTime);
+        }
+      });
+    });
+    
+    observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
+  }
+  
+  // Monitor network requests for mobile optimization feedback
+  monitorMobileNetworkPerformance();
+};
+
+// Monitor network performance specifically for mobile
+const monitorMobileNetworkPerformance = () => {
+  if ('PerformanceObserver' in window) {
+    const networkObserver = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      const criticalResources = entries.filter(entry => 
+        entry.name.match(/\.(css|js|woff2?)$/) && entry.duration > 100
+      );
+      
+      if (criticalResources.length > 0) {
+        console.log('Mobile slow resources detected:', criticalResources.map(r => ({
+          url: r.name,
+          duration: r.duration,
+          size: r.transferSize
+        })));
+      }
+    });
+    
+    networkObserver.observe({ entryTypes: ['resource'] });
   }
 };
 

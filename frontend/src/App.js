@@ -6,8 +6,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
-import initResourceOptimizer from "./utils/resourceOptimizer";
+import initResourceOptimizer, { initializeMobileOptimizations } from "./utils/resourceOptimizer";
 import { PerformanceProvider } from "./hooks/usePerformanceOptimization";
+import { LayoutOptimizer } from "./utils/layoutOptimizer";
 
 // Lazy load page components for better performance
 const HomePage = React.lazy(() => import("./pages/HomePage"));
@@ -24,9 +25,23 @@ const LoadingSpinner = () => (
 );
 
 function App() {
-  // Initialize resource optimizations
+  // Initialize resource optimizations with mobile-specific enhancements
   useEffect(() => {
+    // Initialize layout optimizer globally for mobile optimization
+    window.layoutOptimizer = new LayoutOptimizer();
+    
+    // Initialize general resource optimizations
     initResourceOptimizer();
+    
+    // Initialize mobile-specific optimizations
+    initializeMobileOptimizations();
+    
+    // Cleanup on unmount
+    return () => {
+      if (window.layoutOptimizer) {
+        window.layoutOptimizer = null;
+      }
+    };
   }, []);
 
   return (

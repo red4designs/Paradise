@@ -53,25 +53,49 @@
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
-# Add cache-control headers
+# Add cache-control headers with mobile optimization
 <IfModule mod_headers.c>
-    # Cache static assets with immutable flag for better performance
-    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|avif|svg|woff|woff2|ttf|otf)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-        Header set Vary "Accept-Encoding"
-    </FilesMatch>
+    # Mobile-optimized cache headers - more aggressive caching for mobile devices
+    <If "%{HTTP_USER_AGENT} =~ /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i">
+        # Cache static assets with longer TTL for mobile (save bandwidth)
+        <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|avif|svg|woff|woff2|ttf|otf)$">
+            Header set Cache-Control "public, max-age=63072000, immutable, stale-while-revalidate=86400"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
+        
+        # Cache media files longer on mobile
+        <FilesMatch "\.(mp4|webm|mp3|wav|pdf)$">
+            Header set Cache-Control "public, max-age=31536000, stale-while-revalidate=86400"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
+        
+        # Cache JSON/XML longer on mobile
+        <FilesMatch "\.(json|xml)$">
+            Header set Cache-Control "public, max-age=1209600, stale-while-revalidate=3600"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
+    </If>
     
-    # Cache media files
-    <FilesMatch "\.(mp4|webm|mp3|wav|pdf)$">
-        Header set Cache-Control "public, max-age=15552000"
-        Header set Vary "Accept-Encoding"
-    </FilesMatch>
+    # Desktop cache headers (existing behavior)
+    <If "%{HTTP_USER_AGENT} !~ /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i">
+        # Cache static assets with immutable flag for better performance
+        <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|avif|svg|woff|woff2|ttf|otf)$">
+            Header set Cache-Control "public, max-age=31536000, immutable"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
     
-    # Cache JSON and XML files
-    <FilesMatch "\.(json|xml)$">
-        Header set Cache-Control "public, max-age=604800"
-        Header set Vary "Accept-Encoding"
-    </FilesMatch>
+        # Cache media files
+        <FilesMatch "\.(mp4|webm|mp3|wav|pdf)$">
+            Header set Cache-Control "public, max-age=15552000"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
+        
+        # Cache JSON and XML files
+        <FilesMatch "\.(json|xml)$">
+            Header set Cache-Control "public, max-age=604800"
+            Header set Vary "Accept-Encoding"
+        </FilesMatch>
+    </If>
     
     # Cache HTML for shorter time with revalidation
     <FilesMatch "\.(html|htm)$">

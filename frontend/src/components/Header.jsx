@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
 
@@ -16,6 +16,26 @@ const Header = () => {
   ];
 
   const location = useLocation();
+
+  // Handle hash navigation on page load or location change
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && location.pathname === '/') {
+      // Small delay to ensure the page has loaded
+      setTimeout(() => {
+        const sectionId = hash.replace('#', '');
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Hi! I would like to check availability at Paradise Resort Vattavada.');
@@ -143,7 +163,7 @@ const Header = () => {
         <div className="lg:hidden absolute top-full left-0 w-full bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] px-[7.6923%] py-6">
           <nav className="flex flex-col gap-4 mb-6">
             {navLinks.map((link) => {
-              // Use anchor tags for section links, React Router Links for pages
+              // Use anchor tags for section links, React Router Links for page links
               if (link.href.startsWith('/#')) {
                 return (
                   <a

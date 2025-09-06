@@ -91,7 +91,7 @@ const FAQ = () => {
         },
         {
           question: "What are the check-in and check-out times, and can they be flexible?",
-          answer: "Standard check-in time at Paradise Resort Vattavada is 12:00 PM (noon), and check-out time is 11:00 AM. However, we understand that travel plans can vary, especially in hill stations. Early check-in (from 10:00 AM) and late check-out (until 1:00 PM) may be possible based on availability and prior arrangement. For guests arriving very early or departing very late, we can provide luggage storage and common area access. Please contact us at +91 9074902424 to discuss flexible timing options for your specific travel needs.",
+          answer: "Standard check-in time at Paradise Resort Vattavada is 02:00 PM, and check-out time is 11:00 AM. However, we understand that travel plans can vary, especially in hill stations. Early check-in (from 10:00 AM) and late check-out (until 1:00 PM) may be possible based on availability and prior arrangement. For guests arriving very early or departing very late, we can provide luggage storage and common area access. Please contact us at +91 9074902424 to discuss flexible timing options for your specific travel needs.",
           category: "Check-in & Check-out",
           keywords: ["check-in time", "check-out time", "flexible timing", "early check-in"]
         },

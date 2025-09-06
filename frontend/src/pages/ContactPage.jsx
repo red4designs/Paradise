@@ -35,19 +35,19 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>Contact Paradise Resort Vattavada | Book Your Stay in Kerala</title>
-        <meta name="description" content="Contact Paradise Resort Vattavada for bookings and inquiries. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed for your mountain getaway." />
+        <meta name="description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
         <meta name="keywords" content="contact Paradise Resort Vattavada, book resort Vattavada, Paradise Resort booking, Vattavada resort contact number, resort near Munnar contact, Kerala hill station booking, Vattavada accommodation booking" />
         <link rel="canonical" href="https://www.paradisevattavada.com/contact" />
         
         {/* Open Graph tags */}
         <meta property="og:title" content="Contact Paradise Resort Vattavada | Book Your Stay in Kerala" />
-        <meta property="og:description" content="Contact Paradise Resort Vattavada for bookings and inquiries. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
+        <meta property="og:description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
         <meta property="og:url" content="https://www.paradisevattavada.com/contact" />
         <meta property="og:type" content="website" />
         
         {/* Twitter Card tags */}
         <meta name="twitter:title" content="Contact Paradise Resort Vattavada | Book Your Stay in Kerala" />
-        <meta name="twitter:description" content="Contact Paradise Resort Vattavada for bookings and inquiries. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala." />
+        <meta name="twitter:description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
         
         {/* Structured Data for Contact */}
         <script type="application/ld+json">

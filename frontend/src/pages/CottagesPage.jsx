@@ -57,7 +57,7 @@ const CottagesPage = () => {
         
         {/* Twitter Card tags */}
         <meta name="twitter:title" content="Private Cottages in Vattavada | Paradise Resort Budget Stay" />
-        <meta name="twitter:description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences." />
+        <meta name="twitter:description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences near Munnar Kerala." />
         
         {/* Structured Data for Cottages */}
         <script type="application/ld+json">

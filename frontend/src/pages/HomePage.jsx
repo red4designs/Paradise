@@ -83,19 +83,19 @@ const HomePage = () => {
       <>
         <Helmet>
           <title>Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala</title>
-          <meta name="description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views, adventure activities & delicious cuisine in Kerala's hill station." />
+          <meta name="description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
           <meta name="keywords" content="Paradise Resort Vattavada, budget resort Vattavada, best stay in Vattavada, Munnar resorts, Kerala hill station resort, budget accommodation Vattavada, homestay in Vattavada, resorts near Vattavada, family friendly resorts in Vattavada" />
           <link rel="canonical" href="https://www.paradisevattavada.com/" />
           
           {/* Open Graph tags */}
           <meta property="og:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
-          <meta property="og:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views, adventure activities & delicious cuisine." />
+          <meta property="og:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
           <meta property="og:url" content="https://www.paradisevattavada.com/" />
           <meta property="og:type" content="website" />
           
           {/* Twitter Card tags */}
           <meta name="twitter:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
-          <meta name="twitter:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views, adventure activities & delicious cuisine." />
+          <meta name="twitter:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
         </Helmet>
         
         {/* Schema.org structured data */}

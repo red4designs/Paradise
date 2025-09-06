@@ -54,6 +54,10 @@ const Header = () => {
     window.open('https://www.agoda.com/paradise-resort-vattavada/hotel/vattavada-in.html', '_blank');
   };
 
+  const handleBookingComBooking = () => {
+    window.open('https://www.booking.com/hotel/in/vattavada-paradise-stay.html', '_blank');
+  };
+
   const handleNavClick = (href) => {
     // Handle section scrolling for anchor links
     if (href.startsWith('/#')) {
@@ -143,10 +147,16 @@ const Header = () => {
               <Facebook size={20} />
             </button>
           </div>
-          <button onClick={handleAgodaBooking} className="btn-primary">
-            <ExternalLink size={18} />
-            Book in Agoda
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={handleAgodaBooking} className="btn-primary">
+              <ExternalLink size={18} />
+              Book in Agoda
+            </button>
+            <button onClick={handleBookingComBooking} className="btn-primary">
+              <ExternalLink size={18} />
+              Book on Booking.com
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -221,6 +231,10 @@ const Header = () => {
             <button onClick={handleAgodaBooking} className="btn-primary">
               <ExternalLink size={18} />
               Book in Agoda
+            </button>
+            <button onClick={handleBookingComBooking} className="btn-primary">
+              <ExternalLink size={18} />
+              Book on Booking.com
             </button>
           </div>
         </div>

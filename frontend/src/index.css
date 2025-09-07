@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import optimized CSS utilities */
+@import './styles/optimized-utilities.css';
+
 /* Custom animations for smooth loading */
 @keyframes shimmer {
   0% {

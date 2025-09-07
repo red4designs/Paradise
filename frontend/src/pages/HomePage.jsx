@@ -1,12 +1,12 @@
 import React, { Suspense, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
-import RoomDetails from '../components/RoomDetails';
+import OptimizedRoomDetails from '../components/OptimizedRoomDetails';
 import About from '../components/About';
 // Lazy load non-critical below-the-fold components for better INP
 const Amenities = React.lazy(() => import('../components/Amenities'));
 const Packages = React.lazy(() => import('../components/Packages'));
-const Gallery = React.lazy(() => import('../components/Gallery'));
+const VirtualScrollGallery = React.lazy(() => import('../components/VirtualScrollGallery'));
 const TravelGuide = React.lazy(() => import('../components/TravelGuide'));
 const FAQ = React.lazy(() => import('../components/FAQ'));
 const Contact = React.lazy(() => import('../components/Contact'));
@@ -15,6 +15,7 @@ import EventSchema from '../components/schemas/EventSchema';
 import OfferSchema from '../components/schemas/OfferSchema';
 
 import PerformanceOptimizer from '../components/PerformanceOptimizer';
+import LazySection from '../components/LazySection';
 import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization';
 
 const HomePage = () => {
@@ -106,33 +107,63 @@ const HomePage = () => {
 
         <Hero />
         
-        <RoomDetails />
+        <OptimizedRoomDetails />
         <About />
         
-        {/* Lazy loaded components with fallbacks for better INP */}
-        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+        {/* Enhanced lazy loaded components with intersection observer */}
+        <LazySection 
+          minHeight="400px" 
+          rootMargin="200px" 
+          priority="high"
+          fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
           <Amenities />
-        </Suspense>
+        </LazySection>
         
-        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+        <LazySection 
+          minHeight="400px" 
+          rootMargin="150px" 
+          priority="high"
+          fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
           <Packages />
-        </Suspense>
+        </LazySection>
         
-        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
-          <Gallery />
-        </Suspense>
+        <LazySection 
+          minHeight="600px" 
+          rootMargin="100px" 
+          priority="high"
+          fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
+          <VirtualScrollGallery />
+        </LazySection>
         
-        <Suspense fallback={<div className="h-64 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+        <LazySection 
+          minHeight="300px" 
+          rootMargin="100px" 
+          priority="normal"
+          fallback={<div className="h-64 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
           <TravelGuide />
-        </Suspense>
+        </LazySection>
         
-        <Suspense fallback={<div className="h-64 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+        <LazySection 
+          minHeight="300px" 
+          rootMargin="50px" 
+          priority="normal"
+          fallback={<div className="h-64 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
           <FAQ />
-        </Suspense>
+        </LazySection>
         
-        <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mx-4 my-8"></div>}>
+        <LazySection 
+          minHeight="400px" 
+          rootMargin="50px" 
+          priority="low"
+          fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
+        >
           <Contact />
-        </Suspense>
+        </LazySection>
       </>
     </PerformanceOptimizer>
   );

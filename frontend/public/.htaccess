@@ -114,3 +114,16 @@
     Header unset ETag
     FileETag None
 </IfModule>
+
+# Handle React Router (client-side routing)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Handle Angular and React Router
+    # If the requested resource doesn't exist as a file or directory
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Serve index.html for all routes (except API calls and static files)
+    RewriteRule ^(?!api/).*$ /index.html [L,QSA]
+</IfModule>

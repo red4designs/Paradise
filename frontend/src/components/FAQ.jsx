@@ -237,7 +237,8 @@ const FAQ = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:+919074902424" 
+              href="tel:+919074902424"
+                onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:+919074902424')} 
               className="inline-flex items-center px-6 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-semibold rounded-lg hover:bg-[hsl(var(--primary)_/_0.9)] transition-colors shadow-lg hover:shadow-[hsl(var(--primary)_/_0.25)]"
             >
               📞 Call +91 90749 02424

@@ -1,0 +1,16 @@
+/* Main CSS file for development server */
+/* This file ensures CSS references don't fail during development */
+/* The actual styles are handled by webpack in development mode */
+
+/* Minimal fallback styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* This file prevents 404 errors for CSS references during development */
+/* Production builds will replace this with the actual bundled CSS */

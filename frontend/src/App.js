@@ -12,18 +12,18 @@ import { LayoutOptimizer } from "./utils/layoutOptimizer";
 import { initWebVitals, optimizeImages, preloadCriticalResources } from "./utils/webVitals";
 
 // Lazy load page components with preloading for better performance
-const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages/HomePage"));
-const CottagesPage = React.lazy(() => import(/* webpackChunkName: "cottages" */ "./pages/CottagesPage"));
-const TentsPage = React.lazy(() => import(/* webpackChunkName: "tents" */ "./pages/TentsPage"));
-const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" */ "./pages/DormitoryPage"));
-const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage"));
+const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages/HomePage.jsx"));
+const CottagesPage = React.lazy(() => import(/* webpackChunkName: "cottages" */ "./pages/CottagesPage.jsx"));
+const TentsPage = React.lazy(() => import(/* webpackChunkName: "tents" */ "./pages/TentsPage.jsx"));
+const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" */ "./pages/DormitoryPage.jsx"));
+const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage.jsx"));
 
 // Preload critical routes on idle
 const preloadRoutes = () => {
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
-      import("./pages/CottagesPage");
-      import("./pages/ContactPage");
+      import("./pages/CottagesPage.jsx");
+      import("./pages/ContactPage.jsx");
     });
   }
 };

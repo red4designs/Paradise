@@ -311,12 +311,12 @@ Please check availability and let me know. Thank you!`;
                       <h4 className="heading-3 mb-1">Phone</h4>
                       <p className="body-medium text-text-secondary mb-2">Call us anytime for instant booking</p>
                       <div className="space-y-1">
-                        <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline block">
-                          +91 90749 02424
-                        </a>
-                        <a href="tel:8848019414" className="body-medium text-brand-primary hover:underline block">
-                          +91 8848019414 (David)
-                        </a>
+                        <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline block" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
+                  +91 90749 02424
+                </a>
+                <a href="tel:8848019414" className="body-medium text-brand-primary hover:underline block" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:8848019414')}>
+                  +91 8848019414 (David)
+                </a>
                       </div>
                     </div>
                   </div>
@@ -421,10 +421,10 @@ Please check availability and let me know. Thank you!`;
               Don't wait! Contact us today and start planning your unforgettable Vattavada experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:9074902424" className="btn-primary">
-                <Phone size={18} />
-                Call Now
-              </a>
+              <a href="tel:9074902424" className="btn-primary" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
+              <Phone size={18} />
+              Call Now
+            </a>
               <button onClick={() => window.open('https://wa.me/919074902424', '_blank')} className="btn-secondary">
                 <MessageCircle size={18} />
                 WhatsApp Us

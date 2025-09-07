@@ -255,7 +255,7 @@ Please confirm availability and provide pricing details. Thank you!`;
 
                     <div className="text-center">
                       <p className="body-small text-text-muted">
-                        Need help? <a href="tel:9074902424" className="text-brand-primary hover:underline">Call us now</a>
+                        Need help? <a href="tel:9074902424" className="text-brand-primary hover:underline" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>Call us now</a>
                       </p>
                     </div>
                   </div>

@@ -13,6 +13,9 @@ const Packages = () => {
   };
 
   const handleCall = () => {
+    if (window.gtag_report_conversion) {
+      window.gtag_report_conversion('tel:9074902424');
+    }
     window.open('tel:9074902424');
   };
 

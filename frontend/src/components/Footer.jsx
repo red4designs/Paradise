@@ -59,9 +59,9 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-brand-primary" />
-                  <a href="tel:9074902424" className="body-medium text-text-secondary hover:text-brand-primary dark-transition">
-                    +91 90749 02424
-                  </a>
+                  <a href="tel:9074902424" className="body-medium text-text-secondary hover:text-brand-primary dark-transition" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
+              +91 90749 02424
+            </a>
                 </div>
                 
                 <div className="flex items-center gap-3">
@@ -165,10 +165,10 @@ const Footer = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:9074902424" className="btn-primary">
-                <Phone size={18} />
-                Call Today
-              </a>
+              <a href="tel:9074902424" className="btn-primary" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
+            <Phone size={18} />
+            Call Today
+          </a>
               <button 
                 onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                 className="btn-secondary"
@@ -200,9 +200,9 @@ const Footer = () => {
             
             <div className="flex items-center gap-4">
               <span className="body-small text-text-muted">Emergency Contact:</span>
-              <a href="tel:9074902424" className="body-small text-brand-primary hover:underline">
-                +91 90749 02424
-              </a>
+              <a href="tel:9074902424" className="body-small text-brand-primary hover:underline" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
+              +91 90749 02424
+            </a>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
+import GoogleAnalyticsFacade from "./components/facades/GoogleAnalyticsFacade";
 import initResourceOptimizer, { initializeMobileOptimizations } from "./utils/resourceOptimizer";
 import { PerformanceProvider } from "./hooks/usePerformanceOptimization";
 import { LayoutOptimizer } from "./utils/layoutOptimizer";
@@ -151,6 +152,12 @@ function App() {
                 </Suspense>
                 <Footer />
                 <BackToTop />
+                {/* Lazy load Google Analytics to improve initial page performance */}
+                <GoogleAnalyticsFacade 
+                  measurementId="AW-615136649"
+                  loadDelay={2000}
+                  loadOnInteraction={true}
+                />
               </div>
             </Router>
           </ErrorBoundary>

@@ -18,6 +18,7 @@ import {
   Droplets
 } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
+import YouTubeFacade from './facades/YouTubeFacade';
 import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization';
 import { useWorkerManager } from '../utils/workerManager';
 import PerformanceOptimizer from './PerformanceOptimizer';
@@ -285,14 +286,13 @@ const RoomDetails = () => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                          <iframe 
-                            src="https://www.youtube.com/embed/UwGLRFeFBOk?start=6" 
-                            title="Paradise Resort Vattavada - Premium Resort Rooms Tour" 
-                            className="w-full h-full border-0 rounded-lg"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                          ></iframe>
+                          <YouTubeFacade
+                            videoId="UwGLRFeFBOk"
+                            title="Paradise Resort Vattavada - Premium Resort Rooms Tour"
+                            className="w-full h-full"
+                            aspectRatio="aspect-[4/3] lg:aspect-auto"
+                            startTime={6}
+                          />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-4">

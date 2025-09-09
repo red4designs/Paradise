@@ -81,7 +81,7 @@ const OptimizedRoomDetails = () => {
       title: 'Private Cottages',
       subtitle: '3-Bedroom Family Haven',
       description: 'Enjoy complete privacy in our spacious 3-bedroom cottages. Perfect for large families or groups seeking a home-away-from-home experience.',
-      image: '/images/Cottages/cottage1_optimized.webp',
+      image: '/images/Cottages/IMG_20250208_122711.webp',
       features: [
         {
           title: '3 Spacious Bedrooms',
@@ -113,7 +113,7 @@ const OptimizedRoomDetails = () => {
       title: 'Adventure Tents',
       subtitle: 'Glamping Experience',
       description: 'Experience the thrill of camping with the comfort of a hotel. Our premium tents offer a unique glamping experience.',
-      image: '/images/Tents/tent1_optimized.webp',
+      image: '/images/Tents/IMG_3632.JPEG',
       specs: {
         capacity: '20+ guests',
         perTent: '2-3 guests'
@@ -236,15 +236,14 @@ const OptimizedRoomDetails = () => {
             <CardContent className="p-0">
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="aspect-[4/3] lg:aspect-auto">
-                  <LazyImage 
-                    src="/images/Views/IMG_1701_optimized.webp" 
-                    alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
-                    className="w-full h-full object-cover"
-                    responsive={true}
-                    enableSharing={true}
-                    shareTitle="Premium Resort Rooms - Paradise Resort Vattavada"
-                    shareDescription="Experience luxury accommodation at Paradise Resort Vattavada - Premium budget resort rooms with stunning mountain views near Munnar"
-                  />
+                  <iframe 
+                    src="https://www.youtube.com/embed/UwGLRFeFBOk?start=6" 
+                    title="Paradise Resort Vattavada - Premium Resort Rooms Tour" 
+                    className="w-full h-full border-0 rounded-lg"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
@@ -307,7 +306,7 @@ const OptimizedRoomDetails = () => {
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="aspect-[4/3] lg:aspect-auto">
                   <LazyImage 
-                    src={currentOption.image} 
+                    src="/images/Cottages/IMG_20250208_122711.webp" 
                     alt="Private cottages in Vattavada - 3 bedroom family accommodation" 
                     className="w-full h-full object-cover"
                     loading="lazy"

@@ -285,15 +285,14 @@ const RoomDetails = () => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                          <LazyImage 
-                            src="/images/Views/IMG_1701_optimized.webp" 
-                            alt="Budget resort rooms in Vattavada - affordable accommodation near Munnar" 
-                            className="w-full h-full object-cover"
-                            responsive={true}
-                            enableSharing={true}
-                            shareTitle="Premium Resort Rooms - Paradise Resort Vattavada"
-                            shareDescription="Experience luxury accommodation at Paradise Resort Vattavada - Premium budget resort rooms with stunning mountain views near Munnar"
-                          />
+                          <iframe 
+                            src="https://www.youtube.com/embed/UwGLRFeFBOk?start=6" 
+                            title="Paradise Resort Vattavada - Premium Resort Rooms Tour" 
+                            className="w-full h-full border-0 rounded-lg"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-4">

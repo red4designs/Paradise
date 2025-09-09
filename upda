@@ -1,0 +1,171 @@
+warning: in the working copy of 'frontend/public/sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/OptimizedRoomDetails.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/RoomDetails.jsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/frontend/public/sitemap.xml b/frontend/public/sitemap.xml[m
+[1mindex 32c360c..53f35b8 100644[m
+[1m--- a/frontend/public/sitemap.xml[m
+[1m+++ b/frontend/public/sitemap.xml[m
+[36m@@ -37,7 +37,7 @@[m
+     <changefreq>weekly</changefreq>[m
+     <priority>0.9</priority>[m
+     <image:image>[m
+[31m-      <image:loc>https://www.paradisevattavada.com/images/Tents/IMG_3629.webp</image:loc>[m
+[32m+[m[32m      <image:loc>https://www.paradisevattavada.com/images/Tents/IMG_3632.JPEG</image:loc>[m
+       <image:caption>Premium tent stay in Vattavada - Adventure camping experience with modern amenities</image:caption>[m
+       <image:title>Premium Tent Stay | Paradise Resort Vattavada</image:title>[m
+     </image:image>[m
+[1mdiff --git a/frontend/scripts/optimize-large-images.js b/frontend/scripts/optimize-large-images.js[m
+[1mdeleted file mode 100644[m
+[1mindex 83c902f..0000000[m
+[1m--- a/frontend/scripts/optimize-large-images.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,60 +0,0 @@[m
+[31m-const sharp = require('sharp');[m
+[31m-const fs = require('fs');[m
+[31m-const path = require('path');[m
+[31m-[m
+[31m-async function optimizeImage(inputPath, outputPath, maxWidth = 1200, quality = 80) {[m
+[31m-  try {[m
+[31m-    const info = await sharp(inputPath).metadata();[m
+[31m-    console.log(`Original: ${info.width}x${info.height}, ${Math.round(info.size / 1024)}KB`);[m
+[31m-    [m
+[31m-    await sharp(inputPath)[m
+[31m-      .resize(maxWidth, null, {[m
+[31m-        withoutEnlargement: true,[m
+[31m-        fit: 'inside'[m
+[31m-      })[m
+[31m-      .webp({ quality })[m
+[31m-      .toFile(outputPath);[m
+[31m-    [m
+[31m-    const newInfo = await sharp(outputPath).metadata();[m
+[31m-    const newSize = fs.statSync(outputPath).size;[m
+[31m-    console.log(`Optimized: ${newInfo.width}x${newInfo.height}, ${Math.round(newSize / 1024)}KB`);[m
+[31m-    console.log(`Savings: ${Math.round((info.size - newSize) / 1024)}KB\n`);[m
+[31m-  } catch (error) {[m
+[31m-    console.error(`Error optimizing ${inputPath}:`, error.message);[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-async function main() {[m
+[31m-  const imagesDir = path.join(__dirname, '../public/images/Views');[m
+[31m-  [m
+[31m-  // Optimize the large images identified in the audit[m
+[31m-  const imagesToOptimize = [[m
+[31m-    {[m
+[31m-      input: path.join(imagesDir, 'IMG_1701.JPEG'),[m
+[31m-      output: path.join(imagesDir, 'IMG_1701_optimized.webp'),[m
+[31m-      maxWidth: 1200,[m
+[31m-      quality: 75[m
+[31m-    },[m
+[31m-    {[m
+[31m-      input: path.join(imagesDir, 'IMG_20241109_174229.webp'),[m
+[31m-      output: path.join(imagesDir, 'IMG_20241109_174229_optimized.webp'),[m
+[31m-      maxWidth: 1200,[m
+[31m-      quality: 75[m
+[31m-    }[m
+[31m-  ];[m
+[31m-  [m
+[31m-  console.log('Starting image optimization...');[m
+[31m-  [m
+[31m-  for (const img of imagesToOptimize) {[m
+[31m-    if (fs.existsSync(img.input)) {[m
+[31m-      console.log(`Optimizing: ${path.basename(img.input)}`);[m
+[31m-      await optimizeImage(img.input, img.output, img.maxWidth, img.quality);[m
+[31m-    } else {[m
+[31m-      console.log(`File not found: ${img.input}`);[m
+[31m-    }[m
+[31m-  }[m
+[31m-  [m
+[31m-  console.log('Image optimization complete!');[m
+[31m-}[m
+[31m-[m
+[31m-main().catch(console.error);[m
+\ No newline at end of file[m
+[1mdiff --git a/frontend/scripts/optimize-mobile-images.js b/frontend/scripts/optimize-mobile-images.js[m
+[1mdeleted file mode 100644[m
+[1mindex e2a6523..0000000[m
+[1m--- a/frontend/scripts/optimize-mobile-images.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,56 +0,0 @@[m
+[31m-const sharp = require('sharp');[m
+[31m-const path = require('path');[m
+[31m-const fs = require('fs');[m
+[31m-[m
+[31m-const optimizeForMobile = async () => {[m
+[31m-  const inputDir = path.join(__dirname, '../public/images/Views');[m
+[31m-  const imagesToOptimize = [[m
+[31m-    'IMG_1701_optimized.webp'[m
+[31m-  ];[m
+[31m-[m
+[31m-  for (const imageName of imagesToOptimize) {[m
+[31m-    const inputPath = path.join(inputDir, imageName);[m
+[31m-    const outputPath = path.join(inputDir, imageName.replace('_optimized', '_mobile'));[m
+[31m-    [m
+[31m-    if (!fs.existsSync(inputPath)) {[m
+[31m-      console.log(`❌ Image not found: ${inputPath}`);[m
+[31m-      continue;[m
+[31m-    }[m
+[31m-[m
+[31m-    try {[m
+[31m-      // Get original image info[m
+[31m-      const originalStats = fs.statSync(inputPath);[m
+[31m-      const originalMetadata = await sharp(inputPath).metadata();[m
+[31m-      [m
+[31m-      console.log(`📱 Optimizing ${imageName} for mobile...`);[m
+[31m-      console.log(`   Original: ${originalMetadata.width}x${originalMetadata.height} (${(originalStats.size / 1024).toFixed(1)}KB)`);[m
+[31m-      [m
+[31m-      // Create mobile-optimized version (smaller dimensions and higher compression)[m
+[31m-      await sharp(inputPath)[m
+[31m-        .resize(800, null, { // Max width 800px for mobile[m
+[31m-          withoutEnlargement: true,[m
+[31m-          fit: 'inside'[m
+[31m-        })[m
+[31m-        .webp({ [m
+[31m-          quality: 60, // Lower quality for mobile[m
+[31m-          effort: 6[m
+[31m-        })[m
+[31m-        .toFile(outputPath);[m
+[31m-      [m
+[31m-      // Get optimized image info[m
+[31m-      const optimizedStats = fs.statSync(outputPath);[m
+[31m-      const optimizedMetadata = await sharp(outputPath).metadata();[m
+[31m-      [m
+[31m-      console.log(`   Mobile: ${optimizedMetadata.width}x${optimizedMetadata.height} (${(optimizedStats.size / 1024).toFixed(1)}KB)`);[m
+[31m-      console.log(`   💾 Saved: ${((originalStats.size - optimizedStats.size) / 1024).toFixed(1)}KB`);[m
+[31m-      console.log(`   📉 Reduction: ${(((originalStats.size - optimizedStats.size) / originalStats.size) * 100).toFixed(1)}%`);[m
+[31m-      [m
+[31m-    } catch (error) {[m
+[31m-      console.error(`❌ Error optimizing ${imageName}:`, error.message);[m
+[31m-    }[m
+[31m-  }[m
+[31m-  [m
+[31m-  console.log('\n✅ Mobile optimization complete!');[m
+[31m-};[m
+[31m-[m
+[31m-optimizeForMobile().catch(console.error);[m
+\ No newline at end of file[m
+[1mdiff --git a/frontend/src/components/OptimizedRoomDetails.jsx b/frontend/src/components/OptimizedRoomDetails.jsx[m
+[1mindex ba4142f..a87c74c 100644[m
+[1m--- a/frontend/src/components/OptimizedRoomDetails.jsx[m
+[1m+++ b/frontend/src/components/OptimizedRoomDetails.jsx[m
+[36m@@ -81,7 +81,7 @@[m [mconst OptimizedRoomDetails = () => {[m
+       title: 'Private Cottages',[m
+       subtitle: '3-Bedroom Family Haven',[m
+       description: 'Enjoy complete privacy in our spacious 3-bedroom cottages. Perfect for large families or groups seeking a home-away-from-home experience.',[m
+[31m-      image: '/images/Cottages/cottage1_optimized.webp',[m
+[32m+[m[32m      image: '/images/Cottages/IMG_20250208_122711.webp',[m
+       features: [[m
+         {[m
+           title: '3 Spacious Bedrooms',[m
+[36m@@ -113,7 +113,7 @@[m [mconst OptimizedRoomDetails = () => {[m
+       title: 'Adventure Tents',[m
+       subtitle: 'Glamping Experience',[m
+       description: 'Experience the thrill of camping with the comfort of a hotel. Our premium tents offer a unique glamping experience.',[m
+[31m-      image: '/images/Tents/tent1_optimized.webp',[m
+[32m+[m[32m      image: '/images/Tents/IMG_3632.JPEG',[m
+       specs: {[m
+         capacity: '20+ guests',[m
+         perTent: '2-3 guests'[m
+[36m@@ -236,15 +236,14 @@[m [mconst OptimizedRoomDetails = () => {[m
+             <CardContent className="p-0">[m
+               <div classNam

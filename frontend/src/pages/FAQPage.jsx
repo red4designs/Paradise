@@ -15,14 +15,18 @@ const FAQPage = () => {
         <meta property="og:title" content="FAQ - Paradise Resort Vattavada" />
         <meta property="og:description" content="Find answers to frequently asked questions about Paradise Resort Vattavada." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://paradiseresort.in/faq" />
-        <meta property="og:image" content="https://paradiseresort.in/paradise-resort-faq.jpg" />
+        <meta property="og:url" content="https://www.paradisevattavada.com/faq" />
+        <meta property="og:image" content="https://www.paradisevattavada.com/paradise-resort-faq.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Paradise Resort FAQ - Frequently Asked Questions" />
         
-        {/* Twitter Card tags */}
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FAQ - Paradise Resort Vattavada" />
         <meta name="twitter:description" content="Find answers to frequently asked questions about Paradise Resort Vattavada." />
-        <meta name="twitter:image" content="https://paradiseresort.in/paradise-resort-faq.jpg" />
+        <meta name="twitter:image" content="https://www.paradisevattavada.com/paradise-resort-faq.jpg" />
+        <meta name="twitter:image:alt" content="Paradise Resort FAQ - Frequently Asked Questions" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -31,7 +35,7 @@ const FAQPage = () => {
             "@type": "FAQPage",
             "name": "Paradise Resort Vattavada FAQ",
             "description": "Frequently asked questions about Paradise Resort Vattavada",
-            "url": "https://paradiseresort.in/faq",
+            "url": "https://www.paradisevattavada.com/faq",
             "mainEntity": [
               {
                 "@type": "Question",

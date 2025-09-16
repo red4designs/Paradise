@@ -4,56 +4,56 @@
   
   <!-- Homepage Images -->
   <url>
-    <loc>https://paradiseresort.in/</loc>
+    <loc>https://www.paradisevattavada.com/</loc>
     <image:image>
-      <image:loc>https://paradiseresort.in/paradise-resort-hero.jpg</image:loc>
-      <image:caption>Paradise Resort Vattavada - Scenic Mountain Resort in Munnar, Kerala</image:caption>
-      <image:title>Paradise Resort Vattavada Main View</image:title>
-      <image:license>https://paradiseresort.in/license</image:license>
+      <image:loc>https://www.paradisevattavada.com/paradise-resort-hero.jpg</image:loc>
+      <image:caption>Paradise Resort - Premium hill station resort near Munnar Kerala with stunning mountain views</image:caption>
+      <image:title>Paradise Resort Main View</image:title>
+      <image:license>https://www.paradisevattavada.com/license</image:license>
     </image:image>
   </url>
   
-  <!-- Cottages Page Images -->
+  <!-- Cottage Images -->
   <url>
-    <loc>https://paradiseresort.in/cottages</loc>
+    <loc>https://www.paradisevattavada.com/cottages</loc>
     <image:image>
-      <image:loc>https://paradiseresort.in/paradise-resort-cottages.jpg</image:loc>
-      <image:caption>Luxury Cottages at Paradise Resort Vattavada with Mountain Views</image:caption>
-      <image:title>Paradise Resort Cottages</image:title>
-      <image:license>https://paradiseresort.in/license</image:license>
+      <image:loc>https://www.paradisevattavada.com/paradise-resort-cottages.jpg</image:loc>
+      <image:caption>Private 3-bedroom cottage at Paradise Resort with mountain views and modern amenities</image:caption>
+      <image:title>Private Cottage Accommodation</image:title>
+      <image:license>https://www.paradisevattavada.com/license</image:license>
     </image:image>
   </url>
   
-  <!-- Tents Page Images -->
+  <!-- Tent Images -->
   <url>
-    <loc>https://paradiseresort.in/tents</loc>
+    <loc>https://www.paradisevattavada.com/tents</loc>
     <image:image>
-      <image:loc>https://paradiseresort.in/paradise-resort-tents.jpg</image:loc>
-      <image:caption>Adventure Camping Tents at Paradise Resort Vattavada</image:caption>
-      <image:title>Paradise Resort Tents</image:title>
-      <image:license>https://paradiseresort.in/license</image:license>
+      <image:loc>https://www.paradisevattavada.com/paradise-resort-tents.jpg</image:loc>
+      <image:caption>Premium tent accommodation at Paradise Resort - Adventure camping with comfort</image:caption>
+      <image:title>Premium Tent Stay</image:title>
+      <image:license>https://www.paradisevattavada.com/license</image:license>
     </image:image>
   </url>
   
-  <!-- Dormitory Page Images -->
+  <!-- Dormitory Images -->
   <url>
-    <loc>https://paradiseresort.in/dormitory</loc>
+    <loc>https://www.paradisevattavada.com/dormitory</loc>
     <image:image>
-      <image:loc>https://paradiseresort.in/paradise-resort-dormitory.jpg</image:loc>
-      <image:caption>Budget-Friendly Dormitory at Paradise Resort Vattavada</image:caption>
-      <image:title>Paradise Resort Dormitory</image:title>
-      <image:license>https://paradiseresort.in/license</image:license>
+      <image:loc>https://www.paradisevattavada.com/paradise-resort-dormitory.jpg</image:loc>
+      <image:caption>Budget dormitory accommodation at Paradise Resort - Affordable shared stay for backpackers</image:caption>
+      <image:title>Budget Dormitory Stay</image:title>
+      <image:license>https://www.paradisevattavada.com/license</image:license>
     </image:image>
   </url>
   
-  <!-- Gallery Page Images -->
+  <!-- Gallery Images -->
   <url>
-    <loc>https://paradiseresort.in/gallery</loc>
+    <loc>https://www.paradisevattavada.com/gallery</loc>
     <image:image>
-      <image:loc>https://paradiseresort.in/paradise-resort-gallery.jpg</image:loc>
-      <image:caption>Photo Gallery showcasing Paradise Resort Vattavada's Natural Beauty</image:caption>
-      <image:title>Paradise Resort Gallery</image:title>
-      <image:license>https://paradiseresort.in/license</image:license>
+      <image:loc>https://www.paradisevattavada.com/paradise-resort-gallery.jpg</image:loc>
+      <image:caption>Paradise Resort Gallery - Beautiful photos showcasing our hill station resort and amenities</image:caption>
+      <image:title>Resort Gallery</image:title>
+      <image:license>https://www.paradisevattavada.com/license</image:license>
     </image:image>
   </url>
   

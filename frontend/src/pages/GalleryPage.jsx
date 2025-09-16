@@ -15,14 +15,16 @@ const GalleryPage = () => {
         <meta property="og:title" content="Photo Gallery - Paradise Resort Vattavada" />
         <meta property="og:description" content="Explore our stunning photo gallery showcasing the natural beauty of Paradise Resort Vattavada." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://paradiseresort.in/gallery" />
-        <meta property="og:image" content="https://paradiseresort.in/paradise-resort-gallery.jpg" />
+        <meta property="og:url" content="https://www.paradisevattavada.com/gallery" />
+        <meta property="og:image" content="https://www.paradisevattavada.com/paradise-resort-gallery.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Paradise Resort Gallery - Beautiful photos of our resort" />
         
-        {/* Twitter Card tags */}
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Photo Gallery - Paradise Resort Vattavada" />
-        <meta name="twitter:description" content="Explore our stunning photo gallery showcasing the natural beauty of Paradise Resort Vattavada." />
-        <meta name="twitter:image" content="https://paradiseresort.in/paradise-resort-gallery.jpg" />
+        <meta name="twitter:image" content="https://www.paradisevattavada.com/paradise-resort-gallery.jpg" />
+        <meta name="twitter:image:alt" content="Paradise Resort Gallery - Beautiful photos of our resort" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -31,7 +33,7 @@ const GalleryPage = () => {
             "@type": "ImageGallery",
             "name": "Paradise Resort Vattavada Photo Gallery",
             "description": "Photo gallery showcasing Paradise Resort Vattavada's accommodations and scenic mountain views",
-            "url": "https://paradiseresort.in/gallery",
+            "url": "https://www.paradisevattavada.com/gallery",
             "mainEntity": {
               "@type": "Resort",
               "name": "Paradise Resort Vattavada",

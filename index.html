@@ -65,7 +65,15 @@
                     }
                 }).catch(function() {
                     // React app not available yet, show message
-                    document.getElementById('status').innerHTML = 'React app is being deployed. Please wait...';
+                    const statusElement = document.getElementById('status');
+                    if (statusElement && window.trustedTypes) {
+                        const policy = trustedTypes.createPolicy('default', {
+                            createHTML: (string) => string
+                        });
+                        statusElement.innerHTML = policy.createHTML('React app is being deployed. Please wait...');
+                    } else if (statusElement) {
+                        statusElement.textContent = 'React app is being deployed. Please wait...';
+                    }
                 });
             }
         }, 2000);

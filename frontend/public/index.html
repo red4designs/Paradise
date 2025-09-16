@@ -32,6 +32,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         
+        <!-- Security Meta Tags for Trust and Safety -->
+        <!-- Development Mode: Relaxed CSP for webpack compatibility -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; style-src 'self' 'unsafe-inline' data: blob: https:; font-src 'self' data: blob: https:; img-src 'self' data: blob: https: http:; media-src 'self' data: blob: https: http:; object-src 'none'; frame-src 'self' https:; connect-src 'self' data: blob: ws: wss: http: https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; worker-src 'self' data: blob:">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-Frame-Options" content="DENY">
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+        <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(self), vibrate=(self), fullscreen=(self)">
+        
+        <!-- Trusted Types Policy for DOM-based XSS prevention - Development Mode -->
+        <!-- Temporarily disabled for development - enable in production -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'; trusted-types default webpack-dev-server#overlay dompurify"> -->
+        
+        
+        
         <!-- Favicon -->
         <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/paradise-logo.svg" />
         <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/paradise-logo.svg" />

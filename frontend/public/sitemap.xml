@@ -53,6 +53,25 @@
       <image:title>Budget Dormitory Stay | Paradise Resort Vattavada</image:title>
     </image:image>
   </url>
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://www.paradisevattavada.com/gallery</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.paradisevattavada.com/images/resort-social-share.jpg</image:loc>
+      <image:caption>Paradise Resort Vattavada Photo Gallery - Beautiful mountain resort images</image:caption>
+      <image:title>Paradise Resort Gallery | Mountain Views & Accommodations</image:title>
+    </image:image>
+  </url>
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://www.paradisevattavada.com/faq</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Contact & Information Pages -->
   <url>
     <loc>https://www.paradisevattavada.com/contact</loc>

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.paradisevattavada.com/sitemap.xml
+Sitemap: https://www.paradisevattavada.com/sitemap-images.xml

@@ -17,6 +17,8 @@ const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages
 const CottagesPage = React.lazy(() => import(/* webpackChunkName: "cottages" */ "./pages/CottagesPage.jsx"));
 const TentsPage = React.lazy(() => import(/* webpackChunkName: "tents" */ "./pages/TentsPage.jsx"));
 const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" */ "./pages/DormitoryPage.jsx"));
+const GalleryPage = React.lazy(() => import(/* webpackChunkName: "gallery" */ "./pages/GalleryPage.jsx"));
+const FAQPage = React.lazy(() => import(/* webpackChunkName: "faq" */ "./pages/FAQPage.jsx"));
 const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage.jsx"));
 
 // Preload critical routes on idle
@@ -24,6 +26,7 @@ const preloadRoutes = () => {
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
       import("./pages/CottagesPage.jsx");
+      import("./pages/GalleryPage.jsx");
       import("./pages/ContactPage.jsx");
     });
   }
@@ -133,6 +136,9 @@ function App() {
     };
   }, []);
 
+  // React-snap compatibility: Use hydrate instead of render for prerendered content
+  const isPrerendered = typeof window !== 'undefined' && window.__PRERENDERED__;
+
   return (
     <HelmetProvider>
       <PerformanceProvider>
@@ -147,17 +153,21 @@ function App() {
                     <Route path="/cottages" element={<CottagesPage />} />
                     <Route path="/tents" element={<TentsPage />} />
                     <Route path="/dormitory" element={<DormitoryPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/faq" element={<FAQPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                   </Routes>
                 </Suspense>
                 <Footer />
                 <BackToTop />
                 {/* Lazy load Google Analytics to improve initial page performance */}
-                <GoogleAnalyticsFacade 
-                  measurementId="AW-615136649"
-                  loadDelay={2000}
-                  loadOnInteraction={true}
-                />
+                {!isPrerendered && (
+                  <GoogleAnalyticsFacade 
+                    measurementId="AW-615136649"
+                    loadDelay={2000}
+                    loadOnInteraction={true}
+                  />
+                )}
               </div>
             </Router>
           </ErrorBoundary>

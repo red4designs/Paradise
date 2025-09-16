@@ -89,15 +89,102 @@ const HomePage = () => {
           <meta name="keywords" content="Paradise Resort Vattavada, budget resort Vattavada, best stay in Vattavada, Munnar resorts, Kerala hill station resort, budget accommodation Vattavada, homestay in Vattavada, resorts near Vattavada, family friendly resorts in Vattavada" />
           <link rel="canonical" href="https://www.paradisevattavada.com/" />
           
-          {/* Open Graph tags */}
+          {/* Enhanced Open Graph tags */}
           <meta property="og:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
           <meta property="og:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
           <meta property="og:url" content="https://www.paradisevattavada.com/" />
           <meta property="og:type" content="website" />
+          <meta property="og:image" content="https://www.paradisevattavada.com/images/hero-resort.webp" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content="Paradise Resort Vattavada - Mountain Views and Luxury Accommodation" />
+          <meta property="og:site_name" content="Paradise Resort Vattavada" />
+          <meta property="og:locale" content="en_US" />
           
-          {/* Twitter Card tags */}
+          {/* Enhanced Twitter Card tags */}
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
           <meta name="twitter:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
+          <meta name="twitter:image" content="https://www.paradisevattavada.com/images/hero-resort.webp" />
+          <meta name="twitter:image:alt" content="Paradise Resort Vattavada - Mountain Views and Luxury Accommodation" />
+          
+          {/* Additional SEO meta tags */}
+          <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+          <meta name="googlebot" content="index, follow" />
+          <meta name="geo.region" content="IN-KL" />
+          <meta name="geo.placename" content="Vattavada, Kerala, India" />
+          <meta name="geo.position" content="10.1632;77.1624" />
+          
+          {/* Enhanced structured data for resort */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Resort",
+              "name": "Paradise Resort Vattavada",
+              "description": "Premium budget resort in Vattavada offering cottages, adventure tents, and dormitory accommodation with stunning mountain views near Munnar.",
+              "url": "https://www.paradisevattavada.com/",
+              "image": [
+                "https://www.paradisevattavada.com/images/hero-resort.webp",
+                "https://www.paradisevattavada.com/images/cottages/cottage-exterior.webp",
+                "https://www.paradisevattavada.com/images/Tents/IMG_3632.webp"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Vattavada",
+                "addressLocality": "Vattavada",
+                "addressRegion": "Kerala",
+                "postalCode": "685565",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "10.1632",
+                "longitude": "77.1624"
+              },
+              "telephone": "+91-9074902424",
+              "email": "info@paradisevattavada.com",
+              "priceRange": "₹₹",
+              "starRating": {
+                "@type": "Rating",
+                "ratingValue": "4.5"
+              },
+              "amenityFeature": [
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Mountain Views",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Adventure Activities",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Campfire Area",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Multiple Accommodation Types",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Family Friendly",
+                  "value": true
+                }
+              ],
+              "hasMap": "https://maps.google.com/?q=10.1632,77.1624",
+              "openingHours": "Mo-Su 00:00-23:59",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-9074902424",
+                "contactType": "reservations",
+                "availableLanguage": ["English", "Hindi", "Malayalam"]
+              }
+            })}
+          </script>
         </Helmet>
         
         {/* Schema.org structured data */}

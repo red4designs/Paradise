@@ -48,46 +48,94 @@ const TentsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Camping in Vattavada | Premium Tent Stay Paradise Resort</title>
-        <meta name="description" content="Premium camping at Paradise Resort Vattavada. Luxury tents with mountain views, adventure activities & campfire nights near Munnar." />
-        <meta name="keywords" content="tent stay in Vattavada, camping in Vattavada, premium tent accommodation, adventure camping Kerala, tent stay near Munnar, Vattavada trekking stay, camping with mountain view, outdoor adventure Vattavada" />
+        <title>Adventure Tents in Vattavada | Paradise Resort Camping Experience</title>
+        <meta name="description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
+        <meta name="keywords" content="adventure tents Vattavada, camping in Vattavada, tent stay near Munnar, glamping Kerala, outdoor accommodation Vattavada, mountain camping, tent with attached bathroom, adventure tourism Vattavada" />
         <link rel="canonical" href="https://www.paradisevattavada.com/tents" />
         
-        {/* Open Graph tags */}
-        <meta property="og:title" content="Camping in Vattavada | Premium Tent Stay Paradise Resort" />
-        <meta property="og:description" content="Experience premium camping at Paradise Resort Vattavada. Luxury tent accommodation with mountain views, adventure activities & campfire nights. Perfect for adventure lovers." />
+        {/* Enhanced Open Graph tags */}
+        <meta property="og:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
+        <meta property="og:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
         <meta property="og:url" content="https://www.paradisevattavada.com/tents" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
+        <meta property="og:site_name" content="Paradise Resort Vattavada" />
+        <meta property="og:locale" content="en_US" />
         
-        {/* Twitter Card tags */}
-        <meta name="twitter:title" content="Camping in Vattavada | Premium Tent Stay Paradise Resort" />
-        <meta name="twitter:description" content="Experience premium camping at Paradise Resort Vattavada. Luxury tent accommodation with mountain views, adventure activities & campfire nights." />
+        {/* Enhanced Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
+        <meta name="twitter:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
+        <meta name="twitter:image" content="https://www.paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta name="twitter:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
         
-        {/* Structured Data for Tents */}
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Vattavada, Kerala, India" />
+        <meta name="geo.position" content="10.1632;77.1624" />
+        
+        {/* Structured data for accommodation */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Accommodation",
-            "name": "Premium Tent Stay - Paradise Resort Vattavada",
-            "description": "Luxury camping experience with premium tents offering comfort and adventure in the beautiful mountains of Vattavada.",
+            "name": "Adventure Tents - Paradise Resort Vattavada",
+            "description": "Luxury adventure tents with attached bathrooms and mountain views. Perfect for couples and adventure enthusiasts seeking a unique camping experience.",
             "url": "https://www.paradisevattavada.com/tents",
+            "image": [
+              "https://www.paradisevattavada.com/images/Tents/IMG_3632.webp",
+              "https://www.paradisevattavada.com/images/Tents/IMG_3629.webp"
+            ],
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Vattavada",
-              "addressLocality": "Munnar",
+              "addressLocality": "Vattavada",
               "addressRegion": "Kerala",
               "postalCode": "685565",
               "addressCountry": "IN"
             },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "10.1632",
+              "longitude": "77.1624"
+            },
             "amenityFeature": [
-              {"@type": "LocationFeatureSpecification", "name": "Mountain View"},
-              {"@type": "LocationFeatureSpecification", "name": "Campfire Area"},
-              {"@type": "LocationFeatureSpecification", "name": "Adventure Activities"},
-              {"@type": "LocationFeatureSpecification", "name": "Trekking Access"}
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Attached Bathroom",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification", 
+                "name": "Mountain Views",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Campfire Area",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Adventure Activities",
+                "value": true
+              }
             ],
             "occupancy": {
               "@type": "QuantitativeValue",
-              "maxValue": 4
+              "maxValue": 2
+            },
+            "priceRange": "₹₹",
+            "telephone": "+91-9074902424",
+            "isPartOf": {
+              "@type": "Resort",
+              "name": "Paradise Resort Vattavada",
+              "url": "https://www.paradisevattavada.com"
             }
           })}
         </script>

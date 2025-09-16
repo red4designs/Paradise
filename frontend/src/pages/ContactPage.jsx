@@ -34,49 +34,93 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Paradise Resort Vattavada | Book Your Stay in Kerala</title>
-        <meta name="description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
-        <meta name="keywords" content="contact Paradise Resort Vattavada, book resort Vattavada, Paradise Resort booking, Vattavada resort contact number, resort near Munnar contact, Kerala hill station booking, Vattavada accommodation booking" />
+        <title>Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala</title>
+        <meta name="description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
+        <meta name="keywords" content="contact Paradise Resort Vattavada, book resort Vattavada, Paradise Resort phone number, Vattavada resort booking, contact resort near Munnar, Paradise Resort address, Vattavada accommodation booking, resort contact Kerala" />
         <link rel="canonical" href="https://www.paradisevattavada.com/contact" />
         
-        {/* Open Graph tags */}
-        <meta property="og:title" content="Contact Paradise Resort Vattavada | Book Your Stay in Kerala" />
-        <meta property="og:description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
+        {/* Enhanced Open Graph tags */}
+        <meta property="og:title" content="Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala" />
+        <meta property="og:description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
         <meta property="og:url" content="https://www.paradisevattavada.com/contact" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.paradisevattavada.com/images/resort-contact.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Contact Paradise Resort Vattavada" />
+        <meta property="og:site_name" content="Paradise Resort Vattavada" />
+        <meta property="og:locale" content="en_US" />
         
-        {/* Twitter Card tags */}
-        <meta name="twitter:title" content="Contact Paradise Resort Vattavada | Book Your Stay in Kerala" />
-        <meta name="twitter:description" content="Contact Paradise Resort Vattavada for bookings. Call +91 9074902424 or WhatsApp us. Located in Vattavada near Munnar, Kerala. Best rates guaranteed." />
+        {/* Enhanced Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala" />
+        <meta name="twitter:description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
+        <meta name="twitter:image" content="https://www.paradisevattavada.com/images/resort-contact.webp" />
+        <meta name="twitter:image:alt" content="Contact Paradise Resort Vattavada" />
         
-        {/* Structured Data for Contact */}
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Vattavada, Kerala, India" />
+        <meta name="geo.position" content="10.1632;77.1624" />
+        
+        {/* Structured data for local business */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "Contact Paradise Resort Vattavada",
-            "description": "Get in touch with Paradise Resort Vattavada for bookings, inquiries, and information about our accommodation options in Kerala's beautiful hill station.",
+            "@type": "Resort",
+            "name": "Paradise Resort Vattavada",
+            "description": "Premium resort in Vattavada offering cottages, tents, and dormitory accommodation with stunning mountain views near Munnar.",
             "url": "https://www.paradisevattavada.com/contact",
-            "mainEntity": {
-              "@type": "LodgingBusiness",
-              "name": "Paradise Resort Vattavada",
+            "image": [
+              "https://www.paradisevattavada.com/images/resort-contact.webp",
+              "https://www.paradisevattavada.com/images/resort-exterior.webp"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Vattavada",
+              "addressLocality": "Vattavada",
+              "addressRegion": "Kerala",
+              "postalCode": "685565",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "10.1632",
+              "longitude": "77.1624"
+            },
+            "telephone": "+91-9074902424",
+            "email": "info@paradisevattavada.com",
+            "priceRange": "₹₹",
+            "openingHours": "Mo-Su 00:00-23:59",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Mountain Views",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Adventure Activities",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Campfire Area",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Multiple Accommodation Types",
+                "value": true
+              }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
               "telephone": "+91-9074902424",
-              "email": "info@paradisevattavada.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Vattavada",
-                "addressLocality": "Munnar",
-                "addressRegion": "Kerala",
-                "postalCode": "685565",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "10.0889",
-                "longitude": "77.0595"
-              },
-              "openingHours": "Mo-Su 00:00-23:59",
-              "priceRange": "₹₹"
+              "contactType": "reservations",
+              "availableLanguage": ["English", "Hindi", "Malayalam"]
             }
           })}
         </script>

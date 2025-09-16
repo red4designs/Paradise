@@ -44,46 +44,99 @@ const DormitoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>Budget Dormitory Vattavada | Paradise Resort Stay</title>
-        <meta name="description" content="Affordable dormitory stay at Paradise Resort Vattavada. Perfect for backpackers & groups. Clean beds with mountain views near Munnar." />
-        <meta name="keywords" content="budget dormitory Vattavada, backpacker accommodation Vattavada, cheap stay Vattavada, dormitory near Munnar, budget stay in Vattavada, hostel Vattavada, solo traveler accommodation, group stay Vattavada" />
+        <title>Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation</title>
+        <meta name="description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
+        <meta name="keywords" content="budget dormitory Vattavada, backpacker accommodation Vattavada, shared dormitory near Munnar, budget stay Vattavada, hostel accommodation Kerala, group accommodation Vattavada, cheap stay near Munnar, budget travelers Vattavada" />
         <link rel="canonical" href="https://www.paradisevattavada.com/dormitory" />
         
-        {/* Open Graph tags */}
-        <meta property="og:title" content="Budget Dormitory Stay Vattavada | Paradise Resort Backpacker Accommodation" />
-        <meta property="og:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups. Clean, comfortable beds with mountain views." />
+        {/* Enhanced Open Graph tags */}
+        <meta property="og:title" content="Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation" />
+        <meta property="og:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
         <meta property="og:url" content="https://www.paradisevattavada.com/dormitory" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.paradisevattavada.com/images/dormitory-exterior.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Budget Dormitory at Paradise Resort Vattavada" />
+        <meta property="og:site_name" content="Paradise Resort Vattavada" />
+        <meta property="og:locale" content="en_US" />
         
-        {/* Twitter Card tags */}
-        <meta name="twitter:title" content="Budget Dormitory Stay Vattavada | Paradise Resort Backpacker Accommodation" />
-        <meta name="twitter:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups. Clean, comfortable beds with mountain views." />
+        {/* Enhanced Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation" />
+        <meta name="twitter:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
+        <meta name="twitter:image" content="https://www.paradisevattavada.com/images/dormitory-exterior.webp" />
+        <meta name="twitter:image:alt" content="Budget Dormitory at Paradise Resort Vattavada" />
         
-        {/* Structured Data for Dormitory */}
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Vattavada, Kerala, India" />
+        <meta name="geo.position" content="10.1632;77.1624" />
+        
+        {/* Structured data for accommodation */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Accommodation",
             "name": "Budget Dormitory - Paradise Resort Vattavada",
-            "description": "Clean and comfortable dormitory accommodation perfect for backpackers, solo travelers, and budget-conscious groups visiting Vattavada.",
+            "description": "Affordable shared dormitory accommodation perfect for backpackers, solo travelers, and budget-conscious groups seeking mountain adventure.",
             "url": "https://www.paradisevattavada.com/dormitory",
+            "image": [
+              "https://www.paradisevattavada.com/images/dormitory-exterior.webp",
+              "https://www.paradisevattavada.com/images/dormitory-interior.webp"
+            ],
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Vattavada",
-              "addressLocality": "Munnar",
+              "addressLocality": "Vattavada",
               "addressRegion": "Kerala",
               "postalCode": "685565",
               "addressCountry": "IN"
             },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "10.1632",
+              "longitude": "77.1624"
+            },
             "amenityFeature": [
-              {"@type": "LocationFeatureSpecification", "name": "Shared Bathroom"},
-              {"@type": "LocationFeatureSpecification", "name": "Mountain View"},
-              {"@type": "LocationFeatureSpecification", "name": "Common Area"},
-              {"@type": "LocationFeatureSpecification", "name": "Budget Friendly"}
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Shared Bathroom",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification", 
+                "name": "Mountain Views",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Common Area",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Budget Friendly",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Backpacker Friendly",
+                "value": true
+              }
             ],
             "occupancy": {
               "@type": "QuantitativeValue",
               "maxValue": 8
+            },
+            "priceRange": "₹",
+            "telephone": "+91-9074902424",
+            "isPartOf": {
+              "@type": "Resort",
+              "name": "Paradise Resort Vattavada",
+              "url": "https://www.paradisevattavada.com"
             }
           })}
         </script>

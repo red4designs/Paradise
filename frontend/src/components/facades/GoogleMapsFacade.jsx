@@ -79,11 +79,11 @@ const GoogleMapsFacade = ({
         
         {/* Title and Address */}
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">
+          <h3 className="text-lg font-semibold text-[hsl(var(--foreground))] mb-1">
             {title}
           </h3>
           {address && (
-            <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+            <p className="text-sm text-[hsl(var(--muted-foreground))] line-clamp-2">
               {address}
             </p>
           )}

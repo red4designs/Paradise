@@ -150,8 +150,9 @@ Please confirm availability and provide pricing details. Thank you!`;
                     <form onSubmit={handleBookingSubmit} className="space-y-4">
                       {/* Check-in Date */}
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Check-in Date</label>
+                        <label htmlFor="hero-checkin" className="body-small text-text-primary">Check-in Date</label>
                         <Input
+                          id="hero-checkin"
                           type="date"
                           value={bookingData.checkIn}
                           onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})}
@@ -162,8 +163,9 @@ Please confirm availability and provide pricing details. Thank you!`;
 
                       {/* Check-out Date */}
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Check-out Date</label>
+                        <label htmlFor="hero-checkout" className="body-small text-text-primary">Check-out Date</label>
                         <Input
+                          id="hero-checkout"
                           type="date"
                           value={bookingData.checkOut}
                           onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})}
@@ -176,7 +178,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Adults (Above 6 years)</label>
                         <Select onValueChange={(value) => setBookingData({...bookingData, adults: value})}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Select number of adults">
                             <SelectValue placeholder="Select number of adults" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
@@ -193,7 +195,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Children (Below 6 years)</label>
                         <Select onValueChange={(value) => setBookingData({...bookingData, children: value})}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Select number of children">
                             <SelectValue placeholder="Select number of children" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
@@ -213,7 +215,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Accommodation Type</label>
                         <Select onValueChange={(value) => setBookingData({...bookingData, accommodation: value, rooms: ''})}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Choose accommodation type">
                             <SelectValue placeholder="Choose accommodation" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
@@ -233,7 +235,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                             {bookingData.accommodation === 'tent' ? 'Number of Tents' : 'Number of Rooms'}
                           </label>
                           <Select onValueChange={(value) => setBookingData({...bookingData, rooms: value})}>
-                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label={bookingData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'}>
                               <SelectValue placeholder={bookingData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'} />
                             </SelectTrigger>
                             <SelectContent className="bg-black border-white/25">
@@ -247,7 +249,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                         </div>
                       )}
 
-                      <Button type="submit" className="w-full btn-primary">
+                      <Button type="submit" className="w-full btn-primary" aria-label="Submit form to check accommodation availability">
                         Check Availability
                         <ChevronRight size={18} />
                       </Button>

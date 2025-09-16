@@ -19,11 +19,11 @@
   --border-strong: hsl(24 95% 53%);
   
   /* Brand Colors - Sunrise Orange */
-  --brand-primary: hsl(24 95% 53%);
+  --brand-primary: hsl(24 95% 35%);
   --brand-secondary: hsl(30 80% 45%);
   --brand-accent: hsl(35 70% 35%);
   --brand-hover: hsl(24 95% 53% / 0.1);
-  --brand-active: hsl(24 95% 48%);
+  --brand-active: hsl(24 95% 30%);
   
   /* Interactive States */
   --interactive-hover: hsl(24 95% 53% / 0.05);
@@ -159,7 +159,7 @@ body {
 /* Button Styles - Sunrise Orange Theme */
 .btn-primary {
   background: var(--brand-primary);
-  color: hsl(0 0% 98%);
+  color: hsl(0 0% 100%);
   border: 2px solid var(--brand-primary);
   border-radius: 8px;
   padding: 14px 24px;

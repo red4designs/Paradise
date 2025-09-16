@@ -169,7 +169,7 @@ const DormitoryPage = () => {
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-4">Budget Dormitory Stay in Vattavada</h1>
+            <h2 className="text-4xl font-bold mb-4">Budget Dormitory Stay in Vattavada</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Affordable and comfortable dormitory accommodation perfect for backpackers, solo travelers, and budget-conscious groups. Experience the beauty of Vattavada without breaking the bank.
             </p>

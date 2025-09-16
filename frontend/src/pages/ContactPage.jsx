@@ -186,7 +186,7 @@ const ContactPage = () => {
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-4">Contact Paradise Resort Vattavada</h1>
+            <h2 className="text-4xl font-bold mb-4">Contact Paradise Resort Vattavada</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Ready to experience paradise? Get in touch with us for bookings, inquiries, and information about our accommodation options. We're here to help make your Vattavada getaway unforgettable.
             </p>

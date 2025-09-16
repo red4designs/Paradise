@@ -168,7 +168,7 @@ const TentsPage = () => {
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-4">Premium Tent Stay in Vattavada</h1>
+            <h2 className="text-4xl font-bold mb-4">Premium Tent Stay in Vattavada</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Embrace the great outdoors with our premium tent accommodation. Perfect for adventure enthusiasts who want to experience nature while enjoying modern comforts and breathtaking mountain views.
             </p>

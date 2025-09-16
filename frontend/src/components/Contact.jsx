@@ -179,7 +179,7 @@ Please check availability and let me know. Thank you!`;
                       <div className="space-y-2">
                         <label className="body-small text-text-primary">Accommodation Type</label>
                         <Select onValueChange={(value) => { handleInputChange('accommodation', value); handleInputChange('rooms', ''); }}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Choose accommodation type">
                             <SelectValue placeholder="Choose accommodation" />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
@@ -196,7 +196,7 @@ Please check availability and let me know. Thank you!`;
                         <div className="space-y-2">
                           <label className="body-small text-text-primary">Adults (Above 6 years)</label>
                           <Select onValueChange={(value) => handleInputChange('adults', value)}>
-                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Select number of adults">
                               <SelectValue placeholder="Select adults" />
                             </SelectTrigger>
                             <SelectContent className="bg-black border-white/25">
@@ -212,7 +212,7 @@ Please check availability and let me know. Thank you!`;
                         <div className="space-y-2">
                           <label className="body-small text-text-primary">Children (Below 6 years)</label>
                           <Select onValueChange={(value) => handleInputChange('children', value)}>
-                            <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                            <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label="Select number of children">
                               <SelectValue placeholder="Select children" />
                             </SelectTrigger>
                             <SelectContent className="bg-black border-white/25">
@@ -239,7 +239,7 @@ Please check availability and let me know. Thank you!`;
                           {formData.accommodation === 'tent' ? 'Number of Tents' : 'Number of Rooms'}
                         </label>
                         <Select onValueChange={(value) => handleInputChange('rooms', value)}>
-                          <SelectTrigger className="bg-white/10 border-white/25 text-white">
+                          <SelectTrigger className="bg-white/10 border-white/25 text-white" aria-label={formData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'}>
                             <SelectValue placeholder={formData.accommodation === 'tent' ? 'Select number of tents' : 'Select number of rooms'} />
                           </SelectTrigger>
                           <SelectContent className="bg-black border-white/25">
@@ -255,8 +255,9 @@ Please check availability and let me know. Thank you!`;
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Check-in Date</label>
+                        <label htmlFor="contact-checkin" className="body-small text-text-primary">Check-in Date</label>
                         <Input
+                          id="contact-checkin"
                           type="date"
                           value={formData.checkIn}
                           onChange={(e) => handleInputChange('checkIn', e.target.value)}
@@ -264,8 +265,9 @@ Please check availability and let me know. Thank you!`;
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="body-small text-text-primary">Check-out Date</label>
+                        <label htmlFor="contact-checkout" className="body-small text-text-primary">Check-out Date</label>
                         <Input
+                          id="contact-checkout"
                           type="date"
                           value={formData.checkOut}
                           onChange={(e) => handleInputChange('checkOut', e.target.value)}
@@ -286,7 +288,7 @@ Please check availability and let me know. Thank you!`;
 
                     {/* Submit Buttons */}
                     <div className="space-y-3">
-                      <Button type="submit" className="w-full btn-primary">
+                      <Button type="submit" className="w-full btn-primary" aria-label="Submit form to check availability on WhatsApp">
                         <MessageCircle size={18} />
                         Check Availability on WhatsApp
                       </Button>
@@ -424,7 +426,7 @@ Please check availability and let me know. Thank you!`;
               <Phone size={18} />
               Call Now
             </a>
-              <button onClick={() => window.open('https://wa.me/919074902424', '_blank')} className="btn-secondary">
+              <button onClick={() => window.open('https://wa.me/919074902424', '_blank')} className="btn-secondary" aria-label="Contact us on WhatsApp">
                 <MessageCircle size={18} />
                 WhatsApp Us
               </button>

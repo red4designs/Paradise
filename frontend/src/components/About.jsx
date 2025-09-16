@@ -193,7 +193,7 @@ const About = () => {
           
           {/* Certifications & Memberships */}
           <div className="bg-white/5 border border-white/25 p-8 max-w-4xl mx-auto">
-            <h4 className="heading-2 text-center mb-6">🏛️ Certifications & Memberships</h4>
+            <h3 className="heading-2 text-center mb-6">🏛️ Certifications & Memberships</h3>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-2xl mb-2">🏛️</div>

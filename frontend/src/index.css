@@ -82,8 +82,8 @@ code {
         
         /* Custom Paradise Resort Variables - Light Mode */
         --text-primary: 20 14% 4.1%; /* Dark brown for primary text */
-        --text-secondary: 25 8% 25%; /* Medium brown for secondary text */
-        --text-muted: 25 5% 44.7%; /* Gray for muted text */
+        --text-secondary: 25 8% 35%; /* Darker brown for better contrast */
+    --text-muted: 25 5% 50%; /* Darker gray for better contrast */
         --brand-primary: 24 95% 53%; /* Sunrise orange */
         --brand-secondary: 30 80% 45%; /* Deeper orange */
         --brand-accent: 35 70% 35%; /* Dark orange accent */
@@ -117,8 +117,8 @@ code {
         
         /* Custom Paradise Resort Variables - Dark Mode */
         --text-primary: 0 0% 98%; /* White for primary text */
-        --text-secondary: 25 5% 80%; /* Light gray for secondary text */
-        --text-muted: 25 5% 63.9%; /* Medium gray for muted text */
+        --text-secondary: 25 5% 75%; /* Lighter gray for better contrast in dark mode */
+    --text-muted: 25 5% 60%; /* Lighter gray for better contrast in dark mode */
         --brand-primary: 24 95% 53%; /* Sunrise orange */
         --brand-secondary: 30 80% 45%; /* Deeper orange */
         --brand-accent: 35 70% 35%; /* Dark orange accent */

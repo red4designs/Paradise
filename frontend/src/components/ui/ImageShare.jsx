@@ -133,7 +133,7 @@ const ImageShare = ({
 
               {/* Social Media Options */}
               <div className="border-t pt-2">
-                <p className="text-xs text-gray-500 mb-2">Share on social media</p>
+                <p className="text-xs text-[hsl(var(--muted-foreground))] mb-2">Share on social media</p>
                 
                 <button
                   onClick={() => handleSocialShare('facebook')}

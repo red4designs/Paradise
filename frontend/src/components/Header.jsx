@@ -136,11 +136,11 @@ const Header = () => {
             </button>
           </div>
           <div className="flex items-center gap-3">
-            <button onClick={handleAgodaBooking} className="btn-primary">
+            <button onClick={handleAgodaBooking} className="btn-primary" aria-label="Book accommodation on Agoda">
               <ExternalLink size={18} />
               Book in Agoda
             </button>
-            <button onClick={handleBookingComBooking} className="btn-primary">
+            <button onClick={handleBookingComBooking} className="btn-primary" aria-label="Book accommodation on Booking.com">
               <ExternalLink size={18} />
               Book on Booking.com
             </button>
@@ -150,7 +150,9 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-white p-2 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-inset"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -220,11 +222,11 @@ const Header = () => {
                 <Linkedin size={24} />
               </button>
             </div>
-            <button onClick={handleAgodaBooking} className="btn-primary">
+            <button onClick={handleAgodaBooking} className="btn-primary" aria-label="Book accommodation on Agoda">
               <ExternalLink size={18} />
               Book in Agoda
             </button>
-            <button onClick={handleBookingComBooking} className="btn-primary">
+            <button onClick={handleBookingComBooking} className="btn-primary" aria-label="Book accommodation on Booking.com">
               <ExternalLink size={18} />
               Book on Booking.com
             </button>

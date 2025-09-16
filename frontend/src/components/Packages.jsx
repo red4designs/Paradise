@@ -194,7 +194,7 @@ const Packages = () => {
               Contact us today for personalized packages and the best rates for your perfect Vattavada getaway.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => handleContact('Custom Package')} className="btn-primary">
+              <button onClick={() => handleContact('Custom Package')} className="btn-primary" aria-label="Get custom package quote">
                 <MessageCircle size={18} />
                 Get Custom Quote
               </button>

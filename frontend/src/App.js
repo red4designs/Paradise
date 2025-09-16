@@ -147,17 +147,19 @@ function App() {
             <Router>
               <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
                 <Header />
-                <Suspense fallback={<LoadingSpinner />}>
-                  <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/cottages" element={<CottagesPage />} />
-                    <Route path="/tents" element={<TentsPage />} />
-                    <Route path="/dormitory" element={<DormitoryPage />} />
-                    <Route path="/gallery" element={<GalleryPage />} />
-                    <Route path="/faq" element={<FAQPage />} />
-                    <Route path="/contact" element={<ContactPage />} />
-                  </Routes>
-                </Suspense>
+                <main>
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <Routes>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/cottages" element={<CottagesPage />} />
+                      <Route path="/tents" element={<TentsPage />} />
+                      <Route path="/dormitory" element={<DormitoryPage />} />
+                      <Route path="/gallery" element={<GalleryPage />} />
+                      <Route path="/faq" element={<FAQPage />} />
+                      <Route path="/contact" element={<ContactPage />} />
+                    </Routes>
+                  </Suspense>
+                </main>
                 <Footer />
                 <BackToTop />
                 {/* Lazy load Google Analytics to improve initial page performance */}

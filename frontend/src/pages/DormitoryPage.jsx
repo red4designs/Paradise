@@ -15,7 +15,7 @@ const DormitoryPage = () => {
   const dormitoryFAQs = [
     {
       question: "What is included in the dormitory stay at Paradise Resort Vattavada?",
-      answer: "Our budget dormitory stay includes 8 bunk beds accommodating up to 16 guests, shared bathroom facilities, free WiFi, 24/7 hot water, and access to all resort amenities. Perfect budget stay in Vattavada option."
+      answer: "Our budget dormitory stay includes bunk beds accommodating up to 16 guests, shared bathroom facilities (not private bathroom), free WiFi, hot water, and access to all resort amenities. Rs. 500 per head with minimum 8 pax booking required."
     },
     {
       question: "Is the dormitory safe for solo travelers and backpackers?",
@@ -31,8 +31,8 @@ const DormitoryPage = () => {
   const dormitoryOffers = [
     {
       name: "Budget Dormitory - Backpacker Special",
-      description: "Special rates for backpackers and solo travelers seeking affordable budget stay in Vattavada with shared accommodation and social atmosphere.",
-      price: "600",
+      description: "Special rates for backpackers and solo travelers seeking affordable budget stay in Vattavada with shared accommodation and social atmosphere. Rs. 500 per head with minimum 8 pax booking.",
+      price: "500",
       validFrom: "2024-01-01",
       validThrough: "2024-12-31",
       category: "Budget Accommodation",

@@ -80,9 +80,9 @@ const RoomDetails = () => {
         {
           type: 'Deluxe Room',
           icon: Bed,
-          capacity: '5–7 guests',
-          beds: '1 Queen-size cot + 1 Double cot',
-          features: ['Spacious layout', 'Extra bed option', 'Mountain view', 'Private bathroom'],
+          capacity: 'Max 6 guests',
+          beds: '1 Queen size + 1 Double size cot',
+          features: ['Extra bed available for extra charges', 'Non AC room', 'Private bathroom', 'Free WiFi', 'Hot water'],
           color: 'from-blue-500/20 to-purple-500/20'
         },
         {
@@ -96,9 +96,9 @@ const RoomDetails = () => {
         {
           type: 'Dormitory',
           icon: Users,
-          capacity: 'Up to 16 guests',
-          beds: '8 Bunk beds',
-          features: ['Budget-friendly', 'Shared facilities', 'Group accommodation', 'Social atmosphere'],
+          capacity: 'Max 16 pax',
+          beds: 'Bunk beds',
+          features: ['Not private bathroom', 'Free WiFi', 'Hot water', 'Rs. 500 per head min. 8 pax'],
           color: 'from-orange-500/20 to-red-500/20'
         }
       ]

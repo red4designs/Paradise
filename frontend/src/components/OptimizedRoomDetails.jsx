@@ -57,9 +57,9 @@ const OptimizedRoomDetails = () => {
       rooms: [
         {
           type: 'Deluxe Room',
-          capacity: 'Up to 4 guests',
-          beds: 'Double bed + Extra beds',
-          features: ['AC/Non-AC options', 'Private bathroom', 'Mountain views', 'Free WiFi'],
+          capacity: 'Max 6 guests',
+          beds: '1 Queen size + 1 Double size cot',
+          features: ['Extra bed available for extra charges', 'Non AC room', 'Private bathroom', 'Free WiFi', 'Hot water'],
           icon: Bed
         },
         {
@@ -70,10 +70,10 @@ const OptimizedRoomDetails = () => {
           icon: Heart
         },
         {
-          type: 'Family Suite',
-          capacity: 'Up to 6 guests',
-          beds: 'Multiple beds',
-          features: ['Spacious layout', 'Family-friendly', 'Balcony access', 'Extra amenities'],
+          type: 'Dormitory',
+          capacity: 'Max 16 pax',
+          beds: 'Bunk beds',
+          features: ['Not private bathroom', 'Free WiFi', 'Hot water', 'Rs. 500 per head min. 8 pax'],
           icon: Users
         }
       ]

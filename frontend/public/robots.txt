@@ -54,6 +54,6 @@ Disallow: /
 # Crawl-delay for better server performance
 Crawl-delay: 1
 
-# Sitemap locations
-Sitemap: https://www.paradisevattavada.com/sitemap.xml
-Sitemap: https://www.paradisevattavada.com/sitemap-images.xml
+# Sitemap locations - Updated to canonical HTTPS non-www URLs
+Sitemap: https://paradisevattavada.com/sitemap.xml
+Sitemap: https://paradisevattavada.com/sitemap-images.xml

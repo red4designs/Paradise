@@ -1,3 +1,22 @@
+# Force HTTPS and canonical URL redirects
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Force HTTPS - redirect all HTTP traffic to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Force non-www - redirect www to non-www for canonical URL
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+    
+    # Ensure canonical domain (redirect any other domains to paradisevattavada.com)
+    RewriteCond %{HTTP_HOST} !^paradisevattavada\.com$ [NC]
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+    RewriteRule ^(.*)$ https://paradisevattavada.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
 # Cache static assets for better performance
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -188,7 +207,7 @@
 
 # Handle React Router (client-side routing)
 <IfModule mod_rewrite.c>
-    RewriteEngine On
+    # RewriteEngine is already enabled above
     
     # Handle Angular and React Router
     # If the requested resource doesn't exist as a file or directory

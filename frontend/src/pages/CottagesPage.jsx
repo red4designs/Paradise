@@ -47,7 +47,7 @@ const CottagesPage = () => {
         <title>Private Cottages in Vattavada | Paradise Resort Budget Stay</title>
         <meta name="description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences near Munnar Kerala." />
         <meta name="keywords" content="private cottages Vattavada, 3 bedroom cottages Vattavada, family accommodation Vattavada, cottage stay near Munnar, budget cottages Kerala, homestay in Vattavada, Vattavada trekking stay, cottage with mountain view" />
-        <link rel="canonical" href="https://www.paradisevattavada.com/cottages" />
+        <link rel="canonical" href="https://paradisevattavada.com/cottages" />
         
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Private Cottages in Vattavada | Paradise Resort Budget Stay" />

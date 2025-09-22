@@ -51,14 +51,14 @@ const TentsPage = () => {
         <title>Adventure Tents in Vattavada | Paradise Resort Camping Experience</title>
         <meta name="description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
         <meta name="keywords" content="adventure tents Vattavada, camping in Vattavada, tent stay near Munnar, glamping Kerala, outdoor accommodation Vattavada, mountain camping, tent with attached bathroom, adventure tourism Vattavada" />
-        <link rel="canonical" href="https://www.paradisevattavada.com/tents" />
+        <link rel="canonical" href="https://paradisevattavada.com/tents" />
         
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
         <meta property="og:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
-        <meta property="og:url" content="https://www.paradisevattavada.com/tents" />
+        <meta property="og:url" content="https://paradisevattavada.com/tents" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta property="og:image" content="https://paradisevattavada.com/images/Tents/IMG_3632.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
@@ -69,7 +69,7 @@ const TentsPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
         <meta name="twitter:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
-        <meta name="twitter:image" content="https://www.paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta name="twitter:image" content="https://paradisevattavada.com/images/Tents/IMG_3632.webp" />
         <meta name="twitter:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
         
         {/* Additional SEO meta tags */}
@@ -86,10 +86,10 @@ const TentsPage = () => {
             "@type": "Accommodation",
             "name": "Adventure Tents - Paradise Resort Vattavada",
             "description": "Luxury adventure tents with attached bathrooms and mountain views. Perfect for couples and adventure enthusiasts seeking a unique camping experience.",
-            "url": "https://www.paradisevattavada.com/tents",
+            "url": "https://paradisevattavada.com/tents",
             "image": [
-              "https://www.paradisevattavada.com/images/Tents/IMG_3632.webp",
-              "https://www.paradisevattavada.com/images/Tents/IMG_3629.webp"
+              "https://paradisevattavada.com/images/Tents/IMG_3632.webp",
+              "https://paradisevattavada.com/images/Tents/IMG_3629.webp"
             ],
             "address": {
               "@type": "PostalAddress",

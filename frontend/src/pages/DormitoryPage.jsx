@@ -47,14 +47,14 @@ const DormitoryPage = () => {
         <title>Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation</title>
         <meta name="description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
         <meta name="keywords" content="budget dormitory Vattavada, backpacker accommodation Vattavada, shared dormitory near Munnar, budget stay Vattavada, hostel accommodation Kerala, group accommodation Vattavada, cheap stay near Munnar, budget travelers Vattavada" />
-        <link rel="canonical" href="https://www.paradisevattavada.com/dormitory" />
+        <link rel="canonical" href="https://paradisevattavada.com/dormitory" />
         
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation" />
         <meta property="og:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
-        <meta property="og:url" content="https://www.paradisevattavada.com/dormitory" />
+        <meta property="og:url" content="https://paradisevattavada.com/dormitory" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.paradisevattavada.com/images/dormitory-exterior.webp" />
+        <meta property="og:image" content="https://paradisevattavada.com/images/dormitory-exterior.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Budget Dormitory at Paradise Resort Vattavada" />
@@ -65,7 +65,7 @@ const DormitoryPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Budget Dormitory Stay in Vattavada | Paradise Resort Backpacker Accommodation" />
         <meta name="twitter:description" content="Affordable dormitory accommodation at Paradise Resort Vattavada. Perfect for backpackers, solo travelers & groups seeking budget-friendly mountain stay near Munnar." />
-        <meta name="twitter:image" content="https://www.paradisevattavada.com/images/dormitory-exterior.webp" />
+        <meta name="twitter:image" content="https://paradisevattavada.com/images/dormitory-exterior.webp" />
         <meta name="twitter:image:alt" content="Budget Dormitory at Paradise Resort Vattavada" />
         
         {/* Additional SEO meta tags */}
@@ -82,10 +82,10 @@ const DormitoryPage = () => {
             "@type": "Accommodation",
             "name": "Budget Dormitory - Paradise Resort Vattavada",
             "description": "Affordable shared dormitory accommodation perfect for backpackers, solo travelers, and budget-conscious groups seeking mountain adventure.",
-            "url": "https://www.paradisevattavada.com/dormitory",
+            "url": "https://paradisevattavada.com/dormitory",
             "image": [
-              "https://www.paradisevattavada.com/images/dormitory-exterior.webp",
-              "https://www.paradisevattavada.com/images/dormitory-interior.webp"
+              "https://paradisevattavada.com/images/dormitory-exterior.webp",
+              "https://paradisevattavada.com/images/dormitory-interior.webp"
             ],
             "address": {
               "@type": "PostalAddress",

@@ -6,15 +6,15 @@
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     
-    # Force non-www - redirect www to non-www for canonical URL
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+    # Force www - redirect non-www to www for canonical URL (consistent with sitemap)
+    RewriteCond %{HTTP_HOST} ^paradisevattavada\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.paradisevattavada.com%{REQUEST_URI} [L,R=301]
     
-    # Ensure canonical domain (redirect any other domains to paradisevattavada.com)
-    RewriteCond %{HTTP_HOST} !^paradisevattavada\.com$ [NC]
+    # Ensure canonical domain (redirect any other domains to www.paradisevattavada.com)
+    RewriteCond %{HTTP_HOST} !^www\.paradisevattavada\.com$ [NC]
     RewriteCond %{HTTP_HOST} !^localhost [NC]
     RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
-    RewriteRule ^(.*)$ https://paradisevattavada.com%{REQUEST_URI} [L,R=301]
+    RewriteRule ^(.*)$ https://www.paradisevattavada.com%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # Cache static assets for better performance
@@ -205,15 +205,30 @@
     FileETag None
 </IfModule>
 
-# Handle React Router (client-side routing)
+# Handle React Router (client-side routing) with better SPA support
 <IfModule mod_rewrite.c>
     # RewriteEngine is already enabled above
     
-    # Handle Angular and React Router
+    # Handle React Router - Improved SPA routing
     # If the requested resource doesn't exist as a file or directory
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     
-    # Serve index.html for all routes (except API calls and static files)
-    RewriteRule ^(?!api/).*$ /index.html [L,QSA]
+    # Don't rewrite for API calls, static files, or admin paths
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_URI} !^/static/
+    RewriteCond %{REQUEST_URI} !^/images/
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|otf|json|xml|txt)$
+    
+    # Serve index.html for all SPA routes with proper headers
+    RewriteRule ^(.*)$ /index.html [L,QSA]
+    
+    # Set proper content type for HTML files
+    <Files "index.html">
+        Header set Content-Type "text/html; charset=utf-8"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </Files>
 </IfModule>

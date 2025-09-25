@@ -12,7 +12,8 @@ const Header = () => {
     { href: '/dormitory', label: 'Dormitory' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'Contact' }
+    { href: '/contact', label: 'Contact' },
+    { href: '/search', label: 'Search' }
   ];
 
   const location = useLocation();

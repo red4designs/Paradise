@@ -20,6 +20,7 @@ const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" *
 const GalleryPage = React.lazy(() => import(/* webpackChunkName: "gallery" */ "./pages/GalleryPage.jsx"));
 const FAQPage = React.lazy(() => import(/* webpackChunkName: "faq" */ "./pages/FAQPage.jsx"));
 const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage.jsx"));
+const SearchPage = React.lazy(() => import(/* webpackChunkName: "search" */ "./pages/SearchPage.jsx"));
 
 // Preload critical routes on idle
 const preloadRoutes = () => {
@@ -28,6 +29,7 @@ const preloadRoutes = () => {
       import("./pages/CottagesPage.jsx");
       import("./pages/GalleryPage.jsx");
       import("./pages/ContactPage.jsx");
+      import("./pages/SearchPage.jsx");
     });
   }
 };
@@ -157,6 +159,7 @@ function App() {
                       <Route path="/gallery" element={<GalleryPage />} />
                       <Route path="/faq" element={<FAQPage />} />
                       <Route path="/contact" element={<ContactPage />} />
+                      <Route path="/search" element={<SearchPage />} />
                     </Routes>
                   </Suspense>
                 </main>

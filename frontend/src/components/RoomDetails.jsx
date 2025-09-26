@@ -23,8 +23,8 @@ import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization'
 import { useWorkerManager } from '../utils/workerManager';
 import PerformanceOptimizer from './PerformanceOptimizer';
 
-const RoomDetails = () => {
-  const [activeTab, setActiveTab] = useState('resort');
+const RoomDetails = ({ initialTab = 'resort' }) => {
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [processedData, setProcessedData] = useState(null);
   const [isProcessingData, setIsProcessingData] = useState(false);
   const { batchDOMUpdates, scheduleIdleTask } = usePerformanceOptimization();

@@ -176,7 +176,7 @@ const TentsPage = () => {
         </div>
       </div>
       
-      <RoomDetails />
+      <RoomDetails initialTab="tent" />
       <Amenities />
       <Gallery />
       <Contact />

@@ -172,7 +172,7 @@ const CottagesPage = () => {
         </div>
       </div>
       
-      <RoomDetails />
+      <RoomDetails initialTab="cottage" />
       <Amenities />
       <Gallery />
       <Contact />

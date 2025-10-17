@@ -32,6 +32,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://www.paradisevattavada.com/" id="canonical-link" />
+        
+        <script>
+          // Dynamically update canonical URL based on current path
+          document.addEventListener('DOMContentLoaded', function() {
+            const canonicalLink = document.getElementById('canonical-link');
+            const currentPath = window.location.pathname;
+            if (currentPath && currentPath !== '/') {
+              canonicalLink.href = 'https://www.paradisevattavada.com' + currentPath;
+            }
+          });
+        </script>
+        
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Paradise Resort Vattavada - Experience luxury accommodations in cottages, tents, and dormitories with breathtaking views of the Western Ghats." />
+        <meta name="keywords" content="Paradise Resort, Vattavada, Kerala, Western Ghats, cottages, tents, dormitory, luxury resort" />
+        
         <!-- Security Meta Tags for Trust and Safety -->
         <!-- Development Mode: Relaxed CSP for webpack compatibility -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; style-src 'self' 'unsafe-inline' data: blob: https:; font-src 'self' data: blob: https:; img-src 'self' data: blob: https: http:; media-src 'self' data: blob: https: http:; object-src 'none'; frame-src 'self' https:; connect-src 'self' data: blob: ws: wss: http: https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; worker-src 'self' data: blob:">

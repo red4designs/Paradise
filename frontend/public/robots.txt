@@ -7,29 +7,21 @@ Allow: /
 Sitemap: https://www.paradisevattavada.com/sitemap.xml
 
 # Disallow unnecessary files and directories
-Disallow: /static/js/
-Disallow: /static/css/
-Disallow: /static/media/
-Disallow: /*.json$
-Disallow: /manifest.json
-Disallow: /asset-manifest.json
-Disallow: /service-worker.js
-Disallow: /sw.js
-Disallow: /worker.js
-Disallow: /precache-manifest*.js
+# Allow necessary files for rendering
+Allow: /static/js/
+Allow: /static/css/
+Allow: /static/media/
+Allow: /manifest.json
+Allow: /service-worker.js
+
+# Disallow internal or sensitive paths
 Disallow: /*.map$
 Disallow: /build/
 Disallow: /node_modules/
 Disallow: /.git/
-Disallow: /admin/
 Disallow: /private/
-
-# Allow important static assets
-Allow: /static/media/*.jpg
-Allow: /static/media/*.jpeg
-Allow: /static/media/*.png
-Allow: /static/media/*.webp
-Allow: /static/media/*.svg
+Disallow: /admin/
+Disallow: /*.json$
 Allow: /images/
 Allow: /paradise-logo.svg
 Allow: /resort-image.jpg

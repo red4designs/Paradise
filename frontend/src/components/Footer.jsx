@@ -1,8 +1,8 @@
 import React from 'react';
-import { 
-  MapPin, 
-  Phone, 
-  MessageCircle, 
+import {
+  MapPin,
+  Phone,
+  MessageCircle,
   Mail,
   Mountain,
   Wifi,
@@ -39,41 +39,41 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black border-t border-white/25">
+    <footer className="glass-panel mt-20 border-t border-white/20 backdrop-blur-md">
       {/* Main Footer Content */}
-      <div className="section-padding">
+      <div className="section-padding text-glow">
         <div className="max-width-container">
           <div className="grid lg:grid-cols-4 gap-12">
-            
+
             {/* Resort Info */}
             <div className="lg:col-span-1 space-y-6">
               <div>
                 <h3 className="heading-2 text-brand-primary mb-4">Paradise Resort</h3>
                 <p className="body-medium text-text-secondary">
-                  Experience the magic of Vattavada mountains with our family-run resort offering 
+                  Experience the magic of Vattavada mountains with our family-run resort offering
                   safe, comfortable accommodations and unforgettable adventures.
                 </p>
               </div>
-              
+
               {/* Contact Info */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-brand-primary" />
                   <a href="tel:9074902424" className="body-medium text-text-secondary hover:text-brand-primary dark-transition" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
-              +91 90749 02424
-            </a>
+                    +91 90749 02424
+                  </a>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <MessageCircle size={18} className="text-brand-primary" />
-                  <button 
+                  <button
                     onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                     className="body-medium text-text-secondary hover:text-brand-primary dark-transition"
                   >
                     WhatsApp Us
                   </button>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <MapPin size={18} className="text-brand-primary mt-1" />
                   <p className="body-medium text-text-secondary">
@@ -90,7 +90,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <a 
+                    <a
                       href={link.href}
                       className="body-medium text-text-secondary hover:text-brand-primary dark-transition"
                     >
@@ -112,7 +112,7 @@ const Footer = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="pt-4">
                 <a href="#packages" className="btn-secondary inline-flex">
                   View All Packages
@@ -123,7 +123,7 @@ const Footer = () => {
             {/* Amenities & Features */}
             <div className="space-y-6">
               <h4 className="heading-3 text-text-primary">Key Features</h4>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 {amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center gap-2">
@@ -166,10 +166,10 @@ const Footer = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="tel:9074902424" className="btn-primary" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
-            <Phone size={18} />
-            Call Today
-          </a>
-              <button 
+                <Phone size={18} />
+                Call Today
+              </a>
+              <button
                 onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                 className="btn-secondary"
               >
@@ -197,12 +197,12 @@ const Footer = () => {
             <p className="body-small text-text-muted text-center sm:text-left">
               Your gateway to mountain adventures in Kerala
             </p>
-            
+
             <div className="flex items-center gap-4">
               <span className="body-small text-text-muted">Emergency Contact:</span>
               <a href="tel:9074902424" className="body-small text-brand-primary hover:underline" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
-              +91 90749 02424
-            </a>
+                +91 90749 02424
+              </a>
             </div>
           </div>
         </div>

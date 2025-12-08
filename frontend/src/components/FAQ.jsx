@@ -30,13 +30,13 @@ const FAQ = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 160; // Account for navigation height
-      
+
       Object.entries(categoryRefs.current).forEach(([categoryId, element]) => {
         if (element) {
           const rect = element.getBoundingClientRect();
           const elementTop = rect.top + window.scrollY;
           const elementBottom = elementTop + rect.height;
-          
+
           if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
             setActiveCategory(categoryId);
           }
@@ -122,7 +122,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="section-padding bg-black">
+    <section id="faq" className="section-padding bg-transparent">
       <div className="max-width-container">
         <header className="text-center mb-16">
           <h2 className="display-large mb-6 text-brand-primary">
@@ -134,17 +134,16 @@ const FAQ = () => {
         </header>
 
         {/* FAQ Navigation */}
-        <div className="sticky top-20 z-40 mb-12 bg-black/95 backdrop-blur-sm border-b border-[hsl(var(--border))] pb-4">
+        <div className="sticky top-20 z-40 mb-12 bg-black/50 backdrop-blur-md border-b border-[hsl(var(--border))] pb-4 rounded-b-xl">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             {navigationItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToCategory(item.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeCategory === item.id
-                    ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg'
-                    : 'bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted)_/_0.8)] hover:text-[hsl(var(--foreground))]'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === item.id
+                  ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg'
+                  : 'bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted)_/_0.8)] hover:text-[hsl(var(--foreground))]'
+                  }`}
               >
                 <span className="mr-2">{item.icon}</span>
                 {item.label}
@@ -152,11 +151,11 @@ const FAQ = () => {
             ))}
           </div>
         </div>
-        
+
         {/* FAQ Categories */}
         <div className="space-y-12">
           {Object.entries(faqCategories).map(([categoryId, category]) => (
-            <div 
+            <div
               key={categoryId}
               ref={(el) => (categoryRefs.current[categoryId] = el)}
               className="scroll-mt-36"
@@ -165,9 +164,9 @@ const FAQ = () => {
                 {category.questions.map((item, questionIndex) => {
                   const globalIndex = `${categoryId}-${questionIndex}`;
                   return (
-                    <article 
+                    <article
                       key={globalIndex}
-                      className="bg-white/5 border border-white/25 rounded-lg overflow-hidden transition-all duration-200 hover:border-brand-primary/50 hover:shadow-lg"
+                      className="glass-panel border-white/20 rounded-lg overflow-hidden transition-all duration-200 hover:border-brand-primary/50 hover:shadow-lg"
                       itemScope
                       itemType="https://schema.org/Question"
                     >
@@ -193,9 +192,9 @@ const FAQ = () => {
                           )}
                         </div>
                       </button>
-                      
+
                       {openItems[globalIndex] && (
-                        <div 
+                        <div
                           id={`answer-${globalIndex}`}
                           className="px-6 pb-6 border-t border-white/10"
                           itemScope
@@ -205,13 +204,13 @@ const FAQ = () => {
                             <div className="text-text-secondary leading-relaxed mb-4" itemProp="text">
                               {item.answer}
                             </div>
-                            
+
                             {/* Keywords for AI Context */}
                             {item.keywords && item.keywords.length > 0 && (
                               <div className="flex flex-wrap gap-2 mt-4">
                                 <span className="text-xs text-brand-primary font-medium">Related:</span>
                                 {item.keywords.map((keyword, keywordIndex) => (
-                                  <span 
+                                  <span
                                     key={keywordIndex}
                                     className="px-2 py-1 bg-white/10 text-text-muted text-xs rounded-full border border-white/20"
                                   >
@@ -230,22 +229,22 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <p className="text-text-secondary mb-6">
             Still have questions about our Vattavada stay options?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="tel:+919074902424"
-                onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:+919074902424')} 
+              onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:+919074902424')}
               className="inline-flex items-center px-6 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-semibold rounded-lg hover:bg-[hsl(var(--primary)_/_0.9)] transition-colors shadow-lg hover:shadow-[hsl(var(--primary)_/_0.25)]"
             >
               📞 Call +91 90749 02424
             </a>
-            <a 
-              href="https://wa.me/919074902424" 
-              target="_blank" 
+            <a
+              href="https://wa.me/919074902424"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors shadow-lg hover:shadow-green-500/25"
             >

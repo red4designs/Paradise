@@ -94,13 +94,13 @@ const TravelGuide = () => {
   ];
 
   return (
-    <section className="section-padding bg-black">
+    <section className="section-padding bg-transparent">
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">🗺️ Vattavada Travel Guide</h2>
           <p className="body-large text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto">
-            Discover the beauty of Vattavada and surrounding attractions. Your complete guide to exploring 
+            Discover the beauty of Vattavada and surrounding attractions. Your complete guide to exploring
             the Western Ghats from our <strong>homestay in Vattavada</strong>.
           </p>
         </div>
@@ -117,7 +117,7 @@ const TravelGuide = () => {
               renderItem={(attraction) => {
                 const IconComponent = attraction.icon;
                 return (
-                  <div key={attraction.id} className="p-6 bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-lg hover:border-[hsl(var(--primary))] transition-colors">
+                  <div key={attraction.id} className="p-6 glass-panel border border-[hsl(var(--border))] rounded-lg hover:border-[hsl(var(--primary))] transition-colors">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-[hsl(var(--primary)_/_0.1)] flex items-center justify-center rounded-lg flex-shrink-0">
                         <IconComponent className="w-6 h-6 text-[hsl(var(--primary))]" />
@@ -139,7 +139,7 @@ const TravelGuide = () => {
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {attraction.highlights.map((highlight, index) => (
-                            <span 
+                            <span
                               key={index}
                               className="px-3 py-1 bg-[hsl(var(--primary)_/_0.1)] text-[hsl(var(--primary))] text-sm rounded-full"
                             >
@@ -222,7 +222,7 @@ const TravelGuide = () => {
                 </a>
               </div>
             </div>
-            
+
             <div className="text-center">
               <h4 className="font-semibold mb-3 text-[hsl(var(--foreground))]">Explore More</h4>
               <div className="space-y-2">
@@ -237,7 +237,7 @@ const TravelGuide = () => {
                 </a>
               </div>
             </div>
-            
+
             <div className="text-center">
               <h4 className="font-semibold mb-3 text-[hsl(var(--foreground))]">Get in Touch</h4>
               <div className="space-y-2">
@@ -253,7 +253,7 @@ const TravelGuide = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
             <a href="#contact" className="px-6 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)_/_0.9)] transition-colors font-medium">
               Plan Your Adventure

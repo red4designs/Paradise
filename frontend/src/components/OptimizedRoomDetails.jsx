@@ -1,35 +1,35 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { Card, CardContent } from './ui/card';
-import { 
-  Home, 
-  Tent, 
-  Users, 
-  Bed, 
-  Wifi, 
-  Car, 
-  Coffee, 
-  Mountain, 
-  Camera, 
-  Utensils, 
-  Shield, 
-  Heart, 
-  Star, 
-  MapPin, 
-  Phone, 
-  Clock, 
-  Zap, 
-  Droplets, 
-  Wind, 
-  Sun, 
-  Moon, 
-  TreePine, 
-  Fish, 
-  Binoculars, 
-  Compass, 
-  Backpack, 
-  ChefHat, 
-  ArrowRight, 
-  MessageCircle 
+import {
+  Home,
+  Tent,
+  Users,
+  Bed,
+  Wifi,
+  Car,
+  Coffee,
+  Mountain,
+  Camera,
+  Utensils,
+  Shield,
+  Heart,
+  Star,
+  MapPin,
+  Phone,
+  Clock,
+  Zap,
+  Droplets,
+  Wind,
+  Sun,
+  Moon,
+  TreePine,
+  Fish,
+  Binoculars,
+  Compass,
+  Backpack,
+  ChefHat,
+  ArrowRight,
+  MessageCircle
 } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
 import PerformanceOptimizer from './PerformanceOptimizer';
@@ -88,25 +88,25 @@ const OptimizedRoomDetails = () => {
           title: '3 Spacious Bedrooms',
           description: 'Comfortable bedrooms with quality mattresses and linens',
           icon: Bed,
-          color: 'from-blue-500/10 to-indigo-500/10'
+          color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
         },
         {
           title: 'Full Kitchen Access',
           description: 'Cook your own meals with our fully equipped kitchen',
           icon: ChefHat,
-          color: 'from-orange-500/10 to-red-500/10'
+          color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10'
         },
         {
           title: 'Private Living Area',
           description: 'Relax in your own living space with family and friends',
           icon: Home,
-          color: 'from-green-500/10 to-emerald-500/10'
+          color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-accent))]/10'
         },
         {
           title: 'Mountain View Balcony',
           description: 'Enjoy stunning views from your private balcony',
           icon: Mountain,
-          color: 'from-purple-500/10 to-pink-500/10'
+          color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-accent))]/10'
         }
       ]
     },
@@ -124,25 +124,25 @@ const OptimizedRoomDetails = () => {
           title: 'Weather-Resistant',
           description: 'High-quality tents designed for all weather conditions',
           icon: Shield,
-          color: 'from-blue-500/10 to-cyan-500/10'
+          color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-accent))]/10'
         },
         {
           title: 'Comfortable Bedding',
           description: 'Quality mattresses and bedding for a good night\'s sleep',
           icon: Bed,
-          color: 'from-green-500/10 to-teal-500/10'
+          color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
         },
         {
           title: 'Shared Facilities',
           description: 'Clean washrooms and common areas nearby',
           icon: Users,
-          color: 'from-purple-500/10 to-indigo-500/10'
+          color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10'
         },
         {
           title: 'Campfire Area',
           description: 'Enjoy evening campfires and stargazing',
           icon: Sun,
-          color: 'from-orange-500/10 to-red-500/10'
+          color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-accent))]/10'
         }
       ]
     }
@@ -154,64 +154,64 @@ const OptimizedRoomDetails = () => {
       icon: Mountain,
       title: 'Breathtaking Mountain Views',
       description: 'Wake up to stunning panoramic views of the Western Ghats',
-      color: 'from-blue-500/10 to-indigo-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
     },
     {
       icon: TreePine,
       title: 'Nature Walks & Trekking',
       description: 'Explore scenic trails and discover hidden waterfalls',
-      color: 'from-green-500/10 to-emerald-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-accent))]/10'
     },
     {
       icon: Camera,
       title: 'Photography Paradise',
       description: 'Capture Instagram-worthy shots at every corner',
-      color: 'from-purple-500/10 to-pink-500/10'
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10'
     },
     {
       icon: Coffee,
       title: 'Tea Plantation Visits',
       description: 'Experience the famous tea gardens of Vattavada',
-      color: 'from-amber-500/10 to-yellow-500/10'
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-accent))]/10'
     },
     {
       icon: Star,
       title: 'Stargazing Nights',
       description: 'Clear mountain skies perfect for astronomy enthusiasts',
-      color: 'from-indigo-500/10 to-purple-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
     },
     {
       icon: Wind,
       title: 'Fresh Mountain Air',
       description: 'Breathe in the pure, unpolluted air of the hills',
-      color: 'from-cyan-500/10 to-blue-500/10'
+      color: 'from-[hsl(var(--brand-accent))]/10 to-[hsl(var(--brand-primary))]/10'
     },
     {
       icon: Utensils,
       title: 'Local Kerala Cuisine',
       description: 'Taste authentic flavors prepared with local ingredients',
-      color: 'from-red-500/10 to-orange-500/10',
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10',
       extra: true
     },
     {
       icon: ChefHat,
       title: 'BBQ Set with Coal',
       description: 'Complete BBQ setup for delicious outdoor cooking experiences',
-      color: 'from-amber-500/10 to-orange-500/10',
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10',
       extra: true
     },
     {
       icon: Car,
       title: 'Jeep Trekking Adventures',
       description: 'Guided off-road adventures through scenic mountain trails',
-      color: 'from-green-500/10 to-emerald-500/10',
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10',
       extra: true
     },
     {
       icon: Wifi,
       title: 'Free WiFi & Hot Water',
       description: 'Stay connected with complimentary WiFi and 24/7 hot water supply',
-      color: 'from-purple-500/10 to-indigo-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
     }
   ], []);
 
@@ -228,7 +228,7 @@ const OptimizedRoomDetails = () => {
   // Render only active tab content to reduce DOM size
   const renderActiveTabContent = useCallback(() => {
     const currentOption = accommodationOptions[activeTab];
-    
+
     if (activeTab === 'resort') {
       return (
         <div className="space-y-8">
@@ -268,19 +268,19 @@ const OptimizedRoomDetails = () => {
             {currentOption.rooms.map((room, index) => {
               const IconComponent = room.icon;
               return (
-                <div key={index} className="p-6 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-[hsl(var(--border))] rounded-lg hover:border-[hsl(var(--primary))] group transition-colors">
+                <div key={index} className="p-6 bg-gradient-to-br from-[hsl(var(--brand-primary))]/5 to-[hsl(var(--brand-secondary))]/5 border border-[hsl(var(--border))] rounded-lg hover:border-[hsl(var(--primary))] group transition-colors">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
                       <IconComponent size={20} className="text-[hsl(var(--primary))]" />
                     </div>
                     <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
                   </div>
-                  
+
                   <div className="mb-4">
                     <p className="body-medium text-[hsl(var(--primary))] font-medium mb-1">{room.capacity}</p>
                     <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
                   </div>
-                  
+
                   <div className="space-y-2">
                     {room.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
@@ -305,9 +305,9 @@ const OptimizedRoomDetails = () => {
             <CardContent className="p-0">
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="aspect-[4/3] lg:aspect-auto">
-                  <LazyImage 
-                    src="/images/Cottages/IMG_20250208_122711.webp" 
-                    alt="Private cottages in Vattavada - 3 bedroom family accommodation" 
+                  <LazyImage
+                    src="/images/Cottages/IMG_20250208_122711.webp"
+                    alt="Private cottages in Vattavada - 3 bedroom family accommodation"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -363,9 +363,9 @@ const OptimizedRoomDetails = () => {
             <CardContent className="p-0">
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="aspect-[4/3] lg:aspect-auto">
-                  <LazyImage 
-                    src={currentOption.image} 
-                    alt="Camping in Vattavada - premium tent accommodation for adventure lovers" 
+                  <LazyImage
+                    src={currentOption.image}
+                    alt="Camping in Vattavada - premium tent accommodation for adventure lovers"
                     className="w-full h-full object-cover"
                     loading="lazy"
                     enableSharing={true}
@@ -386,7 +386,7 @@ const OptimizedRoomDetails = () => {
                   <p className="body-large text-[hsl(var(--muted-foreground))] leading-relaxed mb-6">
                     {currentOption.description}
                   </p>
-                  
+
                   {/* Tent Specs */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
@@ -432,8 +432,8 @@ const OptimizedRoomDetails = () => {
   }, [activeTab, accommodationOptions]);
 
   return (
-    <section 
-      id="room-details" 
+    <section
+      id="room-details"
       className="section-padding bg-black"
     >
       <div className="max-width-container">
@@ -443,8 +443,8 @@ const OptimizedRoomDetails = () => {
             Homestay in Vattavada - Stay Options at Paradise Resort
           </h2>
           <p className="heading-3 text-[hsl(var(--muted-foreground))] max-w-4xl mx-auto leading-relaxed">
-            Discover the perfect homestay in Vattavada for your trip! Our family friendly resort in Vattavada offers 
-            tent stay in Vattavada, budget stay options, and Vattavada trekking stay accommodations for families, 
+            Discover the perfect homestay in Vattavada for your trip! Our family friendly resort in Vattavada offers
+            tent stay in Vattavada, budget stay options, and Vattavada trekking stay accommodations for families,
             couples, and adventure seekers. All stays include Free WiFi in this peaceful resort near Vattavada.
           </p>
         </div>
@@ -460,8 +460,8 @@ const OptimizedRoomDetails = () => {
                   onClick={() => handleTabChange(tab.id)}
                   className={`
                     relative px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-3
-                    ${activeTab === tab.id 
-                      ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg shadow-[hsl(var(--primary)_/_0.25)]' 
+                    ${activeTab === tab.id
+                      ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg shadow-[hsl(var(--primary)_/_0.25)]'
                       : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] hover:bg-[hsl(var(--card)_/_0.5)]'
                     }
                   `}
@@ -511,13 +511,13 @@ const OptimizedRoomDetails = () => {
                               </div>
                             )}
                           </div>
-                          
+
                           <div className="space-y-2">
                             <h4 className="heading-3 text-[hsl(var(--foreground))]">{experience.title}</h4>
                             <p className="body-medium text-[hsl(var(--muted-foreground))] leading-relaxed">{experience.description}</p>
                           </div>
                         </div>
-                        
+
                         {/* Hover Effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)_/_0.05)] to-transparent opacity-0 group-hover:opacity-100" />
                       </CardContent>
@@ -540,7 +540,7 @@ const OptimizedRoomDetails = () => {
                       Book Now
                       <ArrowRight size={18} />
                     </a>
-                    <button 
+                    <button
                       onClick={() => {
                         const message = encodeURIComponent('Hi! I would like to know more about the room options at Paradise Resort Vattavada.');
                         window.open(`https://wa.me/919074902424?text=${message}`, '_blank');

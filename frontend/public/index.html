@@ -1,350 +1,367 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Google Analytics will be loaded lazily via GoogleAnalyticsFacade component -->
-        <!-- This improves initial page load performance and reduces main-thread blocking time -->
-        
-        <!-- Single Page Apps for GitHub Pages -->
-        <script type="text/javascript">
-            // Single Page Apps for GitHub Pages
-            // MIT License
-            // https://github.com/rafgraph/spa-github-pages
-            // This script checks to see if a redirect is present in the query string,
-            // converts it back into the correct url and adds it to the
-            // browser's history using window.history.replaceState(...),
-            // which won't cause the browser to attempt to load the new url.
-            // When the single page app is loaded further down in this file,
-            // the correct url will be waiting in the browser's history for
-            // the single page app to route accordingly.
-            (function(l) {
-                if (l.search[1] === '/' ) {
-                    var decoded = l.search.slice(1).split('&').map(function(s) { 
-                        return s.replace(/~and~/g, '&')
-                    }).join('?');
-                    window.history.replaceState(null, null,
-                        l.pathname.slice(0, -1) + decoded + l.hash
-                    );
-                }
-            }(window.location))
-        </script>
-        
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        
-        <!-- Canonical URL -->
-        <link rel="canonical" href="https://www.paradisevattavada.com/" id="canonical-link" />
-        
-        <script>
-          // Early redirect param handler to ensure SPA route is preserved
-          (function() {
-            try {
-              var params = new URLSearchParams(window.location.search);
-              var target = params.get('redirect');
-              if (target && typeof target === 'string') {
-                history.replaceState(null, '', target);
-              }
-            } catch (e) {}
-          })();
 
-          // Dynamically update canonical URL based on current path
-          document.addEventListener('DOMContentLoaded', function() {
-            const canonicalLink = document.getElementById('canonical-link');
-            const currentPath = window.location.pathname;
-            if (currentPath && currentPath !== '/') {
-              canonicalLink.href = 'https://www.paradisevattavada.com' + currentPath;
-            }
-          });
-        </script>
-        
-        <!-- SEO Meta Tags -->
-        <meta name="description" content="Paradise Resort Vattavada - Experience luxury accommodations in cottages, tents, and dormitories with breathtaking views of the Western Ghats." />
-        <meta name="keywords" content="Paradise Resort, Vattavada, Kerala, Western Ghats, cottages, tents, dormitory, luxury resort" />
-        
-        <!-- Security Meta Tags for Trust and Safety -->
-        <!-- Development Mode: Relaxed CSP for webpack compatibility -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; style-src 'self' 'unsafe-inline' data: blob: https:; font-src 'self' data: blob: https:; img-src 'self' data: blob: https: http:; media-src 'self' data: blob: https: http:; object-src 'none'; frame-src 'self' https:; connect-src 'self' data: blob: ws: wss: http: https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; worker-src 'self' data: blob:">
-        <meta http-equiv="X-Content-Type-Options" content="nosniff">
-        <meta http-equiv="X-Frame-Options" content="DENY">
-        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-        <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(self), vibrate=(self), fullscreen=(self)">
-        
-        <!-- Trusted Types Policy for DOM-based XSS prevention - Development Mode -->
-        <!-- Temporarily disabled for development - enable in production -->
-        <!-- <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'; trusted-types default webpack-dev-server#overlay dompurify"> -->
-        
-        
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/paradise-logo.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/paradise-logo.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/paradise-logo.svg" />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/paradise-logo.svg" />
-        
-        <!-- Critical Resource Hints for Core Web Vitals -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        
-        <!-- Preload Critical Resources -->
-        <link rel="preload" href="/static/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/static/css/main.css"></noscript>
-        
-        <!-- Critical CSS Inline for Above-the-fold Content -->
-        <style>
-            /* Critical CSS for Core Web Vitals optimization - inlined for immediate render */
-            * {
-              box-sizing: border-box;
-              margin: 0;
-              padding: 0;
-            }
-            
-            html {
-              font-size: 16px;
-              line-height: 1.5;
-              -webkit-text-size-adjust: 100%;
-              -webkit-font-smoothing: antialiased;
-              -moz-osx-font-smoothing: grayscale;
-            }
-            
-            body {
-              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-              background-color: #ffffff;
-              color: #1a1a1a;
-              overflow-x: hidden;
-            }
-            
-            .app-container {
-              min-height: 100vh;
-              display: flex;
-              flex-direction: column;
-            }
-            
-            /* Header critical styles */
-            .header {
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              z-index: 1000;
-              background: rgba(255, 255, 255, 0.95);
-              backdrop-filter: blur(10px);
-              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-              height: 80px;
-              display: flex;
-              align-items: center;
-              padding: 0 2rem;
-            }
-            
-            .header-logo {
-              height: 40px;
-              width: auto;
-              display: block;
-            }
-            
-            /* Hero section critical styles for LCP optimization */
-            .hero-section {
-              margin-top: 80px;
-              min-height: 70vh;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              color: white;
-              text-align: center;
-              padding: 2rem;
-              contain: layout style paint;
-            }
-            
-            .hero-content {
-              max-width: 800px;
-              margin: 0 auto;
-            }
-            
-            .hero-title {
-              font-size: clamp(2.5rem, 5vw, 4rem);
-              font-weight: 700;
-              line-height: 1.2;
-              margin-bottom: 1rem;
-              font-family: 'Playfair Display', serif;
-            }
-            
-            .hero-subtitle {
-              font-size: clamp(1.1rem, 2vw, 1.5rem);
-              margin-bottom: 2rem;
-              opacity: 0.9;
-              line-height: 1.4;
-            }
-            
-            .hero-cta {
-              display: inline-block;
-              background: #ff6b6b;
-              color: white;
-              padding: 1rem 2rem;
-              border-radius: 50px;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 1.1rem;
-              transition: transform 0.2s ease;
-              border: none;
-              cursor: pointer;
-            }
-            
-            /* Loading skeleton to prevent CLS */
-            .loading-skeleton {
-              background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-              background-size: 200% 100%;
-              animation: loading 1.5s infinite;
-              border-radius: 4px;
-            }
-            
-            @keyframes loading {
-              0% { background-position: 200% 0; }
-              100% { background-position: -200% 0; }
-            }
-            
-            .skeleton-text {
-              height: 1.2em;
-              margin-bottom: 0.5em;
-            }
-            
-            .skeleton-title {
-              height: 2em;
-              margin-bottom: 1em;
-              width: 70%;
-            }
-            
-            /* Prevent layout shift for images */
-            img {
-              max-width: 100%;
-              height: auto;
-              display: block;
-            }
-            
-            .aspect-ratio-16-9 {
-              aspect-ratio: 16 / 9;
-              overflow: hidden;
-            }
-            
-            /* Font loading optimization */
-            .font-loading body {
-              visibility: hidden;
-            }
-            
-            .fonts-loaded body {
-              visibility: visible;
-            }
-            
-            /* Mobile optimizations */
-            @media (max-width: 768px) {
-              .header {
-                padding: 0 1rem;
-                height: 70px;
-              }
-              
-              .hero-section {
-                margin-top: 70px;
-                min-height: 60vh;
-                padding: 1rem;
-              }
-              
-              .hero-title {
-                font-size: 2.5rem;
-              }
-              
-              .hero-subtitle {
-                font-size: 1.1rem;
-              }
-            }
-            
-            @media (max-width: 480px) {
-              .header {
-                padding: 0 0.5rem;
-              }
-              
-              .hero-section {
-                padding: 0.5rem;
-              }
-              
-              .hero-title {
-                font-size: 2rem;
-              }
-            }
-            
-            /* Performance optimizations */
-            .gpu-accelerated {
-              transform: translateZ(0);
-              backface-visibility: hidden;
-              perspective: 1000px;
-            }
-            
-            @media (prefers-reduced-motion: reduce) {
-              *,
-              *::before,
-              *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-              }
-            }
-        </style>
-        <meta name="description" content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
-        <meta name="keywords" content="Paradise Resort Vattavada, vattavada stay, stay in vattavada, Munnar resort, Kerala hill station, cottage stay Vattavada, tent accommodation, dormitory stay, strawberry farm visit, jeep trekking Munnar, Western Ghats resort, Top Station, Pampadum Shola, mountain resort Kerala, family resort Vattavada, nature stay Kerala, adventure tourism Munnar, eco resort Kerala, hill station accommodation" />
-        <meta name="author" content="Paradise Resort Vattavada" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow" />
-        <link rel="canonical" href="https://www.paradisevattavada.com" />
-        <meta name="language" content="en" />
-        <meta name="geo.region" content="IN-KL" />
-        <meta name="geo.placename" content="Vattavada, Kerala, India" />
-        <meta name="geo.position" content="10.1632;77.1624" />
-        <meta name="ICBM" content="10.1632, 77.1624" />
-        
-        <!-- Additional SEO Meta Tags -->
-        <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="expires" content="never" />
-        <meta name="coverage" content="worldwide" />
-        <meta name="target" content="all" />
-        <meta name="HandheldFriendly" content="true" />
-        <meta name="MobileOptimized" content="width" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Paradise Resort" />
-        <meta name="application-name" content="Paradise Resort Vattavada" />
-        <meta name="msapplication-TileColor" content="#ff6b35" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Paradise Resort Vattavada | Premium Hill Station Resort Near Munnar Kerala" />
-        <meta property="og:description" content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
-        <meta property="og:url" content="https://paradisevattavada.com" />
-        <meta property="og:image:alt" content="Paradise Resort Vattavada - Premium hill station resort near Munnar Kerala" />
-        <meta property="og:image" content="https://paradisevattavada.com/images/resort-social-share.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Paradise Resort Vattavada - Luxury Mountain Resort in Kerala" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="business:contact_data:locality" content="Vattavada" />
-        <meta property="business:contact_data:region" content="Kerala" />
-        <meta property="business:contact_data:country_name" content="India" />
-        
-        <!-- Twitter Card Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@paradiseresort" />
-        <meta name="twitter:creator" content="@paradiseresort" />
-        <meta name="twitter:title" content="Paradise Resort Vattavada | Premium Hill Station Resort Near Munnar Kerala" />
-        <meta name="twitter:description" content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
-        <meta name="twitter:image" content="https://paradisevattavada.com/images/resort-social-share.jpg" />
-        <meta name="twitter:image:alt" content="Paradise Resort Vattavada - Luxury Mountain Resort in Kerala" />
-        
-        <!-- JSON-LD Structured Data for SEO -->
-        <script type="application/ld+json">
+<head>
+  <!-- Google Analytics will be loaded lazily via GoogleAnalyticsFacade component -->
+  <!-- This improves initial page load performance and reduces main-thread blocking time -->
+
+  <!-- Single Page Apps for GitHub Pages -->
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script checks to see if a redirect is present in the query string,
+    // converts it back into the correct url and adds it to the
+    // browser's history using window.history.replaceState(...),
+    // which won't cause the browser to attempt to load the new url.
+    // When the single page app is loaded further down in this file,
+    // the correct url will be waiting in the browser's history for
+    // the single page app to route accordingly.
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050510" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.paradisevattavada.com/" id="canonical-link" />
+
+  <script>
+      // Early redirect param handler to ensure SPA route is preserved
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var target = params.get('redirect');
+          if (target && typeof target === 'string') {
+            history.replaceState(null, '', target);
+          }
+        } catch (e) { }
+      })();
+
+    // Dynamically update canonical URL based on current path
+    document.addEventListener('DOMContentLoaded', function () {
+      const canonicalLink = document.getElementById('canonical-link');
+      const currentPath = window.location.pathname;
+      if (currentPath && currentPath !== '/') {
+        canonicalLink.href = 'https://www.paradisevattavada.com' + currentPath;
+      }
+    });
+  </script>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Paradise Resort Vattavada - Experience luxury accommodations in cottages, tents, and dormitories with breathtaking views of the Western Ghats." />
+  <meta name="keywords"
+    content="Paradise Resort, Vattavada, Kerala, Western Ghats, cottages, tents, dormitory, luxury resort, trekking Vattavada, camping Vattavada, honeymoon resort Kerala, budget stay Vattavada" />
+
+  <!-- Security Meta Tags for Trust and Safety -->
+  <!-- Development Mode: Relaxed CSP for webpack compatibility -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: ws: wss: http: https:; style-src 'self' 'unsafe-inline' data: blob: https:; font-src 'self' data: blob: https:; img-src 'self' data: blob: https: http:; media-src 'self' data: blob: https: http:; object-src 'none'; frame-src 'self' https:; connect-src 'self' data: blob: ws: wss: http: https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; worker-src 'self' data: blob:">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy"
+    content="geolocation=(self), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(self), vibrate=(self), fullscreen=(self)">
+
+  <!-- Trusted Types Policy for DOM-based XSS prevention - Development Mode -->
+  <!-- Temporarily disabled for development - enable in production -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'; trusted-types default webpack-dev-server#overlay dompurify"> -->
+
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/paradise-logo.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/paradise-logo.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/paradise-logo.svg" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/paradise-logo.svg" />
+
+  <!-- Critical Resource Hints for Core Web Vitals -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/static/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/static/css/main.css">
+  </noscript>
+
+  <!-- Critical CSS Inline for Above-the-fold Content -->
+  <style>
+    /* Critical CSS for Core Web Vitals optimization - inlined for immediate render */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    .app-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header critical styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .header-logo {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    /* Hero section critical styles for LCP optimization */
+    .hero-section {
+      margin-top: 80px;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, hsl(180, 100%, 50%) 0%, hsl(300, 100%, 50%) 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      contain: layout style paint;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: #ff00ff;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Loading skeleton to prevent CLS */
+    .loading-skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+      border-radius: 4px;
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .skeleton-text {
+      height: 1.2em;
+      margin-bottom: 0.5em;
+    }
+
+    .skeleton-title {
+      height: 2em;
+      margin-bottom: 1em;
+      width: 70%;
+    }
+
+    /* Prevent layout shift for images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .aspect-ratio-16-9 {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    /* Font loading optimization */
+    .font-loading body {
+      visibility: hidden;
+    }
+
+    .fonts-loaded body {
+      visibility: visible;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 1rem;
+        height: 70px;
+      }
+
+      .hero-section {
+        margin-top: 70px;
+        min-height: 60vh;
+        padding: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 0 0.5rem;
+      }
+
+      .hero-section {
+        padding: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Performance optimizations */
+    .gpu-accelerated {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <meta name="description"
+    content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
+  <meta name="keywords"
+    content="Paradise Resort Vattavada, vattavada stay, stay in vattavada, Munnar resort, Kerala hill station, cottage stay Vattavada, tent accommodation, dormitory stay, strawberry farm visit, jeep trekking Munnar, Western Ghats resort, Top Station, Pampadum Shola, mountain resort Kerala, family resort Vattavada, nature stay Kerala, adventure tourism Munnar, eco resort Kerala, hill station accommodation" />
+  <meta name="author" content="Paradise Resort Vattavada" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow" />
+  <link rel="canonical" href="https://www.paradisevattavada.com" />
+  <meta name="language" content="en" />
+  <meta name="geo.region" content="IN-KL" />
+  <meta name="geo.placename" content="Vattavada, Kerala, India" />
+  <meta name="geo.position" content="10.1632;77.1624" />
+  <meta name="ICBM" content="10.1632, 77.1624" />
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="expires" content="never" />
+  <meta name="coverage" content="worldwide" />
+  <meta name="target" content="all" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Paradise Resort" />
+  <meta name="application-name" content="Paradise Resort Vattavada" />
+  <meta name="msapplication-TileColor" content="#00ffff" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Paradise Resort Vattavada | Premium Hill Station Resort Near Munnar Kerala" />
+  <meta property="og:description"
+    content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
+  <meta property="og:url" content="https://paradisevattavada.com" />
+  <meta property="og:image:alt" content="Paradise Resort Vattavada - Premium hill station resort near Munnar Kerala" />
+  <meta property="og:image" content="https://paradisevattavada.com/images/resort-social-share.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Paradise Resort Vattavada - Luxury Mountain Resort in Kerala" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="business:contact_data:locality" content="Vattavada" />
+  <meta property="business:contact_data:region" content="Kerala" />
+  <meta property="business:contact_data:country_name" content="India" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@paradiseresort" />
+  <meta name="twitter:creator" content="@paradiseresort" />
+  <meta name="twitter:title" content="Paradise Resort Vattavada | Premium Hill Station Resort Near Munnar Kerala" />
+  <meta name="twitter:description"
+    content="Paradise Resort Vattavada offers premium budget stays with cottages, tents & dormitories near Munnar. Enjoy mountain views & adventure activities." />
+  <meta name="twitter:image" content="https://paradisevattavada.com/images/resort-social-share.jpg" />
+  <meta name="twitter:image:alt" content="Paradise Resort Vattavada - Luxury Mountain Resort in Kerala" />
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Resort",
@@ -460,9 +477,9 @@
           ]
         }
         </script>
-        
-        <!-- Local Business Schema -->
-        <script type="application/ld+json">
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
@@ -493,9 +510,9 @@
           "currenciesAccepted": "INR"
         }
         </script>
-        
-        <!-- Website Schema -->
-        <script type="application/ld+json">
+
+  <!-- Website Schema -->
+  <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "WebSite",
@@ -521,62 +538,70 @@
           }
         }
         </script>
-        
-        <!-- DNS prefetch for external domains -->
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link rel="dns-prefetch" href="https://www.google-analytics.com">
-        
-        <!-- Preconnect to critical third-party origins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
-        <!-- Critical CSS for fonts - inline to eliminate render blocking -->
-        <style>
-          /* Font face declarations with font-display: swap */
-          @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            font-display: swap;
-            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: 'Playfair Display';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: 'Playfair Display';
-            font-style: normal;
-            font-weight: 600;
-            font-display: swap;
-            src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-        </style>
-        
-        <!-- Preload font files for faster loading -->
-        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2" as="font" type="font/woff2" crossorigin>
-        <!--
+
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+  <!-- Preconnect to critical third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical CSS for fonts - inline to eliminate render blocking -->
+  <style>
+    /* Font face declarations with font-display: swap */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
+
+  <!-- Preload font files for faster loading -->
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2"
+    as="font" type="font/woff2" crossorigin>
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-        <!--
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -585,155 +610,266 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-        <title>Paradise Resort Vattavada | Best Budget Stay Near Munnar Kerala</title>
-        
-        <!-- Critical CSS for above-the-fold content -->
-        <style>
-          /* Critical styles for initial render */
-          *, *::before, *::after { box-sizing: border-box; }
-          
-          /* CSS Variables for consistent theming */
-          :root {
-            --background: 0 0% 98%;
-            --foreground: 20 14% 4.1%;
-            --card: 0 0% 100%;
-            --card-foreground: 20 14% 4.1%;
-            --primary: 24 95% 53%;
-            --primary-foreground: 0 0% 98%;
-            --secondary: 25 25% 95%;
-            --secondary-foreground: 25 8% 25%;
-            --muted: 25 25% 95%;
-            --muted-foreground: 25 5% 44.7%;
-            --accent: 25 25% 95%;
-            --accent-foreground: 25 8% 25%;
-            --destructive: 0 84% 60%;
-            --destructive-foreground: 0 0% 98%;
-            --border: 30 25% 88%;
-            --input: 30 25% 88%;
-            --ring: 24 95% 53%;
-            --radius: 0.5rem;
-          }
-          
-          .dark {
-            --background: 20 14% 4.1%;
-            --foreground: 0 0% 98%;
-            --card: 25 25% 8%;
-            --card-foreground: 0 0% 98%;
-            --primary: 24 95% 53%;
-            --primary-foreground: 0 0% 98%;
-            --secondary: 25 15% 12%;
-            --secondary-foreground: 25 5% 80%;
-            --muted: 25 15% 12%;
-            --muted-foreground: 25 5% 63.9%;
-            --accent: 25 15% 12%;
-            --accent-foreground: 25 5% 80%;
-            --destructive: 0 62% 30%;
-            --destructive-foreground: 0 0% 98%;
-            --border: 30 15% 20%;
-            --input: 30 15% 20%;
-            --ring: 24 95% 53%;
-          }
-          
-          body { 
-            margin: 0; 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: hsl(var(--foreground));
-            background-color: hsl(var(--background));
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-          
-          #root { min-height: 100vh; }
-          
-          /* Critical Tailwind-like utilities */
-          .fixed { position: fixed; }
-          .absolute { position: absolute; }
-          .relative { position: relative; }
-          .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-          .top-0 { top: 0; }
-          .w-full { width: 100%; }
-          .h-full { height: 100%; }
-          .min-h-screen { min-height: 100vh; }
-          .z-50 { z-index: 50; }
-          .flex { display: flex; }
-          .items-center { align-items: center; }
-          .justify-between { justify-content: space-between; }
-          .justify-center { justify-content: center; }
-          .mx-auto { margin-left: auto; margin-right: auto; }
-          .px-4 { padding-left: 1rem; padding-right: 1rem; }
-          .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-          .text-center { text-align: center; }
-          .hidden { display: none; }
-          .bg-background { background-color: hsl(var(--background)); }
-          .bg-black { background-color: rgb(0 0 0); }
-          .text-foreground { color: hsl(var(--foreground)); }
-          .border-b { border-bottom-width: 1px; }
-          .border-border { border-color: hsl(var(--border)); }
-          .transition-colors { transition-property: color, background-color, border-color; transition-duration: 150ms; }
-          .duration-300 { transition-duration: 300ms; }
-          .overflow-hidden { overflow: hidden; }
-          .object-cover { object-fit: cover; }
-          
-          /* Loading spinner */
-          .loading { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh;
-            background-color: hsl(var(--background));
-          }
-          .loading::after { 
-            content: ''; 
-            width: 40px; 
-            height: 40px; 
-            border: 4px solid hsl(var(--muted)); 
-            border-top: 4px solid hsl(var(--primary)); 
-            border-radius: 50%; 
-            animation: spin 1s linear infinite; 
-          }
-          @keyframes spin { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-          }
-          
-          /* Critical button styles */
-          .btn-primary {
-            background-color: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-          }
-          .btn-primary:hover {
-            opacity: 0.9;
-          }
-          
-          /* Critical responsive utilities */
-          @media (min-width: 1024px) {
-            .lg\:flex { display: flex; }
-            .lg\:hidden { display: none; }
-          }
-          
-          /* Prevent layout shift */
-          img {
-            max-width: 100%;
-            height: auto;
-          }
-          
-          /* Critical header max-width */
-          .max-w-\[1400px\] { max-width: 1400px; }
-          
-          /* Critical padding for header */
-          .px-\[7\.6923\%\] { padding-left: 7.6923%; padding-right: 7.6923%; }
-        </style>
-        <script type="application/ld+json">
+  <title>Paradise Resort Vattavada | Best Budget Stay Near Munnar Kerala</title>
+
+  <!-- Critical CSS for above-the-fold content -->
+  <style>
+    /* Critical styles for initial render */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* CSS Variables for consistent theming */
+    :root {
+      --background: 240 10% 4%;
+      --foreground: 0 0% 100%;
+      --card: 240 10% 6%;
+      --card-foreground: 0 0% 100%;
+      --primary: 180 100% 50%;
+      --primary-foreground: 240 10% 4%;
+      --secondary: 300 100% 50%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 240 5% 15%;
+      --muted-foreground: 240 5% 65%;
+      --accent: 195 100% 50%;
+      --accent-foreground: 240 10% 4%;
+      --destructive: 0 100% 50%;
+      --destructive-foreground: 0 0% 100%;
+      --border: 240 5% 20%;
+      --input: 240 5% 20%;
+      --ring: 180 100% 50%;
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 240 10% 4%;
+      --foreground: 0 0% 100%;
+      --card: 240 10% 6%;
+      --card-foreground: 0 0% 100%;
+      --primary: 180 100% 50%;
+      --primary-foreground: 240 10% 4%;
+      --secondary: 300 100% 50%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 240 5% 15%;
+      --muted-foreground: 240 5% 65%;
+      --accent: 195 100% 50%;
+      --accent-foreground: 240 10% 4%;
+      --destructive: 0 100% 50%;
+      --destructive-foreground: 0 0% 100%;
+      --border: 240 5% 20%;
+      --input: 240 5% 20%;
+      --ring: 180 100% 50%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: hsl(var(--foreground));
+      background-color: hsl(var(--background));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    #root {
+      min-height: 100vh;
+    }
+
+    /* Critical Tailwind-like utilities */
+    .fixed {
+      position: fixed;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .inset-0 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .top-0 {
+      top: 0;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    .z-50 {
+      z-index: 50;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .bg-background {
+      background-color: hsl(var(--background));
+    }
+
+    .bg-black {
+      background-color: rgb(0 0 0);
+    }
+
+    .text-foreground {
+      color: hsl(var(--foreground));
+    }
+
+    .border-b {
+      border-bottom-width: 1px;
+    }
+
+    .border-border {
+      border-color: hsl(var(--border));
+    }
+
+    .transition-colors {
+      transition-property: color, background-color, border-color;
+      transition-duration: 150ms;
+    }
+
+    .duration-300 {
+      transition-duration: 300ms;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .object-cover {
+      object-fit: cover;
+    }
+
+    /* Loading spinner */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: hsl(var(--background));
+    }
+
+    .loading::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 4px solid hsl(var(--muted));
+      border-top: 4px solid hsl(var(--primary));
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Critical button styles */
+    .btn-primary {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    /* Critical responsive utilities */
+    @media (min-width: 1024px) {
+      .lg\:flex {
+        display: flex;
+      }
+
+      .lg\:hidden {
+        display: none;
+      }
+    }
+
+    /* Prevent layout shift */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Critical header max-width */
+    .max-w-\[1400px\] {
+      max-width: 1400px;
+    }
+
+    /* Critical padding for header */
+    .px-\[7\.6923\%\] {
+      padding-left: 7.6923%;
+      padding-right: 7.6923%;
+    }
+  </style>
+  <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "LodgingBusiness",
@@ -1056,54 +1192,55 @@
            ]
          }
         </script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        
-        <!-- Defer non-critical CSS loading -->
-        <script>
-          // Load non-critical CSS after initial render
-          function loadDeferredCSS() {
-            // Create a link element for the main CSS bundle
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '/static/css/main.css'; // This will be generated by the build
-            link.media = 'print';
-            link.onload = function() {
-              this.media = 'all';
-              this.onload = null;
-            };
-            // Fallback for browsers that don't support onload
-            link.onerror = function() {
-              this.media = 'all';
-            };
-            document.head.appendChild(link);
-          }
-          
-          // Use requestIdleCallback for better performance
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadDeferredCSS, { timeout: 2000 });
-          } else {
-            setTimeout(loadDeferredCSS, 100);
-          }
-        </script>
-        
-        <!-- Service Worker Registration -->
-        <script>
-          if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-              navigator.serviceWorker.register('/sw.js')
-                .then((registration) => {
-                  console.log('SW registered: ', registration);
-                })
-                .catch((registrationError) => {
-                  console.log('SW registration failed: ', registrationError);
-                });
-            });
-          }
-        </script>
-        <!--
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <!-- Defer non-critical CSS loading -->
+  <script>
+    // Load non-critical CSS after initial render
+    function loadDeferredCSS() {
+      // Create a link element for the main CSS bundle
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/static/css/main.css'; // This will be generated by the build
+      link.media = 'print';
+      link.onload = function () {
+        this.media = 'all';
+        this.onload = null;
+      };
+      // Fallback for browsers that don't support onload
+      link.onerror = function () {
+        this.media = 'all';
+      };
+      document.head.appendChild(link);
+    }
+
+    // Use requestIdleCallback for better performance
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadDeferredCSS, { timeout: 2000 });
+    } else {
+      setTimeout(loadDeferredCSS, 100);
+    }
+  </script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -1115,5 +1252,6 @@
     -->
 
 
-    </body>
+</body>
+
 </html>

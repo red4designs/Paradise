@@ -1,15 +1,15 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
-import { 
-  Home, 
-  Mountain, 
-  Tent, 
-  Users, 
-  Bed, 
-  Wifi, 
-  Car, 
-  Music, 
-  Flame, 
+import {
+  Home,
+  Mountain,
+  Tent,
+  Users,
+  Bed,
+  Wifi,
+  Car,
+  Music,
+  Flame,
   ChefHat,
   Eye,
   Star,
@@ -29,14 +29,14 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
   const [isProcessingData, setIsProcessingData] = useState(false);
   const { batchDOMUpdates, scheduleIdleTask } = usePerformanceOptimization();
   const workerManager = useWorkerManager();
-  
+
   // Raw tabs data
   const tabsRaw = useMemo(() => [
     { id: 'resort', label: 'Resort Rooms', icon: Home },
     { id: 'cottage', label: 'Private Cottage', icon: Home },
     { id: 'tent', label: 'Tent Stay', icon: Tent }
   ], []);
-  
+
   // Optimized tab change handler
   const handleTabChange = useCallback((tabId) => {
     batchDOMUpdates(() => {
@@ -48,13 +48,13 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
   useEffect(() => {
     if (workerManager && !processedData) {
       setIsProcessingData(true);
-      
+
       const rawData = {
         accommodations: accommodationOptionsRaw,
         experiences: commonExperiencesRaw,
         tabs: tabsRaw
       };
-      
+
       workerManager.filterData(rawData, { optimize: true }, 'accommodation')
         .then(result => {
           setProcessedData(result.results);
@@ -83,7 +83,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
           capacity: 'Max 6 guests',
           beds: '1 Queen size + 1 Double size cot',
           features: ['Extra bed available for extra charges', 'Non AC room', 'Private bathroom', 'Free WiFi', 'Hot water'],
-          color: 'from-blue-500/20 to-purple-500/20'
+          color: 'from-[hsl(var(--brand-primary))]/20 to-[hsl(var(--brand-secondary))]/20'
         },
         {
           type: 'Double Room',
@@ -91,7 +91,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
           capacity: '2–3 guests',
           beds: '1 Double cot',
           features: ['Cozy atmosphere', '1 extra bed only', 'Garden view', 'Private bathroom'],
-          color: 'from-green-500/20 to-blue-500/20'
+          color: 'from-[hsl(var(--brand-accent))]/20 to-[hsl(var(--brand-primary))]/20'
         },
         {
           type: 'Dormitory',
@@ -99,7 +99,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
           capacity: 'Max 16 pax',
           beds: 'Bunk beds',
           features: ['Not private bathroom', 'Free WiFi', 'Hot water', 'Rs. 500 per head min. 8 pax'],
-          color: 'from-orange-500/20 to-red-500/20'
+          color: 'from-[hsl(var(--brand-secondary))]/20 to-[hsl(var(--brand-primary))]/20'
         }
       ]
     },
@@ -114,31 +114,31 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
           icon: Home,
           title: '3 Bedrooms',
           description: 'Each with 2 double cots (total 6 double cots)',
-          color: 'from-emerald-500/20 to-teal-500/20'
+          color: 'from-[hsl(var(--brand-primary))]/20 to-[hsl(var(--brand-accent))]/20'
         },
         {
           icon: Users,
           title: 'Up to 18 Guests',
           description: 'Spacious accommodation with extra bed options',
-          color: 'from-blue-500/20 to-indigo-500/20'
+          color: 'from-[hsl(var(--brand-secondary))]/20 to-[hsl(var(--brand-primary))]/20'
         },
         {
           icon: ChefHat,
           title: 'Full Kitchen',
           description: 'Complete kitchen with dining area for self-catering',
-          color: 'from-purple-500/20 to-pink-500/20'
+          color: 'from-[hsl(var(--brand-secondary))]/20 to-[hsl(var(--brand-accent))]/20'
         },
         {
           icon: Home,
           title: 'Living Spaces',
           description: 'Includes hall, dining area, and private spaces',
-          color: 'from-amber-500/20 to-orange-500/20'
+          color: 'from-[hsl(var(--brand-primary))]/20 to-[hsl(var(--brand-secondary))]/20'
         },
         {
           icon: Droplets,
           title: 'Shared Bathroom',
           description: 'Common bathroom facilities for guests',
-          color: 'from-sky-500/20 to-cyan-500/20'
+          color: 'from-[hsl(var(--brand-accent))]/20 to-[hsl(var(--brand-primary))]/20'
         }
       ]
     },
@@ -159,25 +159,25 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
           icon: Tent,
           title: 'Premium Tents',
           description: '8 well-equipped tents with comfortable bedding',
-          color: 'from-green-500/20 to-emerald-500/20'
+          color: 'from-[hsl(var(--brand-primary))]/20 to-[hsl(var(--brand-accent))]/20'
         },
         {
           icon: Mountain,
           title: 'Mountain Views',
           description: 'Wake up to stunning valley and mountain vistas',
-          color: 'from-blue-500/20 to-cyan-500/20'
+          color: 'from-[hsl(var(--brand-secondary))]/20 to-[hsl(var(--brand-primary))]/20'
         },
         {
           icon: Star,
           title: 'Stargazing',
           description: 'Clear night skies perfect for astronomical observations',
-          color: 'from-purple-500/20 to-indigo-500/20'
+          color: 'from-[hsl(var(--brand-secondary))]/20 to-[hsl(var(--brand-accent))]/20'
         },
         {
           icon: Droplets,
           title: 'Shared Bathrooms',
           description: 'Clean shared bathroom facilities near the campsite',
-          color: 'from-sky-500/20 to-cyan-500/20'
+          color: 'from-[hsl(var(--brand-primary))]/20 to-[hsl(var(--brand-secondary))]/20'
         }
       ]
     }
@@ -192,34 +192,34 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
       icon: Eye,
       title: 'Breathtaking Valley Views',
       description: 'Up to 5 km visibility on clear days with panoramic mountain vistas',
-      color: 'from-blue-500/10 to-cyan-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-accent))]/10'
     },
     {
       icon: Flame,
       title: 'Campfire with Music',
       description: 'Magical evenings around the fire with music and storytelling',
-      color: 'from-orange-500/10 to-red-500/10',
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10',
       extra: true
     },
     {
       icon: ChefHat,
       title: 'BBQ Set with Coal',
       description: 'Complete BBQ setup for delicious outdoor cooking experiences',
-      color: 'from-amber-500/10 to-orange-500/10',
+      color: 'from-[hsl(var(--brand-secondary))]/10 to-[hsl(var(--brand-primary))]/10',
       extra: true
     },
     {
       icon: Car,
       title: 'Jeep Trekking Adventures',
       description: 'Guided off-road adventures through scenic mountain trails',
-      color: 'from-green-500/10 to-emerald-500/10',
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10',
       extra: true
     },
     {
       icon: Wifi,
       title: 'Free WiFi & Hot Water',
       description: 'Stay connected with complimentary WiFi and 24/7 hot water supply',
-      color: 'from-purple-500/10 to-indigo-500/10'
+      color: 'from-[hsl(var(--brand-primary))]/10 to-[hsl(var(--brand-secondary))]/10'
     }
   ], []);
 
@@ -230,9 +230,9 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
   const commonExperiences = processedData?.experiences || commonExperiencesRaw;
 
   return (
-    <section 
-      id="room-details" 
-      className="section-padding bg-black"
+    <section
+      id="room-details"
+      className="section-padding bg-transparent"
     >
       <div className="max-width-container">
         {/* Section Header */}
@@ -241,8 +241,8 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
             Homestay in Vattavada - Stay Options at Paradise Resort
           </h2>
           <p className="heading-3 text-[hsl(var(--muted-foreground))] max-w-4xl mx-auto leading-relaxed">
-            Discover the perfect homestay in Vattavada for your trip! Our family friendly resort in Vattavada offers 
-            tent stay in Vattavada, budget stay options, and Vattavada trekking stay accommodations for families, 
+            Discover the perfect homestay in Vattavada for your trip! Our family friendly resort in Vattavada offers
+            tent stay in Vattavada, budget stay options, and Vattavada trekking stay accommodations for families,
             couples, and adventure seekers. All stays include Free WiFi in this peaceful resort near Vattavada.
           </p>
         </div>
@@ -258,8 +258,8 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                   onClick={() => handleTabChange(tab.id)}
                   className={`
                     relative px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-3
-                    ${activeTab === tab.id 
-                      ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg shadow-[hsl(var(--primary)_/_0.25)]' 
+                    ${activeTab === tab.id
+                      ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg shadow-[hsl(var(--primary)_/_0.25)]'
                       : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] hover:bg-[hsl(var(--card)_/_0.5)]'
                     }
                   `}
@@ -286,13 +286,13 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                          <YouTubeFacade
-                            videoId="UwGLRFeFBOk"
-                            title="Paradise Resort Vattavada - Premium Resort Rooms Tour"
-                            className="w-full h-full"
-                            aspectRatio="aspect-[4/3] lg:aspect-auto"
-                            startTime={6}
-                          />
+                        <YouTubeFacade
+                          videoId="UwGLRFeFBOk"
+                          title="Paradise Resort Vattavada - Premium Resort Rooms Tour"
+                          className="w-full h-full"
+                          aspectRatio="aspect-[4/3] lg:aspect-auto"
+                          startTime={6}
+                        />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-4">
@@ -325,12 +325,12 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                             </div>
                             <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
                           </div>
-                          
+
                           <div className="mb-4">
                             <p className="body-medium text-[hsl(var(--primary))] font-medium mb-1">{room.capacity}</p>
                             <p className="body-small text-[hsl(var(--muted-foreground))]">{room.beds}</p>
                           </div>
-                          
+
                           <div className="space-y-2">
                             {room.features.map((feature, idx) => (
                               <div key={idx} className="flex items-center gap-2">
@@ -354,9 +354,9 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                        <img 
-                          src={accommodationOptions.cottage.image} 
-                          alt="Private cottages in Vattavada - 3 bedroom family accommodation" 
+                        <img
+                          src={accommodationOptions.cottage.image}
+                          alt="Private cottages in Vattavada - 3 bedroom family accommodation"
                           className="w-full h-full object-cover"
                           loading="lazy"
                         />
@@ -412,9 +412,9 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
                       <div className="aspect-[4/3] lg:aspect-auto">
-                        <LazyImage 
-                          src={accommodationOptions.tent.image} 
-                          alt="Camping in Vattavada - premium tent accommodation for adventure lovers" 
+                        <LazyImage
+                          src={accommodationOptions.tent.image}
+                          alt="Camping in Vattavada - premium tent accommodation for adventure lovers"
                           className="w-full h-full"
                           loading="lazy"
                           enableSharing={true}
@@ -435,7 +435,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                         <p className="body-large text-[hsl(var(--muted-foreground))] leading-relaxed mb-6">
                           {accommodationOptions.tent.description}
                         </p>
-                        
+
                         {/* Tent Specs */}
                         <div className="grid grid-cols-2 gap-4">
                           <div className="space-y-1">
@@ -503,13 +503,13 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                             </div>
                           )}
                         </div>
-                        
+
                         <div className="space-y-2">
                           <h4 className="heading-3 text-[hsl(var(--foreground))]">{experience.title}</h4>
                           <p className="body-medium text-[hsl(var(--muted-foreground))] leading-relaxed">{experience.description}</p>
                         </div>
                       </div>
-                      
+
                       {/* Hover Effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)_/_0.05)] to-transparent opacity-0 group-hover:opacity-100" />
                     </CardContent>
@@ -532,7 +532,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
                     Book Now
                     <ArrowRight size={18} />
                   </a>
-                  <button 
+                  <button
                     onClick={() => {
                       const message = encodeURIComponent('Hi! I would like to know more about the room options at Paradise Resort Vattavada.');
                       window.open(`https://wa.me/919074902424?text=${message}`, '_blank');

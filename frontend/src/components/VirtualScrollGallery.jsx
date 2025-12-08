@@ -19,16 +19,16 @@ const VirtualScrollGallery = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
   const [containerHeight, setContainerHeight] = useState(600);
-  
+
   const galleryRef = useRef(null);
   const testimonialsRef = useRef(null);
   const { debounce, scheduleIdleTask } = usePerformanceOptimization();
 
-  const categories = useMemo(() => 
+  const categories = useMemo(() =>
     ['All', 'Deluxe Room', 'Double Room', 'Dormitory', 'Cottages', 'Tents', 'Views', 'Activities'],
     []
   );
-  
+
   // Memoize filtered images
   const allFilteredImages = useMemo(() => {
     if (selectedCategory === 'All') {
@@ -36,7 +36,7 @@ const VirtualScrollGallery = () => {
     }
     return mockData.gallery.filter(item => item.category === selectedCategory);
   }, [selectedCategory]);
-  
+
   // For 'All' category, show only 12 images initially unless expanded
   const filteredImages = useMemo(() => {
     if (selectedCategory === 'All' && !isExpanded) {
@@ -50,10 +50,10 @@ const VirtualScrollGallery = () => {
     const totalItems = filteredImages.length;
     const totalRows = Math.ceil(totalItems / ITEMS_PER_ROW);
     const totalHeight = totalRows * ITEM_HEIGHT;
-    
+
     const startRow = Math.max(0, Math.floor(scrollTop / ITEM_HEIGHT) - BUFFER_SIZE);
     const endRow = Math.min(totalRows, Math.ceil((scrollTop + containerHeight) / ITEM_HEIGHT) + BUFFER_SIZE);
-    
+
     const visibleItems = [];
     for (let row = startRow; row < endRow; row++) {
       for (let col = 0; col < ITEMS_PER_ROW; col++) {
@@ -69,7 +69,7 @@ const VirtualScrollGallery = () => {
         }
       }
     }
-    
+
     return {
       totalHeight,
       visibleItems,
@@ -84,7 +84,7 @@ const VirtualScrollGallery = () => {
     const itemsPerRow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
     const totalRows = Math.ceil(testimonials.length / itemsPerRow);
     const totalHeight = totalRows * TESTIMONIAL_HEIGHT;
-    
+
     // For testimonials, we'll render all for now but could virtualize if needed
     return {
       totalHeight,
@@ -110,7 +110,7 @@ const VirtualScrollGallery = () => {
         setContainerHeight(galleryRef.current.clientHeight);
       }
     };
-    
+
     updateHeight();
     window.addEventListener('resize', updateHeight);
     return () => window.removeEventListener('resize', updateHeight);
@@ -151,13 +151,13 @@ const VirtualScrollGallery = () => {
   }, []);
 
   return (
-    <section id="gallery" className="section-padding bg-black">
+    <section id="gallery" className="section-padding bg-transparent">
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">📸 Experience Paradise</h2>
           <p className="body-large text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto">
-            Take a visual journey through our stunning accommodations 🏠, breathtaking views 🌄, 
+            Take a visual journey through our stunning accommodations 🏠, breathtaking views 🌄,
             and memorable experiences at Paradise Resort Vattavada. ✨
           </p>
         </div>
@@ -168,11 +168,10 @@ const VirtualScrollGallery = () => {
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-6 py-3 border ${
-                selectedCategory === category
-                  ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border-[hsl(var(--primary))]'
-                  : 'bg-[hsl(var(--card)_/_0.5)] text-[hsl(var(--muted-foreground))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]'
-              }`}
+              className={`px-6 py-3 border ${selectedCategory === category
+                ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border-[hsl(var(--primary))]'
+                : 'bg-[hsl(var(--card)_/_0.5)] text-[hsl(var(--muted-foreground))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]'
+                }`}
             >
               <span className="body-medium font-medium">{category}</span>
             </button>
@@ -207,18 +206,18 @@ const VirtualScrollGallery = () => {
 
         {/* Virtual Scrolling Gallery Grid */}
         <PerformanceOptimizer>
-          <div 
+          <div
             ref={galleryRef}
             className="relative overflow-auto mb-8"
             style={{ height: '600px' }}
             onScroll={handleScroll}
           >
-            <div 
+            <div
               className="relative"
               style={{ height: galleryVirtualData.totalHeight }}
             >
               {galleryVirtualData.visibleItems.map((item) => (
-                <div 
+                <div
                   key={item.id}
                   className="absolute cursor-pointer group"
                   style={{
@@ -230,19 +229,19 @@ const VirtualScrollGallery = () => {
                   }}
                   onClick={() => openLightbox(item, item.index)}
                 >
-                  <div className="relative bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-lg overflow-hidden h-full hover:border-[hsl(var(--primary))] transition-colors">
+                  <div className="relative glass-panel border border-[hsl(var(--border))] rounded-lg overflow-hidden h-full hover:border-[hsl(var(--primary))] transition-colors">
                     <LazyImage
                       src={item.image}
                       alt={`${item.title} - ${item.category} at Paradise Resort Vattavada`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    
+
                     {/* Simplified Hover Overlay */}
                     <div className="absolute inset-0 bg-[hsl(var(--background)_/_0.8)] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <ImageIcon size={32} className="text-[hsl(var(--primary))]" />
                     </div>
-                    
+
                     {/* Category Badge */}
                     <span className="absolute top-2 left-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-2 py-1 rounded text-xs font-medium">
                       {item.category}
@@ -262,7 +261,7 @@ const VirtualScrollGallery = () => {
               Real experiences from verified guests who have stayed at Paradise Resort Vattavada
             </p>
           </div>
-          
+
           <PerformanceOptimizer>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {testimonialsVirtualData.visibleItems.slice(0, 6).map((testimonial) => (
@@ -283,7 +282,7 @@ const VirtualScrollGallery = () => {
                           </div>
                         )}
                       </div>
-                      
+
                       {/* Stay Details */}
                       <div className="flex flex-wrap gap-2 text-xs">
                         <span className="px-2 py-1 bg-[hsl(var(--primary)_/_0.1)] text-[hsl(var(--primary))] rounded-full">
@@ -293,12 +292,12 @@ const VirtualScrollGallery = () => {
                           {testimonial.stayDuration}
                         </span>
                       </div>
-                      
+
                       {/* Comment */}
                       <p className="body-small text-[hsl(var(--muted-foreground))] italic leading-relaxed line-clamp-4">
                         "{testimonial.comment}"
                       </p>
-                      
+
                       {/* Author Info */}
                       <div className="pt-4 border-t border-[hsl(var(--border))] space-y-1">
                         <p className="body-medium text-[hsl(var(--foreground))] font-medium">{testimonial.name}</p>

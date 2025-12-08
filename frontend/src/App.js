@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
+import Background3D from "./components/Background3D";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
@@ -35,17 +36,7 @@ const preloadRoutes = () => {
 };
 
 // Enhanced loading component with skeleton
-const LoadingSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-50">
-    <div className="loading-skeleton w-full max-w-4xl mx-auto p-4">
-      <div className="animate-pulse">
-        <div className="h-64 bg-gray-200 rounded-lg mb-4"></div>
-        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-      </div>
-    </div>
-  </div>
-);
+const LoadingSpinner = () => null;
 
 // Error boundary component
 class ErrorBoundary extends React.Component {
@@ -61,12 +52,12 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Something went wrong</h2>
-            <button 
-              onClick={() => window.location.reload()} 
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        <div className="min-h-screen flex items-center justify-center bg-transparent">
+          <div className="text-center glass-panel p-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-cyan-500 text-black font-bold rounded hover:bg-cyan-400"
             >
               Reload Page
             </button>
@@ -83,27 +74,27 @@ function App() {
   useEffect(() => {
     // Critical: Initialize Core Web Vitals monitoring immediately
     initWebVitals();
-    
+
     // Critical: Preload critical resources for better LCP
     preloadCriticalResources();
-    
+
     // Critical: Initialize layout optimizer globally
     window.layoutOptimizer = new LayoutOptimizer();
-    
+
     // Defer non-critical optimizations to improve INP
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         // Non-critical: General resource optimizations
         initResourceOptimizer();
-        
+
         // Non-critical: Mobile-specific optimizations
         initializeMobileOptimizations();
-        
+
         // Non-critical: Image optimization
         setTimeout(() => {
           optimizeImages();
         }, 100);
-        
+
         // Non-critical: Route preloading
         preloadRoutes();
       }, { timeout: 3000 });
@@ -116,7 +107,7 @@ function App() {
         preloadRoutes();
       }, 2000);
     }
-    
+
     // Defer service worker registration to avoid blocking main thread
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
       setTimeout(() => {
@@ -129,7 +120,7 @@ function App() {
           });
       }, 1000);
     }
-    
+
     // Cleanup on unmount
     return () => {
       if (window.layoutOptimizer) {
@@ -147,7 +138,8 @@ function App() {
         <ThemeProvider>
           <ErrorBoundary>
             <Router>
-              <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
+              <Background3D />
+              <div className="App min-h-screen text-foreground transition-colors duration-300 relative">
                 <Header />
                 <main>
                   <Suspense fallback={<LoadingSpinner />}>
@@ -167,7 +159,7 @@ function App() {
                 <BackToTop />
                 {/* Lazy load Google Analytics to improve initial page performance */}
                 {!isPrerendered && (
-                  <GoogleAnalyticsFacade 
+                  <GoogleAnalyticsFacade
                     measurementId="AW-615136649"
                     loadDelay={2000}
                     loadOnInteraction={true}

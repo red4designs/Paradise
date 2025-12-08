@@ -57,18 +57,18 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background border-b border-border px-[7.6923%] py-4 transition-colors duration-300">
+    <header className="fixed top-0 w-full z-50 glass-panel border-b border-white/10 px-[7.6923%] py-4 transition-all duration-300">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="flex items-center hover:opacity-80 transition-opacity"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <img 
-              src="/paradise-logo.svg" 
-              alt="Paradise Resort Vattavada Logo" 
+            <img
+              src="/paradise-logo.svg"
+              alt="Paradise Resort Vattavada Logo"
               className="h-16 w-auto"
               width="64"
               height="64"
@@ -84,11 +84,10 @@ const Header = () => {
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`body-medium theme-transition ${
-                  location.pathname === link.href
-                    ? 'text-[hsl(var(--foreground))] font-semibold'
-                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                }`}
+                className={`body-medium theme-transition uppercase tracking-wider ${location.pathname === link.href
+                  ? 'text-brand-primary font-bold drop-shadow-[0_0_5px_rgba(0,255,255,0.5)]'
+                  : 'text-white hover:text-brand-primary hover:drop-shadow-[0_0_5px_rgba(0,255,255,0.5)]'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -100,37 +99,37 @@ const Header = () => {
         <div className="hidden lg:flex items-center gap-4">
           {/* Social Media Links */}
           <div className="flex items-center gap-3">
-            <button 
+            <button
               onClick={handleInstagram}
-              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
               aria-label="Follow us on Instagram"
             >
               <Instagram size={20} />
             </button>
-            <button 
+            <button
               onClick={handleFacebook}
-              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
               aria-label="Follow us on Facebook"
             >
               <Facebook size={20} />
             </button>
-            <button 
+            <button
               onClick={handleYoutube}
-              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
               aria-label="Subscribe to our YouTube channel"
             >
               <Youtube size={20} />
             </button>
-            <button 
+            <button
               onClick={handleTwitter}
-              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
               aria-label="Follow us on X (Twitter)"
             >
               <Twitter size={20} />
             </button>
-            <button 
+            <button
               onClick={handleLinkedin}
-              className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
               aria-label="Connect with us on LinkedIn"
             >
               <Linkedin size={20} />
@@ -172,52 +171,51 @@ const Header = () => {
                     setIsMenuOpen(false);
                     handleNavClick(link.href);
                   }}
-                  className={`body-medium theme-transition ${
-                    location.pathname === link.href
-                      ? 'text-[hsl(var(--foreground))] font-semibold'
-                      : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                  }`}
+                  className={`body-medium theme-transition uppercase tracking-wider ${location.pathname === link.href
+                    ? 'text-brand-primary font-bold drop-shadow-[0_0_5px_rgba(0,255,255,0.5)]'
+                    : 'text-white hover:text-brand-primary'
+                    }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
           </nav>
-          
+
           <div className="flex flex-col gap-3">
             {/* Social Media Links */}
             <div className="flex items-center gap-3 justify-center mb-3 flex-wrap">
-              <button 
+              <button
                 onClick={handleInstagram}
-                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram size={24} />
               </button>
-              <button 
+              <button
                 onClick={handleFacebook}
-                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook size={24} />
               </button>
-              <button 
+              <button
                 onClick={handleYoutube}
-                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
                 aria-label="Subscribe to our YouTube channel"
               >
                 <Youtube size={24} />
               </button>
-              <button 
+              <button
                 onClick={handleTwitter}
-                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
                 aria-label="Follow us on X (Twitter)"
               >
                 <Twitter size={24} />
               </button>
-              <button 
+              <button
                 onClick={handleLinkedin}
-                className="p-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="p-2 text-white hover:text-brand-secondary transition-colors hover:scale-110 transform"
                 aria-label="Connect with us on LinkedIn"
               >
                 <Linkedin size={24} />

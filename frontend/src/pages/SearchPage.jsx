@@ -77,7 +77,7 @@ const SearchPage = () => {
   useEffect(() => {
     const query = searchParams.get('q') || '';
     setSearchQuery(query);
-    
+
     if (query.trim()) {
       const results = searchableContent.filter(item =>
         item.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -110,22 +110,22 @@ const SearchPage = () => {
         <meta name="description" content="Search for accommodations, amenities, and information at Paradise Resort Vattavada. Find cottages, tents, dormitory, and more in scenic Munnar." />
         <meta name="keywords" content="Paradise Resort search, Vattavada accommodation search, Munnar resort search, cottage booking, tent booking" />
         <meta name="robots" content="index, follow" />
-        
+
         {/* Open Graph tags */}
         <meta property="og:title" content="Search Results - Paradise Resort Vattavada" />
         <meta property="og:description" content="Search for accommodations and information at Paradise Resort Vattavada." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.paradisevattavada.com/search" />
         <meta property="og:image" content="https://www.paradisevattavada.com/images/resort-social-share.jpg" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Search Results - Paradise Resort Vattavada" />
         <meta name="twitter:description" content="Search for accommodations and information at Paradise Resort Vattavada." />
-        
+
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.paradisevattavada.com/search" />
-        
+
         {/* Schema.org structured data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -143,7 +143,7 @@ const SearchPage = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-transparent">
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 py-4">
           <Breadcrumb>
@@ -170,7 +170,7 @@ const SearchPage = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Find the perfect accommodation and information for your stay
               </p>
-              
+
               {/* Search Form */}
               <form onSubmit={handleSearch} className="flex gap-2 max-w-md mx-auto">
                 <div className="relative flex-1">
@@ -230,7 +230,7 @@ const SearchPage = () => {
                     <p className="text-muted-foreground mb-4 line-clamp-2">
                       {result.description}
                     </p>
-                    
+
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {result.features.slice(0, 3).map((feature, index) => (
@@ -247,7 +247,7 @@ const SearchPage = () => {
                         </span>
                       )}
                     </div>
-                    
+
                     <Button asChild className="w-full">
                       <a href={result.url}>
                         View Details

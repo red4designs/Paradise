@@ -4,12 +4,12 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { 
-  MapPin, 
-  Phone, 
-  MessageCircle, 
-  Mail, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  MessageCircle,
+  Mail,
+  Clock,
   Navigation,
   Send,
   CheckCircle
@@ -38,7 +38,7 @@ const Contact = () => {
     // Mock form submission
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -69,7 +69,7 @@ const Contact = () => {
       const unitName = formData.accommodation === 'tent' ? 'Tents' : 'Rooms';
       roomsText = `\nNumber of ${unitName}: ${formData.rooms}`;
     }
-    
+
     const message = `Hi! I would like to inquire about Paradise Resort Vattavada. Here are my details:
 
 Name: ${formData.name || 'Not provided'}
@@ -84,10 +84,10 @@ Message: ${formData.message || 'General inquiry'}
 
 Please check availability and let me know. Thank you!`;
     window.open(`https://wa.me/919074902424?text=${encodeURIComponent(message)}`, '_blank');
-    
+
     // Show success message
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -106,13 +106,13 @@ Please check availability and let me know. Thank you!`;
   };
 
   return (
-    <section id="contact" className="section-padding bg-background transition-colors duration-300">
+    <section id="contact" className="section-padding bg-transparent transition-colors duration-300">
       <div className="max-width-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="display-large mb-6">📱 Book Your Homestay in Vattavada - Check Availability</h2>
           <p className="body-large text-text-secondary max-w-3xl mx-auto">
-            Ready to experience our family friendly resort in Vattavada? 🏔️ Check availability for budget stay in Vattavada, 
+            Ready to experience our family friendly resort in Vattavada? 🏔️ Check availability for budget stay in Vattavada,
             tent stay in Vattavada, or Vattavada trekking stay directly through WhatsApp for the fastest response. 💬
           </p>
         </div>
@@ -120,14 +120,14 @@ Please check availability and let me know. Thank you!`;
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div>
-            <Card className="bg-white/5 border-white/25">
+            <Card className="glass-panel border-white/20">
               <CardHeader className="p-6 pb-4">
                 <h3 className="heading-3">📝 Send Us a Message</h3>
                 <p className="body-medium text-text-secondary">
                   Fill out the form below and we'll get back to you within 24 hours. ⏰
                 </p>
               </CardHeader>
-              
+
               <CardContent className="p-6 pt-2">
                 {isSubmitted ? (
                   <div className="text-center py-12">
@@ -191,7 +191,7 @@ Please check availability and let me know. Thank you!`;
                           </SelectContent>
                         </Select>
                       </div>
-                      
+
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label className="body-small text-text-primary">Adults (Above 6 years)</label>
@@ -201,14 +201,14 @@ Please check availability and let me know. Thank you!`;
                             </SelectTrigger>
                             <SelectContent className="bg-black border-white/25">
                               {[...Array(50)].map((_, i) => (
-                                <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
-                                  {i+1} Adult{i > 0 ? 's' : ''}
+                                <SelectItem key={i + 1} value={(i + 1).toString()} className="text-white hover:bg-white/10">
+                                  {i + 1} Adult{i > 0 ? 's' : ''}
                                 </SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <label className="body-small text-text-primary">Children (Below 6 years)</label>
                           <Select onValueChange={(value) => handleInputChange('children', value)}>
@@ -220,8 +220,8 @@ Please check availability and let me know. Thank you!`;
                                 No Children
                               </SelectItem>
                               {[...Array(10)].map((_, i) => (
-                                <SelectItem key={i+1} value={(i+1).toString()} className="text-white hover:bg-white/10">
-                                  {i+1} Child{i > 0 ? 'ren' : ''}
+                                <SelectItem key={i + 1} value={(i + 1).toString()} className="text-white hover:bg-white/10">
+                                  {i + 1} Child{i > 0 ? 'ren' : ''}
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -302,7 +302,7 @@ Please check availability and let me know. Thank you!`;
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Direct Contact */}
-            <Card className="bg-white/5 border-white/25">
+            <Card className="glass-panel border-white/20">
               <CardContent className="p-6">
                 <h3 className="heading-3 mb-6">📞 Direct Contact</h3>
                 <div className="space-y-6">
@@ -315,11 +315,11 @@ Please check availability and let me know. Thank you!`;
                       <p className="body-medium text-text-secondary mb-2">Call us anytime for instant booking</p>
                       <div className="space-y-1">
                         <a href="tel:9074902424" className="body-medium text-brand-primary hover:underline block" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
-                  +91 90749 02424
-                </a>
-                <a href="tel:8848019414" className="body-medium text-brand-primary hover:underline block" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:8848019414')}>
-                  +91 8848019414 (David)
-                </a>
+                          +91 90749 02424
+                        </a>
+                        <a href="tel:8848019414" className="body-medium text-brand-primary hover:underline block" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:8848019414')}>
+                          +91 8848019414 (David)
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -331,7 +331,7 @@ Please check availability and let me know. Thank you!`;
                     <div>
                       <h4 className="heading-3 mb-1">WhatsApp</h4>
                       <p className="body-medium text-text-secondary mb-2">Quick responses and easy booking</p>
-                      <button 
+                      <button
                         onClick={() => window.open('https://wa.me/919074902424', '_blank')}
                         className="body-medium text-brand-primary hover:underline"
                       >
@@ -354,7 +354,7 @@ Please check availability and let me know. Thank you!`;
             </Card>
 
             {/* Location Info */}
-            <Card className="bg-white/5 border-white/25">
+            <Card className="glass-panel border-white/20">
               <CardContent className="p-6">
                 <h3 className="heading-3 mb-6">Location & Directions</h3>
                 <div className="space-y-6">
@@ -399,10 +399,10 @@ Please check availability and let me know. Thank you!`;
                     />
                   </div>
 
-                  <a 
-                    href="https://maps.app.goo.gl/d6nAeYRU4LsuvpHY8" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://maps.app.goo.gl/d6nAeYRU4LsuvpHY8"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full btn-secondary inline-flex items-center justify-center gap-2"
                   >
                     <Navigation size={18} />
@@ -423,9 +423,9 @@ Please check availability and let me know. Thank you!`;
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:9074902424" className="btn-primary" onClick={() => window.gtag_report_conversion && window.gtag_report_conversion('tel:9074902424')}>
-              <Phone size={18} />
-              Call Now
-            </a>
+                <Phone size={18} />
+                Call Now
+              </a>
               <button onClick={() => window.open('https://wa.me/919074902424', '_blank')} className="btn-secondary" aria-label="Contact us on WhatsApp">
                 <MessageCircle size={18} />
                 WhatsApp Us

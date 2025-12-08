@@ -1,69 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paradise Resort Vattavada</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <style>
+        :root {
+            --primary-glow: rgba(0, 255, 255, 0.6);
+            --secondary-glow: rgba(255, 0, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             text-align: center;
-            padding: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
             margin: 0;
+            overflow: hidden;
+            /* Prevent scrollbars due to canvas */
+            background-color: #0f0c29;
+            /* Fallback */
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
+
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #24243e 0%, #0f0c29 100%);
+        }
+
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: var(--glass-bg);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            max-width: 600px;
+            width: 90%;
+            z-index: 10;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+        }
+
         h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #fff, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            letter-spacing: 2px;
         }
+
         p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
         }
+
         .redirect-info {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         .loading {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(0, 255, 255, 0.3);
             border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
+            border-top-color: #00ffff;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        small {
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Features Section */
+        .features {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .feature-item {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 255, 255, 0.1);
         }
     </style>
     <script>
         // Check if we're on the main domain and redirect to gh-pages if needed
-        setTimeout(function() {
+        setTimeout(function () {
             if (window.location.hostname === 'red4designs.github.io' && window.location.pathname === '/Paradise/') {
                 // Already on the correct path, check if React app is available
-                fetch('/Paradise/static/js/').then(function(response) {
+                fetch('/Paradise/static/js/').then(function (response) {
                     if (response.ok) {
                         window.location.reload();
                     }
-                }).catch(function() {
+                }).catch(function () {
                     // React app not available yet, show message
                     const statusElement = document.getElementById('status');
                     if (statusElement && window.trustedTypes) {
@@ -79,23 +167,126 @@
         }, 2000);
     </script>
 </head>
+
 <body>
+    <div id="canvas-container"></div>
     <div class="container">
         <h1>🏝️ Paradise Resort Vattavada</h1>
         <p>The Best Budget Stay in Vattavada</p>
-        
+
         <div class="redirect-info">
             <div class="loading"></div>
-            <p id="status">Loading your paradise experience...</p>
-            <p><small>If you're seeing this page, the React application is being deployed to GitHub Pages.</small></p>
-            <p><small>Deployment in progress - please wait a few moments and refresh the page.</small></p>
+            <p id="status" style="margin: 15px 0 10px 0;">Loading your paradise experience...</p>
+            <p style="margin: 0;"><small>If you're seeing this page, the React application is being deployed to GitHub
+                    Pages.</small></p>
+            <p style="margin: 0;"><small>Deployment in progress - please wait a few moments and refresh the
+                    page.</small></p>
         </div>
-        
-        <div style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
-            <p>🌟 Features:</p>
-            <p>• Luxury Accommodations • Scenic Mountain Views • Adventure Activities</p>
-            <p>• Delicious Cuisine • Peaceful Environment • Budget-Friendly Rates</p>
+
+        <div class="features">
+            <p style="margin-bottom: 15px; font-weight: 600; color: #00ffff;">🌟 Features</p>
+            <div>
+                <span class="feature-item">• Luxury Accommodations</span>
+                <span class="feature-item">• Scenic Mountain Views</span>
+                <span class="feature-item">• Adventure Activities</span>
+            </div>
+            <div style="margin-top: 5px;">
+                <span class="feature-item">• Delicious Cuisine</span>
+                <span class="feature-item">• Peaceful Environment</span>
+                <span class="feature-item">• Budget-Friendly Rates</span>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Three.js Background Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Particles
+        const geometry = new THREE.BufferGeometry();
+        const particlesCount = 2000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i++) {
+            // Spread particles in a large space
+            posArray[i] = (Math.random() - 0.5) * 15;
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        // Create a futuristic texture material
+        const material = new THREE.PointsMaterial({
+            size: 0.02,
+            color: 0x00ffff,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(geometry, material);
+        scene.add(particlesMesh);
+
+        // Additional Glow Sphere (Geometric)
+        const geoGeometry = new THREE.IcosahedronGeometry(2, 1);
+        const geoMaterial = new THREE.MeshBasicMaterial({
+            color: 0xff00ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.1
+        });
+        const geoMesh = new THREE.Mesh(geoGeometry, geoMaterial);
+        scene.add(geoMesh);
+
+
+        camera.position.z = 4;
+
+        // Mouse interaction
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX / window.innerWidth - 0.5;
+            mouseY = event.clientY / window.innerHeight - 0.5;
+        });
+
+        // Animation Loop
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+
+            // Rotate entire particle system
+            particlesMesh.rotation.y = elapsedTime * 0.05;
+            particlesMesh.rotation.x = elapsedTime * 0.02;
+
+            // Interactive movement
+            particlesMesh.rotation.y += mouseX * 0.05;
+            particlesMesh.rotation.x += mouseY * 0.05;
+
+            // Pulse the geometric sphere
+            const scale = 1 + Math.sin(elapsedTime) * 0.1;
+            geoMesh.scale.set(scale, scale, scale);
+            geoMesh.rotation.y = elapsedTime * 0.2;
+            geoMesh.rotation.x = elapsedTime * 0.1;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
+
 </html>

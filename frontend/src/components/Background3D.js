@@ -4,7 +4,7 @@ import { Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
 const Particles = () => {
-    const count = 2000;
+    const count = 800;
     const mesh = useRef();
 
     const particlesPosition = useMemo(() => {
@@ -58,7 +58,7 @@ const Background3D = () => {
             <Canvas camera={{ position: [0, 0, 5] }}>
                 <group rotation={[0, 0, Math.PI / 4]}>
                     <Particles />
-                    <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+                    <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
                 </group>
             </Canvas>
         </div>

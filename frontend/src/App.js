@@ -2,16 +2,19 @@ import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
-import Background3D from "./components/Background3D";
+// Background3D is lazy loaded below
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
 import GoogleAnalyticsFacade from "./components/facades/GoogleAnalyticsFacade";
-import initResourceOptimizer, { initializeMobileOptimizations } from "./utils/resourceOptimizer";
+import initResourceOptimizer from "./utils/resourceOptimizer";
 import { PerformanceProvider } from "./hooks/usePerformanceOptimization";
 import { LayoutOptimizer } from "./utils/layoutOptimizer";
 import { initWebVitals, optimizeImages, preloadCriticalResources } from "./utils/webVitals";
+
+// Lazy load Background3D to avoid blocking initial render
+const Background3D = React.lazy(() => import("./components/Background3D"));
 
 // Lazy load page components with preloading for better performance
 const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages/HomePage.jsx"));
@@ -22,6 +25,7 @@ const GalleryPage = React.lazy(() => import(/* webpackChunkName: "gallery" */ ".
 const FAQPage = React.lazy(() => import(/* webpackChunkName: "faq" */ "./pages/FAQPage.jsx"));
 const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage.jsx"));
 const SearchPage = React.lazy(() => import(/* webpackChunkName: "search" */ "./pages/SearchPage.jsx"));
+const ArrivalGuidePage = React.lazy(() => import(/* webpackChunkName: "arrival-guide" */ "./pages/ArrivalGuidePage.jsx"));
 
 // Preload critical routes on idle
 const preloadRoutes = () => {
@@ -87,9 +91,6 @@ function App() {
         // Non-critical: General resource optimizations
         initResourceOptimizer();
 
-        // Non-critical: Mobile-specific optimizations
-        initializeMobileOptimizations();
-
         // Non-critical: Image optimization
         setTimeout(() => {
           optimizeImages();
@@ -102,7 +103,6 @@ function App() {
       // Fallback: Defer with setTimeout
       setTimeout(() => {
         initResourceOptimizer();
-        initializeMobileOptimizations();
         optimizeImages();
         preloadRoutes();
       }, 2000);
@@ -138,7 +138,9 @@ function App() {
         <ThemeProvider>
           <ErrorBoundary>
             <Router>
-              <Background3D />
+              <Suspense fallback={null}>
+                <Background3D />
+              </Suspense>
               <div className="App min-h-screen text-foreground transition-colors duration-300 relative">
                 <Header />
                 <main>
@@ -152,6 +154,7 @@ function App() {
                       <Route path="/faq" element={<FAQPage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/search" element={<SearchPage />} />
+                      <Route path="/arrival-guide" element={<ArrivalGuidePage />} />
                     </Routes>
                   </Suspense>
                 </main>

@@ -251,11 +251,11 @@ const OptimizedRoomDetails = () => {
                       <Home size={24} className="text-[hsl(var(--primary-foreground))]" />
                     </div>
                     <div>
-                      <h3 className="display-medium text-[hsl(var(--primary))]">🏨 {currentOption.title}</h3>
-                      <p className="heading-3 text-[hsl(var(--muted-foreground))]">{currentOption.subtitle}</p>
+                      <h2 className="display-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">🏨 {currentOption.title}</h2>
+                      <h3 className="heading-3 text-gray-200 font-semibold">{currentOption.subtitle}</h3>
                     </div>
                   </div>
-                  <p className="body-large text-[hsl(var(--muted-foreground))] leading-relaxed">
+                  <p className="body-large text-gray-100 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                     {currentOption.description}
                   </p>
                 </div>
@@ -273,7 +273,7 @@ const OptimizedRoomDetails = () => {
                     <div className="w-10 h-10 bg-[hsl(var(--primary)_/_0.2)] flex items-center justify-center rounded-lg group-hover:bg-[hsl(var(--primary)_/_0.3)] transition-colors">
                       <IconComponent size={20} className="text-[hsl(var(--primary))]" />
                     </div>
-                    <h4 className="heading-3 text-[hsl(var(--foreground))]">{room.type}</h4>
+                    <h3 className="heading-3 text-white font-bold">{room.type}</h3>
                   </div>
 
                   <div className="mb-4">

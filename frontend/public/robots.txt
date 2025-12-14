@@ -3,8 +3,7 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.paradisevattavada.com/sitemap.xml
+
 
 # Disallow unnecessary files and directories
 # Allow necessary files for rendering

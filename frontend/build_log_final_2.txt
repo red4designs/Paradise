@@ -1,0 +1,74 @@
+
+> frontend@0.1.0 build
+> craco build
+
+Creating an optimized production build...
+Compiled with warnings.
+
+Failed to parse source map from 'C:\Users\Robin\Documents\GitHub\Paradise\frontend\node_modules\@mediapipe\tasks-vision\vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Robin\Documents\GitHub\Paradise\frontend\node_modules\@mediapipe\tasks-vision\vision_bundle_mjs.js.map'
+
+asset size limit: The following asset(s) exceed the recommended size limit (488 KiB).
+This can impact web performance.
+Assets: 
+  static/js/vendors-6783b88e.e8f6ae01.js (684 KiB)
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (488 KiB). This can impact web performance.
+Entrypoints:
+  main (1.18 MiB)
+      static/js/runtime.0177041c.js
+      static/js/react-core.dd78625b.js
+      static/js/react-router.a8204cfb.js
+      static/js/ui-libs.ab2d6a77.js
+      static/js/vendors-cdd60c62.ef8461a3.js
+      static/js/vendors-d2d63eab.c83668f6.js
+      static/js/vendors-27545368.f0c8ecf0.js
+      static/js/vendors-0d5a1a46.f6cc6629.js
+      static/js/vendors-866ab763.d22df32a.js
+      static/js/vendors-6783b88e.e8f6ae01.js
+      static/css/main.43adf144.css
+      static/js/main.9a8d497f.js
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  170.27 kB          build\static\js\vendors-6783b88e.e8f6ae01.js
+  45.37 kB           build\static\js\react-core.dd78625b.js
+  30.7 kB            build\static\js\vendors-d2d63eab.c83668f6.js
+  27.75 kB (-38 B)   build\static\js\common.8768cbc7.chunk.js
+  19.33 kB           build\static\js\ui-libs.ab2d6a77.js
+  16.1 kB            build\static\js\vendors-27545368.f0c8ecf0.js
+  13 kB              build\static\js\main.9a8d497f.js
+  11.49 kB           build\static\js\vendors-866ab763.d22df32a.js
+  11.19 kB (-186 B)  build\static\css\main.43adf144.css
+  8.76 kB            build\static\js\performance-libs.30950ec2.chunk.js
+  8.75 kB (+6 B)     build\static\js\home.8ba52e6c.chunk.js
+  7.84 kB            build\static\js\vendors-cdd60c62.ef8461a3.js
+  4.95 kB            build\static\js\react-router.a8204cfb.js
+  4.13 kB            build\static\js\vendors-0d5a1a46.f6cc6629.js
+  2.84 kB            build\static\js\search.43a41e8f.chunk.js
+  2.82 kB            build\static\js\559.57815c53.chunk.js
+  2.35 kB            build\static\js\contact.941fc6cf.chunk.js
+  2.24 kB            build\static\js\tents.a811138f.chunk.js
+  2.19 kB            build\static\js\804.1e121180.chunk.js
+  2.15 kB            build\static\js\cottages.a5c8514d.chunk.js
+  2.12 kB            build\static\js\dormitory.63c454f0.chunk.js
+  1.81 kB (+1 B)     build\static\js\runtime.0177041c.js
+  972 B              build\static\js\faq.6946af5c.chunk.js
+  894 B              build\static\js\gallery.5458c513.chunk.js
+  185 B              build\static\js\961.7cadaa66.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+

@@ -1,0 +1,53 @@
+# Paradise Resort Vattavada - Robots.txt
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+
+
+# Disallow unnecessary files and directories
+# Allow necessary files for rendering
+Allow: /static/js/
+Allow: /static/css/
+Allow: /static/media/
+Allow: /manifest.json
+Allow: /service-worker.js
+
+# Disallow internal or sensitive paths
+Disallow: /*.map$
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*.json$
+Allow: /images/
+Allow: /paradise-logo.svg
+Allow: /resort-image.jpg
+
+# Special rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Special rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Sitemap locations - Updated to canonical HTTPS www URLs
+Sitemap: https://www.paradisevattavada.com/sitemap.xml
+Sitemap: https://www.paradisevattavada.com/sitemap-images.xml

@@ -1,0 +1,86 @@
+/* Mobile Non-Critical CSS - Deferred loading for better performance */
+
+/* Advanced animations - Not critical for initial render */
+@media (max-width: 768px) {
+  /* Disable expensive animations on mobile */
+  .parallax-effect,
+  .complex-animation,
+  .hover-effects {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Simplify shadows and gradients */
+  .card-shadow,
+  .box-shadow {
+    box-shadow: none !important;
+  }
+  
+  .gradient-bg {
+    background: var(--background) !important;
+  }
+  
+  /* Remove non-essential decorative elements */
+  .decorative-element,
+  .background-pattern {
+    display: none !important;
+  }
+  
+  /* Simplify borders and effects */
+  .fancy-border {
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Optimize images for mobile */
+  img {
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+  }
+  
+  /* Remove expensive filters */
+  .blur-effect,
+  .filter-effect {
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* Non-critical utility classes */
+.fade-in-delayed {
+  opacity: 1;
+  transform: none;
+}
+
+.slide-in-left,
+.slide-in-right,
+.slide-in-up,
+.slide-in-down {
+  transform: none;
+}
+
+/* Non-critical responsive utilities */
+@media (max-width: 480px) {
+  .text-shadow {
+    text-shadow: none !important;
+  }
+  
+  .transform-effects {
+    transform: none !important;
+  }
+}
+
+/* Print styles - Non-critical */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}

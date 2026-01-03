@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage Images -->
+  <url>
+    <loc>https://paradisevattavada.com/</loc>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/images/resort-social-share.jpg</image:loc>
+      <image:caption>Paradise Resort Vattavada - Premium hill station resort near Munnar Kerala</image:caption>
+      <image:title>Paradise Resort Vattavada | Premium Hill Station Resort</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/paradise-logo.svg</image:loc>
+      <image:caption>Paradise Resort Vattavada Official Logo</image:caption>
+      <image:title>Paradise Resort Logo</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/resort-image.jpg</image:loc>
+      <image:caption>Paradise Resort Vattavada Main Building</image:caption>
+      <image:title>Paradise Resort Main Building</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Cottages Images -->
+  <url>
+    <loc>https://paradisevattavada.com/cottages</loc>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/images/Cottages/IMG_20250208_122711.webp</image:loc>
+      <image:caption>Private cottage accommodation in Vattavada - 3 bedroom luxury cottage with mountain views</image:caption>
+      <image:title>Private Cottage Stay | Paradise Resort Vattavada</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Tents Images -->
+  <url>
+    <loc>https://paradisevattavada.com/tents</loc>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/images/Tents/IMG_3632.JPEG</image:loc>
+      <image:caption>Premium tent stay in Vattavada - Adventure camping experience with modern amenities</image:caption>
+      <image:title>Premium Tent Stay | Paradise Resort Vattavada</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Dormitory Images -->
+  <url>
+    <loc>https://paradisevattavada.com/dormitory</loc>
+    <image:image>
+      <image:loc>https://paradisevattavada.com/images/Dormitory/DJI_20231022_090731_99.webp</image:loc>
+      <image:caption>Budget dormitory accommodation in Vattavada - Affordable shared stay for backpackers</image:caption>
+      <image:title>Budget Dormitory Stay | Paradise Resort Vattavada</image:title>
+      <image:license>https://paradisevattavada.com/license</image:license>
+    </image:image>
+  </url>
+</urlset>

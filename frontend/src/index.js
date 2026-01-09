@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 const container = document.getElementById('root');
 
 // React-snap compatibility: Use hydrate for prerendered content, render for client-side
-if (container.hasChildNodes()) {
-  // Content is prerendered, use hydrate
+if (container.hasChildNodes() && !container.querySelector('.initial-loader')) {
+  // Content is prerendered and not just the loader, use hydrate
   hydrateRoot(container, <App />);
 } else {
-  // No prerendered content, use normal render
+  // No prerendered content or just the loader, use normal render
   const root = createRoot(container);
   root.render(<App />);
 }

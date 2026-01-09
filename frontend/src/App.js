@@ -39,8 +39,8 @@ const preloadRoutes = () => {
   }
 };
 
-// Enhanced loading component with skeleton
-const LoadingSpinner = () => null;
+// Enhanced loading component
+import LoadingSpinner from "./components/LoadingSpinner";
 
 // Error boundary component
 class ErrorBoundary extends React.Component {

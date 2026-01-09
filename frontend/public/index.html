@@ -33,9 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#050510" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.paradisevattavada.com/" id="canonical-link" />
-
+  <!-- Canonical URL managed by react-helmet-async -->
   <script>
       // Early redirect param handler to ensure SPA route is preserved
       (function () {
@@ -47,22 +45,9 @@
           }
         } catch (e) { }
       })();
-
-    // Dynamically update canonical URL based on current path
-    document.addEventListener('DOMContentLoaded', function () {
-      const canonicalLink = document.getElementById('canonical-link');
-      const currentPath = window.location.pathname;
-      if (currentPath && currentPath !== '/') {
-        canonicalLink.href = 'https://www.paradisevattavada.com' + currentPath;
-      }
-    });
   </script>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Paradise Resort Vattavada - Experience luxury accommodations in cottages, tents, and dormitories with breathtaking views of the Western Ghats." />
-  <meta name="keywords"
-    content="Paradise Resort, Vattavada, Kerala, Western Ghats, cottages, tents, dormitory, luxury resort, trekking Vattavada, camping Vattavada, honeymoon resort Kerala, budget stay Vattavada" />
+  <!-- SEO Meta Tags managed by react-helmet-async -->
 
   <!-- Security Meta Tags for Trust and Safety -->
   <!-- Development Mode: Relaxed CSP for webpack compatibility -->

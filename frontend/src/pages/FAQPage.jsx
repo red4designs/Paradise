@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import FAQ from '../components/FAQ';
 
@@ -10,7 +11,8 @@ const FAQPage = () => {
         <meta name="description" content="Find answers to frequently asked questions about Paradise Resort Vattavada. Learn about our accommodations, amenities, booking process, and policies." />
         <meta name="keywords" content="Paradise Resort FAQ, Vattavada questions, Munnar resort information, booking FAQ, resort policies" />
         <meta name="robots" content="index, follow" />
-        
+        <link rel="canonical" href={getCanonicalUrl("/faq")} />
+
         {/* Open Graph tags */}
         <meta property="og:title" content="FAQ - Paradise Resort Vattavada" />
         <meta property="og:description" content="Find answers to frequently asked questions about Paradise Resort Vattavada." />
@@ -20,14 +22,14 @@ const FAQPage = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Paradise Resort FAQ - Frequently Asked Questions" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FAQ - Paradise Resort Vattavada" />
         <meta name="twitter:description" content="Find answers to frequently asked questions about Paradise Resort Vattavada." />
         <meta name="twitter:image" content="https://www.paradisevattavada.com/paradise-resort-faq.jpg" />
         <meta name="twitter:image:alt" content="Paradise Resort FAQ - Frequently Asked Questions" />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -65,7 +67,7 @@ const FAQPage = () => {
           })}
         </script>
       </Helmet>
-      
+
       <main className="pt-24">
         <FAQ />
       </main>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import RoomDetails from '../components/RoomDetails';
@@ -51,8 +52,8 @@ const TentsPage = () => {
         <title>Adventure Tents in Vattavada | Paradise Resort Camping Experience</title>
         <meta name="description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
         <meta name="keywords" content="adventure tents Vattavada, camping in Vattavada, tent stay near Munnar, glamping Kerala, outdoor accommodation Vattavada, mountain camping, tent with attached bathroom, adventure tourism Vattavada" />
-        <link rel="canonical" href="https://paradisevattavada.com/tents" />
-        
+        <link rel="canonical" href={getCanonicalUrl("/tents")} />
+
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
         <meta property="og:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
@@ -64,21 +65,21 @@ const TentsPage = () => {
         <meta property="og:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
         <meta property="og:site_name" content="Paradise Resort Vattavada" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Enhanced Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
         <meta name="twitter:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
         <meta name="twitter:image" content="https://paradisevattavada.com/images/Tents/IMG_3632.webp" />
         <meta name="twitter:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
-        
+
         {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="googlebot" content="index, follow" />
         <meta name="geo.region" content="IN-KL" />
         <meta name="geo.placename" content="Vattavada, Kerala, India" />
         <meta name="geo.position" content="10.1632;77.1624" />
-        
+
         {/* Structured data for accommodation */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -111,7 +112,7 @@ const TentsPage = () => {
                 "value": true
               },
               {
-                "@type": "LocationFeatureSpecification", 
+                "@type": "LocationFeatureSpecification",
                 "name": "Mountain Views",
                 "value": true
               },
@@ -140,11 +141,11 @@ const TentsPage = () => {
           })}
         </script>
       </Helmet>
-      
+
       {/* Schema.org structured data for tents */}
       <FAQSchema faqs={tentFAQs} />
       <OfferSchema offers={tentOffers} />
-      
+
       <div className="container mx-auto px-4">
         <Breadcrumb>
           <BreadcrumbList>
@@ -164,7 +165,7 @@ const TentsPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      
+
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
@@ -175,7 +176,7 @@ const TentsPage = () => {
           </div>
         </div>
       </div>
-      
+
       <RoomDetails initialTab="tent" />
       <Amenities />
       <Gallery />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 const Contact = React.lazy(() => import('../components/Contact'));
 import Gallery from '../components/Gallery';
@@ -37,8 +38,8 @@ const ContactPage = () => {
         <title>Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala</title>
         <meta name="description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
         <meta name="keywords" content="contact Paradise Resort Vattavada, book resort Vattavada, Paradise Resort phone number, Vattavada resort booking, contact resort near Munnar, Paradise Resort address, Vattavada accommodation booking, resort contact Kerala" />
-        <link rel="canonical" href="https://www.paradisevattavada.com/contact" />
-        
+        <link rel="canonical" href={getCanonicalUrl("/contact")} />
+
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala" />
         <meta property="og:description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
@@ -50,21 +51,21 @@ const ContactPage = () => {
         <meta property="og:image:alt" content="Contact Paradise Resort Vattavada" />
         <meta property="og:site_name" content="Paradise Resort Vattavada" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Enhanced Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Paradise Resort Vattavada | Book Your Stay Near Munnar Kerala" />
         <meta name="twitter:description" content="Contact Paradise Resort Vattavada for bookings & inquiries. Call +91-9074902424 or visit us in Vattavada near Munnar. Best rates guaranteed for your mountain getaway." />
         <meta name="twitter:image" content="https://www.paradisevattavada.com/images/resort-contact.webp" />
         <meta name="twitter:image:alt" content="Contact Paradise Resort Vattavada" />
-        
+
         {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="googlebot" content="index, follow" />
         <meta name="geo.region" content="IN-KL" />
         <meta name="geo.placename" content="Vattavada, Kerala, India" />
         <meta name="geo.position" content="10.1632;77.1624" />
-        
+
         {/* Structured data for local business */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -124,7 +125,7 @@ const ContactPage = () => {
             }
           })}
         </script>
-        
+
         {/* FAQ Schema for Contact Page */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -159,7 +160,7 @@ const ContactPage = () => {
           })}
         </script>
       </Helmet>
-      
+
       <div className="container mx-auto px-4 pt-20">
         <Breadcrumb>
           <BreadcrumbList>
@@ -179,10 +180,10 @@ const ContactPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      
+
       {/* Schema.org structured data for contact */}
       <FAQSchema faqs={contactFAQs} />
-      
+
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
@@ -193,7 +194,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      
+
       <Contact />
       <Gallery />
     </>

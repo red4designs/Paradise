@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
 import { Search, MapPin, Star, Users, Bed, Wifi, Car, Coffee } from 'lucide-react';
@@ -124,7 +125,7 @@ const SearchPage = () => {
         <meta name="twitter:description" content="Search for accommodations and information at Paradise Resort Vattavada." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.paradisevattavada.com/search" />
+        <link rel="canonical" href={getCanonicalUrl("/search")} />
 
         {/* Schema.org structured data */}
         <script type="application/ld+json">

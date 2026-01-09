@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import {
     Clock,
@@ -25,6 +26,7 @@ const ArrivalGuidePage = () => {
             <Helmet>
                 <title>Arrival Guide | Paradise Resort Vattavada</title>
                 <meta name="description" content="Important details for your stay at Paradise Resort Vattavada including check-in times, directions, parking, and house rules." />
+                <link rel="canonical" href={getCanonicalUrl("/arrival-guide")} />
             </Helmet>
 
             <div className="min-h-screen pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto">

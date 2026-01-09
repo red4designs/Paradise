@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import VirtualScrollGallery from '../components/VirtualScrollGallery';
 
@@ -10,7 +11,8 @@ const GalleryPage = () => {
         <meta name="description" content="Explore our stunning photo gallery showcasing the natural beauty of Paradise Resort Vattavada. View our cottages, tents, dormitory, and breathtaking mountain landscapes in Munnar." />
         <meta name="keywords" content="Paradise Resort gallery, Vattavada photos, Munnar resort images, mountain resort pictures, Kerala hill station gallery" />
         <meta name="robots" content="index, follow" />
-        
+        <link rel="canonical" href={getCanonicalUrl("/gallery")} />
+
         {/* Open Graph tags */}
         <meta property="og:title" content="Photo Gallery - Paradise Resort Vattavada" />
         <meta property="og:description" content="Explore our stunning photo gallery showcasing the natural beauty of Paradise Resort Vattavada." />
@@ -20,12 +22,12 @@ const GalleryPage = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Paradise Resort Gallery - Beautiful photos of our resort" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://www.paradisevattavada.com/paradise-resort-gallery.jpg" />
         <meta name="twitter:image:alt" content="Paradise Resort Gallery - Beautiful photos of our resort" />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -49,7 +51,7 @@ const GalleryPage = () => {
           })}
         </script>
       </Helmet>
-      
+
       <main className="pt-24">
         <VirtualScrollGallery />
       </main>

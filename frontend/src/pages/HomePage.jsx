@@ -1,4 +1,5 @@
 import React, { Suspense, useMemo } from 'react';
+import { BASE_URL } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import OptimizedRoomDetails from '../components/OptimizedRoomDetails';
@@ -20,7 +21,7 @@ import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization'
 
 const HomePage = () => {
   const { scheduleIdleTask } = usePerformanceOptimization();
-  
+
   // Memoize static data to prevent recreation on every render
   const commonFAQs = useMemo(() => [
     {
@@ -87,8 +88,8 @@ const HomePage = () => {
           <title>Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala</title>
           <meta name="description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
           <meta name="keywords" content="Paradise Resort Vattavada, budget resort Vattavada, best stay in Vattavada, Munnar resorts, Kerala hill station resort, budget accommodation Vattavada, homestay in Vattavada, resorts near Vattavada, family friendly resorts in Vattavada" />
-          <link rel="canonical" href="https://www.paradisevattavada.com/" />
-          
+          <link rel="canonical" href={BASE_URL} />
+
           {/* Enhanced Open Graph tags */}
           <meta property="og:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
           <meta property="og:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
@@ -100,21 +101,21 @@ const HomePage = () => {
           <meta property="og:image:alt" content="Paradise Resort Vattavada - Mountain Views and Luxury Accommodation" />
           <meta property="og:site_name" content="Paradise Resort Vattavada" />
           <meta property="og:locale" content="en_US" />
-          
+
           {/* Enhanced Twitter Card tags */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Paradise Resort Vattavada | Best Budget Stay in Vattavada Kerala" />
           <meta name="twitter:description" content="Experience paradise at Paradise Resort Vattavada - the best budget resort near Munnar. Enjoy luxury accommodations, mountain views & adventure activities." />
           <meta name="twitter:image" content="https://www.paradisevattavada.com/images/hero-resort.webp" />
           <meta name="twitter:image:alt" content="Paradise Resort Vattavada - Mountain Views and Luxury Accommodation" />
-          
+
           {/* Additional SEO meta tags */}
           <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
           <meta name="googlebot" content="index, follow" />
           <meta name="geo.region" content="IN-KL" />
           <meta name="geo.placename" content="Vattavada, Kerala, India" />
           <meta name="geo.position" content="10.1632;77.1624" />
-          
+
           {/* Enhanced structured data for resort */}
           <script type="application/ld+json">
             {JSON.stringify({
@@ -186,66 +187,66 @@ const HomePage = () => {
             })}
           </script>
         </Helmet>
-        
+
         {/* Schema.org structured data */}
         <FAQSchema faqs={commonFAQs} />
         <EventSchema events={seasonalEvents} />
         <OfferSchema offers={currentOffers} />
 
         <Hero />
-        
+
         <OptimizedRoomDetails />
         <About />
-        
+
         {/* Enhanced lazy loaded components with intersection observer */}
-        <LazySection 
-          minHeight="400px" 
-          rootMargin="200px" 
+        <LazySection
+          minHeight="400px"
+          rootMargin="200px"
           priority="high"
           fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >
           <Amenities />
         </LazySection>
-        
-        <LazySection 
-          minHeight="400px" 
-          rootMargin="150px" 
+
+        <LazySection
+          minHeight="400px"
+          rootMargin="150px"
           priority="high"
           fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >
           <Packages />
         </LazySection>
-        
-        <LazySection 
-          minHeight="600px" 
-          rootMargin="100px" 
+
+        <LazySection
+          minHeight="600px"
+          rootMargin="100px"
           priority="high"
           fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >
           <VirtualScrollGallery />
         </LazySection>
-        
-        <LazySection 
-          minHeight="300px" 
-          rootMargin="100px" 
+
+        <LazySection
+          minHeight="300px"
+          rootMargin="100px"
           priority="normal"
           fallback={<div className="h-64 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >
           <TravelGuide />
         </LazySection>
-        
-        <LazySection 
-          minHeight="300px" 
-          rootMargin="50px" 
+
+        <LazySection
+          minHeight="300px"
+          rootMargin="50px"
           priority="normal"
           fallback={<div className="h-64 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >
           <FAQ />
         </LazySection>
-        
-        <LazySection 
-          minHeight="400px" 
-          rootMargin="50px" 
+
+        <LazySection
+          minHeight="400px"
+          rootMargin="50px"
           priority="low"
           fallback={<div className="h-96 bg-[hsl(var(--muted)_/_0.1)] animate-pulse rounded-lg mx-4 my-8"></div>}
         >

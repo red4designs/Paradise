@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCanonicalUrl } from '../constants/seo';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import RoomDetails from '../components/RoomDetails';
@@ -47,8 +48,8 @@ const CottagesPage = () => {
         <title>Private Cottages in Vattavada | Paradise Resort Budget Stay</title>
         <meta name="description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences near Munnar Kerala." />
         <meta name="keywords" content="private cottages Vattavada, 3 bedroom cottages Vattavada, family accommodation Vattavada, cottage stay near Munnar, budget cottages Kerala, homestay in Vattavada, Vattavada trekking stay, cottage with mountain view" />
-        <link rel="canonical" href="https://paradisevattavada.com/cottages" />
-        
+        <link rel="canonical" href={getCanonicalUrl("/cottages")} />
+
         {/* Enhanced Open Graph tags */}
         <meta property="og:title" content="Private Cottages in Vattavada | Paradise Resort Budget Stay" />
         <meta property="og:description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences near Munnar Kerala." />
@@ -60,21 +61,21 @@ const CottagesPage = () => {
         <meta property="og:image:alt" content="Private Cottages at Paradise Resort Vattavada" />
         <meta property="og:site_name" content="Paradise Resort Vattavada" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Enhanced Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Private Cottages in Vattavada | Paradise Resort Budget Stay" />
         <meta name="twitter:description" content="Stay in cozy private cottages at Paradise Resort Vattavada. Perfect for couples & families. Enjoy mountain views, campfire & local experiences near Munnar Kerala." />
         <meta name="twitter:image" content="https://www.paradisevattavada.com/images/Cottages/IMG_20250208_122711.webp" />
         <meta name="twitter:image:alt" content="Private Cottages at Paradise Resort Vattavada" />
-        
+
         {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="googlebot" content="index, follow" />
         <meta name="geo.region" content="IN-KL" />
         <meta name="geo.placename" content="Vattavada, Kerala, India" />
         <meta name="geo.position" content="10.1632;77.1624" />
-        
+
         {/* Structured data for accommodation */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -107,7 +108,7 @@ const CottagesPage = () => {
                 "value": true
               },
               {
-                "@type": "LocationFeatureSpecification", 
+                "@type": "LocationFeatureSpecification",
                 "name": "Full Kitchen",
                 "value": true
               },
@@ -136,11 +137,11 @@ const CottagesPage = () => {
           })}
         </script>
       </Helmet>
-      
+
       {/* Schema.org structured data for cottages */}
       <FAQSchema faqs={cottageFAQs} />
       <OfferSchema offers={cottageOffers} />
-      
+
       <div className="container mx-auto px-4">
         <Breadcrumb>
           <BreadcrumbList>
@@ -160,7 +161,7 @@ const CottagesPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      
+
       <div className="pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-8">
@@ -171,7 +172,7 @@ const CottagesPage = () => {
           </div>
         </div>
       </div>
-      
+
       <RoomDetails initialTab="cottage" />
       <Amenities />
       <Gallery />

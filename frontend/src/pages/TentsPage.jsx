@@ -59,7 +59,7 @@ const TentsPage = () => {
         <meta property="og:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
         <meta property="og:url" content="https://paradisevattavada.com/tents" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta property="og:image" content="https://paradisevattavada.com/images/Tents/tent-new-1.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
@@ -70,7 +70,7 @@ const TentsPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Adventure Tents in Vattavada | Paradise Resort Camping Experience" />
         <meta name="twitter:description" content="Experience adventure camping in luxury tents at Paradise Resort Vattavada. Enjoy mountain views, campfire nights & nature activities near Munnar Kerala." />
-        <meta name="twitter:image" content="https://paradisevattavada.com/images/Tents/IMG_3632.webp" />
+        <meta name="twitter:image" content="https://paradisevattavada.com/images/Tents/tent-new-1.jpg" />
         <meta name="twitter:image:alt" content="Adventure Tents at Paradise Resort Vattavada" />
 
         {/* Additional SEO meta tags */}
@@ -89,8 +89,8 @@ const TentsPage = () => {
             "description": "Luxury adventure tents with attached bathrooms and mountain views. Perfect for couples and adventure enthusiasts seeking a unique camping experience.",
             "url": "https://paradisevattavada.com/tents",
             "image": [
-              "https://paradisevattavada.com/images/Tents/IMG_3632.webp",
-              "https://paradisevattavada.com/images/Tents/IMG_3629.webp"
+              "https://paradisevattavada.com/images/Tents/tent-new-1.jpg",
+              "https://paradisevattavada.com/images/Tents/tent-new-2.jpg"
             ],
             "address": {
               "@type": "PostalAddress",

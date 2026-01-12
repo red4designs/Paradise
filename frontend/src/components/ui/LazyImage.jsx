@@ -7,7 +7,7 @@ const LazyImage = ({
   src,
   alt,
   className = '',
-  placeholder = '/images/placeholder.svg',
+  placeholder = '/images/placeholder.jpg',
   loading = 'lazy',
   responsive = false,
   enableSharing = true,
@@ -22,7 +22,13 @@ const LazyImage = ({
   const imgRef = useRef();
   const workerManager = useWorkerManager();
 
+  // Bypass Observer if loading is eager
   useEffect(() => {
+    if (loading === 'eager') {
+      setIsInView(true);
+      return;
+    }
+
     const observer = createOptimizedIntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -41,7 +47,7 @@ const LazyImage = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [loading]);
 
   // Process image with web worker when it comes into view
   useEffect(() => {

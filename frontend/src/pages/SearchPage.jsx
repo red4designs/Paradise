@@ -34,7 +34,7 @@ const SearchPage = () => {
       type: 'accommodation',
       features: ['Adventure Camping', 'Modern Amenities', 'Scenic Views', 'WiFi'],
       price: '₹2,500/night',
-      image: '/images/Tents/IMG_3632.JPEG'
+      image: '/images/Tents/tent-new-1.jpg'
     },
     {
       id: 3,

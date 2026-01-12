@@ -146,7 +146,7 @@ const RoomDetails = ({ initialTab = 'resort' }) => {
       id: 'tent',
       title: 'Tent Stay in Vattavada',
       subtitle: 'Adventure & Vattavada Trekking Stay',
-      image: '/images/Tents/IMG_3639.JPEG?v=1',
+      image: '/images/Tents/tent-new-1.jpg',
       description: 'Embrace the wilderness with our premium tent stay in Vattavada experience, perfect for Vattavada trekking stay with comfort under the stars and breathtaking mountain views.',
       specs: {
         totalTents: 8,

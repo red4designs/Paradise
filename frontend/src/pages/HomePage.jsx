@@ -127,7 +127,7 @@ const HomePage = () => {
               "image": [
                 "https://www.paradisevattavada.com/images/hero-resort.webp",
                 "https://www.paradisevattavada.com/images/cottages/cottage-exterior.webp",
-                "https://www.paradisevattavada.com/images/Tents/IMG_3632.webp"
+                "https://www.paradisevattavada.com/images/Tents/tent-new-1.jpg"
               ],
               "address": {
                 "@type": "PostalAddress",

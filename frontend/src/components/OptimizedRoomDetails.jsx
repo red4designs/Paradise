@@ -114,7 +114,7 @@ const OptimizedRoomDetails = () => {
       title: 'Adventure Tents',
       subtitle: 'Glamping Experience',
       description: 'Experience the thrill of camping with the comfort of a hotel. Our premium tents offer a unique glamping experience.',
-      image: '/images/Tents/IMG_3632.JPEG',
+      image: '/images/Tents/tent-new-1.jpg',
       specs: {
         capacity: '20+ guests',
         perTent: '2-3 guests'

@@ -139,7 +139,7 @@ const Amenities = () => {
                   </p>
                   <div className="aspect-video bg-white/10 border border-white/20 overflow-hidden rounded-sm">
                     <LazyImage
-                      src="/images/Tents/IMG_3632.JPEG?v=1"
+                      src="/images/Tents/tent-new-1.jpg"
                       alt="Premium camping tents in Vattavada - adventure camping experience"
                       className="w-full h-full"
                       loading="lazy"

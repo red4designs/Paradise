@@ -53,7 +53,7 @@ const OptimizedRoomDetails = () => {
       title: 'Premium Resort Rooms',
       subtitle: 'Comfortable & Budget-Friendly',
       description: 'Experience comfort and affordability in our well-appointed resort rooms. Perfect for families and couples seeking a peaceful retreat with modern amenities.',
-      image: '/images/Deluxe Room/IMG_1701_optimized.webp',
+      image: '/images/Views/IMG_1701_optimized.webp',
       rooms: [
         {
           type: 'Deluxe Room',

@@ -87,7 +87,7 @@ Please confirm availability and provide pricing details. Thank you!`;
         />
       </div>
 
-      <div className="relative z-10 pt-24 px-[7.6923%]">
+      <div className="relative z-10 pt-24 px-5 lg:px-[7.6923%]">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-6rem)]">
 

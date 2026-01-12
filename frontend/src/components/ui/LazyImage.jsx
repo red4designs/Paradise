@@ -3,17 +3,17 @@ import { useWorkerManager } from '../../utils/workerManager';
 import { createOptimizedIntersectionObserver, preventImageLayoutShift } from '../../utils/layoutOptimizer';
 import ImageShare from './ImageShare';
 
-const LazyImage = ({ 
-  src, 
-  alt, 
-  className = '', 
+const LazyImage = ({
+  src,
+  alt,
+  className = '',
   placeholder = '/images/placeholder.svg',
   loading = 'lazy',
   responsive = false,
   enableSharing = true,
   shareTitle,
   shareDescription,
-  ...props 
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -71,9 +71,8 @@ const LazyImage = ({
 
   // Generate WebP source if original is JPEG/JPG
   const getWebPSource = (originalSrc) => {
-    if (originalSrc.match(/\.(jpe?g|png)$/i)) {
-      return originalSrc.replace(/\.(jpe?g|png)$/i, '.webp');
-    }
+    // Automatic WebP generation disabled as not all images have WebP versions
+    // preventing 404 errors for tent photos
     return null;
   };
 
@@ -89,7 +88,7 @@ const LazyImage = ({
   const mobileSrc = getMobileSource(src);
 
   return (
-    <div 
+    <div
       ref={imgRef}
       className={`relative overflow-hidden group ${className}`}
       {...props}
@@ -100,7 +99,7 @@ const LazyImage = ({
           <div className="w-8 h-8 border-2 border-[hsl(var(--muted-foreground)_/_0.3)] border-t-[hsl(var(--muted-foreground))] rounded-full animate-spin"></div>
         </div>
       )}
-      
+
       {/* Actual image with WebP support and responsive sources */}
       {isInView && (
         <picture>
@@ -124,7 +123,7 @@ const LazyImage = ({
           />
         </picture>
       )}
-      
+
       {/* Share Button - Only show on hover and when loaded */}
       {enableSharing && isLoaded && !hasError && (
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">

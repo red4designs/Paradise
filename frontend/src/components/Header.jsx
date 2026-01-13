@@ -58,7 +58,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-panel border-b border-white/10 px-[7.6923%] py-4 transition-all duration-300">
+    <header className="header fixed top-0 w-full z-50 glass-panel border-b border-white/10 px-[7.6923%] py-4 transition-all duration-300">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">

@@ -159,7 +159,7 @@ function App() {
               <Suspense fallback={null}>
                 {!isMobile && !prefersReducedMotion && show3D && <Background3D />}
               </Suspense>
-              <div className="App min-h-screen text-foreground transition-colors duration-300 relative">
+              <div className="App app-container min-h-screen text-foreground transition-colors duration-300 relative">
                 <Header />
                 <main>
                   <Suspense fallback={<LoadingSpinner />}>

@@ -55,7 +55,7 @@ Please confirm availability and provide pricing details. Thank you!`;
   };
 
   return (
-    <section id="home" className="relative min-h-screen bg-transparent overflow-hidden">
+    <section id="home" className="hero-section relative min-h-screen bg-transparent overflow-hidden">
       {/* Enhanced Nature Hill Background Image */}
       <div className="absolute inset-0">
         <LazyImage

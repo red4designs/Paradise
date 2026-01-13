@@ -1,0 +1,15 @@
+{
+    "short_name": "Paradise Resort",
+    "name": "Paradise Resort Vattavada",
+    "icons": [
+        {
+            "src": "paradise-logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "192x192 512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#050510",
+    "background_color": "#ffffff"
+}

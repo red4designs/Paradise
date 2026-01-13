@@ -18,8 +18,8 @@ module.exports = {
         ...webpackConfig.optimization,
         splitChunks: {
           chunks: 'all',
-          minSize: 20000,
-          maxSize: 200000, // Reduced for better loading
+          minSize: 10000, // Smaller chunks for better granularity
+          maxSize: 100000, // Enforce smaller files for parallel loading & less blocking
           maxInitialRequests: 25,
           maxAsyncRequests: 25,
           cacheGroups: {
@@ -65,8 +65,8 @@ module.exports = {
               name: 'vendors',
               chunks: 'all',
               priority: 10,
-              minSize: 30000,
-              maxSize: 180000,
+              minSize: 10000,
+              maxSize: 100000,
             },
             // Common application code
             common: {

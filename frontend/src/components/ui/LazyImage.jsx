@@ -15,8 +15,8 @@ const LazyImage = ({
   shareDescription,
   ...props
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(loading === 'eager');
+  const [isInView, setIsInView] = useState(loading === 'eager');
   const [hasError, setHasError] = useState(false);
   const [processedSrc, setProcessedSrc] = useState(src);
   const imgRef = useRef();
@@ -25,7 +25,6 @@ const LazyImage = ({
   // Bypass Observer if loading is eager
   useEffect(() => {
     if (loading === 'eager') {
-      setIsInView(true);
       return;
     }
 

@@ -21,15 +21,3 @@ if (container.hasChildNodes() && !container.querySelector('.initial-loader')) {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-// Register the Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('Service Worker registered: ', registration);
-      })
-      .catch((registrationError) => {
-        console.log('Service Worker registration failed: ', registrationError);
-      });
-  });
-}

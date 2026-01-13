@@ -143,7 +143,7 @@ Please confirm availability and provide pricing details. Thank you!`;
                 <CardContent className="p-6">
                   <div className="space-y-6">
                     <div>
-                      <h3 className="heading-2 text-text-primary mb-2">Book Your Stay</h3>
+                      <h2 className="heading-2 text-text-primary mb-2">Book Your Stay</h2>
                       <p className="body-small text-text-muted">Reserve your perfect mountain getaway</p>
                     </div>
 

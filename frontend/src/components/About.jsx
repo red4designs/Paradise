@@ -120,7 +120,7 @@ const About = () => {
 
             {/* Floating Badge */}
             <div className="absolute top-4 left-4 bg-brand-primary text-black px-4 py-2">
-              <span className="body-small font-semibold">Best Budget Stay</span>
+              <span className="body-small font-semibold text-black">Best Budget Stay</span>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ const About = () => {
                     <feature.icon size={24} className="text-brand-primary" />
                   </div>
                   <div>
-                    <h4 className="heading-3 mb-2">{feature.title}</h4>
+                    <h3 className="heading-3 mb-2">{feature.title}</h3>
                     <p className="body-small text-text-secondary">{feature.description}</p>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-6 max-w-2xl mx-auto justify-center">
               <Link
                 to="/cottages"
-                className="flex-1 sm:w-auto px-6 py-3 border border-brand-primary bg-brand-primary text-white hover:bg-brand-primary/90 hover:border-brand-primary/90 transition-colors font-medium text-center rounded-md min-w-0"
+                className="flex-1 sm:w-auto px-6 py-3 border border-brand-primary bg-brand-primary text-black hover:bg-brand-primary/90 hover:border-brand-primary/90 transition-colors font-medium text-center rounded-md min-w-0"
               >
                 Private Cottages
               </Link>

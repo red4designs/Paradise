@@ -12,7 +12,7 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig) => {
-      
+
       // Optimize bundle splitting for Core Web Vitals
       webpackConfig.optimization = {
         ...webpackConfig.optimization,
@@ -44,6 +44,13 @@ module.exports = {
               name: 'ui-libs',
               chunks: 'all',
               priority: 20,
+            },
+            // Three.js and 3D libraries (heavy, isolate them)
+            three: {
+              test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
+              name: 'three-libs',
+              chunks: 'all', // Will be loaded async since Background3D is lazy
+              priority: 22,
             },
             // Performance libraries
             performance: {
@@ -81,7 +88,7 @@ module.exports = {
         moduleIds: 'deterministic',
         chunkIds: 'deterministic',
       };
-      
+
       // Add performance optimizations
       // Disable performance warnings in CI to prevent build failures
       webpackConfig.performance = {
@@ -89,7 +96,7 @@ module.exports = {
         maxEntrypointSize: 500000, // Increased limit
         hints: process.env.CI ? false : 'warning', // Disable hints in CI
       };
-      
+
       // Enable webpack caching for faster builds
       webpackConfig.cache = {
         type: 'filesystem',
@@ -98,21 +105,21 @@ module.exports = {
         },
         cacheDirectory: path.resolve(__dirname, 'node_modules/.cache/webpack'),
       };
-      
+
       // Optimize output for better caching
       webpackConfig.output = {
         ...webpackConfig.output,
         filename: 'static/js/[name].[contenthash:8].js',
         chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
       };
-      
+
       // Disable hot reload completely if environment variable is set
       if (config.disableHotReload) {
         // Remove hot reload related plugins
         webpackConfig.plugins = webpackConfig.plugins.filter(plugin => {
           return !(plugin.constructor.name === 'HotModuleReplacementPlugin');
         });
-        
+
         // Disable watch mode
         webpackConfig.watch = false;
         webpackConfig.watchOptions = {
@@ -132,7 +139,7 @@ module.exports = {
           ],
         };
       }
-      
+
       return webpackConfig;
     },
   },

@@ -74,8 +74,26 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
+  const [show3D, setShow3D] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(true); // Default to true for performance safety
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
+
   // Initialize critical optimizations immediately, defer non-critical ones
   useEffect(() => {
+    // Check capabilities for 3D background
+    const mobileCheck = window.innerWidth < 768;
+    const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    setIsMobile(mobileCheck);
+    setPrefersReducedMotion(motionCheck);
+
+    // Only enable 3D after critical content delay and if capable
+    if (!mobileCheck && !motionCheck) {
+      setTimeout(() => {
+        setShow3D(true);
+      }, 2500); // Delay significantly to ensure LCP is done
+    }
+
     // Critical: Initialize Core Web Vitals monitoring immediately
     initWebVitals();
 
@@ -139,7 +157,7 @@ function App() {
           <ErrorBoundary>
             <Router>
               <Suspense fallback={null}>
-                <Background3D />
+                {!isMobile && !prefersReducedMotion && show3D && <Background3D />}
               </Suspense>
               <div className="App min-h-screen text-foreground transition-colors duration-300 relative">
                 <Header />

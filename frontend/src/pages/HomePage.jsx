@@ -27,8 +27,8 @@ Please check availability and let me know.`;
   return (
     <div className="bg-sand min-h-screen">
       <Helmet>
-        <title>Paradise Resort Vattavada | Minimalist Mountain Getaway</title>
-        <meta name="description" content="Discover Paradise Resort Vattavada. Explore our luxury cottages, adventure tents, and dormitories with jeep trekking and sightseeing." />
+        <title>Best Stay in Vattavada - Paradise Resort | Cottages & Tents</title>
+        <meta name="description" content="Experience the best stay in Vattavada at Paradise Resort. Premium luxury cottages, adventure tents, dormitory stays, and stunning mountain views near Munnar." />
         <link rel="canonical" href={BASE_URL} />
       </Helmet>
 

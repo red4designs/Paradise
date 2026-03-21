@@ -50,4 +50,3 @@ Crawl-delay: 1
 
 # Sitemap locations - Updated to canonical HTTPS www URLs
 Sitemap: https://www.paradisevattavada.com/sitemap.xml
-Sitemap: https://www.paradisevattavada.com/sitemap-images.xml

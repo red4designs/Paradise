@@ -59,7 +59,7 @@ Please confirm availability and provide pricing details. Thank you!`;
       {/* Enhanced Nature Hill Background Image */}
       <div className="absolute inset-0">
         <LazyImage
-          src="/images/Views/IMG_20241109_174229_optimized.webp"
+          src="/images/hero-uploaded.jpg"
           alt="Breathtaking Vattavada Hill Station Mountain Views - Paradise Resort"
           className="w-full h-full object-cover"
           loading="eager"
@@ -253,6 +253,14 @@ Please confirm availability and provide pricing details. Thank you!`;
                         Check Availability
                         <ChevronRight size={18} />
                       </Button>
+
+                      {/* Trust Badge */}
+                      <div className="pt-4 mt-4 border-t border-white/10 flex flex-col items-center justify-center gap-1">
+                        <div className="flex items-center gap-1 text-[#D4AF37]">
+                          <span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span>
+                        </div>
+                        <span className="text-[10px] uppercase tracking-widest text-white/70 font-medium">4.2/5 from 200+ Google Genuine Reviews</span>
+                      </div>
                     </form>
 
                     <div className="text-center">

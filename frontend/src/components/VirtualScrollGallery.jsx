@@ -154,26 +154,26 @@ const VirtualScrollGallery = () => {
     <section id="gallery" className="section-padding bg-transparent">
       <div className="max-width-container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="display-large mb-6">📸 Experience Paradise</h2>
-          <p className="body-large text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto">
+        <div className="text-center mb-16 px-4">
+          <h2 className="font-serif text-4xl md:text-5xl text-forest mb-6">📸 Experience Paradise</h2>
+          <p className="text-lg md:text-xl text-forest/80 font-light max-w-3xl mx-auto leading-relaxed">
             Take a visual journey through our stunning accommodations 🏠, breathtaking views 🌄,
-            and memorable experiences at Paradise Resort Vattavada. ✨
+            and memorable experiences at Paradise Resort Vattavada.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 px-4 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-6 py-3 border ${selectedCategory === category
-                ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border-[hsl(var(--primary))]'
-                : 'bg-[hsl(var(--card)_/_0.5)] text-[hsl(var(--muted-foreground))] border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]'
+              className={`px-5 py-2.5 border transition-all ${selectedCategory === category
+                ? 'bg-forest text-sand border-forest'
+                : 'bg-transparent text-forest/70 border-forest/20 hover:border-forest hover:text-forest'
                 }`}
             >
-              <span className="body-medium font-medium">{category}</span>
+              <span className="text-xs md:text-sm uppercase tracking-widest font-medium">{category}</span>
             </button>
           ))}
         </div>
@@ -254,10 +254,10 @@ const VirtualScrollGallery = () => {
         </PerformanceOptimizer>
 
         {/* Testimonials Section - Optimized */}
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h3 className="display-medium text-[hsl(var(--primary))]">💬 Verified Guest Reviews</h3>
-            <p className="body-medium text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
+        <div className="space-y-8 mt-24">
+          <div className="text-center space-y-4 mb-12">
+            <h3 className="font-serif text-3xl md:text-4xl text-forest">💬 Verified Guest Reviews</h3>
+            <p className="text-lg text-forest/70 font-light max-w-2xl mx-auto px-4">
               Real experiences from verified guests who have stayed at Paradise Resort Vattavada
             </p>
           </div>

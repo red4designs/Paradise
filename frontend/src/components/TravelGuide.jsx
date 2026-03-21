@@ -202,6 +202,29 @@ const TravelGuide = () => {
               )}
             />
           </div>
+
+          {/* Activity Reviews */}
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <div className="bg-mist p-10 flex flex-col justify-center transition-transform hover:-translate-y-1 duration-300">
+              <div className="flex text-forest text-sm mb-6 tracking-widest">★★★★★</div>
+              <p className="font-sans text-forest/90 font-light leading-relaxed text-lg mb-8">
+                "They provide lot of services like campfire, food and they connect low budget trekking facilities."
+              </p>
+              <div className="text-xs font-serif font-bold text-forest tracking-wide uppercase mt-auto">
+                DARK GAMER
+              </div>
+            </div>
+
+            <div className="bg-mist p-10 flex flex-col justify-center transition-transform hover:-translate-y-1 duration-300">
+              <div className="flex text-forest text-sm mb-6 tracking-widest">★★★★★</div>
+              <p className="font-sans text-forest/90 font-light leading-relaxed text-lg mb-8">
+                "Nearby activities: Tribal village exploration and strawberry farming... sunrise."
+              </p>
+              <div className="text-xs font-serif font-bold text-forest tracking-wide uppercase mt-auto">
+                Akhila M
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Related Links Section */}

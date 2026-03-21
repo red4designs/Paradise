@@ -2,66 +2,38 @@ import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
-// Background3D is lazy loaded below
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
 import GoogleAnalyticsFacade from "./components/facades/GoogleAnalyticsFacade";
-import initResourceOptimizer from "./utils/resourceOptimizer";
 import { PerformanceProvider } from "./hooks/usePerformanceOptimization";
-import { LayoutOptimizer } from "./utils/layoutOptimizer";
-import { initWebVitals, optimizeImages, preloadCriticalResources } from "./utils/webVitals";
-
-// Lazy load Background3D to avoid blocking initial render
-const Background3D = React.lazy(() => import("./components/Background3D"));
-
-// Lazy load page components with preloading for better performance
-const HomePage = React.lazy(() => import(/* webpackChunkName: "home" */ "./pages/HomePage.jsx"));
-const CottagesPage = React.lazy(() => import(/* webpackChunkName: "cottages" */ "./pages/CottagesPage.jsx"));
-const TentsPage = React.lazy(() => import(/* webpackChunkName: "tents" */ "./pages/TentsPage.jsx"));
-const DormitoryPage = React.lazy(() => import(/* webpackChunkName: "dormitory" */ "./pages/DormitoryPage.jsx"));
-const GalleryPage = React.lazy(() => import(/* webpackChunkName: "gallery" */ "./pages/GalleryPage.jsx"));
-const FAQPage = React.lazy(() => import(/* webpackChunkName: "faq" */ "./pages/FAQPage.jsx"));
-const ContactPage = React.lazy(() => import(/* webpackChunkName: "contact" */ "./pages/ContactPage.jsx"));
-const SearchPage = React.lazy(() => import(/* webpackChunkName: "search" */ "./pages/SearchPage.jsx"));
-const ArrivalGuidePage = React.lazy(() => import(/* webpackChunkName: "arrival-guide" */ "./pages/ArrivalGuidePage.jsx"));
-
-// Preload critical routes on idle
-const preloadRoutes = () => {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      import("./pages/CottagesPage.jsx");
-      import("./pages/GalleryPage.jsx");
-      import("./pages/ContactPage.jsx");
-      import("./pages/SearchPage.jsx");
-    });
-  }
-};
-
-// Enhanced loading component
 import LoadingSpinner from "./components/LoadingSpinner";
 
-// Error boundary component
+// Lazy load page components
+const HomePage = React.lazy(() => import("./pages/HomePage.jsx"));
+const RoomDetailsPage = React.lazy(() => import("./pages/RoomDetailsPage.jsx"));
+const FAQPage = React.lazy(() => import("./pages/FAQPage.jsx"));
+const ContactPage = React.lazy(() => import("./pages/ContactPage.jsx"));
+const ArrivalGuidePage = React.lazy(() => import("./pages/ArrivalGuidePage.jsx"));
+const GalleryPage = React.lazy(() => import("./pages/GalleryPage.jsx"));
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
+  static getDerivedStateFromError() { return { hasError: true }; }
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-transparent">
-          <div className="text-center glass-panel p-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
+        <div className="min-h-screen flex items-center justify-center bg-sand text-forest">
+          <div className="text-center p-8 border border-forest/10 shadow-sm rounded-sm">
+            <h2 className="text-2xl font-serif mb-4">Something went wrong</h2>
             <button
               onClick={() => window.location.reload()}
-              className="px-4 py-2 bg-cyan-500 text-black font-bold rounded hover:bg-cyan-400"
+              className="px-6 py-2 bg-forest text-sand text-sm uppercase tracking-widest hover:bg-forest/90 transition-colors"
             >
               Reload Page
             </button>
@@ -74,80 +46,15 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [show3D, setShow3D] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(true); // Default to true for performance safety
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
-
-  // Initialize critical optimizations immediately, defer non-critical ones
   useEffect(() => {
-    // Check capabilities for 3D background
-    const mobileCheck = window.innerWidth < 768;
-    const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    setIsMobile(mobileCheck);
-    setPrefersReducedMotion(motionCheck);
-
-    // Only enable 3D after critical content delay and if capable
-    if (!mobileCheck && !motionCheck) {
-      setTimeout(() => {
-        setShow3D(true);
-      }, 2500); // Delay significantly to ensure LCP is done
-    }
-
-    // Critical: Initialize Core Web Vitals monitoring immediately
-    initWebVitals();
-
-    // Critical: Preload critical resources for better LCP
-    preloadCriticalResources();
-
-    // Critical: Initialize layout optimizer globally
-    window.layoutOptimizer = new LayoutOptimizer();
-
-    // Defer non-critical optimizations to improve INP
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        // Non-critical: General resource optimizations
-        initResourceOptimizer();
-
-        // Non-critical: Image optimization
-        setTimeout(() => {
-          optimizeImages();
-        }, 100);
-
-        // Non-critical: Route preloading
-        preloadRoutes();
-      }, { timeout: 3000 });
-    } else {
-      // Fallback: Defer with setTimeout
-      setTimeout(() => {
-        initResourceOptimizer();
-        optimizeImages();
-        preloadRoutes();
-      }, 2000);
-    }
-
-    // Defer service worker registration to avoid blocking main thread
+    // Basic service worker registration
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
       setTimeout(() => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('SW registered: ', registration);
-          })
-          .catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
+        navigator.serviceWorker.register('/sw.js').catch(console.error);
       }, 1000);
     }
-
-    // Cleanup on unmount
-    return () => {
-      if (window.layoutOptimizer) {
-        window.layoutOptimizer = null;
-      }
-    };
   }, []);
 
-  // React-snap compatibility: Use hydrate instead of render for prerendered content
   const isPrerendered = typeof window !== 'undefined' && window.__PRERENDERED__;
 
   return (
@@ -156,29 +63,23 @@ function App() {
         <ThemeProvider>
           <ErrorBoundary>
             <Router>
-              <Suspense fallback={null}>
-                {!isMobile && !prefersReducedMotion && show3D && <Background3D />}
-              </Suspense>
-              <div className="App app-container min-h-screen text-foreground transition-colors duration-300 relative">
+              <div className="App app-container min-h-screen relative bg-sand text-forest transition-colors duration-300">
                 <Header />
                 <main>
                   <Suspense fallback={<LoadingSpinner />}>
                     <Routes>
                       <Route path="/" element={<HomePage />} />
-                      <Route path="/cottages" element={<CottagesPage />} />
-                      <Route path="/tents" element={<TentsPage />} />
-                      <Route path="/dormitory" element={<DormitoryPage />} />
-                      <Route path="/gallery" element={<GalleryPage />} />
+                      <Route path="/rooms" element={<RoomDetailsPage />} />
                       <Route path="/faq" element={<FAQPage />} />
+                      <Route path="/gallery" element={<GalleryPage />} />
                       <Route path="/contact" element={<ContactPage />} />
-                      <Route path="/search" element={<SearchPage />} />
-                      <Route path="/arrival-guide" element={<ArrivalGuidePage />} />
+                      <Route path="/guide" element={<ArrivalGuidePage />} />
                     </Routes>
                   </Suspense>
                 </main>
                 <Footer />
                 <BackToTop />
-                {/* Lazy load Google Analytics to improve initial page performance */}
+                
                 {!isPrerendered && (
                   <GoogleAnalyticsFacade
                     measurementId="AW-615136649"

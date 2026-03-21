@@ -31,7 +31,7 @@ Message: ${formData.message || 'General inquiry'}`;
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 fade-in-up">
         <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/60 block mb-4">Connect</span>
         <h1 className="font-serif text-4xl md:text-5xl text-forest mb-6">Reach <span className="italic font-light">Out</span></h1>
-        <p className="text-lg text-forest/70 font-light max-w-2xl mx-auto">
+        <p className="text-lg text-forest/90 font-light max-w-2xl mx-auto">
           Contact us to check availability or curate your personalized mountain experience.
         </p>
       </div>
@@ -41,8 +41,8 @@ Message: ${formData.message || 'General inquiry'}`;
         {/* Contact Info */}
         <div className="md:col-span-2 space-y-12 flex flex-col justify-center">
           <div>
-            <h3 className="font-serif text-2xl text-forest mb-6">Direct Access</h3>
-            <p className="text-forest/70 font-light leading-relaxed mb-8 text-sm">
+            <h2 className="font-serif text-2xl text-forest mb-6">Direct Access</h2>
+            <p className="text-forest/90 font-light leading-relaxed mb-8 text-sm">
               We recommend booking directly through WhatsApp for the quickest response, customized itineraries, and the best available rates.
             </p>
             
@@ -81,7 +81,7 @@ Message: ${formData.message || 'General inquiry'}`;
           
           {/* Recent Stays Reviews */}
           <div>
-            <h3 className="font-serif text-2xl text-forest mb-6">Recent Stays</h3>
+            <h2 className="font-serif text-2xl text-forest mb-6">Recent Stays</h2>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="bg-forest/5 p-6 border border-forest/10">
                  <div className="flex text-forest text-xs mb-3">★★★★★</div>
@@ -106,16 +106,17 @@ Message: ${formData.message || 'General inquiry'}`;
                   <span className="w-16 h-16 bg-forest/5 text-forest rounded-full flex items-center justify-center mb-6">
                     <MessageCircle size={32} strokeWidth={1.5} />
                   </span>
-                  <h4 className="font-serif text-2xl text-forest mb-2">Message Prepared</h4>
-                  <p className="text-forest/70 font-light text-sm">Redirecting you to WhatsApp to complete your request.</p>
+                  <h3 className="font-serif text-2xl text-forest mb-2">Message Prepared</h3>
+                  <p className="text-forest/90 font-light text-sm">Redirecting you to WhatsApp to complete your request.</p>
                 </div>
              ) : null}
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-forest/60 font-medium">Full Name</label>
+                  <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-forest/80 font-medium">Full Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -124,8 +125,9 @@ Message: ${formData.message || 'General inquiry'}`;
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-forest/60 font-medium">WhatsApp No.</label>
+                  <label htmlFor="contact-phone" className="text-xs uppercase tracking-widest text-forest/80 font-medium">WhatsApp No.</label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -136,8 +138,9 @@ Message: ${formData.message || 'General inquiry'}`;
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-forest/60 font-medium">Your Message</label>
+                <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-forest/80 font-medium">Your Message</label>
                 <textarea
+                  id="contact-message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full bg-transparent border-b border-forest/20 py-3 text-forest focus:outline-none focus:border-forest min-h-[120px] resize-y"

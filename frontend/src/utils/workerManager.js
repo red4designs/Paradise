@@ -145,8 +145,8 @@ class WorkerManager {
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
       filtered = filtered.filter(item => 
-        item.name?.toLowerCase().includes(term) ||
-        item.description?.toLowerCase().includes(term)
+        (item.name && item.name.toLowerCase().includes(term)) ||
+        (item.description && item.description.toLowerCase().includes(term))
       );
     }
     

@@ -32,9 +32,9 @@ const Footer = () => {
               Discover the perfect stay offering luxury cottages, adventure tents, and family-friendly accommodations in the heart of Vattavada.
             </p>
             <div className="flex items-center space-x-4">
-              <button onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Instagram size={18} strokeWidth={1.5} /></button>
-              <button onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Facebook size={18} strokeWidth={1.5} /></button>
-              <button onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Youtube size={18} strokeWidth={1.5} /></button>
+              <button aria-label="Visit Instagram" onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Instagram size={18} strokeWidth={1.5} /></button>
+              <button aria-label="Visit Facebook" onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Facebook size={18} strokeWidth={1.5} /></button>
+              <button aria-label="Visit YouTube" onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')} className="w-10 h-10 border border-sand/30 rounded-full flex items-center justify-center hover:bg-sand hover:text-forest transition-colors"><Youtube size={18} strokeWidth={1.5} /></button>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="text-center text-xs text-sand/50 uppercase tracking-widest">
+        <div className="text-center text-xs text-sand/70 uppercase tracking-widest">
           &copy; {new Date().getFullYear()} Paradise Resort Vattavada. All rights reserved.
         </div>
       </div>

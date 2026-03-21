@@ -104,7 +104,7 @@ const getOptimizationSuggestions = (metricName, rating) => {
     }
   };
   
-  return suggestions[metricName]?.[rating] || [];
+  return (suggestions[metricName] && suggestions[metricName][rating]) || [];
 };
 
 // Initialize Core Web Vitals monitoring
@@ -177,7 +177,7 @@ const observeLayoutShifts = () => {
       if (entry.value > 0.1) {
         console.warn('🔄 Significant layout shift detected:', {
           value: entry.value,
-          sources: entry.sources?.map(s => s.node) || [],
+          sources: (entry.sources && entry.sources.map(s => s.node)) || [],
           timestamp: entry.startTime
         });
       }

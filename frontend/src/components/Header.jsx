@@ -67,12 +67,13 @@ const Header = () => {
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center space-x-6">
-          <div className="flex items-center space-x-3 text-forest/70">
-            <button onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')} className="hover:text-forest transition-colors"><Instagram size={18} strokeWidth={1.5} /></button>
-            <button onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')} className="hover:text-forest transition-colors"><Facebook size={18} strokeWidth={1.5} /></button>
-            <button onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')} className="hover:text-forest transition-colors"><Youtube size={18} strokeWidth={1.5} /></button>
+          <div className="flex items-center space-x-3 text-forest/80">
+            <button aria-label="Visit Instagram" onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')} className="hover:text-forest transition-colors"><Instagram size={18} strokeWidth={1.5} /></button>
+            <button aria-label="Visit Facebook" onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')} className="hover:text-forest transition-colors"><Facebook size={18} strokeWidth={1.5} /></button>
+            <button aria-label="Visit YouTube" onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')} className="hover:text-forest transition-colors"><Youtube size={18} strokeWidth={1.5} /></button>
           </div>
           <button 
+            aria-label="Book on Agoda"
             onClick={handleAgodaBooking} 
             className="flex items-center gap-2 px-5 py-2.5 bg-forest text-sand text-xs uppercase tracking-widest font-medium hover:bg-forest/90 transition-colors shadow-sm"
           >
@@ -82,6 +83,7 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden text-forest p-2 focus:outline-none"
         >
@@ -108,6 +110,7 @@ const Header = () => {
           
           <div className="border-t border-forest/10 pt-8 flex flex-col items-center space-y-8">
             <button 
+              aria-label="Book on Agoda"
               onClick={handleAgodaBooking} 
               className="w-full max-w-xs flex justify-center items-center gap-2 px-5 py-3 bg-forest text-sand text-sm uppercase tracking-widest font-medium"
             >
@@ -115,9 +118,9 @@ const Header = () => {
             </button>
             
             <div className="flex items-center justify-center space-x-6 text-forest">
-              <button onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')}><Instagram size={24} strokeWidth={1.5} /></button>
-              <button onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')}><Facebook size={24} strokeWidth={1.5} /></button>
-              <button onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')}><Youtube size={24} strokeWidth={1.5} /></button>
+              <button aria-label="Visit Instagram" onClick={() => handleSocialClick('https://instagram.com/paradise_resort_vattavada')}><Instagram size={24} strokeWidth={1.5} /></button>
+              <button aria-label="Visit Facebook" onClick={() => handleSocialClick('https://www.facebook.com/paradisevattavada1')}><Facebook size={24} strokeWidth={1.5} /></button>
+              <button aria-label="Visit YouTube" onClick={() => handleSocialClick('https://www.youtube.com/watch?v=UwGLRFeFBOk')}><Youtube size={24} strokeWidth={1.5} /></button>
             </div>
           </div>
         </div>

@@ -38,6 +38,8 @@ Please check availability and let me know.`;
           <img
             src="/images/Views/IMG_1701_optimized.webp"
             alt="Paradise Resort Views"
+            width="1920"
+            height="1080"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50"></div>
@@ -58,11 +60,11 @@ Please check availability and let me know.`;
             {/* WhatsApp Booking Inquiry Box */}
             <div className="lg:justify-self-end w-full max-w-md fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="bg-sand p-8 shadow-xl">
-                <h3 className="font-serif text-2xl text-forest mb-6">Booking Enquiry</h3>
+                <h2 className="font-serif text-2xl text-forest mb-6">Booking Enquiry</h2>
                 <form onSubmit={handleBookingSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-[10px] uppercase tracking-widest text-forest/70 font-medium">Check-in</label>
+                      <label className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">Check-in</label>
                       <input
                         type="date"
                         value={bookingData.checkIn}
@@ -72,7 +74,7 @@ Please check availability and let me know.`;
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[10px] uppercase tracking-widest text-forest/70 font-medium">Check-out</label>
+                      <label className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">Check-out</label>
                       <input
                         type="date"
                         value={bookingData.checkOut}
@@ -83,7 +85,7 @@ Please check availability and let me know.`;
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-widest text-forest/70 font-medium">Accommodation Type</label>
+                    <label className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">Accommodation Type</label>
                     <select
                       value={bookingData.accommodation}
                       onChange={(e) => setBookingData({...bookingData, accommodation: e.target.value})}
@@ -99,7 +101,7 @@ Please check availability and let me know.`;
                     </select>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-widest text-forest/70 font-medium">Total number of Guest including kids</label>
+                    <label className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">Total number of Guest including kids</label>
                     <input
                       type="number"
                       min="1"
@@ -115,7 +117,7 @@ Please check availability and let me know.`;
                   </button>
 
                   <div className="text-center mt-3">
-                    <span className="text-xs uppercase tracking-widest text-forest/70 font-medium block mb-1">Or reach us directly at:</span>
+                    <span className="text-xs uppercase tracking-widest text-forest/80 font-medium block mb-1">Or reach us directly at:</span>
                     <a href="https://wa.me/919074902424" className="text-lg font-bold text-forest hover:underline">WhatsApp: 9074902424</a>
                   </div>
                   
@@ -124,7 +126,7 @@ Please check availability and let me know.`;
                     <div className="flex items-center gap-1 text-forest">
                       <span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span><span className="text-xl">★</span>
                     </div>
-                    <span className="text-[10px] uppercase tracking-widest text-forest/70 font-medium">4.2/5 from 200+ Google Genuine Reviews</span>
+                    <span className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">4.2/5 from 200+ Google Genuine Reviews</span>
                   </div>
                 </form>
               </div>
@@ -137,7 +139,7 @@ Please check availability and let me know.`;
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-2xl mx-auto fade-in-up">
           <h2 className="font-serif text-3xl md:text-4xl text-forest mb-6">Our Offerings</h2>
-          <p className="text-forest/70 font-light leading-relaxed">
+          <p className="text-forest/80 font-light leading-relaxed">
             We provide diverse accommodations and curated adventures to connect you with the untamed beauty of Vattavada.
           </p>
         </div>
@@ -148,14 +150,14 @@ Please check availability and let me know.`;
             <h3 className="font-serif text-3xl md:text-4xl text-forest flex items-center gap-3">
               <span className="text-2xl md:text-3xl">🛏️</span> Our Stays
             </h3>
-            <p className="text-forest/70 font-light mt-2">Tailored comfort for every traveler.</p>
+            <p className="text-forest/80 font-light mt-2">Tailored comfort for every traveler.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Private Cottage */}
             <div className="md:col-span-2 xl:col-span-2 group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden min-h-[300px]">
               <div className="relative h-48 md:h-64 overflow-hidden">
-                <img src="/images/Cottages/IMG_20241109_151546.webp" alt="Private Cottage" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Cottages/IMG_20241109_151546.webp" alt="Private Cottage" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Home size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -163,9 +165,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-3xl text-forest">Private Cottage</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">Up to 15 Pax</span>
+                  <span className="font-sans text-sm font-light text-forest/80">Up to 15 Pax</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed">
+                <p className="text-forest/90 font-light leading-relaxed">
                   Your own 3-BHK sanctuary. A secluded, private property that comfortably hosts up to 15 guests.
                 </p>
               </div>
@@ -174,7 +176,7 @@ Please check availability and let me know.`;
             {/* Deluxe Room */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Deluxe Room/IMG_1831.webp" alt="Deluxe Room" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Deluxe Room/IMG_1831.webp" alt="Deluxe Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Bed size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -182,9 +184,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-2xl text-forest">Deluxe Room</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">7 Pax</span>
+                  <span className="font-sans text-sm font-light text-forest/80">7 Pax</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Expansive and versatile. A spacious retreat designed for groups, accommodating up to 7 guests with ease.
                 </p>
               </div>
@@ -193,7 +195,7 @@ Please check availability and let me know.`;
             {/* Double Room */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Double room/IMG_20241011_150853.webp" alt="Double Room" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Double room/IMG_20241011_150853.webp" alt="Double Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <BedDouble size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -201,9 +203,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-2xl text-forest">Double Room</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">2 Pax</span>
+                  <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Intimate and serene. The perfect mountain escape for 2 guests.
                 </p>
               </div>
@@ -212,7 +214,7 @@ Please check availability and let me know.`;
             {/* The Dormitory */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Dormitory/DJI_20231022_090731_99.webp" alt="The Dormitory" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Dormitory/DJI_20231022_090731_99.webp" alt="The Dormitory" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Users size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -220,9 +222,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-2xl text-forest">The Dormitory</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">16 Pax</span>
+                  <span className="font-sans text-sm font-light text-forest/80">16 Pax</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Community-focused comfort. Features bunk beds with a total capacity for 16 guests—ideal for trekking groups.
                 </p>
               </div>
@@ -231,7 +233,7 @@ Please check availability and let me know.`;
             {/* Tent Stay */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Tents/tent-new-1.webp" alt="Tent Stay" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Tents/tent-new-1.webp" alt="Tent Stay" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Tent size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -239,9 +241,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-2xl text-forest">Tent Stay</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">2 Pax</span>
+                  <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Fall asleep to the mountain breeze. We offer 8 private tents, each perfectly sized for 2 guests.
                 </p>
               </div>
@@ -250,7 +252,7 @@ Please check availability and let me know.`;
             {/* Resort Full Property */}
             <div className="md:col-span-2 xl:col-span-2 group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden min-h-[300px]">
               <div className="relative h-48 md:h-64 overflow-hidden">
-                <img src="/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp" alt="Resort Full Property" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp" alt="Resort Full Property" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Home size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -258,9 +260,9 @@ Please check availability and let me know.`;
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
                   <h4 className="font-serif text-3xl text-forest">Resort Full Property</h4>
-                  <span className="font-sans text-sm font-light text-forest/70">50-60 Pax &nbsp;&bull;&nbsp; ₹30k</span>
+                  <span className="font-sans text-sm font-light text-forest/80">50-60 Pax &nbsp;&bull;&nbsp; ₹30k</span>
                 </div>
-                <p className="text-forest/80 font-light leading-relaxed">
+                <p className="text-forest/90 font-light leading-relaxed">
                   Exclusive access to the entire resort wrapped in stunning panoramic resort views. Includes 5 deluxe rooms, 3 double rooms, and a 16-person dormitory.
                 </p>
               </div>
@@ -274,21 +276,21 @@ Please check availability and let me know.`;
             <h3 className="font-serif text-3xl md:text-4xl text-forest flex items-center gap-3">
               <span className="text-2xl md:text-3xl">🌲</span> The Experience
             </h3>
-            <p className="text-forest/70 font-light mt-2">Beyond the four walls.</p>
+            <p className="text-forest/80 font-light mt-2">Beyond the four walls.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Jeep Trekking */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Activities/Jeep-Trekking.jpg.jpeg" alt="Jeep Trekking" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Activities/Jeep-Trekking.jpg.jpeg" alt="Jeep Trekking" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <CarFront size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Jeep Trekking</h4>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   A rugged 28km off-road journey. Experience 3+ hours of breathtaking trails and hidden viewpoints.
                 </p>
               </div>
@@ -297,14 +299,14 @@ Please check availability and let me know.`;
             {/* Guided Sightseeing */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Views/IMG_1701_optimized.webp" alt="Guided Sightseeing" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Views/IMG_1701_optimized.webp" alt="Guided Sightseeing" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Map size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Guided Sightseeing</h4>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Slow down and explore. Immerse yourself in the local landscape with curated walking tours of the valley.
                 </p>
               </div>
@@ -313,14 +315,14 @@ Please check availability and let me know.`;
             {/* Campfire & BBQ */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Activities/campfire.jpeg" alt="Campfire & BBQ" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Activities/campfire.jpeg" alt="Campfire & BBQ" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Flame size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Campfire & BBQ</h4>
-                <p className="text-forest/80 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Warmth and flavor. Gather round for an evening of fresh grilling under the Vattavada stars.
                 </p>
               </div>
@@ -331,7 +333,7 @@ Please check availability and let me know.`;
         {/* What our guests say (Reviews Bento Block) */}
         <div className="fade-in-up flex flex-col" style={{ animationDelay: '0.4s' }}>
           <div className="mb-10 text-center md:text-left">
-            <span className="uppercase tracking-[0.2em] text-xs font-bold text-forest/60 block mb-2">Guest Love</span>
+            <span className="uppercase tracking-[0.2em] text-xs font-bold text-forest/80 block mb-2">Guest Love</span>
             <h3 className="font-serif text-4xl text-forest">Verified Experiences</h3>
           </div>
           

@@ -22,7 +22,8 @@ const Hero = () => {
 
     // Create WhatsApp message with booking details
     const totalGuests = (parseInt(bookingData.adults) || 0) + (parseInt(bookingData.children) || 0);
-    const accommodationLabel = bookingOptions.accommodationTypes.find(acc => acc.value === bookingData.accommodation)?.label || 'Not specified';
+    const matchedAcc = bookingOptions.accommodationTypes.find(acc => acc.value === bookingData.accommodation);
+    const accommodationLabel = matchedAcc ? matchedAcc.label : 'Not specified';
     let roomsText = '';
     if (bookingData.rooms && bookingData.accommodation !== 'dormitory' && bookingData.accommodation !== 'cottage') {
       const unitName = bookingData.accommodation === 'tent' ? 'Tents' : 'Rooms';

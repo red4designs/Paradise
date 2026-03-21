@@ -14,9 +14,9 @@ const ArrivalGuidePage = () => {
 
       {/* Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 fade-in-up">
-        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/60 block mb-4">Journey</span>
+        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/80 block mb-4">Journey</span>
         <h1 className="font-serif text-4xl md:text-5xl text-forest mb-6">Arrival <span className="italic font-light">Guide</span></h1>
-        <p className="text-lg text-forest/70 font-light max-w-2xl mx-auto">
+        <p className="text-lg text-forest/90 font-light max-w-2xl mx-auto">
           Navigate your way to our mountain sanctuary. Everything you need to know for a smooth and scenic journey to Vattavada.
         </p>
       </div>
@@ -32,9 +32,9 @@ const ArrivalGuidePage = () => {
               <Navigation2 size={24} className="text-eucalyptus shrink-0 mt-1" strokeWidth={1.5} />
               <div>
                 <h3 className="text-lg font-medium text-forest mb-2">From Munnar Center</h3>
-                <p className="text-forest/70 font-light leading-relaxed mb-1">Distance: ~42 km</p>
-                <p className="text-forest/70 font-light leading-relaxed mb-4">Drive Time: ~1.5 - 2 Hours</p>
-                <p className="text-forest/70 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed mb-1">Distance: ~42 km</p>
+                <p className="text-forest/90 font-light leading-relaxed mb-4">Drive Time: ~1.5 - 2 Hours</p>
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   Take the Munnar - Top Station Highway. Pass through the beautifully scenic Mattupetty Dam, Echo Point, and Kundala Lake. After Top Station, proceed towards Pampadum Shola National Park into Vattavada.
                 </p>
               </div>
@@ -44,7 +44,7 @@ const ArrivalGuidePage = () => {
               <Compass size={24} className="text-eucalyptus shrink-0 mt-1" strokeWidth={1.5} />
               <div>
                 <h3 className="text-lg font-medium text-forest mb-2">Landmark</h3>
-                <p className="text-forest/70 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm">
                   We are located exactly 1.5 kilometers before the main Vattavada town center, offering a pristine, secluded environment while retaining easy access to the village.
                 </p>
               </div>

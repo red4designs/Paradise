@@ -100,9 +100,9 @@ function filterData(data) {
   if (searchTerm) {
     const term = searchTerm.toLowerCase();
     filtered = filtered.filter(item => 
-      item.name?.toLowerCase().includes(term) ||
-      item.description?.toLowerCase().includes(term) ||
-      item.tags?.some(tag => tag.toLowerCase().includes(term))
+      (item.name && item.name.toLowerCase().includes(term)) ||
+      (item.description && item.description.toLowerCase().includes(term)) ||
+      (item.tags && item.tags.some(tag => tag.toLowerCase().includes(term)))
     );
   }
   
@@ -206,17 +206,17 @@ function calculateRelevanceScore(item, searchTerm) {
   const term = searchTerm.toLowerCase();
   
   // Name match gets highest score
-  if (item.name?.toLowerCase().includes(term)) {
+  if (item.name && item.name.toLowerCase().includes(term)) {
     score += 10;
   }
   
   // Description match gets medium score
-  if (item.description?.toLowerCase().includes(term)) {
+  if (item.description && item.description.toLowerCase().includes(term)) {
     score += 5;
   }
   
   // Tag match gets lower score
-  if (item.tags?.some(tag => tag.toLowerCase().includes(term))) {
+  if (item.tags && item.tags.some(tag => tag.toLowerCase().includes(term))) {
     score += 2;
   }
   

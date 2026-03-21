@@ -13,6 +13,8 @@ const LazyImage = ({
   enableSharing = true,
   shareTitle,
   shareDescription,
+  width,
+  height,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(loading === 'eager');
@@ -120,6 +122,8 @@ const LazyImage = ({
             loading={loading}
             onLoad={handleLoad}
             onError={handleError}
+            width={width}
+            height={height}
             className={`
               w-full h-full object-cover
               ${isLoaded ? 'opacity-100' : 'opacity-0'}

@@ -117,9 +117,9 @@ const RoomDetailsPage = () => {
 
       {/* Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 fade-in-up">
-        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/60 block mb-4">Accommodations</span>
+        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/80 block mb-4">Accommodations</span>
         <h1 className="font-serif text-4xl md:text-5xl text-forest mb-6">Stay in <span className="italic font-light">Nature</span></h1>
-        <p className="text-lg text-forest/70 font-light max-w-2xl mx-auto">
+        <p className="text-lg text-forest/90 font-light max-w-2xl mx-auto">
           From premium deluxe rooms and private cottages to immersive adventure tents, discover the perfect space to anchor your Vattavada experience.
         </p>
       </div>
@@ -135,6 +135,8 @@ const RoomDetailsPage = () => {
                 <img 
                   src={room.images[0]} 
                   alt={room.name} 
+                  width="800"
+                  height="600"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -153,7 +155,7 @@ const RoomDetailsPage = () => {
             {/* Description */}
             <div className="w-full lg:w-1/2 space-y-6">
               <h2 className="font-serif text-3xl text-forest">{room.name}</h2>
-              <p className="text-forest/70 font-light leading-relaxed">{room.description}</p>
+              <p className="text-forest/90 font-light leading-relaxed">{room.description}</p>
               
               <ul className="space-y-2 pt-4 border-t border-forest/10">
                 {room.features.map(feature => (
@@ -195,26 +197,28 @@ const RoomDetailsPage = () => {
       {/* Fullscreen Gallery Modal */}
       {galleryState.isOpen && (
         <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md" onClick={closeGallery}>
-          <button onClick={closeGallery} className="absolute top-6 right-6 text-white/50 hover:text-white z-50 transition-colors">
+          <button aria-label="Close Gallery" onClick={closeGallery} className="absolute top-6 right-6 text-white/80 hover:text-white z-50 transition-colors">
             <X size={32} strokeWidth={1} />
           </button>
           
-          <button onClick={prevImage} className="absolute left-4 lg:left-8 text-white/50 hover:text-white z-50 p-2 transition-colors">
+          <button aria-label="Previous Image" onClick={prevImage} className="absolute left-4 lg:left-8 text-white/80 hover:text-white z-50 p-2 transition-colors">
             <ChevronLeft size={48} strokeWidth={1} />
           </button>
 
           <img 
             src={galleryState.images[galleryState.currentIndex]} 
             alt="Gallery view" 
+            width="1200"
+            height="800"
             className="max-h-[85vh] max-w-full object-contain select-none"
             onClick={(e) => e.stopPropagation()}
           />
 
-          <button onClick={nextImage} className="absolute right-4 lg:right-8 text-white/50 hover:text-white z-50 p-2 transition-colors">
+          <button aria-label="Next Image" onClick={nextImage} className="absolute right-4 lg:right-8 text-white/80 hover:text-white z-50 p-2 transition-colors">
             <ChevronRight size={48} strokeWidth={1} />
           </button>
 
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm tracking-widest font-light">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm tracking-widest font-light">
             {galleryState.currentIndex + 1} / {galleryState.images.length}
           </div>
         </div>

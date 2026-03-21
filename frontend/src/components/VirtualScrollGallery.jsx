@@ -167,6 +167,7 @@ const VirtualScrollGallery = () => {
           {categories.map((category) => (
             <button
               key={category}
+              aria-label={`Filter by ${category}`}
               onClick={() => handleCategoryChange(category)}
               className={`px-5 py-2.5 border transition-all ${selectedCategory === category
                 ? 'bg-forest text-sand border-forest'
@@ -182,6 +183,7 @@ const VirtualScrollGallery = () => {
         {selectedCategory === 'All' && allFilteredImages.length > 12 && (
           <div className="text-center mb-16">
             <button
+              aria-label={isExpanded ? "Show Less Photos" : "View All Photos"}
               onClick={handleExpandToggle}
               className="px-8 py-3 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)_/_0.9)] font-medium"
             >
@@ -333,6 +335,7 @@ const VirtualScrollGallery = () => {
           <div className="relative max-w-4xl w-full">
             {/* Close Button */}
             <button
+              aria-label="Close Lightbox"
               onClick={closeLightbox}
               className="absolute top-4 right-4 z-10 w-12 h-12 bg-[hsl(var(--background)_/_0.2)] hover:bg-[hsl(var(--background)_/_0.3)] flex items-center justify-center transition-colors"
             >
@@ -343,12 +346,14 @@ const VirtualScrollGallery = () => {
             {filteredImages.length > 1 && (
               <>
                 <button
+                  aria-label="Previous Image"
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-[hsl(var(--background)_/_0.2)] hover:bg-[hsl(var(--background)_/_0.3)] flex items-center justify-center transition-colors"
                 >
                   <ChevronLeft size={24} className="text-[hsl(var(--foreground))]" />
                 </button>
                 <button
+                  aria-label="Next Image"
                   onClick={nextImage}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-[hsl(var(--background)_/_0.2)] hover:bg-[hsl(var(--background)_/_0.3)] flex items-center justify-center transition-colors"
                 >

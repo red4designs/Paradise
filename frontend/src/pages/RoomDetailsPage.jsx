@@ -110,8 +110,8 @@ const RoomDetailsPage = () => {
   return (
     <div className="bg-sand min-h-screen pt-24 pb-32">
       <Helmet>
-        <title>Room Details | Paradise Resort Vattavada</title>
-        <meta name="description" content="Explore our Deluxe Rooms, Double Rooms, Private Cottages, Tents, and Dormitories." />
+        <title>Best Rooms & Cottages in Vattavada - Paradise Resort</title>
+        <meta name="description" content="Explore our premium Vattavada accommodations. We offer Private Cottages, Adventure Tents, Deluxe Rooms, and Dormitories for the best stay in Vattavada." />
         <link rel="canonical" href={`${BASE_URL}/rooms`} />
       </Helmet>
 

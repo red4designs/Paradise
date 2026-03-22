@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { mockData } from '../data/mock'; // Ensure mockData has the FAQs, else fallback to standard list.
 
 const faqs = [
-  { question: "What are the check-in and check-out times?", answer: "Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in and late check-out are subject to availability." },
-  { question: "Is parking available at the resort?", answer: "Yes, we offer complimentary secure parking for all our guests within the resort premises." },
-  { question: "Are pets allowed?", answer: "Currently, we do not accommodate pets to ensure the comfort of all our guests." },
-  { question: "How do I book a jeep trekking session?", answer: "You can book jeep trekking either directly during your stay via our front desk or by requesting it through our WhatsApp booking inquiry prior to your arrival." },
-  { question: "Is the resort child-friendly?", answer: "Yes, our private cottages and deluxe rooms are very spacious and perfect for families with children." },
+  { question: "Where is Paradise Resort Vattavada located?", answer: "Paradise Resort Vattavada is located just 1.5 km from Vattavada town, offering a peaceful nature stay with scenic valley views." },
+  { question: "Is your resort suitable for families and groups?", answer: "Yes, we are a family-run resort providing a safe and comfortable stay for families, couples, and groups." },
+  { question: "Do you provide jeep trekking in Vattavada?", answer: "Yes, we offer Vattavada Jeep Trekking covering 28 km for 3+ hours at ₹2500 per jeep (max 8 persons)." },
+  { question: "What places are covered in jeep trekking?", answer: "Shooting Point, Chilanthiyar Waterfall, Tiger Cave, Tribal Village View, Vegetable Farms, Pazhathottam Aerial View Point, Vattavada Silver Falls, Strawberry Farm, Honey Museum." },
+  { question: "Do you provide campfire?", answer: "Yes, campfire with music is available up to 10:00 PM for ₹800." },
+  { question: "Do you provide BBQ setup?", answer: "Yes, grill set + charcoal is ₹400. Extra charcoal, chicken, and marination are charged separately. Marination is ₹100 per chicken." },
+  { question: "What is the cost of food?", answer: "Dinner ₹200 per person, Breakfast ₹100 per person." },
+  { question: "What food do you provide?", answer: "Dinner: Chapati + Chicken Curry\nBreakfast: Idli, Vada, Chutney, Sambar, Tea" },
+  { question: "Is kitchen available for cooking?", answer: "Currently not available due to LPG shortage." },
+  { question: "What facilities do you provide?", answer: "Free WiFi, hot water (restricted timing due to LPG), parking, scenic views, group stay options." },
+  { question: "What is Vattavada checkpost timing?", answer: "Entry allowed only from 6:00 AM to 6:00 PM." }
 ];
 
 const FAQPage = () => {
@@ -25,14 +30,72 @@ const FAQPage = () => {
         <title>Frequently Asked Questions | Paradise Resort Vattavada</title>
         <meta name="description" content="Find answers to commonly asked questions about your stay, amenities, and experiences at Paradise Resort Vattavada." />
         <link rel="canonical" href={`${BASE_URL}/faq`} />
+
+        {/* FAQ SCHEMA FOR GOOGLE RICH RESULTS */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Where is Paradise Resort Vattavada located?", "acceptedAnswer": { "@type": "Answer", "text": "Paradise Resort Vattavada is located 1.5 km from Vattavada town with scenic valley views." } },
+              { "@type": "Question", "name": "Do you provide jeep trekking in Vattavada?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, 28 km jeep trekking for 3+ hours at Rs. 2500 per jeep (max 8 persons)." } },
+              { "@type": "Question", "name": "What places are covered in jeep trekking?", "acceptedAnswer": { "@type": "Answer", "text": "Shooting Point, Chilanthiyar Waterfall, Tiger Cave, Tribal Village, Vegetable Farms, Pazhathottam View Point, Silver Falls, Strawberry Farm and Honey Museum." } },
+              { "@type": "Question", "name": "Do you provide campfire?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, campfire available till 10 PM at Rs. 800." } },
+              { "@type": "Question", "name": "Do you provide BBQ?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, grill set with charcoal at Rs. 400. Chicken and marination extra." } },
+              { "@type": "Question", "name": "What is food cost?", "acceptedAnswer": { "@type": "Answer", "text": "Dinner Rs. 200 and breakfast Rs. 100 per person." } },
+              { "@type": "Question", "name": "Is kitchen available?", "acceptedAnswer": { "@type": "Answer", "text": "No, currently not available due to LPG shortage." } },
+              { "@type": "Question", "name": "What facilities do you provide?", "acceptedAnswer": { "@type": "Answer", "text": "WiFi, hot water (limited timing), parking, scenic views and group stay." } },
+              { "@type": "Question", "name": "What is Vattavada checkpost entry timing?", "acceptedAnswer": { "@type": "Answer", "text": "Entry is allowed only between 6 AM and 6 PM." } }
+            ]
+          })}
+        </script>
+
+        {/* LOCAL BUSINESS SCHEMA FOR GOOGLE MAPS SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LodgingBusiness",
+            "name": "Paradise Resort Vattavada",
+            "telephone": "+91-9074902424",
+            "priceRange": "₹₹",
+            "description": "Best budget stay in Vattavada with jeep trekking, campfire, BBQ and scenic views.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vattavada",
+              "addressRegion": "Kerala",
+              "postalCode": "685615",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "10.1830",
+              "longitude": "77.2550"
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Hot Water", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Campfire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "BBQ", "value": true }
+            ],
+            "makesOffer": [
+              { "@type": "Offer", "name": "Jeep Trekking", "price": "2500", "priceCurrency": "INR" },
+              { "@type": "Offer", "name": "Campfire", "price": "800", "priceCurrency": "INR" },
+              { "@type": "Offer", "name": "BBQ", "price": "400", "priceCurrency": "INR" }
+            ],
+            "sameAs": [
+              "https://maps.app.goo.gl/J3zwapznrALcECEN6"
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 fade-in-up">
-        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/80 block mb-4">Support</span>
+        <span className="uppercase tracking-[0.2em] text-xs font-medium text-forest/80 block mb-4">Support & Information</span>
         <h1 className="font-serif text-4xl md:text-5xl text-forest mb-6">Frequently Asked <span className="italic font-light">Questions</span></h1>
         <p className="text-lg text-forest/90 font-light max-w-2xl mx-auto">
-          Everything you need to know about your upcoming stay at Paradise Resort Vattavada.
+          Planning your trip to the <strong>best resort in Vattavada</strong>? Find all the details below regarding our cozy stays, exclusive <strong>Jeep trekking Vattavada</strong> packages, amenities, and more.
         </p>
       </div>
 
@@ -48,10 +111,10 @@ const FAQPage = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
               >
-                <h2 className={`font-serif text-xl transition-colors ${isOpen ? 'text-forest' : 'text-forest/90 group-hover:text-forest'}`}>
+                <h2 className={`font-serif text-xl transition-colors pr-6 ${isOpen ? 'text-forest' : 'text-forest/90 group-hover:text-forest'}`}>
                   {faq.question}
                 </h2>
-                <span className="text-forest/80 ml-4 shrink-0 transition-transform duration-300">
+                <span className="text-forest/80 shrink-0 transition-transform duration-300">
                   {isOpen ? <ChevronUp size={24} strokeWidth={1.5} /> : <ChevronDown size={24} strokeWidth={1.5} />}
                 </span>
               </button>
@@ -60,7 +123,7 @@ const FAQPage = () => {
                 id={`faq-answer-${index}`}
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0 pb-0'}`}
               >
-                <p className="text-forest/90 font-light leading-relaxed pl-4 border-l border-forest/20">
+                <p className="text-forest/90 font-light leading-relaxed pl-4 border-l border-forest/20 whitespace-pre-line">
                   {faq.answer}
                 </p>
               </div>

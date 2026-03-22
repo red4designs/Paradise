@@ -219,6 +219,13 @@ const RoomDetailsPage = () => {
         ))}
       </div>
 
+      {/* Pricing Disclaimer */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 text-center fade-in-up">
+        <p className="text-sm text-forest/70 font-light italic border-t border-forest/10 pt-8">
+          *Note: All prices mentioned are indicative. Seasonal rates and peak date pricing may vary. Please contact us directly for the most current rates and availability.
+        </p>
+      </div>
+
       {/* Fullscreen Gallery Modal */}
       {galleryState.isOpen && (
         <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md" onClick={closeGallery}>

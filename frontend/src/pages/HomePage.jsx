@@ -43,6 +43,9 @@ Please check availability and let me know.`;
             width="1920"
             height="1080"
             className="w-full h-full object-cover object-center"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -260,7 +263,7 @@ Please check availability and let me know.`;
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Fall asleep to the mountain breeze. We offer 8 private tents, each perfectly sized for 2 guests.
                 </p>
-                <button onClick={() => navigate('/rooms#tent')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                <button onClick={() => navigate('/faq#sightseeing')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
                 </button>
               </div>
@@ -313,7 +316,7 @@ Please check availability and let me know.`;
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   A rugged 28km off-road journey. Experience 3+ hours of breathtaking trails and hidden viewpoints.
                 </p>
-                <button onClick={() => navigate('/guide')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                <button onClick={() => navigate('/faq#jeep-trekking')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
                 </button>
               </div>
@@ -332,7 +335,7 @@ Please check availability and let me know.`;
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Slow down and explore. Immerse yourself in the local landscape with curated walking tours of the valley.
                 </p>
-                <button onClick={() => navigate('/guide')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                <button onClick={() => navigate('/faq#jeep-trekking')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
                 </button>
               </div>
@@ -351,9 +354,9 @@ Please check availability and let me know.`;
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Warmth and flavor. Gather round for an evening of fresh grilling under the Vattavada stars.
                 </p>
-                <a href="https://wa.me/919074902424" target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                <button onClick={() => navigate('/faq#campfire')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
-                </a>
+                </button>
               </div>
             </div>
           </div>

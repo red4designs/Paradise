@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
 import { ArrowRight, ChevronRight, Tent, Home, Users, Mountain, Compass, BedDouble, Bed, Flame, Map, CarFront } from 'lucide-react';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [bookingData, setBookingData] = useState({
     checkIn: '',
     checkOut: '',
@@ -167,9 +169,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-3xl text-forest">Private Cottage</h4>
                   <span className="font-sans text-sm font-light text-forest/80">Up to 15 Pax</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed">
+                <p className="text-forest/90 font-light leading-relaxed mb-6">
                   Your own 3-BHK sanctuary. A secluded, private property that comfortably hosts up to 15 guests.
                 </p>
+                <button onClick={() => navigate('/rooms#cottage')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -186,9 +191,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-2xl text-forest">Deluxe Room</h4>
                   <span className="font-sans text-sm font-light text-forest/80">7 Pax</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Expansive and versatile. A spacious retreat designed for groups, accommodating up to 7 guests with ease.
                 </p>
+                <button onClick={() => navigate('/rooms#deluxe')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -205,9 +213,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-2xl text-forest">Double Room</h4>
                   <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Intimate and serene. The perfect mountain escape for 2 guests.
                 </p>
+                <button onClick={() => navigate('/rooms#double')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -224,9 +235,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-2xl text-forest">The Dormitory</h4>
                   <span className="font-sans text-sm font-light text-forest/80">16 Pax</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Community-focused comfort. Features bunk beds with a total capacity for 16 guests—ideal for trekking groups.
                 </p>
+                <button onClick={() => navigate('/rooms#dormitory')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -243,9 +257,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-2xl text-forest">Tent Stay</h4>
                   <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Fall asleep to the mountain breeze. We offer 8 private tents, each perfectly sized for 2 guests.
                 </p>
+                <button onClick={() => navigate('/rooms#tent')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -262,9 +279,12 @@ Please check availability and let me know.`;
                   <h4 className="font-serif text-3xl text-forest">Resort Full Property</h4>
                   <span className="font-sans text-sm font-light text-forest/80">50-60 Pax &nbsp;&bull;&nbsp; ₹30k</span>
                 </div>
-                <p className="text-forest/90 font-light leading-relaxed">
+                <p className="text-forest/90 font-light leading-relaxed mb-6">
                   Exclusive access to the entire resort wrapped in stunning panoramic resort views. Includes 5 deluxe rooms, 3 double rooms, and a 16-person dormitory.
                 </p>
+                <button onClick={() => navigate('/rooms#full-property')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
           </div>
@@ -290,9 +310,12 @@ Please check availability and let me know.`;
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Jeep Trekking</h4>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   A rugged 28km off-road journey. Experience 3+ hours of breathtaking trails and hidden viewpoints.
                 </p>
+                <button onClick={() => navigate('/guide')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -306,9 +329,12 @@ Please check availability and let me know.`;
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Guided Sightseeing</h4>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Slow down and explore. Immerse yourself in the local landscape with curated walking tours of the valley.
                 </p>
+                <button onClick={() => navigate('/guide')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </button>
               </div>
             </div>
 
@@ -322,9 +348,12 @@ Please check availability and let me know.`;
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h4 className="font-serif text-2xl text-forest mb-3 mt-2">Campfire & BBQ</h4>
-                <p className="text-forest/90 font-light leading-relaxed text-sm">
+                <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
                   Warmth and flavor. Gather round for an evening of fresh grilling under the Vattavada stars.
                 </p>
+                <a href="https://wa.me/919074902424" target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
+                  More Details <ArrowRight size={14} className="ml-2" />
+                </a>
               </div>
             </div>
           </div>

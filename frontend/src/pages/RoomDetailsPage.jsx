@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
@@ -80,6 +81,21 @@ const rooms = [
 
 const RoomDetailsPage = () => {
   const [galleryState, setGalleryState] = useState({ isOpen: false, images: [], currentIndex: 0 });
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [hash]);
 
   const openGallery = (images, index = 0) => {
     setGalleryState({ isOpen: true, images, currentIndex: index });
@@ -127,7 +143,7 @@ const RoomDetailsPage = () => {
       {/* Room Categories */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
         {rooms.map((room, index) => (
-          <div key={room.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center fade-in-up`}>
+          <div key={room.id} id={room.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center fade-in-up scroll-mt-32`}>
             
             {/* Image Preview (Clickable to Gallery) */}
             <div className="w-full lg:w-1/2 relative group cursor-pointer" onClick={() => openGallery(room.images)}>

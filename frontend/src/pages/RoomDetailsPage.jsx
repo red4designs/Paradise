@@ -35,8 +35,8 @@ const rooms = [
     features: ['Private Sit-out', 'Living Area', 'Complete Privacy', 'Family Friendly'],
     review: { text: "The private cottage was spotless and offered such a peaceful sleep. Unmatched hospitality.", author: "Sarah K." },
     images: [
-      '/images/Cottages/IMG_20241109_151546.webp',
-      '/images/Cottages/IMG_20241109_160448.webp',
+      '/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp',
+      '/images/Cottages/IMG_20241109_151624.webp',
       '/images/Cottages/WhatsApp Image 2025-06-18 at 3.43.19 PM.webp'
     ]
   },

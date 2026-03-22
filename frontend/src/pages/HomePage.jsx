@@ -156,9 +156,9 @@ Please check availability and let me know.`;
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Private Cottage */}
             <div className="md:col-span-2 xl:col-span-2 group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden min-h-[300px]">
-              <div className="relative h-48 md:h-64 overflow-hidden">
-                <img src="/images/Cottages/IMG_20241109_151546.webp" alt="Private Cottage" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
+              <div className="md:col-span-12 relative h-[300px] rounded-2xl overflow-hidden group cursor-pointer" onClick={() => navigate('/rooms')}>
+                <img src="/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp" alt="Private Cottage" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">rounded-full shadow-sm">
                   <Home size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
               </div>

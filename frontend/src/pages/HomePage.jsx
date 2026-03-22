@@ -73,7 +73,7 @@ Please check availability and let me know.`;
                       <input
                         type="date"
                         value={bookingData.checkIn}
-                        onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})}
+                        onChange={(e) => setBookingData({ ...bookingData, checkIn: e.target.value })}
                         className="w-full bg-transparent border-b border-forest/20 py-2 text-forest focus:outline-none focus:border-forest"
                         required
                       />
@@ -83,7 +83,7 @@ Please check availability and let me know.`;
                       <input
                         type="date"
                         value={bookingData.checkOut}
-                        onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})}
+                        onChange={(e) => setBookingData({ ...bookingData, checkOut: e.target.value })}
                         className="w-full bg-transparent border-b border-forest/20 py-2 text-forest focus:outline-none focus:border-forest"
                         required
                       />
@@ -93,7 +93,7 @@ Please check availability and let me know.`;
                     <label className="text-[10px] uppercase tracking-widest text-forest/80 font-medium">Accommodation Type</label>
                     <select
                       value={bookingData.accommodation}
-                      onChange={(e) => setBookingData({...bookingData, accommodation: e.target.value})}
+                      onChange={(e) => setBookingData({ ...bookingData, accommodation: e.target.value })}
                       className="w-full bg-transparent border-b border-forest/20 py-2 text-forest focus:outline-none focus:border-forest"
                     >
                       <option value="">Select option...</option>
@@ -111,7 +111,7 @@ Please check availability and let me know.`;
                       type="number"
                       min="1"
                       value={bookingData.guests}
-                      onChange={(e) => setBookingData({...bookingData, guests: e.target.value})}
+                      onChange={(e) => setBookingData({ ...bookingData, guests: e.target.value })}
                       className="w-full bg-transparent border-b border-forest/20 py-2 text-forest focus:outline-none focus:border-forest"
                       placeholder="Number of guests"
                     />
@@ -125,7 +125,7 @@ Please check availability and let me know.`;
                     <span className="text-xs uppercase tracking-widest text-forest/80 font-medium block mb-1">Or reach us directly at:</span>
                     <a href="https://wa.me/919074902424" className="text-lg font-bold text-forest hover:underline">WhatsApp: 9074902424</a>
                   </div>
-                  
+
                   {/* Trust Badge */}
                   <div className="pt-4 mt-4 border-t border-forest/10 flex flex-col items-center justify-center gap-1">
                     <div className="flex items-center gap-1 text-forest">
@@ -157,12 +157,12 @@ Please check availability and let me know.`;
             </h3>
             <p className="text-forest/80 font-light mt-2">Tailored comfort for every traveler.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Private Cottage */}
             <div className="md:col-span-2 xl:col-span-2 group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden min-h-[300px]">
               <div className="relative h-48 md:h-64 overflow-hidden">
-                <img src="/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp" alt="Private Cottage" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp" alt="Private Cottage" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Home size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -184,7 +184,7 @@ Please check availability and let me know.`;
             {/* Deluxe Room */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Deluxe Room/IMG_1831.webp" alt="Deluxe Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Deluxe Room/IMG_1831.webp" alt="Deluxe Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Bed size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -206,7 +206,7 @@ Please check availability and let me know.`;
             {/* Double Room */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Double room/IMG_20241011_150853.webp" alt="Double Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Double room/IMG_20241011_150853.webp" alt="Double Room" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <BedDouble size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -228,7 +228,7 @@ Please check availability and let me know.`;
             {/* The Dormitory */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Dormitory/DJI_20231022_090731_99.webp" alt="The Dormitory" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Dormitory/DJI_20231022_090731_99.webp" alt="The Dormitory" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Users size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -250,7 +250,7 @@ Please check availability and let me know.`;
             {/* Tent Stay */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Tents/tent-new-1.webp" alt="Tent Stay" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Tents/tent-new-1.webp" alt="Tent Stay" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Tent size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -272,7 +272,7 @@ Please check availability and let me know.`;
             {/* Resort Full Property */}
             <div className="md:col-span-2 xl:col-span-2 group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden min-h-[300px]">
               <div className="relative h-48 md:h-64 overflow-hidden">
-                <img src="/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp" alt="Resort Full Property" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp" alt="Resort Full Property" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Home size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -301,12 +301,12 @@ Please check availability and let me know.`;
             </h3>
             <p className="text-forest/80 font-light mt-2">Beyond the four walls.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Jeep Trekking */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Activities/Jeep-Trekking.jpg.jpeg" alt="Jeep Trekking" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Activities/Jeep-Trekking.jpg.jpeg" alt="Jeep Trekking" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <CarFront size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -325,7 +325,7 @@ Please check availability and let me know.`;
             {/* Guided Sightseeing */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Views/IMG_1701_optimized.webp" alt="Guided Sightseeing" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Views/IMG_1701_optimized.webp" alt="Guided Sightseeing" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Map size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -344,7 +344,7 @@ Please check availability and let me know.`;
             {/* Campfire & BBQ */}
             <div className="group bg-mist border border-forest/10 flex flex-col hover:shadow-xl transition-all overflow-hidden">
               <div className="relative h-48 overflow-hidden">
-                <img src="/images/Activities/campfire.jpeg" alt="Campfire & BBQ" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src="/images/Activities/campfire.jpeg" alt="Campfire & BBQ" width="800" height="600" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 <div className="absolute top-4 left-4 w-10 h-10 bg-mist/90 backdrop-blur-sm flex items-center justify-center rounded-full shadow-sm">
                   <Flame size={18} strokeWidth={1.5} className="text-forest" />
                 </div>
@@ -368,7 +368,7 @@ Please check availability and let me know.`;
             <span className="uppercase tracking-[0.2em] text-xs font-bold text-forest/80 block mb-2">Guest Love</span>
             <h3 className="font-serif text-4xl text-forest">Verified Experiences</h3>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-6 flex-1">
             {/* Nidhun P - Wide Block */}
             <div className="md:col-span-2 bg-mist p-12 md:p-16 flex flex-col justify-center transition-transform hover:-translate-y-1 duration-300">
@@ -380,7 +380,7 @@ Please check availability and let me know.`;
                 Nidhun P
               </div>
             </div>
-            
+
             {/* Jagan Krishna - Smaller Block */}
             <div className="bg-mist p-10 flex flex-col justify-center transition-transform hover:-translate-y-1 duration-300">
               <div className="flex text-forest text-base mb-6 tracking-widest">★★★★★</div>
@@ -395,14 +395,15 @@ Please check availability and let me know.`;
             {/* YouTube Testimonial Embed */}
             <div className="md:col-span-3 bg-mist/50 p-2 sm:p-4 mt-2 transition-transform hover:-translate-y-1 duration-300 rounded-sm">
               <div className="aspect-video w-full overflow-hidden border border-forest/10 rounded-sm shadow-sm">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src="https://www.youtube.com/embed/UwGLRFeFBOk?rel=0" 
-                  title="Paradise Resort Vattavada Guest Experience" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/UwGLRFeFBOk?rel=0"
+                  title="YouTube video player: Paradise Resort Vattavada Guest Experience"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>

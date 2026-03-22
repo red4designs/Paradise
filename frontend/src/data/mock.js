@@ -29,7 +29,7 @@ export const mockData = {
       capacity: "Up to 1️⃣8️⃣ adults",
       features: ["🚿 Shared bathroom", "🍳 Kitchen facilities", "🌄 Mountain view", "👨‍👩‍👧‍👦 Family-friendly"],
       price: "💬 Contact for pricing",
-      image: "/images/Cottages/IMG_20250208_122711.webp?v=" + Date.now()
+      image: "/images/cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp?v=" + Date.now()
     },
     {
       id: 2,

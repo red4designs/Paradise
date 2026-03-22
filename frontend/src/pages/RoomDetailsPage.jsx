@@ -14,8 +14,8 @@ const rooms = [
   {
     id: 'deluxe',
     name: 'Deluxe Room',
-    description: 'A premium space designed for utmost comfort. Features an en-suite bathroom, modern amenities, a plush king-sized bed, and large windows that frame the mist-covered mountains of Vattavada.',
-    features: ['King Bed', 'En-suite Bathroom', 'Mountain View', 'In-room Dining'],
+    description: 'A premium space designed for utmost comfort. Features an en-suite bathroom, modern amenities, a plush Queen-sized bed, and a Double-Sized Bed.',
+    features: ['1 Queen Bed + 1 Double Bed', 'En-suite Bathroom', 'Free wifi and hot water', 'No smoking room', 'Total 5 rooms available', 'Rs. 3000 for 5 members (+500/extra pax)', 'Max 7 pax per room'],
     review: { text: "Waking up to the misty mountains from this room was an absolute dream. Clean, spacious, and perfect.", author: "David L." },
     images: getGalleryImages('Deluxe Room', [
       '/images/Deluxe Room/IMG_1831.webp',
@@ -26,8 +26,8 @@ const rooms = [
   {
     id: 'double',
     name: 'Double Room',
-    description: 'Perfect for couples or close friends. Clean, minimalist design featuring natural wood tones, a comfortable double bed, and all the essential amenities for a serene mountain stay.',
-    features: ['Double Bed', 'Attached Bath', 'Wood Aesthetics', '24/7 Hot Water'],
+    description: 'Perfect for couples or close friends. Clean, minimalist design, a comfortable double bed, and all the essential amenities for a serene mountain stay.',
+    features: ['1 Double Bed', 'Attached Bath', 'Free wifi and hot water', 'No smoking room', 'Total 2 rooms available', 'Rs. 1800 for 2 members (+300/extra pax)', 'Max 3 pax per room'],
     review: { text: "Spacious rooms and neat bathroom. Feel like staying at home.", author: "Freddyjohn987", verifiedComfort: true },
     images: getGalleryImages('Double Room', [
       '/images/Double room/IMG_20241011_150853.webp',
@@ -38,8 +38,8 @@ const rooms = [
   {
     id: 'cottage',
     name: 'Private Cottage',
-    description: 'An exclusive, standalone cottage offering complete privacy. Includes a private living area, attached modern bathrooms, and an outdoor sit-out to enjoy the evening breeze and campfire.',
-    features: ['Private Sit-out', 'Living Area', 'Complete Privacy', 'Family Friendly'],
+    description: 'An exclusive, standalone cottage offering complete privacy. 3 bedrooms Includes a private living area, hall, dining area, 2 bathrooms, and an outdoor sit-out to enjoy the evening breeze and campfire.',
+    features: ['3 Bedrooms (2 double cots in each room)', 'Dining Area, Hall & Kitchen', 'Capacity 15 pax - Rs. 9000', 'Maximum 18 pax - Rs. 10,500', 'Complete Privacy', 'Family Friendly', 'Free wifi and hot water', 'No smoking room'],
     review: { text: "The private cottage was spotless and offered such a peaceful sleep. Unmatched hospitality.", author: "Sarah K." },
     images: getGalleryImages('Cottages', [
       '/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp',
@@ -50,8 +50,8 @@ const rooms = [
   {
     id: 'tent',
     name: 'Adventure Tent',
-    description: 'Immerse yourself in nature. Our premium heavy-duty tents come equipped with thick, comfortable mattresses and blankets, positioned perfectly to watch the stars and enjoy the campfire.',
-    features: ['Heavy-Duty Tent', 'Thick Mattress', 'Campfire Access', 'Star Gazing'],
+    description: 'Immerse yourself in nature. Our heavy-duty tents come equipped with mattresses and blankets, positioned perfectly to watch the stars and enjoy the campfire.',
+    features: ['Heavy-Duty Tent (Total 8 tents)', 'Mattress + blankets + pillow', '2 pax in 1 tent (Rs. 1000)', 'Campfire Access & Star Gazing', 'Plug points and light inside tent', 'Wifi available', 'Common shared bathrooms', '100% safe'],
     review: { text: "Absolutely breathtaking view from the dome tent. The mist rolling over the hills in the morning was surreal.", author: "Rahul M." },
     images: getGalleryImages('Tents', [
       '/images/Tents/tent-new-1.webp',
@@ -62,8 +62,8 @@ const rooms = [
   {
     id: 'dormitory',
     name: 'Dormitory',
-    description: 'The ultimate space for large groups and backpackers. Clean, spacious, and budget-friendly, featuring individual comfortable beds, shared clean washrooms, and plenty of room to socialize.',
-    features: ['Large Group Capacity', 'Budget Friendly', 'Clean Shared Baths', 'Locker Space'],
+    description: 'The ultimate space for large groups and backpackers. Clean and budget-friendly, featuring individual comfortable Bunk beds, shared clean washrooms, and plenty of room to socialize.',
+    features: ['Large Group Capacity', '16 pax capacity - 8000/- (500 per person)', 'Budget Friendly', 'Clean Shared Baths', 'Wifi hot water available'],
     review: { text: "A peaceful, affordable place to stay. Rooms were very spacious and clean.", author: "Gopikrishna R", verifiedComfort: true },
     images: getGalleryImages('Dormitory', [
       '/images/Dormitory/DJI_20231022_090731_99.webp',
@@ -75,7 +75,7 @@ const rooms = [
     id: 'full-property',
     name: 'Resort Full Property',
     description: 'Experience Paradise Resort exclusively for your large group or event. Enjoy unrestricted access to our entire facility overlooking stunning mountain views.',
-    features: ['5 Deluxe Rooms', '3 Double Rooms', '16-Person Dorm', '50-60 Pax Capacity', 'Around ₹30,000/night'],
+    features: ['5 Deluxe Rooms', '2 Double Rooms', '16-Person Dorm', '8 Tents & 1 Cottage', 'Around ₹30,000/night for entirety'],
     review: { text: "Booking the entire property for our family reunion was incredible. Absolute privacy and incredible views!", author: "Thomas George", verifiedComfort: true },
     images: getGalleryImages('Views', [
       '/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp',
@@ -205,9 +205,12 @@ const RoomDetailsPage = () => {
                 </div>
               )}
               
-              <div className="pt-6">
-                <a href={`https://wa.me/919074902424?text=${encodeURIComponent(`Hi, I am interested in booking the ${room.name}.`)}`} target="_blank" rel="noreferrer" className="inline-block border border-forest text-forest hover:bg-forest hover:text-sand transition-colors px-6 py-3 text-xs uppercase tracking-widest font-medium">
-                  Check Availability
+              <div className="pt-6 flex flex-wrap gap-4">
+                <a href={`https://wa.me/919074902424?text=${encodeURIComponent(`Hi, I am interested in booking the ${room.name}.`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center border border-forest bg-forest text-sand hover:bg-forest/90 transition-colors px-6 py-3 text-xs uppercase tracking-widest font-medium group">
+                  Book on WhatsApp
+                </a>
+                <a href="/guide" className="inline-flex items-center justify-center border border-forest text-forest hover:bg-forest hover:text-sand transition-colors px-6 py-3 text-xs uppercase tracking-widest font-medium">
+                  Arrival Guide
                 </a>
               </div>
             </div>

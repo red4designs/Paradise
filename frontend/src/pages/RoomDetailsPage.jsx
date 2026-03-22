@@ -75,7 +75,7 @@ const rooms = [
     id: 'full-property',
     name: 'Resort Full Property',
     description: 'Experience Paradise Resort exclusively for your large group or event. Enjoy unrestricted access to our entire facility overlooking stunning mountain views.',
-    features: ['5 Deluxe Rooms', '2 Double Rooms', '16-Person Dorm', '8 Tents & 1 Cottage', 'Around ₹30,000/night for entirety'],
+    features: ['5 Deluxe Rooms', '2 Double Rooms', '16-Person Dorm', 'Around ₹30,000/night for entirety'],
     review: { text: "Booking the entire property for our family reunion was incredible. Absolute privacy and incredible views!", author: "Thomas George", verifiedComfort: true },
     images: getGalleryImages('Views', [
       '/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp',

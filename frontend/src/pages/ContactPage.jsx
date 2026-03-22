@@ -69,7 +69,7 @@ Message: ${formData.message || 'General inquiry'}`;
                 <Mail className="text-eucalyptus mt-1 shrink-0" size={20} strokeWidth={1.5} />
                 <div>
                   <strong className="block font-medium text-forest mb-1">Email</strong>
-                  <a href="mailto:info@paradisevattavada.com" className="hover:text-forest transition-colors">info@paradisevattavada.com</a>
+                  <a href="mailto:paradisevattavada@gmail.com" className="hover:text-forest transition-colors">paradisevattavada@gmail.com</a>
                 </div>
               </div>
             </div>

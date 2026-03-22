@@ -32,8 +32,8 @@ const FAQPage = () => {
         <link rel="canonical" href={`${BASE_URL}/faq`} />
 
         {/* FAQ SCHEMA FOR GOOGLE RICH RESULTS */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
@@ -47,12 +47,12 @@ const FAQPage = () => {
               { "@type": "Question", "name": "What facilities do you provide?", "acceptedAnswer": { "@type": "Answer", "text": "WiFi, hot water (limited timing), parking, scenic views and group stay." } },
               { "@type": "Question", "name": "What is Vattavada checkpost entry timing?", "acceptedAnswer": { "@type": "Answer", "text": "Entry is allowed only between 6 AM and 6 PM." } }
             ]
-          })}
-        </script>
+          })
+        }} />
 
         {/* LOCAL BUSINESS SCHEMA FOR GOOGLE MAPS SEO */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LodgingBusiness",
             "name": "Paradise Resort Vattavada",
@@ -86,8 +86,8 @@ const FAQPage = () => {
             "sameAs": [
               "https://maps.app.goo.gl/J3zwapznrALcECEN6"
             ]
-          })}
-        </script>
+          })
+        }} />
       </Helmet>
 
       {/* Header */}

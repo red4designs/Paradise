@@ -3,6 +3,12 @@ import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import generatedGallery from '../data/generated-gallery.json';
+
+const getGalleryImages = (category, fallback) => {
+  const images = generatedGallery.filter(item => item.category === category).map(item => item.image);
+  return images.length > 0 ? images : fallback;
+};
 
 const rooms = [
   {
@@ -11,11 +17,11 @@ const rooms = [
     description: 'A premium space designed for utmost comfort. Features an en-suite bathroom, modern amenities, a plush king-sized bed, and large windows that frame the mist-covered mountains of Vattavada.',
     features: ['King Bed', 'En-suite Bathroom', 'Mountain View', 'In-room Dining'],
     review: { text: "Waking up to the misty mountains from this room was an absolute dream. Clean, spacious, and perfect.", author: "David L." },
-    images: [
+    images: getGalleryImages('Deluxe Room', [
       '/images/Deluxe Room/IMG_1831.webp',
       '/images/Deluxe Room/IMG_1834.webp',
       '/images/Deluxe Room/IMG_1846.webp'
-    ]
+    ])
   },
   {
     id: 'double',
@@ -23,11 +29,11 @@ const rooms = [
     description: 'Perfect for couples or close friends. Clean, minimalist design featuring natural wood tones, a comfortable double bed, and all the essential amenities for a serene mountain stay.',
     features: ['Double Bed', 'Attached Bath', 'Wood Aesthetics', '24/7 Hot Water'],
     review: { text: "Spacious rooms and neat bathroom. Feel like staying at home.", author: "Freddyjohn987", verifiedComfort: true },
-    images: [
+    images: getGalleryImages('Double Room', [
       '/images/Double room/IMG_20241011_150853.webp',
       '/images/Double room/IMG_20241011_150912.webp',
       '/images/Double room/IMG_4674.webp'
-    ]
+    ])
   },
   {
     id: 'cottage',
@@ -35,11 +41,11 @@ const rooms = [
     description: 'An exclusive, standalone cottage offering complete privacy. Includes a private living area, attached modern bathrooms, and an outdoor sit-out to enjoy the evening breeze and campfire.',
     features: ['Private Sit-out', 'Living Area', 'Complete Privacy', 'Family Friendly'],
     review: { text: "The private cottage was spotless and offered such a peaceful sleep. Unmatched hospitality.", author: "Sarah K." },
-    images: [
+    images: getGalleryImages('Cottages', [
       '/images/Cottages/WhatsApp%20Image%202026-03-22%20at%208.57.30%20AM.webp',
       '/images/Cottages/IMG_20241109_151624.webp',
       '/images/Cottages/WhatsApp Image 2025-06-18 at 3.43.19 PM.webp'
-    ]
+    ])
   },
   {
     id: 'tent',
@@ -47,11 +53,11 @@ const rooms = [
     description: 'Immerse yourself in nature. Our premium heavy-duty tents come equipped with thick, comfortable mattresses and blankets, positioned perfectly to watch the stars and enjoy the campfire.',
     features: ['Heavy-Duty Tent', 'Thick Mattress', 'Campfire Access', 'Star Gazing'],
     review: { text: "Absolutely breathtaking view from the dome tent. The mist rolling over the hills in the morning was surreal.", author: "Rahul M." },
-    images: [
+    images: getGalleryImages('Tents', [
       '/images/Tents/tent-new-1.webp',
       '/images/Tents/tent-new-3.webp',
       '/images/Tents/tent-new-5.webp'
-    ]
+    ])
   },
   {
     id: 'dormitory',
@@ -59,11 +65,11 @@ const rooms = [
     description: 'The ultimate space for large groups and backpackers. Clean, spacious, and budget-friendly, featuring individual comfortable beds, shared clean washrooms, and plenty of room to socialize.',
     features: ['Large Group Capacity', 'Budget Friendly', 'Clean Shared Baths', 'Locker Space'],
     review: { text: "A peaceful, affordable place to stay. Rooms were very spacious and clean.", author: "Gopikrishna R", verifiedComfort: true },
-    images: [
+    images: getGalleryImages('Dormitory', [
       '/images/Dormitory/DJI_20231022_090731_99.webp',
       '/images/Dormitory/DJI_20231022_090731_99.webp',
       '/images/Dormitory/DJI_20231022_090731_99.webp'
-    ]
+    ])
   },
   {
     id: 'full-property',
@@ -71,11 +77,11 @@ const rooms = [
     description: 'Experience Paradise Resort exclusively for your large group or event. Enjoy unrestricted access to our entire facility overlooking stunning mountain views.',
     features: ['5 Deluxe Rooms', '3 Double Rooms', '16-Person Dorm', '50-60 Pax Capacity', 'Around ₹30,000/night'],
     review: { text: "Booking the entire property for our family reunion was incredible. Absolute privacy and incredible views!", author: "Thomas George", verifiedComfort: true },
-    images: [
+    images: getGalleryImages('Views', [
       '/images/Views/WhatsApp Image 2025-04-05 at 6.46.48 PM.webp',
       '/images/Views/IMG_20241109_174235.webp',
       '/images/Views/IMG_1701.webp'
-    ]
+    ])
   }
 ];
 

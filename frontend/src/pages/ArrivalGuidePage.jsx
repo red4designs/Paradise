@@ -1,7 +1,98 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
-import { MapPin, Navigation2, Compass, AlertCircle } from 'lucide-react';
+import { MapPin, Navigation2, Compass, AlertCircle, Home, Car, VolumeX, Flame, Utensils, Clock, ShieldCheck, CreditCard, Leaf, Heart } from 'lucide-react';
+
+const rulesData = [
+  {
+    category: "General Rules",
+    icon: Home,
+    rules: [
+      "Valid ID proof is mandatory for all guests at check-in",
+      "Check-in time: 12:00 PM | Check-out time: 11:00 AM",
+      "Guests are requested to maintain cleanliness and take care of the property",
+      "Any damage to property will be charged accordingly",
+      "Outside visitors are not allowed without prior permission"
+    ]
+  },
+  {
+    category: "Parking Policy",
+    icon: Car,
+    rules: [
+      "Parking is available on the property",
+      "Parking is at the owner's risk",
+      "Guests are requested to park carefully and responsibly",
+      "Please ensure your vehicle does not block or damage other vehicles",
+      "The management is not responsible for any damage, theft, or loss"
+    ]
+  },
+  {
+    category: "Noise & Behavior Policy",
+    icon: VolumeX,
+    rules: [
+      "Please maintain silence after 10:00 PM",
+      "Loud music and parties are not allowed after campfire timing",
+      "Illegal activities and substance abuse are strictly prohibited",
+      "Respect other guests and maintain a family-friendly environment"
+    ]
+  },
+  {
+    category: "Campfire & BBQ Rules",
+    icon: Flame,
+    rules: [
+      "Campfire is available only up to 10:00 PM",
+      "Follow safety instructions while using BBQ setup",
+      "Guests are responsible while handling fire and grill equipment",
+      "Management is not responsible for misuse of BBQ or fire"
+    ]
+  },
+  {
+    category: "Food & Kitchen Policy",
+    icon: Utensils,
+    rules: [
+      "Food will be provided as per prior order only",
+      "Outside cooking is not allowed (kitchen not available due to LPG shortage)",
+      "BBQ chicken and marination must be arranged through the resort"
+    ]
+  },
+  {
+    category: "Travel & Timing",
+    icon: Clock,
+    rules: [
+      "Vattavada checkpost entry allowed only from 6:00 AM to 6:00 PM",
+      "Guests are requested to plan arrival accordingly",
+      "Late check-in is subject to availability and prior confirmation"
+    ]
+  },
+  {
+    category: "Safety & Responsibility",
+    icon: ShieldCheck,
+    rules: [
+      "Guests are responsible for their personal belongings",
+      "The resort is not liable for loss, theft, or damage",
+      "Parents are responsible for children at all times",
+      "Follow staff instructions for safety during jeep trekking and activities"
+    ]
+  },
+  {
+    category: "Cancellation & Refund Policy",
+    icon: CreditCard,
+    rules: [
+      "Advance booking amount is non-refundable",
+      "Date change is subject to availability",
+      "In case of no-show, the booking will be cancelled without refund"
+    ]
+  },
+  {
+    category: "Eco-Friendly Policy",
+    icon: Leaf,
+    rules: [
+      "Do not litter inside or around the property",
+      "Help us keep Vattavada clean and green",
+      "Avoid plastic waste wherever possible"
+    ]
+  }
+];
 
 const ArrivalGuidePage = () => {
   return (
@@ -73,6 +164,46 @@ const ArrivalGuidePage = () => {
               title="Paradise Resort Location Map"
               className="absolute inset-0"
             ></iframe>
+          </div>
+        </section>
+
+        {/* Rules & Regulations Section */}
+        <section className="pt-20 border-t border-forest/10 fade-in-up">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-forest mb-4">📜 Rules &amp; Regulations</h2>
+            <p className="text-forest/80 font-light max-w-2xl mx-auto">
+              To ensure a safe, peaceful, and enjoyable stay for all guests, we kindly request you to follow the below rules:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {rulesData.map((section, index) => {
+              const Icon = section.icon;
+              return (
+                <div key={index} className="bg-forest/5 p-8 hover:bg-forest/10 transition-colors duration-300">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Icon size={24} className="text-forest" strokeWidth={1.5} />
+                    <h3 className="font-serif text-xl text-forest">{section.category}</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {section.rules.map((rule, idx) => (
+                      <li key={idx} className="flex gap-3 text-sm text-forest/90 font-light leading-relaxed">
+                        <span className="text-forest/40 mt-1">•</span>
+                        <span>{rule}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-16 bg-forest text-sand p-8 text-center max-w-3xl mx-auto rounded-sm fade-in-up">
+            <Heart size={32} className="mx-auto mb-4 text-sand/80" strokeWidth={1} />
+            <h3 className="font-serif text-2xl mb-4">Our Request</h3>
+            <p className="font-light leading-relaxed text-sand/90">
+              We are a family-run resort, and we aim to provide a peaceful and memorable experience for every guest. Your cooperation helps us maintain the quality and comfort of our service. Thank you for choosing Paradise Resort Vattavada!
+            </p>
           </div>
         </section>
 

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../constants/seo';
 import { ArrowRight, ChevronRight, Tent, Home, Users, Mountain, Compass, BedDouble, Bed, Flame, Map, CarFront } from 'lucide-react';
+import YouTubeFacade from '../components/facades/YouTubeFacade';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -394,18 +395,11 @@ Please check availability and let me know.`;
 
             {/* YouTube Testimonial Embed */}
             <div className="md:col-span-3 bg-mist/50 p-2 sm:p-4 mt-2 transition-transform hover:-translate-y-1 duration-300 rounded-sm">
-              <div className="aspect-video w-full overflow-hidden border border-forest/10 rounded-sm shadow-sm">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/UwGLRFeFBOk?rel=0"
-                  title="YouTube video player: Paradise Resort Vattavada Guest Experience"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              </div>
+              <YouTubeFacade 
+                videoId="UwGLRFeFBOk" 
+                title="Paradise Resort Vattavada Guest Experience"
+                className="w-full h-full border border-forest/10 shadow-sm"
+              />
             </div>
           </div>
         </div>

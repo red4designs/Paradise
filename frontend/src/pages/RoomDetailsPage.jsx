@@ -14,7 +14,7 @@ const rooms = [
   {
     id: 'deluxe',
     name: 'Deluxe Room',
-    description: 'A premium space designed for utmost comfort. Features an en-suite bathroom, modern amenities, a plush Queen-sized bed, and a Double-Sized Bed.',
+    description: 'A premium space designed for utmost comfort. Enjoy a luxurious homestay in Vattavada with our en-suite bathroom, modern amenities, a plush Queen-sized bed, and a Double-Sized Bed.',
     features: ['1 Queen Bed + 1 Double Bed', 'En-suite Bathroom', 'Free wifi and hot water', 'No smoking room', 'Total 5 rooms available', 'Rs. 3000 for 5 members (+500/extra pax)', 'Max 7 pax per room'],
     review: { text: "Waking up to the misty mountains from this room was an absolute dream. Clean, spacious, and perfect.", author: "David L." },
     images: getGalleryImages('Deluxe Room', [
@@ -26,7 +26,7 @@ const rooms = [
   {
     id: 'double',
     name: 'Double Room',
-    description: 'Perfect for couples or close friends. Clean, minimalist design, a comfortable double bed, and all the essential amenities for a serene mountain stay.',
+    description: 'Perfect for couples or close friends seeking a quiet stay in Vattavada. Clean, minimalist design, a comfortable double bed, and all the essential amenities for a warm homestay in Vattavada.',
     features: ['1 Double Bed', 'Attached Bath', 'Free wifi and hot water', 'No smoking room', 'Total 2 rooms available', 'Rs. 1800 for 2 members (+300/extra pax)', 'Max 3 pax per room'],
     review: { text: "Spacious rooms and neat bathroom. Feel like staying at home.", author: "Freddyjohn987", verifiedComfort: true },
     images: getGalleryImages('Double Room', [
@@ -38,7 +38,7 @@ const rooms = [
   {
     id: 'cottage',
     name: 'Private Cottage',
-    description: 'An exclusive, standalone cottage offering complete privacy. 3 bedrooms Includes a private living area, hall, dining area, 2 bathrooms, and an outdoor sit-out to enjoy the evening breeze and campfire.',
+    description: 'An exclusive, standalone cottage offering complete privacy for a family friendly stay in Vattavada. Includes a private living area, hall, dining area, 2 bathrooms, and a sit-out.',
     features: ['3 Bedrooms (2 double cots in each room)', 'Dining Area, Hall & Kitchen', 'Capacity 15 pax - Rs. 9000', 'Maximum 18 pax - Rs. 10,500', 'Complete Privacy', 'Family Friendly', 'Free wifi and hot water', 'No smoking room'],
     review: { text: "The private cottage was spotless and offered such a peaceful sleep. Unmatched hospitality.", author: "Sarah K." },
     images: getGalleryImages('Cottages', [
@@ -50,7 +50,7 @@ const rooms = [
   {
     id: 'tent',
     name: 'Adventure Tent',
-    description: 'Immerse yourself in nature. Our heavy-duty tents come equipped with mattresses and blankets, positioned perfectly to watch the stars and enjoy the campfire.',
+    description: 'Immerse yourself in nature with an authentic tent stay in Vattavada. Our heavy-duty tents come equipped with mattresses and blankets, perfect to watch the stars and enjoy the campfire.',
     features: ['Heavy-Duty Tent (Total 8 tents)', 'Mattress + blankets + pillow', '2 pax in 1 tent (Rs. 1000)', 'Campfire Access & Star Gazing', 'Plug points and light inside tent', 'Wifi available', 'Common shared bathrooms', '100% safe'],
     review: { text: "Absolutely breathtaking view from the dome tent. The mist rolling over the hills in the morning was surreal.", author: "Rahul M." },
     images: getGalleryImages('Tents', [
@@ -62,7 +62,7 @@ const rooms = [
   {
     id: 'dormitory',
     name: 'Dormitory',
-    description: 'The ultimate space for large groups and backpackers. Clean and budget-friendly, featuring individual comfortable Bunk beds, shared clean washrooms, and plenty of room to socialize.',
+    description: 'The ultimate space for large groups and backpackers looking for a budget stay in Vattavada. Clean and affordable, featuring comfortable bunk beds and shared clean washrooms.',
     features: ['Large Group Capacity', '16 pax capacity - 8000/- (500 per person)', 'Budget Friendly', 'Clean Shared Baths', 'Wifi hot water available'],
     review: { text: "A peaceful, affordable place to stay. Rooms were very spacious and clean.", author: "Gopikrishna R", verifiedComfort: true },
     images: getGalleryImages('Dormitory', [
@@ -132,8 +132,8 @@ const RoomDetailsPage = () => {
   return (
     <div className="bg-sand min-h-screen pt-24 pb-32">
       <Helmet>
-        <title>Best Rooms & Cottages in Vattavada - Paradise Resort</title>
-        <meta name="description" content="Explore our premium Vattavada accommodations. We offer Private Cottages, Adventure Tents, Deluxe Rooms, and Dormitories for the best stay in Vattavada." />
+        <title>Stay in Vattavada | Resort, Homestay & Tent Stay</title>
+        <meta name="description" content="Explore our budget stay in Vattavada & family friendly homestays. We offer Private Cottages, an authentic tent stay in Vattavada, Deluxe Rooms, and Dormitories." />
         <link rel="canonical" href={`${BASE_URL}/rooms`} />
       </Helmet>
 

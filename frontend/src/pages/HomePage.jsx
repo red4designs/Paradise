@@ -30,8 +30,8 @@ Please check availability and let me know.`;
   return (
     <div className="bg-sand min-h-screen">
       <Helmet>
-        <title>Best Stay in Vattavada - Paradise Resort | Cottages & Tents</title>
-        <meta name="description" content="Experience the best stay in Vattavada at Paradise Resort. Premium luxury cottages, adventure tents, dormitory stays, and stunning mountain views near Munnar." />
+        <title>Best Resort & Homestay in Vattavada | Budget & Family Friendly Stay</title>
+        <meta name="description" content="Experience the best resort in Vattavada at Paradise. Discover our budget stay in Vattavada, family friendly homestays, and adventure tent stay in Vattavada." />
         <link rel="canonical" href={BASE_URL} />
       </Helmet>
 
@@ -56,10 +56,10 @@ Please check availability and let me know.`;
             <div className="text-white drop-shadow-xl fade-in-up">
               <span className="uppercase tracking-[0.2em] text-sm font-bold mb-4 block drop-shadow-md">Vattavada, Kerala</span>
               <h1 className="font-serif text-5xl md:text-7xl leading-tight mb-6 drop-shadow-lg text-white">
-                A Minimalist Escape to Nature
+                The Best Resort in Vattavada
               </h1>
               <p className="text-lg font-medium max-w-md drop-shadow-md text-white/95">
-                Experience the best budget stay featuring private cottages, adventure tents, and curated sightseeing in the heart of the mountains.
+                Experience an unforgettable stay in Vattavada. Whether you're seeking a budget stay in Vattavada, a cozy homestay in Vattavada, or an adventurous tent stay in Vattavada, Paradise Resort has it all.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ Please check availability and let me know.`;
                   <span className="font-sans text-sm font-light text-forest/80">Up to 15 Pax</span>
                 </div>
                 <p className="text-forest/90 font-light leading-relaxed mb-6">
-                  Your own 3-BHK sanctuary. A secluded, private property that comfortably hosts up to 15 guests.
+                  Your perfect family friendly stay in Vattavada. A secluded, private property that comfortably hosts up to 15 guests in a true homestay setting.
                 </p>
                 <button onClick={() => navigate('/rooms#cottage')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
@@ -196,7 +196,7 @@ Please check availability and let me know.`;
                   <span className="font-sans text-sm font-light text-forest/80">7 Pax</span>
                 </div>
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
-                  Expansive and versatile. A spacious retreat designed for groups, accommodating up to 7 guests with ease.
+                  Expansive and versatile. A spacious retreat designed for groups, accommodating up to 7 guests with the warmth of a homestay in Vattavada.
                 </p>
                 <button onClick={() => navigate('/rooms#deluxe')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
@@ -218,7 +218,7 @@ Please check availability and let me know.`;
                   <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
-                  Intimate and serene. The perfect mountain escape for 2 guests.
+                  Intimate and serene. The perfect mountain escape for 2 guests looking for an authentic stay in Vattavada.
                 </p>
                 <button onClick={() => navigate('/rooms#double')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
@@ -240,7 +240,7 @@ Please check availability and let me know.`;
                   <span className="font-sans text-sm font-light text-forest/80">16 Pax</span>
                 </div>
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
-                  Community-focused comfort. Features bunk beds with a total capacity for 16 guests—ideal for trekking groups.
+                  Community-focused comfort. The ultimate budget stay in Vattavada for backpacking groups, offering bunk beds for up to 16 guests.
                 </p>
                 <button onClick={() => navigate('/rooms#dormitory')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
@@ -262,7 +262,7 @@ Please check availability and let me know.`;
                   <span className="font-sans text-sm font-light text-forest/80">2 Pax</span>
                 </div>
                 <p className="text-forest/90 font-light leading-relaxed text-sm mb-6">
-                  Fall asleep to the mountain breeze. We offer 8 private tents, each perfectly sized for 2 guests.
+                  Experience a unique tent stay in Vattavada. We offer 8 private tents, perfectly sized for 2 guests to fall asleep under the mountain stars.
                 </p>
                 <button onClick={() => navigate('/faq#sightseeing')} className="mt-auto inline-flex items-center text-xs uppercase tracking-widest font-bold text-forest hover:text-forest/70 transition-colors w-max pb-1 border-b border-forest/30">
                   More Details <ArrowRight size={14} className="ml-2" />
